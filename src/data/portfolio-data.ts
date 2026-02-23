@@ -56,6 +56,13 @@ export const experienceData = [
 
 export const projectsData = [
   {
+    title: "SchemaSense AI",
+    description: "AI-powered database documentation platform that auto-generates schema docs, maps table relationships, and provides a real-time chat interface for querying your database structure in plain English. Built with prompt injection defense, intelligent caching (56x speedup), and streaming AI responses.",
+    technologies: ["Next.js", "FastAPI", "Python", "TypeScript", "PostgreSQL", "DeepSeek-V3", "OpenRouter", "SQLite"],
+    githubLink: "https://github.com/amitdevx/schemasense",
+    liveLink: "https://schemasense.amitdevx.tech"
+  },
+  {
     title: "Professor Profiler",
     description: "An advanced multi-agent system that reverse-engineers exam papers to decode professor psychology and generate optimized study strategies.",
     technologies: ["Python", "Software Development", "DevOps", "Git + GitHub", "Multi-agent AI", "Hub-and-Spoke architecture"],
@@ -81,50 +88,15 @@ export const projectsData = [
     technologies: ["Node.js", "SQLite"],
     githubLink: "https://github.com/amitdevx/FileFlow"
   },
-    {
+  {
     title: "Anime Viewing Platform",
     description: "A responsive Flask-based website for streaming copyright-free anime, ensuring a smooth user experience with dynamic content loading and an intuitive UI.",
     technologies: ["Python", "Flask", "HTML", "CSS", "JavaScript"],
     githubLink: "https://github.com/amitdevx/Anime-Viewing-Platform"
-  },
-  {
-    title: "Password Strength Checker",
-    description: "A web-based tool to assess the strength of passwords based on various criteria like length, character types, and common patterns.",
-    technologies: ["JavaScript", "HTML", "CSS"],
-    githubLink: "https://github.com/amitdevx/Password-Strength-Checker",
-    liveLink: "https://password-strength-checker-nine-mu.vercel.app/"
   }
 ];
 
 export const certificationsData = [
-  {
-    title: "IP Addressing and Subnetting",
-    issuer: "GeeksforGeeks",
-    skills: ["IP Addressing", "Subnetting", "Internet Protocol Suite (TCP/IP)", "Internet Protocol (IP)"],
-    link: "https://media.geeksforgeeks.org/courses/certificates/9f02af57d75cc46e928c771bfbcdfe62.pdf",
-    companyLogo: "https://www.svgrepo.com/show/330494/geeksforgeeks.svg"
-  },
-  {
-    title: "Trust and Security with Google Cloud",
-    issuer: "Google",
-    skills: [],
-    link: "https://www.cloudskillsboost.google/public_profiles/40d340d4-c84b-4413-b630-69f4ba00ce20/badges/17592342",
-    companyLogo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg"
-  },
-  {
-    title: "Software Engineering",
-    issuer: "Electronic Arts (EA)",
-    skills: ["game engine technology", "Data Structures", "future design", "Object Oriented Design"],
-    link: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/j43dGscQHtJJ57N54/a77WE3de8qrxWferQ_j43dGscQHtJJ57N54_iqBjeEZPS8ycoo8nH_1739022094480_completion_certificate.pdf",
-    companyLogo: "https://upload.wikimedia.org/wikipedia/commons/0/0d/Electronic-Arts-Logo.svg"
-  },
-  {
-    title: "Developer and Technology",
-    issuer: "Accenture UK & Ireland",
-    skills: ["Agile & Waterfall Methodologies"],
-    link: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ovyvuqqNRQKBjNxbj/3xnZEj9kfpoQKW885_ovyvuqqNRQKBjNxbj_iqBjeEZPS8ycoo8nH_1735299487533_completion_certificate.pdf",
-    companyLogo: "https://upload.wikimedia.org/wikipedia/commons/c/cd/Accenture.svg"
-  },
   {
     title: "Career Essentials in Cybersecurity",
     issuer: "Microsoft and LinkedIn",
@@ -133,16 +105,44 @@ export const certificationsData = [
     companyLogo: "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg"
   },
   {
+    title: "Trust and Security with Google Cloud",
+    issuer: "Google",
+    skills: ["Cloud Security", "Google Cloud Platform", "Trust Infrastructure"],
+    link: "https://www.cloudskillsboost.google/public_profiles/40d340d4-c84b-4413-b630-69f4ba00ce20/badges/17592342",
+    companyLogo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg"
+  },
+  {
+    title: "Software Engineering",
+    issuer: "Electronic Arts (EA)",
+    skills: ["Game Engine Technology", "Data Structures", "Future Design", "Object Oriented Design"],
+    link: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/j43dGscQHtJJ57N54/a77WE3de8qrxWferQ_j43dGscQHtJJ57N54_iqBjeEZPS8ycoo8nH_1739022094480_completion_certificate.pdf",
+    companyLogo: "https://upload.wikimedia.org/wikipedia/commons/0/0d/Electronic-Arts-Logo.svg"
+  },
+  {
+    title: "Developer and Technology",
+    issuer: "Accenture UK & Ireland",
+    skills: ["Agile & Waterfall Methodologies", "SDLC", "DevOps"],
+    link: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ovyvuqqNRQKBjNxbj/3xnZEj9kfpoQKW885_ovyvuqqNRQKBjNxbj_iqBjeEZPS8ycoo8nH_1735299487533_completion_certificate.pdf",
+    companyLogo: "https://upload.wikimedia.org/wikipedia/commons/c/cd/Accenture.svg"
+  },
+  {
+    title: "IP Addressing and Subnetting",
+    issuer: "GeeksforGeeks",
+    skills: ["IP Addressing", "Subnetting", "Internet Protocol Suite (TCP/IP)", "Internet Protocol (IP)"],
+    link: "https://media.geeksforgeeks.org/courses/certificates/9f02af57d75cc46e928c771bfbcdfe62.pdf",
+    companyLogo: "https://www.svgrepo.com/show/330494/geeksforgeeks.svg"
+  },
+  {
     title: "Google Analytics Certification",
     issuer: "Google",
-    skills: ["Analytical Skills"],
+    skills: ["Analytical Skills", "Data Analysis"],
     link: "#",
     companyLogo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg"
   },
   {
-    title: "HackFest-Cert",
+    title: "HackFest Certificate",
     issuer: "GDG New Delhi",
-    skills: [],
+    skills: ["Hackathon", "Problem Solving"],
     link: "https://www.creadefy.com/verify/CERT-3635E29E-3AD6-49F4",
     companyLogo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg"
   }
