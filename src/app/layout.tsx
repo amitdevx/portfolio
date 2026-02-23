@@ -188,6 +188,10 @@ export const metadata: Metadata = {
     ],
     other: [
       { rel: 'mask-icon', url: '/favicon.svg', color: '#b3a5c8' },
+      { rel: 'me', url: 'https://github.com/amitdevx' },
+      { rel: 'me', url: 'https://www.linkedin.com/in/divekar-amit' },
+      { rel: 'me', url: 'https://x.com/amitdevx_' },
+      { rel: 'me', url: 'https://www.kaggle.com/divekaramit' },
     ],
   },
   
@@ -197,6 +201,9 @@ export const metadata: Metadata = {
   referrer: 'origin-when-cross-origin',
   alternates: {
     canonical: siteUrl,
+    types: {
+      'application/rss+xml': `${siteUrl}/feed.xml`,
+    },
   },
   openGraph: {
     type: 'website',
@@ -240,7 +247,7 @@ export const metadata: Metadata = {
   other: {
     'msapplication-TileColor': '#0a0a0a',
     'msapplication-config': '/browserconfig.xml',
-    'google-site-verification': 'pending', // Add your verification code
+    'google-site-verification': 'eQm4tbLSTzuUWGkYlg260c1_9s4jeLV65cGvGLcNWig',
     'format-detection': 'telephone=no',
   },
   
@@ -250,8 +257,7 @@ export const metadata: Metadata = {
   
   // Additional metadata for better indexing
   verification: {
-    // google: 'your-google-verification-code',
-    // bing: 'your-bing-verification-code',
+    google: 'eQm4tbLSTzuUWGkYlg260c1_9s4jeLV65cGvGLcNWig',
   },
 };
 

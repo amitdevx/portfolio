@@ -8,8 +8,10 @@ export interface BlogPost {
   slug: string;
   title: string;
   date: string;
+  updated?: string;
   description: string;
   tags: string[];
+  image?: string;
   content: string;
 }
 
@@ -32,9 +34,11 @@ export function getAllPosts(): BlogPost[] {
       slug,
       title: data.title,
       date: data.date,
+      updated: data.updated || undefined,
       description: data.description,
       tags: data.tags || [],
-      content, // We return the raw content here
+      image: data.image || undefined,
+      content,
     };
   });
 
@@ -52,8 +56,10 @@ export function getPostBySlug(slug: string): BlogPost | null {
       slug,
       title: data.title,
       date: data.date,
+      updated: data.updated || undefined,
       description: data.description,
       tags: data.tags || [],
+      image: data.image || undefined,
       content,
     };
   } catch (error) {

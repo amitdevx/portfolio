@@ -3,31 +3,47 @@
 
 ## About
 - [Home](https://amitdevx.tech): Professional introduction and hero section.
-- [About Me](https://amitdevx.tech/#about): Background, education (CGPA 8.36/10), and personal expertise overview.
-- [Resume/CV](https://amitdevx.tech/cv): Complete professional credentials and qualifications.
+- [About Me](https://amitdevx.tech/#about): Background, education at Savitribai Phule Pune University (CGPA 8.36/10), and personal expertise overview.
+- [Resume/CV](https://amitdevx.tech/cv): Complete professional credentials, qualifications, and downloadable resume.
 
-## Professional Content
-- [Experience](https://amitdevx.tech/#experience): Professional journey including Virtual Experience at Electronic Arts (EA).
-- [Projects](https://amitdevx.tech/#projects): Portfolio projects demonstrating Full-Stack capabilities with React, Next.js, TypeScript, and Cloud technologies.
-- [Skills & Expertise](https://amitdevx.tech/#skills): Comprehensive technology stack including AWS, Google Cloud, Azure, Docker, Kubernetes, React, Next.js, Python, Node.js, and AI/ML.
-- [Certifications](https://amitdevx.tech/#certifications): Professional certifications and achievements in software engineering.
+## Projects
+- [SchemaSense AI](https://schemasense.amitdevx.tech): AI-powered database documentation platform. Auto-generates schema docs, maps table relationships, and provides a real-time chat interface powered by DeepSeek-V3. Built with Next.js, FastAPI, PostgreSQL, and intelligent caching. [Source Code](https://github.com/amitdevx/schemasense)
+- [Professor Profiler](https://github.com/amitdevx/Professor_Profiler): Hierarchical multi-agent system that reverse-engineers exam papers to decode professor psychology and generate optimized study strategies. Built with Python and Google Gemini. [Documentation](https://deepwiki.com/amitdevx/Professor_Profiler)
+- [Eatinformed](https://eatinformed.amitdevx.tech): AI-driven nutrition analysis from food label images, built with Next.js, Genkit, and Google Gemini.
+- [2FA Password Protector](https://github.com/amitdevx/2FA-Password-Protector): Flask-based three-layer authentication system with login, PIN, and TOTP 2FA.
+- [Cloud File Uploader](https://github.com/amitdevx/FileFlow): Secure cloud file storage system built with Node.js and SQLite.
+- [Anime Viewing Platform](https://github.com/amitdevx/Anime-Viewing-Platform): Responsive Flask-based streaming website with dynamic content loading.
 
-## Technical Content
-- [Technical Blog](https://amitdevx.tech/blogs): Articles on software engineering, DevOps, and cloud architecture.
-- [Reddit API in JSON](https://amitdevx.tech/blogs/reddit-api-json): Deep dive into API integration and data structures.
-- [Professor Profiler](https://amitdevx.tech/blogs/professor-profiler): Software engineering patterns and best practices.
+## Professional Experience
+- [Experience](https://amitdevx.tech/#experience): Virtual Experience programs at Electronic Arts (EA) and Accenture UK.
+- [Skills & Expertise](https://amitdevx.tech/#skills): AWS, Google Cloud, Azure, Docker, Kubernetes, React, Next.js, Python, FastAPI, Node.js, TypeScript, and AI/ML.
+- [Certifications](https://amitdevx.tech/#certifications): Microsoft Cybersecurity, Google Cloud Security, EA Software Engineering, Accenture Developer, GeeksforGeeks Networking.
+
+## Technical Blog
+- [All Blog Posts](https://amitdevx.tech/blogs): In-depth technical articles on software engineering, DevOps, and AI.
+- [SchemaSense: AI-Powered Database Documentation](https://amitdevx.tech/blogs/schemasense): How I built an intelligent database documentation platform using Next.js, FastAPI, and DeepSeek-V3.
+- [Reverse-Engineering Exams: Professor Profiler](https://amitdevx.tech/blogs/professor-profiler): Building a hierarchical multi-agent system with Google Gemini.
+- [Open-Source AI Tools for Agentic AI in 2026](https://amitdevx.tech/blogs/open-source-ai-tools-2026): Top open-source frameworks for building autonomous agents.
+- [Python Functions, Iterators & Generators](https://amitdevx.tech/blogs/python-functions-iterators-generators): Core functional programming concepts and production-ready patterns.
+- [Mastering Pandas DataFrame Operations](https://amitdevx.tech/blogs/pandas-dataframe-operations): Comprehensive guide to Pandas DataFrames.
+- [Reddit API and JSON for AI Training](https://amitdevx.tech/blogs/reddit-api-json): Accessing Reddit data as JSON for data analysis and AI training.
+
+## Resources
+- [Notes](https://amitdevx.tech/notes): SYBSc CS practical notes for Data Structures and DBMS (SQL).
+- [RSS Feed](https://amitdevx.tech/feed.xml): Subscribe to blog updates.
 
 ## Connect
 - [Contact](https://amitdevx.tech/#contact): Get in touch for inquiries and collaboration.
-- [GitHub](https://github.com/amitdevx): View source code and open-source contributions.
+- [GitHub](https://github.com/amitdevx): Source code and open-source contributions.
 - [LinkedIn](https://www.linkedin.com/in/divekar-amit): Professional networking profile.
-- [Twitter/X](https://twitter.com/amitdevx_): Follow for tech updates and insights.
+- [Twitter/X](https://x.com/amitdevx_): Tech updates and insights.
 - [Kaggle](https://www.kaggle.com/divekaramit): Data science and ML projects.
+- [Email](mailto:Amitdivekar289@gmail.com): Direct contact.
 
-## Key Expertise Areas
-- **Cloud Platforms**: AWS, Google Cloud Platform (GCP), Microsoft Azure
-- **DevOps & Infrastructure**: Docker, Kubernetes, CI/CD, GitHub Actions
-- **Frontend Development**: React, Next.js, TypeScript, Tailwind CSS, shadcn/ui
-- **Backend Development**: Node.js, Express.js, Python, RESTful APIs
-- **Databases**: SQL, NoSQL, Data Structures
-- **AI & Machine Learning**: AI-driven solutions, ML applications
+## Key Expertise
+- Cloud Platforms: AWS, Google Cloud Platform (GCP), Microsoft Azure
+- DevOps & Infrastructure: Docker, Kubernetes, CI/CD, GitHub Actions
+- Frontend: React, Next.js, TypeScript, Tailwind CSS
+- Backend: Node.js, Express.js, Python, FastAPI, Flask
+- Databases: PostgreSQL, MongoDB, SQLite, SQL
+- AI & ML: DeepSeek, Google Gemini, OpenRouter, Multi-Agent Systems
