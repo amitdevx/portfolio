@@ -8,15 +8,19 @@ author: "Amit Divekar"
 
 # Reverse-Engineering Exams: A Deep Dive into Professor Profiler
 
-In the world of academia, the difference between a good grade and a great one often isn't just about how much you study—it's about studying the *right* things. Enter **Professor Profiler**, a Hierarchical Multi-Agent System (HMAS) designed to mimic the cognitive process of an expert tutor.
+I built this during exam season, half out of frustration and half out of curiosity. The frustration was real: I kept watching people grind through entire textbooks when, if you actually looked at five years of past papers side by side, the same three topics showed up in roughly the same format every single time. The insight isn't deep. Professors are creatures of habit. The problem is that nobody has the time or patience to do that analysis manually before every exam.
 
-By orchestrating specialized AI agents powered by **Google Gemini 2.5**, this tool doesn't just read exam papers; it reverse-engineers them to decode the psychology of the professor and formulate actionable study plans.
+So I built **Professor Profiler**, a Hierarchical Multi-Agent System (HMAS) that takes past exam PDFs and reverse-engineers them. Not just "here are the topics" but "here's what this professor actually cares about, here's what they always ask at the analysis level vs. pure recall, and here's where you should spend your last 48 hours."
+
+It runs on **Google Gemini 2.5** and the whole thing is structured as a pipeline of specialized agents, each doing one thing well.
 
 ## The Hub-and-Spoke Architecture
 
-Building a system that can "think" like a tutor requires more than a single prompt. We utilized a **Hub-and-Spoke architecture**, creating a directed acyclic graph (DAG) of agent execution managed by a central orchestrator.
+My first instinct was to throw everything into a single prompt. That didn't work. A monolithic prompt trying to classify questions, spot trends, and generate strategy all at once produced output that was confidently vague. It would say things like "thermodynamics appears frequently" without any actual frequency count behind it. Useless.
 
-At the center sits the **Root Agent**, acting as the project manager. It delegates tasks to specialized sub-agents, ensuring that each part of the analysis is handled by an expert model suited for that specific cognitive load.
+The fix was to stop treating this as a single-shot problem and start treating it like a team of analysts. I landed on a **hub-and-spoke architecture**: one Root Agent acting as the coordinator, with specialized sub-agents handling distinct cognitive tasks. Each agent gets a focused job and a Gemini model matched to what that job actually requires.
+
+The whole thing is a directed acyclic graph (DAG) under the hood. The Root Agent owns the execution order.
 
 ```mermaid
 flowchart TD
@@ -43,20 +47,17 @@ flowchart TD
 
 ## Meet the Agents
 
-The system's power lies in its distinct agent personas, each utilizing a version of Gemini optimized for their specific role:
+Each agent has a specific model behind it, and that choice was deliberate. Throwing the most expensive model at every task is wasteful and actually slower for the parts that don't need deep reasoning.
 
-1. **The Taxonomist (Classifier)**
-   Powered by `gemini-2.0-flash-exp` for speed, this agent acts as the meticulous grader. It reads every question and tags it with a topic and its Bloom's Taxonomy level (e.g., Analyze, Evaluate).
+**The Taxonomist** runs on `gemini-2.0-flash-exp`. Its only job is to read every question and spit out structured JSON: topic label, Bloom's Taxonomy level (Recall, Understand, Apply, Analyze, Evaluate), and question type. Speed matters here because it's processing every question across potentially dozens of papers. I originally had it doing trend analysis too, and the output was a mess. Separating classification from analysis was one of the better decisions I made on this project.
 
-2. **The Trend Spotter (Analyst)**
-   Using `gemini-2.0-pro-exp` for its large context window, this agent acts as the data scientist. It identifies frequency distributions and "curveball" questions that deviate from historical norms.
+**The Trend Spotter** uses `gemini-2.0-pro-exp`, mainly for the larger context window. This agent receives the Taxonomist's JSON output and looks for patterns across years: which topics dominate, which have appeared only once (potential traps), and where the difficulty distribution sits. The first version of this agent hallucinated frequency counts, just made them up with total confidence. I had to add explicit instructions forcing it to only cite numbers present in the data it received.
 
-3. **The Strategist (Coach)**
-   Leveraging the reasoning capabilities of `gemini-2.0-flash-thinking-exp`, this agent synthesizes the data to output the final **Safe Zones** (high reward, low effort) and **Drop Lists**.
+**The Strategist** uses `gemini-2.0-flash-thinking-exp` because this is the step that actually requires reasoning, not just classification or pattern-matching. It takes the Trend Spotter's analysis and outputs two things: **Safe Zones** (topics with high historical frequency and well-understood question formats) and a **Drop List** (topics that have appeared rarely enough that cramming them is a bad expected-value bet). This agent also had a rough early version. It kept generating extremely balanced "study everything" recommendations that were completely useless. I had to push it hard with system prompts to force actual prioritization.
 
 ## From Raw PDF to Study Plan
 
-The execution pipeline transforms a raw exam PDF into a comprehensive report through four distinct phases: ingestion, classification, visualization, and strategy formulation.
+The pipeline has four phases. They have to run in order since each one feeds the next.
 
 ```mermaid
 sequenceDiagram
@@ -82,17 +83,21 @@ sequenceDiagram
     Root-->>Student: Report + Images + Plan
 ```
 
-## Built for Production
+Phase 3 is the Root Agent generating charts directly using `matplotlib`. I went back and forth on whether to make this a separate agent. In the end it didn't need to be. The chart generation is deterministic given the Taxonomist's JSON, so there's no reasoning required. Spinning up an agent for that would've been overkill.
 
-We designed Professor Profiler not just as a demo, but as a reference implementation for production-grade agentic systems. Key technical features include:
+## Production Considerations
 
-* **Observability**: Integrated structured logging with correlation IDs and distributed tracing to track requests across the agent hierarchy.
-* **State Management**: An in-memory session service that supports long-running operations, allowing the system to pause and resume analysis.
-* **Custom Tooling**: A robust tool layer handling PDF text extraction (`pypdf`) and dynamic visualization generation (`matplotlib`).
+I didn't want this to be a demo that falls apart the moment you feed it anything unexpected. A few things I added to make it more robust:
+
+Structured logging with correlation IDs runs throughout the entire agent hierarchy. When something goes wrong inside a sub-agent call, you can trace exactly which request triggered it. This saved me hours of debugging when the Trend Spotter started failing silently on PDFs with unusual formatting.
+
+The session management uses ADK's `InMemorySessionService`, which lets the Runner track state across the full multi-agent call chain. Long-running analyses don't lose their place if something downstream takes longer than expected.
+
+PDF text extraction uses `pypdf`. This sounds simple until you've seen the range of ways people scan and export exam papers. Scanned image-only PDFs still break things. That's a known limitation and I haven't solved it yet.
 
 ## Try It Yourself
 
-The project creates a flexible foundation for any document analysis pipeline. Here is how you can initialize the runner and analyze a file programmatically:
+Here's how to wire it up and run an analysis programmatically:
 
 ```python
 import asyncio
@@ -125,19 +130,15 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-By combining the reasoning power of Large Language Models with structured cognitive architectures, **Professor Profiler** demonstrates that AI can be more than just a chatbot—it can be a strategic partner in learning.
+The thing I'd change if I rebuilt this from scratch: I'd invest more time upfront in the data format that flows between agents. The contract between the Taxonomist's output and the Trend Spotter's input caused more debugging headaches than anything else. Schema validation between agent handoffs would've been worth the extra setup time.
 
-Explore the full source code and contribute to the project on GitHub: [Professor Profiler](https://github.com/amitdevx/Professor_Profiler).
-
-🚀
+Full source code is on GitHub: [Professor Profiler](https://github.com/amitdevx/Professor_Profiler).
 
 ---
 
 ## Connect With Me
 
-If you found this helpful, let's connect! I share more insights on AI, multi-agent systems, and software development.
+I'm always happy to talk through multi-agent systems, agentic architecture decisions, or anything else in this space.
 
-- **GitHub**: [@amitdevx](https://github.com/amitdevx) - Check out my projects and code
-- **LinkedIn**: [Amit Divekar](https://www.linkedin.com/in/divekar-amit/) - Let's connect professionally
-
-Feel free to star the repos, share your thoughts, or reach out for collaboration!
+- **GitHub**: [@amitdevx](https://github.com/amitdevx)
+- **LinkedIn**: [Amit Divekar](https://www.linkedin.com/in/divekar-amit/)
