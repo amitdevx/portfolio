@@ -197,24 +197,22 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 return <p {...props}>{children}</p>;
               },
               // Image Handler
+              // Using unoptimized to bypass /_next/image optimizer.
+              // width={0} height={0} causes INVALID_IMAGE_OPTIMIZE_REQUEST (400) errors
+              // from the optimizer when it can't resolve the intrinsic size.
               img: ({ ...props }) => {
-                // If the src starts with /, it's an internal image (use next/image)
-                if (props.src?.startsWith("/")) {
-                  return (
-                    <span className="block relative w-full rounded-xl overflow-hidden border border-white/10 shadow-2xl">
-                      <Image 
-                        src={props.src} 
-                        alt={props.alt || "Blog Image"} 
-                        width={0}
-                        height={0}
-                        sizes="100vw"
-                        className="w-full h-auto"
-                      />
-                    </span>
-                  );
-                }
-                // Fallback for external images (standard img tag)
-                return <img {...props} className="w-full h-auto rounded-xl border border-white/10" alt={props.alt || ""} />;
+                return (
+                  <span className="block relative w-full rounded-xl overflow-hidden border border-white/10 shadow-2xl">
+                    <Image
+                      src={props.src || ""}
+                      alt={props.alt || "Blog Image"}
+                      width={1920}
+                      height={1080}
+                      unoptimized
+                      className="w-full h-auto"
+                    />
+                  </span>
+                );
               },
               
               // Code Block Handler
