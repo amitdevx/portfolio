@@ -80,7 +80,7 @@ export const projectsData = [
     title: "2FA Password Protector",
     description: "A Flask-based authentication system with three layers of security: login, PIN, and Two-Factor Authentication (2FA), using SQLite and cryptography for secure data handling.",
     technologies: ["Python", "Flask", "SQLite", "Cryptography"],
-    githubLink: "https://github.com/amitdevx/2FA-Password-Protector"
+    githubLink: "https://github.com/amitdevx"
   },
   {
     title: "Cloud File Uploader",
@@ -92,7 +92,7 @@ export const projectsData = [
     title: "Anime Viewing Platform",
     description: "A responsive Flask-based website for streaming copyright-free anime, ensuring a smooth user experience with dynamic content loading and an intuitive UI.",
     technologies: ["Python", "Flask", "HTML", "CSS", "JavaScript"],
-    githubLink: "https://github.com/amitdevx/Anime-Viewing-Platform"
+    githubLink: "https://github.com/amitdevx/anime-view-site"
   }
 ];
 

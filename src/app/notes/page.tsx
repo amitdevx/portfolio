@@ -75,7 +75,7 @@ export default function NotesPage() {
                   Complete practical solutions covering linked lists, stacks, queues, trees, sorting algorithms, SQL queries, joins, subqueries, and database design. Written for SYBSc CS Semester III & IV.
                 </p>
                 <Button asChild className="group w-full sm:w-auto">
-                  <Link href="/doc/dsa_and_sql.pdf.pdf" target="_blank" download>
+                  <Link href="/doc/dsa_and_sql.pdf" target="_blank" download>
                     Download PDF
                     <Download className="ml-2 h-5 w-5 transition-transform group-hover:translate-y-0.5" />
                   </Link>

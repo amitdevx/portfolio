@@ -13,6 +13,9 @@ const Projects = dynamic(() => import('@/components/sections/projects'), {
 const Certifications = dynamic(() => import('@/components/sections/certifications'), {
   loading: () => null,
 });
+const Skills = dynamic(() => import('@/components/sections/skills'), {
+  loading: () => null,
+});
 const Contact = dynamic(() => import('@/components/sections/contact'), {
   loading: () => null,
 });
@@ -33,6 +36,9 @@ export default function Home() {
           </Suspense>
           <Suspense fallback={null}>
             <Certifications />
+          </Suspense>
+          <Suspense fallback={null}>
+            <Skills />
           </Suspense>
         </article>
       </main>

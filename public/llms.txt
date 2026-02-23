@@ -10,9 +10,9 @@
 - [SchemaSense AI](https://schemasense.amitdevx.tech): AI-powered database documentation platform. Auto-generates schema docs, maps table relationships, and provides a real-time chat interface powered by DeepSeek-V3. Built with Next.js, FastAPI, PostgreSQL, and intelligent caching. [Source Code](https://github.com/amitdevx/schemasense)
 - [Professor Profiler](https://github.com/amitdevx/Professor_Profiler): Hierarchical multi-agent system that reverse-engineers exam papers to decode professor psychology and generate optimized study strategies. Built with Python and Google Gemini. [Documentation](https://deepwiki.com/amitdevx/Professor_Profiler)
 - [Eatinformed](https://eatinformed.amitdevx.tech): AI-driven nutrition analysis from food label images, built with Next.js, Genkit, and Google Gemini.
-- [2FA Password Protector](https://github.com/amitdevx/2FA-Password-Protector): Flask-based three-layer authentication system with login, PIN, and TOTP 2FA.
+- [2FA Password Protector](https://github.com/amitdevx): Flask-based three-layer authentication system with login, PIN, and TOTP 2FA.
 - [Cloud File Uploader](https://github.com/amitdevx/FileFlow): Secure cloud file storage system built with Node.js and SQLite.
-- [Anime Viewing Platform](https://github.com/amitdevx/Anime-Viewing-Platform): Responsive Flask-based streaming website with dynamic content loading.
+- [Anime Viewing Platform](https://github.com/amitdevx/anime-view-site): Responsive Flask-based streaming website with dynamic content loading.
 
 ## Professional Experience
 - [Experience](https://amitdevx.tech/#experience): Virtual Experience programs at Electronic Arts (EA) and Accenture UK.
