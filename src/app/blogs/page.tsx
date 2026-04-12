@@ -65,8 +65,8 @@ export default function BlogPage() {
       <ParticleBackground />
       <Header />
       <main role="main">
-      <section className="min-h-screen pt-32 pb-12 px-6 sm:px-8 flex flex-col items-center" aria-labelledby="blogs-heading">
-        <div className="container mx-auto max-w-5xl space-y-12">
+      <section className="min-h-screen pt-32 pb-12 px-6 sm:px-8 flex flex-col items-center w-full" aria-labelledby="blogs-heading">
+        <div className="w-full max-w-[1600px] mx-auto space-y-12">
         
         {/* Header - Matches your Projects Section */}
         <div className="text-center space-y-4">
@@ -79,7 +79,7 @@ export default function BlogPage() {
         </div>
 
         {/* Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8" role="list">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-6" role="list">
           {posts.map((post) => (
             <Card 
               key={post.slug} 
