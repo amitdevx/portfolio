@@ -19,30 +19,25 @@ const ParticleBackground = memo(() => {
     const isLowEndDevice = navigator.hardwareConcurrency <= 2;
     const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
-    // Disable particles on low-end mobile or if user prefers reduced motion
+    // Disable on low-end mobile or if user prefers reduced motion
     if (isLowEndDevice && isMobile) {
       return;
     }
-
-    // Adaptive particle count based on device capabilities
-    let particleCount = 5000;
-    if (isLowEndDevice) particleCount = 1000;
-    else if (isMobile) particleCount = 300;
-    else if (isTablet) particleCount = 1500;
 
     // Scene
     const scene = new THREE.Scene();
 
     // Camera
     const camera = new THREE.PerspectiveCamera(
-      75,
+      60,
       currentMount.clientWidth / currentMount.clientHeight,
       0.1,
       1000
     );
-    camera.position.z = 5;
+    camera.position.set(0, 3, 6);
+    camera.lookAt(0, 0, 0);
 
-    // Renderer with aggressive optimizations
+    // Renderer
     const renderer = new THREE.WebGLRenderer({
       antialias: !isMobile && !isLowEndDevice,
       alpha: true,
@@ -53,45 +48,99 @@ const ParticleBackground = memo(() => {
     
     renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
     renderer.setPixelRatio(isMobile ? 1 : Math.min(window.devicePixelRatio, 2));
-    renderer.sortObjects = false; // Disable sorting for better performance
+    renderer.sortObjects = false;
     currentMount.appendChild(renderer.domElement);
     rendererRef.current = renderer;
 
-    // Particles
-    const particles = new THREE.BufferGeometry();
-    const positions = new Float32Array(particleCount * 3);
+    // ─── Low-Poly Topography Grid ───────────────────────
+    const gridSize = isMobile ? 30 : isTablet ? 45 : 60;
+    const gridSpacing = 0.35;
+    const geometry = new THREE.PlaneGeometry(
+      gridSize * gridSpacing,
+      gridSize * gridSpacing,
+      gridSize,
+      gridSize
+    );
+    geometry.rotateX(-Math.PI / 2.5);
 
-    for (let i = 0; i < particleCount * 3; i++) {
-      positions[i] = (Math.random() - 0.5) * 10;
+    // Displace vertices to create terrain
+    const positions = geometry.attributes.position.array as Float32Array;
+    const originalPositions = new Float32Array(positions.length);
+    
+    for (let i = 0; i < positions.length; i += 3) {
+      const x = positions[i];
+      const z = positions[i + 2];
+      // Smooth rolling hills with layered noise
+      const height = 
+        Math.sin(x * 0.3) * Math.cos(z * 0.3) * 0.5 +
+        Math.sin(x * 0.7 + 1) * Math.cos(z * 0.5 + 2) * 0.3 +
+        Math.sin(x * 1.5 + 3) * Math.cos(z * 1.2 + 1) * 0.15;
+      positions[i + 1] = height;
+    }
+    
+    originalPositions.set(positions);
+    geometry.computeVertexNormals();
+
+    // Wireframe material with warm accent color matching the theme
+    const material = new THREE.MeshBasicMaterial({
+      color: new THREE.Color('hsl(31, 32%, 63%)'), // primary color
+      wireframe: true,
+      transparent: true,
+      opacity: isMobile ? 0.06 : 0.08,
+    });
+
+    const terrain = new THREE.Mesh(geometry, material);
+    terrain.position.y = -1.5;
+    scene.add(terrain);
+
+    // Floating particles above the grid
+    const particleCount = isMobile ? 200 : isTablet ? 500 : 1500;
+    const particleGeo = new THREE.BufferGeometry();
+    const particlePositions = new Float32Array(particleCount * 3);
+
+    for (let i = 0; i < particleCount * 3; i += 3) {
+      particlePositions[i] = (Math.random() - 0.5) * 12;
+      particlePositions[i + 1] = Math.random() * 4 - 0.5;
+      particlePositions[i + 2] = (Math.random() - 0.5) * 12;
     }
 
-    particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    particleGeo.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
 
-    const particleMaterial = new THREE.PointsMaterial({
+    const particleMat = new THREE.PointsMaterial({
       size: isMobile ? 0.02 : 0.015,
       color: 0xffffff,
       transparent: true,
-      opacity: isMobile ? 0.5 : 0.7,
+      opacity: isMobile ? 0.4 : 0.6,
       blending: THREE.AdditiveBlending,
       sizeAttenuation: true,
     });
 
-    const particleSystem = new THREE.Points(particles, particleMaterial);
-    scene.add(particleSystem);
+    const particles = new THREE.Points(particleGeo, particleMat);
+    scene.add(particles);
 
-    // Mouse interaction (disabled on mobile)
-    const mouse = new THREE.Vector2(0.5, 0.5);
+    // Mouse interaction
+    const mouse = new THREE.Vector2(0, 0);
+    let scrollVelocity = 0;
+    let lastScrollY = window.scrollY;
+
     const onMouseMove = (event: MouseEvent) => {
-      if (isReducedMotion) return; // Respect user's motion preference
+      if (isReducedMotion) return;
       mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
       mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    };
+
+    const onScroll = () => {
+      const currentScrollY = window.scrollY;
+      scrollVelocity = (currentScrollY - lastScrollY) * 0.001;
+      lastScrollY = currentScrollY;
     };
 
     if (!isMobile && !isReducedMotion) {
       window.addEventListener('mousemove', onMouseMove, { passive: true });
     }
+    window.addEventListener('scroll', onScroll, { passive: true });
 
-    // Animation loop with reduced calculations
+    // Animation loop
     const clock = new THREE.Clock();
     const targetFPS = isMobile ? 30 : 60;
     const frameDuration = 1000 / targetFPS;
@@ -101,7 +150,6 @@ const ParticleBackground = memo(() => {
       const now = Date.now();
       const deltaTime = now - lastFrameTime;
 
-      // Throttle frame rate on mobile
       if (deltaTime < frameDuration && isMobile) {
         animationIdRef.current = requestAnimationFrame(animate);
         return;
@@ -110,51 +158,46 @@ const ParticleBackground = memo(() => {
       lastFrameTime = now;
       const elapsedTime = clock.getElapsedTime();
 
-      // Update particles rotation
-      particleSystem.rotation.y = elapsedTime * 0.05;
-      particleSystem.rotation.x = elapsedTime * 0.02;
-
-      const positions = particleSystem.geometry.attributes.position.array as Float32Array;
-
-      // Only update on desktop and if not reduced motion
-      if (!isMobile && !isReducedMotion) {
-        const raycaster = new THREE.Raycaster();
-        raycaster.setFromCamera(mouse, camera);
-        const direction = raycaster.ray.direction.multiplyScalar(10);
-
-        // Update only a subset of particles for better performance
-        const updateInterval = isLowEndDevice ? 4 : 2;
-        for (let i = 0; i < particleCount; i += updateInterval) {
-          const i3 = i * 3;
-          const particlePosition = new THREE.Vector3(
-            positions[i3],
-            positions[i3 + 1],
-            positions[i3 + 2]
-          );
-          const distance = particlePosition.distanceTo(direction);
-
-          if (distance < 0.5) {
-            const force = (0.5 - distance) * 0.05;
-            const repel = particlePosition
-              .clone()
-              .sub(direction)
-              .normalize()
-              .multiplyScalar(force);
-            positions[i3] += repel.x;
-            positions[i3 + 1] += repel.y;
-            positions[i3 + 2] += repel.z;
-          }
+      // Animate terrain vertices
+      const terrainPositions = terrain.geometry.attributes.position.array as Float32Array;
+      
+      if (!isReducedMotion) {
+        for (let i = 0; i < originalPositions.length; i += 3) {
+          const x = originalPositions[i];
+          const z = originalPositions[i + 2];
+          const originalY = originalPositions[i + 1];
+          
+          // Subtle wave animation
+          const wave = Math.sin(x * 0.5 + elapsedTime * 0.3) * 
+                       Math.cos(z * 0.5 + elapsedTime * 0.2) * 0.08;
+          
+          // Scroll-reactive displacement
+          const scrollDisplace = scrollVelocity * Math.sin(x * 0.3) * 0.5;
+          
+          terrainPositions[i + 1] = originalY + wave + scrollDisplace;
         }
+        terrain.geometry.attributes.position.needsUpdate = true;
       }
 
-      particleSystem.geometry.attributes.position.needsUpdate = true;
+      // Rotate particles
+      particles.rotation.y = elapsedTime * 0.03;
+      
+      // Dampen scroll velocity
+      scrollVelocity *= 0.95;
+
+      // Subtle camera movement based on mouse
+      if (!isMobile && !isReducedMotion) {
+        camera.position.x += (mouse.x * 0.5 - camera.position.x) * 0.02;
+        camera.position.y += (3 + mouse.y * 0.3 - camera.position.y) * 0.02;
+        camera.lookAt(0, 0, 0);
+      }
 
       renderer.render(scene, camera);
       animationIdRef.current = requestAnimationFrame(animate);
     };
     animationIdRef.current = requestAnimationFrame(animate);
 
-    // Handle Resize with debouncing
+    // Handle Resize
     let resizeTimeout: NodeJS.Timeout;
     const onResize = () => {
       clearTimeout(resizeTimeout);
@@ -171,6 +214,7 @@ const ParticleBackground = memo(() => {
     return () => {
       clearTimeout(resizeTimeout);
       window.removeEventListener('resize', onResize);
+      window.removeEventListener('scroll', onScroll);
       if (!isMobile && !isReducedMotion) {
         window.removeEventListener('mousemove', onMouseMove);
       }
@@ -186,8 +230,10 @@ const ParticleBackground = memo(() => {
       }
 
       // Cleanup Three.js resources
-      particles.dispose();
-      particleMaterial.dispose();
+      geometry.dispose();
+      material.dispose();
+      particleGeo.dispose();
+      particleMat.dispose();
       scene.clear();
     };
   }, []);

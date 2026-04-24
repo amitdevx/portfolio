@@ -13,13 +13,20 @@ export const navigationLinks = [
 
 export const heroData = {
   name: "Amit Divekar",
-  title: "Full-Stack Software Engineer | Cloud & DevOps Specialist | AI Solutions",
-  bio: "Full-Stack Software Engineer with expertise in Cloud Architecture (AWS, Google Cloud, Azure), DevOps practices, and AI-driven solutions. I build scalable applications using modern technologies like React, Next.js, TypeScript, and Docker.",
+  title: "Cloud Architect & Full-Stack Engineer",
+  tagline: "I architect resilient cloud systems and engineer high-performance web applications.",
+  bio: "Building the infrastructure for tomorrow. Specializing in highly scalable AWS/GCP architectures, Kubernetes orchestration, and AI-integrated Next.js ecosystems. Code that ships, systems that scale.",
   contactLink: "#contact"
 };
 
 export const aboutData = {
-  bio: "Amit Divekar is a computer science student and software engineer exploring AI-powered features and DevOps practices to ship reliable software.",
+  bio: "Cloud Architect and Full-Stack Engineer who designs resilient distributed systems and ships production-grade web applications. Specializing in AWS/GCP infrastructure, container orchestration, and AI-powered developer tooling — with a track record of building systems that handle real-world scale.",
+  stats: [
+    { label: "Projects Shipped", value: "10+" },
+    { label: "Cloud Platforms", value: "3" },
+    { label: "Technologies", value: "25+" },
+    { label: "Blog Articles", value: "10+" },
+  ],
   education: {
     institution: "Savitribai Phule Pune University",
     degree: "Bachelor's Degree in Computer Science",
@@ -149,6 +156,68 @@ export const certificationsData = [
 ];
 
 export const skillsData = {
+  categories: [
+    {
+      name: "Cloud & DevOps",
+      icon: "☁️",
+      skills: [
+        { name: "AWS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
+        { name: "Google Cloud", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" },
+        { name: "Azure", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" },
+        { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
+        { name: "Kubernetes", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg" },
+        { name: "CI/CD", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original.svg" },
+      ]
+    },
+    {
+      name: "AI & Data",
+      icon: "🧠",
+      skills: [
+        { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" },
+        { name: "Pandas", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" },
+        { name: "NumPy", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" },
+      ]
+    },
+    {
+      name: "Frontend",
+      icon: "🎨",
+      skills: [
+        { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" },
+        { name: "React.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
+        { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" },
+        { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" },
+        { name: "Tailwind CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" },
+        { name: "HTML", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" },
+        { name: "CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" },
+        { name: "Framer Motion", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/framermotion/framermotion-original.svg" },
+      ]
+    },
+    {
+      name: "Backend",
+      icon: "⚙️",
+      skills: [
+        { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" },
+        { name: "Express.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg" },
+        { name: "Flask", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg" },
+        { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" },
+        { name: "SQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" },
+        { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" },
+      ]
+    },
+    {
+      name: "Tools & Others",
+      icon: "🛠️",
+      skills: [
+        { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" },
+        { name: "API Integration", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg" },
+        { name: "C", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" },
+        { name: "UI/UX Design", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" },
+        { name: "Data Structures", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" },
+        { name: "Agile", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" },
+      ]
+    },
+  ],
+  // Keep flat list for marquee
   technical: [
     // Cloud & DevOps
     { name: "AWS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
@@ -176,17 +245,14 @@ export const skillsData = {
     { name: "Flask", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg" },
     { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" },
     { name: "SQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" },
-    { name: "Database Management", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" },
+    { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" },
     // Developer Tools & Others
     { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" },
     { name: "API Integration", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg" },
     { name: "C", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" },
     { name: "UI/UX Design", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" },
     { name: "Data Structures", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" },
-    { name: "Agile Methodologies", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" },
-    { name: "Cybersecurity", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" },
-    { name: "Frontend & Backend Development", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/devicon/devicon-original.svg" },
-    { name: "DBMS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/oracle/oracle-original.svg" },
+    { name: "Agile", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" },
   ],
   soft: [
     "Teamwork", "Time Management", "Presentations",
@@ -204,9 +270,3 @@ export const socialLinks = {
   instagram: "https://instagram.com/amitdevx",
   email: "Amitdivekar289@gmail.com"
 };
-
-
-    
-    
-
-    

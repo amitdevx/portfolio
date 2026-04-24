@@ -6,7 +6,6 @@ import Hero from '@/components/sections/hero';
 import About from '@/components/sections/about';
 import Experience from '@/components/sections/experience';
 
-// Lazy load below-the-fold sections for improved Core Web Vitals
 const Projects = dynamic(() => import('@/components/sections/projects'), {
   loading: () => null,
 });

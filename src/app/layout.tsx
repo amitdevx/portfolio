@@ -5,10 +5,9 @@ import { Inter, Space_Grotesk } from 'next/font/google';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 
-// Optimize font loading with next/font/google
 const inter = Inter({
   subsets: ['latin'],
-  display: 'swap', // Show fallback font while loading
+  display: 'swap',
   preload: true,
   weight: ['400', '500', '600', '700'],
   variable: '--font-inter',
@@ -22,7 +21,6 @@ const spaceGrotesk = Space_Grotesk({
   variable: '--font-space-grotesk',
 });
 
-// Responsive viewport configuration with theme color
 export const viewport: Viewport = {
   themeColor: '#0a0a0a',
   colorScheme: 'dark',
@@ -39,9 +37,9 @@ const personJsonLd = {
   alternateName: 'amitdevx',
   url: siteUrl,
   image: `${siteUrl}/og-image.png`,
-  jobTitle: 'Software Engineer',
+  jobTitle: 'Cloud Architect & Full-Stack Engineer',
   description:
-    'Software Engineer with a Full-Stack background, focused on Cloud, DevOps, and AI-driven solutions. Experienced in AWS, GCP, Azure, Docker, Kubernetes, and modern web technologies.',
+    'Cloud Architect and Full-Stack Engineer specializing in highly scalable AWS/GCP architectures, Kubernetes orchestration, and AI-integrated Next.js ecosystems. Building resilient cloud systems and high-performance web applications.',
   alumniOf: {
     '@type': 'CollegeOrUniversity',
     name: 'Savitribai Phule Pune University',
@@ -66,7 +64,6 @@ const personJsonLd = {
     'https://x.com/amitdevx_',
   ],
   email: 'amitdivekar289@gmail.com',
-  telephone: '+91-XXXXXXXXXX', // Add if you want
 };
 
 const websiteJsonLd = {
@@ -75,7 +72,7 @@ const websiteJsonLd = {
   url: siteUrl,
   name: 'Amit Divekar',
   description:
-    'Software Engineer with Full-Stack background, focused on Cloud, DevOps, and AI-driven solutions. View my projects, experience, and skills.',
+    'Cloud Architect and Full-Stack Engineer building resilient cloud systems and high-performance web applications. View projects, experience, and technical expertise.',
   potentialAction: {
     '@type': 'SearchAction',
     target: `${siteUrl}/?q={search_term_string}`,
@@ -90,7 +87,7 @@ const organizationJsonLd = {
   url: siteUrl,
   logo: `${siteUrl}/android-chrome-512x512.png`,
   description:
-    'Software Engineer with Full-Stack background, focused on Cloud, DevOps, and AI-driven solutions.',
+    'Cloud Architect and Full-Stack Engineer building resilient cloud systems and high-performance web applications.',
   sameAs: [
     'https://www.linkedin.com/in/divekar-amit',
     'https://github.com/amitdevx',
@@ -128,14 +125,58 @@ const breadcrumbListJsonLd = {
   ],
 };
 
+const softwareProjectsJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareSourceCode',
+    name: 'SchemaSense AI',
+    description: 'AI-powered database documentation platform with real-time chat interface for querying database structure in plain English.',
+    codeRepository: 'https://github.com/amitdevx/schemasense',
+    programmingLanguage: ['TypeScript', 'Python'],
+    runtimePlatform: 'Next.js',
+    author: {
+      '@type': 'Person',
+      name: 'Amit Divekar',
+      url: siteUrl,
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareSourceCode',
+    name: 'Professor Profiler',
+    description: 'Advanced multi-agent AI system that reverse-engineers exam papers to decode professor psychology.',
+    codeRepository: 'https://github.com/amitdevx/Professor_Profiler',
+    programmingLanguage: ['Python'],
+    author: {
+      '@type': 'Person',
+      name: 'Amit Divekar',
+      url: siteUrl,
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareSourceCode',
+    name: 'Eatinformed',
+    description: 'AI-driven platform for instant nutrition analysis from food label images.',
+    codeRepository: 'https://github.com/amitdevx/Eatinformed',
+    programmingLanguage: ['TypeScript'],
+    runtimePlatform: 'Next.js',
+    author: {
+      '@type': 'Person',
+      name: 'Amit Divekar',
+      url: siteUrl,
+    },
+  },
+];
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Amit Divekar | Full-Stack Software Engineer | Cloud & DevOps Specialist',
+    default: 'Amit Divekar | Cloud Architect & Full-Stack Engineer',
     template: 'Amit Divekar | %s',
   },
   description:
-    'Full-Stack Software Engineer specializing in Cloud Architecture, DevOps, and AI solutions. Expert in AWS, Google Cloud, React, Next.js, TypeScript, Docker. View my portfolio, projects, and experience.',
+    'Cloud Architect and Full-Stack Engineer specializing in scalable AWS/GCP architectures, Kubernetes orchestration, and AI-integrated Next.js ecosystems. Code that ships, systems that scale.',
   applicationName: 'Amit Divekar Portfolio',
   generator: 'Next.js',
   keywords: [
@@ -174,7 +215,6 @@ export const metadata: Metadata = {
   creator: 'Amit Divekar',
   publisher: 'Amit Divekar',
   
-  // ✅ FIXED: Proper favicon configuration
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
@@ -195,7 +235,6 @@ export const metadata: Metadata = {
     ],
   },
   
-  // ✅ FIXED: PWA manifest
   manifest: '/site.webmanifest',
   
   referrer: 'origin-when-cross-origin',
@@ -210,7 +249,7 @@ export const metadata: Metadata = {
     url: siteUrl,
     title: 'Amit Divekar',
     description:
-      'Software Engineer with Full-Stack background, focused on Cloud, DevOps, and AI-driven solutions.',
+      'Cloud Architect and Full-Stack Engineer building resilient cloud systems and high-performance web applications.',
     siteName: 'Amit Divekar Portfolio',
     locale: 'en_US',
     images: [
@@ -227,7 +266,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Amit Divekar',
     description:
-      'Software Engineer with Full-Stack background, focused on Cloud, DevOps, and AI-driven solutions.',
+      'Cloud Architect and Full-Stack Engineer building resilient cloud systems and high-performance web applications.',
     images: [`${siteUrl}/og-image.png`],
     creator: '@amitdevx_',
   },
@@ -251,11 +290,9 @@ export const metadata: Metadata = {
     'format-detection': 'telephone=no',
   },
   
-  // Language and location metadata
   category: 'technology',
   classification: 'Portfolio Website',
   
-  // Additional metadata for better indexing
   verification: {
     google: 'eQm4tbLSTzuUWGkYlg260c1_9s4jeLV65cGvGLcNWig',
   },
@@ -269,15 +306,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <head>
-        {/* DNS Prefetch and Preconnect for external resources */}
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://api.github.com" />
         
-        {/* Preload critical assets */}
         <link rel="preload" href="/favicon.ico" as="image" type="image/x-icon" />
         <link rel="preload" href="/favicon.svg" as="image" type="image/svg+xml" />
         
-        {/* Google Analytics 4 */}
         {process.env.NEXT_PUBLIC_GA_ID && (
           <>
             <Script
@@ -301,7 +335,6 @@ export default function RootLayout({
           </>
         )}
         
-        {/* Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
@@ -318,9 +351,15 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbListJsonLd) }}
         />
+        {softwareProjectsJsonLd.map((project, index) => (
+          <script
+            key={`software-${index}`}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(project) }}
+          />
+        ))}
       </head>
       <body>
-        {/* Skip to content link for accessibility */}
         <a 
           href="#main-content" 
           className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-4 focus:left-4 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"

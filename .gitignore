@@ -49,6 +49,7 @@ next-env.d.ts
 /docs/MIGRATION.md
 /docs/SEO-IMPROVEMENTS.md
 seo.pdf
+plan.md
 
 # Sensitive files
 .well-known/security.txt

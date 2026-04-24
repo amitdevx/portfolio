@@ -1,0 +1,535 @@
+---
+title: "Building a RAG Pipeline: Connecting Genkit, Next.js, and Vector Databases"
+date: "2026-04-24"
+description: "A hands-on guide to building a production-ready Retrieval Augmented Generation (RAG) pipeline using Google Genkit, Next.js 15, and vector databases. Covers embeddings, chunking strategies, similarity search, and streaming AI responses."
+tags: ["AI", "RAG", "Genkit", "Next.js", "Vector Database", "LLM", "TypeScript"]
+image: "/og-image.png"
+---
+
+## What is RAG and Why Should You Care?
+
+Retrieval Augmented Generation (RAG) is the pattern that makes LLMs useful for real-world applications. Instead of relying on the model's training data (which is static and often outdated), RAG injects relevant context from your own data sources into each prompt.
+
+The result? AI that can answer questions about **your** documentation, **your** database, **your** codebase — with citations and without hallucination.
+
+This guide walks you through building a production-ready RAG pipeline from scratch using:
+- **Google Genkit** — AI framework for TypeScript
+- **Next.js 15** — Full-stack React framework
+- **Vector Database** — For semantic similarity search
+- **Gemini** — Google's multimodal AI model
+
+## Architecture Overview
+
+```
+┌──────────────────────────────────────────────────┐
+│                    Next.js 15                      │
+│                                                    │
+│  ┌──────────┐    ┌───────────┐    ┌────────────┐ │
+│  │ Ingestion │    │   Query   │    │  Streaming  │ │
+│  │ Pipeline  │    │  Handler  │    │  Response   │ │
+│  └─────┬─────┘    └─────┬─────┘    └──────┬──────┘ │
+│        │               │                │         │
+│        ▼               ▼                ▼         │
+│  ┌─────────────────────────────────────────────┐ │
+│  │              Genkit AI Framework              │ │
+│  │                                               │ │
+│  │  ┌──────────┐  ┌──────────┐  ┌────────────┐ │ │
+│  │  │Embedding │  │ Retrieval │  │ Generation │ │ │
+│  │  │  Model   │  │  Engine   │  │   (LLM)    │ │ │
+│  │  └──────────┘  └──────────┘  └────────────┘ │ │
+│  └──────────┬──────────────┬──────────────┬─────┘ │
+│             │              │              │        │
+│             ▼              ▼              ▼        │
+│  ┌──────────────┐  ┌────────────┐  ┌───────────┐ │
+│  │Vector Database│  │  Document  │  │  Gemini   │ │
+│  │  (Embeddings) │  │   Store    │  │   API     │ │
+│  └──────────────┘  └────────────┘  └───────────┘ │
+└──────────────────────────────────────────────────┘
+```
+
+## Step 1: Setting Up Genkit
+
+Install the dependencies:
+
+```bash
+npm install genkit @genkit-ai/googleai @genkit-ai/next
+```
+
+Configure Genkit with the Gemini plugin:
+
+```typescript
+// src/ai/genkit.ts
+import { genkit } from 'genkit';
+import { googleAI } from '@genkit-ai/googleai';
+
+export const ai = genkit({
+  plugins: [
+    googleAI({ apiKey: process.env.GOOGLE_API_KEY }),
+  ],
+});
+```
+
+## Step 2: Document Ingestion Pipeline
+
+The ingestion pipeline transforms raw documents into searchable embeddings:
+
+### Chunking Strategy
+
+Chunking is the most critical step in RAG quality. Poor chunking = poor retrieval = poor answers.
+
+```typescript
+// src/ai/chunker.ts
+
+interface Chunk {
+  content: string;
+  metadata: {
+    source: string;
+    chunkIndex: number;
+    totalChunks: number;
+    headings: string[];
+  };
+}
+
+export function chunkDocument(
+  content: string,
+  source: string,
+  options: {
+    maxChunkSize?: number;
+    overlapSize?: number;
+  } = {}
+): Chunk[] {
+  const {
+    maxChunkSize = 1000,  // tokens (roughly 4 chars each)
+    overlapSize = 200,
+  } = options;
+
+  const chunks: Chunk[] = [];
+  const sections = content.split(/\n#{1,3}\s/); // Split on headings
+  
+  let currentChunk = '';
+  let chunkIndex = 0;
+  const headings: string[] = [];
+
+  for (const section of sections) {
+    // Extract heading from section
+    const headingMatch = section.match(/^(.+)\n/);
+    if (headingMatch) {
+      headings.push(headingMatch[1].trim());
+    }
+
+    if ((currentChunk + section).length > maxChunkSize * 4) {
+      // Save current chunk
+      if (currentChunk.trim()) {
+        chunks.push({
+          content: currentChunk.trim(),
+          metadata: {
+            source,
+            chunkIndex,
+            totalChunks: 0, // Updated later
+            headings: [...headings],
+          },
+        });
+        chunkIndex++;
+      }
+      
+      // Start new chunk with overlap
+      const overlapText = currentChunk.slice(-overlapSize * 4);
+      currentChunk = overlapText + section;
+    } else {
+      currentChunk += '\n' + section;
+    }
+  }
+
+  // Save last chunk
+  if (currentChunk.trim()) {
+    chunks.push({
+      content: currentChunk.trim(),
+      metadata: {
+        source,
+        chunkIndex,
+        totalChunks: 0,
+        headings: [...headings],
+      },
+    });
+  }
+
+  // Update totalChunks
+  chunks.forEach(c => c.metadata.totalChunks = chunks.length);
+
+  return chunks;
+}
+```
+
+### Key Chunking Principles
+
+1. **Respect document structure** — Split on headings, not arbitrary character counts
+2. **Maintain overlap** — 200-token overlap prevents context loss at boundaries
+3. **Keep metadata** — Track source, position, and headings for citation
+4. **Right-size chunks** — 500-1000 tokens is the sweet spot for most models
+
+## Step 3: Generating Embeddings
+
+Embeddings convert text into high-dimensional vectors that capture semantic meaning:
+
+```typescript
+// src/ai/embeddings.ts
+import { ai } from './genkit';
+
+export async function generateEmbedding(text: string): Promise<number[]> {
+  const response = await ai.embed({
+    embedder: 'googleai/text-embedding-004',
+    content: text,
+  });
+  
+  return response;
+}
+
+export async function generateBatchEmbeddings(
+  texts: string[]
+): Promise<number[][]> {
+  // Process in batches of 100 to avoid rate limits
+  const batchSize = 100;
+  const allEmbeddings: number[][] = [];
+  
+  for (let i = 0; i < texts.length; i += batchSize) {
+    const batch = texts.slice(i, i + batchSize);
+    const embeddings = await Promise.all(
+      batch.map(text => generateEmbedding(text))
+    );
+    allEmbeddings.push(...embeddings);
+    
+    // Rate limit: wait 100ms between batches
+    if (i + batchSize < texts.length) {
+      await new Promise(r => setTimeout(r, 100));
+    }
+  }
+  
+  return allEmbeddings;
+}
+```
+
+## Step 4: Vector Store
+
+For this guide, I'm using a simple in-memory vector store. In production, swap this for Pinecone, Weaviate, or pgvector:
+
+```typescript
+// src/ai/vector-store.ts
+
+interface VectorEntry {
+  id: string;
+  embedding: number[];
+  content: string;
+  metadata: Record<string, unknown>;
+}
+
+export class VectorStore {
+  private entries: VectorEntry[] = [];
+
+  async upsert(entry: VectorEntry): Promise<void> {
+    const existingIndex = this.entries.findIndex(e => e.id === entry.id);
+    if (existingIndex >= 0) {
+      this.entries[existingIndex] = entry;
+    } else {
+      this.entries.push(entry);
+    }
+  }
+
+  async search(
+    queryEmbedding: number[],
+    topK: number = 5,
+    threshold: number = 0.7
+  ): Promise<VectorEntry[]> {
+    const scored = this.entries.map(entry => ({
+      ...entry,
+      score: this.cosineSimilarity(queryEmbedding, entry.embedding),
+    }));
+
+    return scored
+      .filter(e => e.score >= threshold)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, topK);
+  }
+
+  private cosineSimilarity(a: number[], b: number[]): number {
+    let dotProduct = 0;
+    let normA = 0;
+    let normB = 0;
+
+    for (let i = 0; i < a.length; i++) {
+      dotProduct += a[i] * b[i];
+      normA += a[i] * a[i];
+      normB += b[i] * b[i];
+    }
+
+    return dotProduct / (Math.sqrt(normA) * Math.sqrt(normB));
+  }
+}
+```
+
+## Step 5: The RAG Query Pipeline
+
+This is where everything comes together:
+
+```typescript
+// src/ai/rag-pipeline.ts
+import { ai } from './genkit';
+import { generateEmbedding } from './embeddings';
+import { vectorStore } from './vector-store';
+
+export async function ragQuery(userQuery: string) {
+  // 1. Generate query embedding
+  const queryEmbedding = await generateEmbedding(userQuery);
+
+  // 2. Retrieve relevant chunks
+  const relevantChunks = await vectorStore.search(queryEmbedding, 5, 0.7);
+
+  // 3. Build context
+  const context = relevantChunks
+    .map((chunk, i) => `[Source ${i + 1}: ${chunk.metadata.source}]\n${chunk.content}`)
+    .join('\n\n---\n\n');
+
+  // 4. Generate response with context
+  const response = await ai.generate({
+    model: 'googleai/gemini-2.0-flash',
+    prompt: `You are a helpful assistant. Answer the user's question using ONLY the provided context. If the context doesn't contain relevant information, say so. Always cite your sources.
+
+## Context
+${context}
+
+## User Question
+${userQuery}
+
+## Instructions
+- Answer based ONLY on the context provided
+- Cite sources using [Source N] format
+- If unsure, say "I don't have enough information to answer that"
+- Be concise but thorough`,
+    config: {
+      temperature: 0.3,   // Lower = more factual
+      maxOutputTokens: 1024,
+    },
+  });
+
+  return {
+    answer: response.text,
+    sources: relevantChunks.map(c => ({
+      content: c.content.substring(0, 200) + '...',
+      source: c.metadata.source,
+      score: c.metadata.score,
+    })),
+  };
+}
+```
+
+## Step 6: Streaming Responses in Next.js
+
+For real-time chat, stream the AI response token-by-token:
+
+```typescript
+// src/app/api/chat/route.ts
+import { ai } from '@/ai/genkit';
+import { generateEmbedding } from '@/ai/embeddings';
+import { vectorStore } from '@/ai/vector-store';
+
+export async function POST(request: Request) {
+  const { message } = await request.json();
+
+  // Retrieve context
+  const queryEmbedding = await generateEmbedding(message);
+  const chunks = await vectorStore.search(queryEmbedding, 5);
+  const context = chunks.map(c => c.content).join('\n\n');
+
+  // Stream response
+  const stream = await ai.generateStream({
+    model: 'googleai/gemini-2.0-flash',
+    prompt: `Context: ${context}\n\nQuestion: ${message}`,
+    config: { temperature: 0.3 },
+  });
+
+  // Return streaming response
+  return new Response(
+    new ReadableStream({
+      async start(controller) {
+        for await (const chunk of stream.stream) {
+          const text = chunk.text;
+          controller.enqueue(new TextEncoder().encode(text));
+        }
+        controller.close();
+      },
+    }),
+    {
+      headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+        'Transfer-Encoding': 'chunked',
+      },
+    }
+  );
+}
+```
+
+### Client-Side Streaming Consumer
+
+```typescript
+'use client';
+
+import { useState, useCallback } from 'react';
+
+export function ChatInterface() {
+  const [messages, setMessages] = useState<Array<{role: string, content: string}>>([]);
+  const [input, setInput] = useState('');
+  const [isStreaming, setIsStreaming] = useState(false);
+
+  const sendMessage = useCallback(async () => {
+    if (!input.trim() || isStreaming) return;
+
+    const userMessage = input.trim();
+    setInput('');
+    setMessages(prev => [...prev, { role: 'user', content: userMessage }]);
+    setIsStreaming(true);
+
+    // Add empty assistant message
+    setMessages(prev => [...prev, { role: 'assistant', content: '' }]);
+
+    const response = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: userMessage }),
+    });
+
+    const reader = response.body?.getReader();
+    const decoder = new TextDecoder();
+
+    if (reader) {
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        const text = decoder.decode(value);
+        setMessages(prev => {
+          const updated = [...prev];
+          updated[updated.length - 1].content += text;
+          return updated;
+        });
+      }
+    }
+
+    setIsStreaming(false);
+  }, [input, isStreaming]);
+
+  return (
+    <div className="flex flex-col h-[600px]">
+      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+        {messages.map((msg, i) => (
+          <div key={i} className={`p-3 rounded-lg ${
+            msg.role === 'user' 
+              ? 'bg-primary/10 ml-auto max-w-[80%]' 
+              : 'bg-card max-w-[80%]'
+          }`}>
+            {msg.content}
+          </div>
+        ))}
+      </div>
+      <div className="p-4 border-t">
+        <div className="flex gap-2">
+          <input
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
+            placeholder="Ask a question..."
+            className="flex-1 p-2 rounded border bg-background"
+          />
+          <button
+            onClick={sendMessage}
+            disabled={isStreaming}
+            className="px-4 py-2 bg-primary text-primary-foreground rounded"
+          >
+            Send
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+## Production Considerations
+
+### 1. Prompt Injection Defense
+
+Never trust user input in RAG systems:
+
+```typescript
+function sanitizeQuery(query: string): string {
+  // Remove potential injection patterns
+  return query
+    .replace(/ignore previous instructions/gi, '')
+    .replace(/system:/gi, '')
+    .replace(/\n{3,}/g, '\n\n')
+    .substring(0, 1000); // Limit length
+}
+```
+
+### 2. Caching for Performance
+
+Cache embeddings and frequent queries:
+
+```typescript
+const embeddingCache = new Map<string, number[]>();
+
+async function getCachedEmbedding(text: string): Promise<number[]> {
+  const cacheKey = text.substring(0, 100); // Normalize key
+  
+  if (embeddingCache.has(cacheKey)) {
+    return embeddingCache.get(cacheKey)!;
+  }
+  
+  const embedding = await generateEmbedding(text);
+  embeddingCache.set(cacheKey, embedding);
+  return embedding;
+}
+```
+
+### 3. Quality Metrics
+
+Track these metrics to improve your RAG pipeline:
+
+- **Retrieval Precision** — Are the retrieved chunks actually relevant?
+- **Answer Faithfulness** — Does the answer stay within the provided context?
+- **Latency** — Time from query to first token
+- **Citation Accuracy** — Do citations point to the right sources?
+
+## Common Pitfalls
+
+| Pitfall | Solution |
+|---------|----------|
+| Chunks too large | Keep chunks at 500-1000 tokens |
+| No overlap between chunks | Add 20% overlap |
+| Missing metadata | Always track source, position, headings |
+| No relevance threshold | Filter results below 0.7 similarity |
+| Single embedding model | Experiment with different models |
+| No caching | Cache embeddings and frequent queries |
+| Trusting user input | Sanitize all input before embedding |
+
+## Final Architecture
+
+Here's the complete data flow for a production RAG system:
+
+```
+Document → Chunk → Embed → Store (Vector DB)
+                                    ↓
+User Query → Embed → Search → Retrieve Top-K
+                                    ↓
+                              Build Prompt
+                              (Context + Query)
+                                    ↓
+                              Generate (LLM)
+                                    ↓
+                              Stream Response
+                              (with citations)
+```
+
+The key insight: **RAG quality is 80% retrieval quality, 20% generation quality.** Invest your time in chunking, embeddings, and retrieval — not in prompt engineering.
+
+---
+
+*Written by [Amit Divekar](https://amitdevx.tech) — Cloud Architect & Full-Stack Engineer. Building resilient cloud systems and AI-powered applications.*
