@@ -159,7 +159,7 @@ export const skillsData = {
   categories: [
     {
       name: "Cloud & DevOps",
-      icon: "☁️",
+      icon: "Cloud",
       skills: [
         { name: "AWS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
         { name: "Google Cloud", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" },
@@ -171,7 +171,7 @@ export const skillsData = {
     },
     {
       name: "AI & Data",
-      icon: "🧠",
+      icon: "BrainCircuit",
       skills: [
         { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" },
         { name: "Pandas", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" },
@@ -180,7 +180,7 @@ export const skillsData = {
     },
     {
       name: "Frontend",
-      icon: "🎨",
+      icon: "Palette",
       skills: [
         { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" },
         { name: "React.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
@@ -194,7 +194,7 @@ export const skillsData = {
     },
     {
       name: "Backend",
-      icon: "⚙️",
+      icon: "ServerCog",
       skills: [
         { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" },
         { name: "Express.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg" },
@@ -206,7 +206,7 @@ export const skillsData = {
     },
     {
       name: "Tools & Others",
-      icon: "🛠️",
+      icon: "Wrench",
       skills: [
         { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" },
         { name: "API Integration", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg" },

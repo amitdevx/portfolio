@@ -131,7 +131,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   };
 
   return (
-    <div className="relative overflow-x-hidden">
+    <div className="relative overflow-x-clip">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
@@ -141,6 +141,10 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       <article className="min-h-screen pt-32 pb-20 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="flex gap-12">
+            <aside className="hidden xl:block w-64 shrink-0">
+              <TableOfContents content={post.content} />
+            </aside>
+
             <div className="flex-1 max-w-3xl">
         
               <Button asChild variant="ghost" className="mb-8 hover:bg-transparent hover:text-primary -ml-4">
@@ -243,9 +247,6 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
               </div>
             </div>
 
-            <aside className="hidden xl:block w-64 shrink-0">
-              <TableOfContents content={post.content} />
-            </aside>
           </div>
         </div>
       </article>

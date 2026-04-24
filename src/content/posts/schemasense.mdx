@@ -36,7 +36,7 @@ Connect your database and within a minute you get AI-written explanations for ev
 
 ```mermaid
 graph TB
-    subgraph Frontend["🎨 FRONTEND (Next.js 15 + React 19)"]
+    subgraph Frontend[" FRONTEND (Next.js 15 + React 19)"]
         Dashboard[Dashboard]
         Analysis[Analysis]
         Chat[Chat Interface]
@@ -54,18 +54,18 @@ graph TB
             ExplainRoute["/explain<br/>AI Documentation"]
         end
         
-        subgraph AILayer["🤖 AI Intelligence Layer"]
+        subgraph AILayer[" AI Intelligence Layer"]
             DeepSeek["DeepSeek-V3<br/>via OpenRouter"]
             Streaming["Streaming Responses"]
         end
         
-        subgraph Security["🔒 Security Layer"]
+        subgraph Security[" Security Layer"]
             PatternDetection["Pattern Detection"]
             BehavioralAnalysis["Behavioral Analysis"]
             MessageSeparation["System/User Separation"]
         end
         
-        subgraph Cache["💾 SQLite Cache Layer"]
+        subgraph Cache[" SQLite Cache Layer"]
             CacheDB["AI Response Caching<br/>• SHA256-based keys<br/>• 95% cost reduction<br/>• Sub-50ms lookups"]
         end
         
@@ -76,7 +76,7 @@ graph TB
         Cache --> AILayer
     end
 
-    subgraph External["🌐 External Systems"]
+    subgraph External[" External Systems"]
         UserDB[(User's PostgreSQL<br/>Database)]
         OpenRouter["OpenRouter API<br/>(Free Tier LLM)"]
     end
@@ -192,7 +192,7 @@ The cache key combines a hash of the connection details, the table name, and a h
 graph LR
     Request[Table Explanation<br/>Request] --> Hash
     
-    subgraph CacheKey["🔑 Cache Key Generation"]
+    subgraph CacheKey[" Cache Key Generation"]
         Hash["Generate Key"]
         ConnHash["SHA256(host:port:db:user)"]
         TableName["table_name"]
@@ -394,7 +394,7 @@ This was a wake-up call. AI systems exposed to user input need defense-in-depth 
 graph TD
     UserQuery[User Query Input] --> Layer1
 
-    subgraph Layer1["🛡️ LAYER 1: Pattern Detection"]
+    subgraph Layer1["️ LAYER 1: Pattern Detection"]
         PatternCheck{Dangerous<br/>Patterns?}
         CheckAdmin["Check: /admin, /system commands"]
         CheckIgnore["Check: 'ignore previous' phrases"]
@@ -402,7 +402,7 @@ graph TD
         CheckLeak["Check: Prompt leak attempts"]
     end
 
-    subgraph Layer2["🔍 LAYER 2: Behavioral Analysis"]
+    subgraph Layer2[" LAYER 2: Behavioral Analysis"]
         BehaviorCheck{Suspicious<br/>Behavior?}
         LengthCheck["Length > 2000 chars?"]
         KeywordCheck["3+ instruction keywords?"]
@@ -497,13 +497,13 @@ First week results: 11 blocked attacks, zero false positives. The false positive
 
 ```mermaid
 sequenceDiagram
-    participant User as 👤 User
-    participant Frontend as 🎨 Next.js Frontend
+    participant User as  User
+    participant Frontend as  Next.js Frontend
     participant API as ⚡ FastAPI Backend
-    participant Security as 🛡️ Security Layer
-    participant Cache as 💾 SQLite Cache
-    participant AI as 🤖 DeepSeek-V3
-    participant DB as 🗄️ PostgreSQL
+    participant Security as ️ Security Layer
+    participant Cache as  SQLite Cache
+    participant AI as  DeepSeek-V3
+    participant DB as ️ PostgreSQL
 
     User->>Frontend: "Which tables contain user data?"
     Frontend->>API: POST /api/chat

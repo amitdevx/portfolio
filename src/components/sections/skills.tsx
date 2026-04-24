@@ -2,6 +2,15 @@
 
 import { skillsData } from '@/data/portfolio-data';
 import { SectionReveal, StaggerContainer, staggerChildVariants, motion } from '@/components/motion';
+import { Cloud, BrainCircuit, Palette, ServerCog, Wrench } from 'lucide-react';
+
+const IconMap: Record<string, React.ElementType> = {
+  Cloud,
+  BrainCircuit,
+  Palette,
+  ServerCog,
+  Wrench,
+};
 
 export default function Skills() {
   return (
@@ -25,7 +34,10 @@ export default function Skills() {
               className="bg-background/15 backdrop-blur-lg border border-border/40 rounded-xl p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-primary/20 hover:shadow-2xl"
             >
               <div className="flex items-center gap-3 mb-5">
-                <span className="text-2xl">{category.icon}</span>
+                {(() => {
+                  const Icon = IconMap[category.icon];
+                  return Icon ? <Icon className="w-6 h-6 text-primary" /> : <span className="text-2xl">{category.icon}</span>;
+                })()}
                 <h3 className="text-xl font-headline font-semibold">{category.name}</h3>
               </div>
               <div className="grid grid-cols-3 gap-3">

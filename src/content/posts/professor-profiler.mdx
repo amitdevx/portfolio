@@ -24,12 +24,12 @@ The whole thing is a directed acyclic graph (DAG) under the hood. The Root Agent
 
 ```mermaid
 flowchart TD
-    subgraph Orchestration_Layer ["🧠 Orchestration Layer"]
+    subgraph Orchestration_Layer [" Orchestration Layer"]
         Runner[<b>Runner</b><br/><i>State Management</i>]
         Memory[(<b>Memory Bank</b><br/><i>JSON Persistence</i>)]
     end
 
-    subgraph Agent_Layer ["🤖 Agent Hierarchy"]
+    subgraph Agent_Layer [" Agent Hierarchy"]
         Root[<b>ROOT AGENT</b><br/><i>Gemini 2.5 Pro</i><br/>The Project Manager]
         
         subgraph Workers ["Specialized Sub-Agents"]
@@ -63,9 +63,9 @@ The pipeline has four phases. They have to run in order since each one feeds the
 sequenceDiagram
     autonumber
     actor Student
-    participant Root as 🧠 Root Agent
-    participant Tax as 🏷️ Taxonomist
-    participant Strat as 🎯 Strategist
+    participant Root as  Root Agent
+    participant Tax as ️ Taxonomist
+    participant Strat as  Strategist
 
     Student->>Root: "Analyze Physics_2024.pdf"
     
@@ -114,7 +114,7 @@ async def main():
     runner = Runner(agent=root_agent, session_service=session)
     
     # Execute
-    print("🤖 Agent is thinking...")
+    print(" Agent is thinking...")
     async for event in runner.run_async(
         user_id="prof_user",
         session_id="sess_01",
@@ -124,7 +124,7 @@ async def main():
         )
     ):
         if event.is_final_response():
-            print(f"\n🎓 Final Answer:\n{event.content.parts[0].text}")
+            print(f"\n Final Answer:\n{event.content.parts[0].text}")
 
 if __name__ == "__main__":
     asyncio.run(main())

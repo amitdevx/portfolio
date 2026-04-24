@@ -61,7 +61,7 @@ export default function BlogPage() {
   const posts = getAllPosts();
 
   return (
-    <div className="relative overflow-x-hidden">
+    <div className="relative overflow-x-clip">
       <ParticleBackground />
       <Header />
       <main role="main">
