@@ -18,7 +18,7 @@ const siteUrl = 'https://amitdevx.tech';
 export const metadata: Metadata = {
   title: 'CV',
   description:
-    'Software Engineer with a Full-Stack background, focused on Cloud, DevOps, and AI-driven solutions. View experience, projects, and skills.',
+    'Cloud Architect and Full-Stack Engineer specializing in AWS/GCP infrastructure, container orchestration, and AI-powered developer tooling. View experience, projects, and skills.',
   alternates: {
     canonical: `${siteUrl}/cv`,
   },
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     url: `${siteUrl}/cv`,
     title: 'Amit Divekar - CV',
     description:
-      'Software Engineer with a Full-Stack background, focused on Cloud, DevOps, and AI-driven solutions.',
+      'Cloud Architect and Full-Stack Engineer specializing in AWS/GCP infrastructure, container orchestration, and AI-powered developer tooling.',
     siteName: 'Amit Divekar',
     images: [
       {
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Amit Divekar - CV',
     description:
-      'Software Engineer with a Full-Stack background, focused on Cloud, DevOps, and AI-driven solutions.',
+      'Cloud Architect and Full-Stack Engineer specializing in AWS/GCP infrastructure, container orchestration, and AI-powered developer tooling.',
     images: [`${siteUrl}/og-image.png`],
     creator: '@amitdevx_',
   },
@@ -58,8 +58,8 @@ const personStructuredData = {
   '@type': 'Person',
   name: 'Amit Divekar',
   url: siteUrl,
-  jobTitle: 'Software Engineer',
-  description: 'Software Engineer with a Full-Stack background, focused on Cloud, DevOps, and AI-driven solutions.',
+  jobTitle: 'Cloud Architect & Full-Stack Engineer',
+  description: 'Cloud Architect and Full-Stack Engineer specializing in AWS/GCP infrastructure, container orchestration, and AI-powered developer tooling.',
   sameAs: [
     socialLinks.github,
     socialLinks.linkedin,
@@ -77,7 +77,7 @@ const contactLinks = [
 ].filter((link) => Boolean(link.href));
 
 const spotlightProjects = projectsData.filter(p => p.title !== "2FA Password Protector").slice(0, 3);
-const primarySkills = skillsData.technical.slice(0, 14);
+const primarySkills = skillsData.technical;
 
 export default function CvPage() {
   return (
@@ -149,10 +149,7 @@ export default function CvPage() {
             </CardHeader>
             <CardContent className="text-sm text-muted-foreground sm:text-base">
               <p className="leading-relaxed">
-                Frontend-focused full stack developer specializing in high-performance React and Next.js
-                applications, with a growing toolkit across AI, DevOps, CI/CD, and cloud infrastructure. I enjoy
-                building reliable systems, crafting thoughtful UIs, and collaborating closely with teams to ship
-                measurable improvements.
+                {aboutData.bio}
               </p>
             </CardContent>
           </Card>
