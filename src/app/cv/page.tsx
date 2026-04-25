@@ -86,14 +86,9 @@ export default function CvPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personStructuredData) }}
       />
-    <div className="relative min-h-screen bg-gradient-to-b from-background via-background/90 to-background/70 pb-16 print:bg-white">
-      <div
-        className="pointer-events-none absolute inset-0 -z-10 opacity-60 [background:radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.08),transparent_35%),radial-gradient(circle_at_80%_0,rgba(179,165,200,0.12),transparent_30%),radial-gradient(circle_at_50%_80%,rgba(255,255,255,0.05),transparent_35%)]"
-        aria-hidden="true"
-      />
-
+    <div className="relative min-h-screen bg-background pb-16 print:bg-white">
       <main className="container mx-auto max-w-5xl px-6 py-12 sm:px-8 sm:py-16">
-        <header className="rounded-3xl border border-primary/30 bg-card/70 p-8 shadow-2xl backdrop-blur print:border print:bg-white print:text-black">
+        <header className="rounded-3xl border border-border/40 bg-card p-8 shadow-sm print:border print:bg-white print:text-black">
           <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
             <div className="space-y-4">
               <div className="flex flex-wrap items-center gap-3">
@@ -150,7 +145,7 @@ export default function CvPage() {
         </header>
 
         <section className="mt-10 grid gap-6 print:mt-6">
-          <Card className="bg-card/70 backdrop-blur print:bg-white print:text-black">
+          <Card className="bg-card border-border/40 print:bg-white print:text-black">
             <CardHeader>
               <CardTitle className="text-xl">About</CardTitle>
             </CardHeader>
@@ -161,7 +156,7 @@ export default function CvPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-card/70 backdrop-blur print:bg-white print:text-black">
+          <Card className="bg-card border-border/40 print:bg-white print:text-black">
             <CardHeader className="pb-4">
               <CardTitle className="text-xl">Work Experience</CardTitle>
             </CardHeader>
@@ -185,7 +180,7 @@ export default function CvPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-card/70 backdrop-blur print:bg-white print:text-black">
+          <Card className="bg-card border-border/40 print:bg-white print:text-black">
             <CardHeader className="pb-4">
               <CardTitle className="text-xl">Education</CardTitle>
             </CardHeader>

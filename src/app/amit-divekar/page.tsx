@@ -8,6 +8,8 @@ import { Badge } from '@/components/ui/badge';
 import { ArrowRight, Github, Linkedin, Mail, MapPin, GraduationCap, Briefcase, Code2, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
+import ParticleBackground from '@/components/particle-background';
+
 const siteUrl = 'https://amitdevx.tech';
 
 export const metadata: Metadata = {
@@ -140,7 +142,8 @@ export default function AmitDivekarPage() {
   };
 
   return (
-    <div className="relative overflow-x-clip">
+    <div className="relative w-full min-h-screen overflow-x-clip">
+      <ParticleBackground />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageJsonLd) }}
@@ -195,7 +198,7 @@ export default function AmitDivekarPage() {
             </h2>
             <div className="space-y-6">
               {experienceData.map((exp, i) => (
-                <div key={i} className="border border-border/40 rounded-xl p-6 bg-card/50">
+                <div key={i} className="border border-border/40 rounded-xl p-6 bg-background/15 backdrop-blur-lg shadow-lg hover:border-primary/50 hover:shadow-primary/20 transition-all duration-300">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
                     <h3 className="font-semibold text-lg text-foreground">{exp.role}</h3>
                     <span className="text-sm text-muted-foreground font-mono">{exp.duration}</span>
@@ -215,7 +218,7 @@ export default function AmitDivekarPage() {
             </h2>
             <div className="grid gap-4 sm:grid-cols-2">
               {projectsData.slice(0, 6).map((project, i) => (
-                <div key={i} className="border border-border/40 rounded-xl p-5 bg-card/50 space-y-3">
+                <div key={i} className="border border-border/40 rounded-xl p-5 bg-background/15 backdrop-blur-lg shadow-lg hover:border-primary/50 hover:shadow-primary/20 transition-all duration-300 space-y-3">
                   <h3 className="font-semibold text-foreground">{project.title}</h3>
                   <p className="text-sm text-muted-foreground line-clamp-2">{project.description}</p>
                   <div className="flex flex-wrap gap-1.5">
@@ -255,7 +258,7 @@ export default function AmitDivekarPage() {
             <div className="space-y-3">
               {recentPosts.map((post) => (
                 <Link key={post.slug} href={`/blogs/${post.slug}`}
-                  className="block border border-border/40 rounded-xl p-5 bg-card/50 hover:border-primary/40 transition-colors">
+                  className="block border border-border/40 rounded-xl p-5 bg-background/15 backdrop-blur-lg shadow-lg hover:border-primary/50 hover:shadow-primary/20 transition-all duration-300 hover:border-primary/40 transition-colors">
                   <h3 className="font-semibold text-foreground mb-1">{post.title}</h3>
                   <p className="text-sm text-muted-foreground line-clamp-2">{post.description}</p>
                   <div className="flex items-center gap-3 mt-2 text-xs text-muted-foreground font-mono">
@@ -281,7 +284,7 @@ export default function AmitDivekarPage() {
               Frequently Asked Questions
             </h2>
             <div className="space-y-4">
-              <details className="border border-border/40 rounded-xl p-5 bg-card/50 group" open>
+              <details className="border border-border/40 rounded-xl p-5 bg-background/15 backdrop-blur-lg shadow-lg hover:border-primary/50 hover:shadow-primary/20 transition-all duration-300 group" open>
                 <summary className="font-semibold text-foreground cursor-pointer list-none flex items-center justify-between">
                   Who is Amit Divekar?
                   <span className="text-primary group-open:rotate-45 transition-transform text-xl">+</span>
@@ -294,7 +297,7 @@ export default function AmitDivekarPage() {
                 </p>
               </details>
 
-              <details className="border border-border/40 rounded-xl p-5 bg-card/50 group">
+              <details className="border border-border/40 rounded-xl p-5 bg-background/15 backdrop-blur-lg shadow-lg hover:border-primary/50 hover:shadow-primary/20 transition-all duration-300 group">
                 <summary className="font-semibold text-foreground cursor-pointer list-none flex items-center justify-between">
                   What does Amit Divekar do?
                   <span className="text-primary group-open:rotate-45 transition-transform text-xl">+</span>
@@ -307,7 +310,7 @@ export default function AmitDivekarPage() {
                 </p>
               </details>
 
-              <details className="border border-border/40 rounded-xl p-5 bg-card/50 group">
+              <details className="border border-border/40 rounded-xl p-5 bg-background/15 backdrop-blur-lg shadow-lg hover:border-primary/50 hover:shadow-primary/20 transition-all duration-300 group">
                 <summary className="font-semibold text-foreground cursor-pointer list-none flex items-center justify-between">
                   What projects has Amit Divekar built?
                   <span className="text-primary group-open:rotate-45 transition-transform text-xl">+</span>
@@ -320,7 +323,7 @@ export default function AmitDivekarPage() {
                 </p>
               </details>
 
-              <details className="border border-border/40 rounded-xl p-5 bg-card/50 group">
+              <details className="border border-border/40 rounded-xl p-5 bg-background/15 backdrop-blur-lg shadow-lg hover:border-primary/50 hover:shadow-primary/20 transition-all duration-300 group">
                 <summary className="font-semibold text-foreground cursor-pointer list-none flex items-center justify-between">
                   Where is Amit Divekar from?
                   <span className="text-primary group-open:rotate-45 transition-transform text-xl">+</span>
@@ -331,7 +334,7 @@ export default function AmitDivekarPage() {
                 </p>
               </details>
 
-              <details className="border border-border/40 rounded-xl p-5 bg-card/50 group">
+              <details className="border border-border/40 rounded-xl p-5 bg-background/15 backdrop-blur-lg shadow-lg hover:border-primary/50 hover:shadow-primary/20 transition-all duration-300 group">
                 <summary className="font-semibold text-foreground cursor-pointer list-none flex items-center justify-between">
                   How to contact Amit Divekar?
                   <span className="text-primary group-open:rotate-45 transition-transform text-xl">+</span>
