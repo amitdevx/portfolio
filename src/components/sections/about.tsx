@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { aboutData } from '@/data/portfolio-data';
+import { aboutData, heroData } from '@/data/portfolio-data';
 import { GraduationCap, Sparkles } from 'lucide-react';
 import { SectionReveal, StaggerContainer, staggerChildVariants, motion } from '@/components/motion';
 
@@ -21,7 +21,7 @@ export default function About() {
               <div className="absolute inset-2 rounded-full overflow-hidden border-4 border-primary shadow-2xl">
                 <Image
                   src="/images/amit-divekar.jpg"
-                  alt="Professional portrait of Amit Divekar, Cloud Architect & Full-Stack Engineer specializing in AWS, GCP, and Kubernetes"
+                  alt={`Professional portrait of ${heroData.name}, ${heroData.title} specializing in AWS, GCP, and Kubernetes`}
                   fill
                   sizes="(max-width: 768px) 150px, 192px"
                   className="object-cover"
@@ -42,7 +42,7 @@ export default function About() {
             </div>
             
             <div className="text-center md:text-left">
-              <h2 id="about-heading" className="font-headline text-4xl md:text-5xl font-bold">About — Cloud Architect & Full-Stack Engineer</h2>
+              <h2 id="about-heading" className="font-headline text-4xl md:text-5xl font-bold">About — {heroData.title}</h2>
               <p className="text-lg text-muted-foreground mt-2 max-w-4xl">
                 {aboutData.bio}
               </p>

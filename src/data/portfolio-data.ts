@@ -77,7 +77,7 @@ export const projectsData = [
     docLink: "https://deepwiki.com/amitdevx/Professor_Profiler"
   },
   {
-    title: "Eatinformed",
+    title: "EatInformed",
     description: "An AI-driven platform for instant nutrition analysis from food label images, built with Next.js, Genkit, and Google Gemini, featuring a modern UI with Tailwind CSS.",
     technologies: ["TypeScript", "Next.js", "React", "Tailwind CSS", "Genkit", "Gemini"],
     githubLink: "https://github.com/amitdevx/Eatinformed",

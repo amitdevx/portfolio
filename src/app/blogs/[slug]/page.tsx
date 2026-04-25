@@ -13,6 +13,7 @@ import Mermaid from "@/components/mermaid";
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { ReadingProgressBar, TimeToRead, TableOfContents, CopyButton } from '@/components/blog-ui';
+import { heroData } from '@/data/portfolio-data';
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
@@ -29,10 +30,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: post.title,
     description: post.description,
-    keywords: [...post.tags, 'Amit Divekar', 'Cloud Architect', 'Full-Stack Engineer', 'Tech Blog', 'Tutorial'],
-    authors: [{ name: 'Amit Divekar', url: siteUrl }],
-    creator: 'Amit Divekar',
-    publisher: 'Amit Divekar',
+    keywords: [...post.tags, heroData.name, heroData.title, 'Tech Blog', 'Tutorial'],
+    authors: [{ name: heroData.name, url: siteUrl }],
+    creator: heroData.name,
+    publisher: heroData.name,
     alternates: {
       canonical: `${siteUrl}/blogs/${slug}`,
     },
@@ -45,7 +46,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       locale: 'en_US',
       publishedTime: post.date,
       modifiedTime: post.updated || post.date,
-      authors: ['Amit Divekar'],
+      authors: [heroData.name],
       section: 'Technology',
       tags: post.tags,
       images: [
@@ -92,10 +93,10 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     description: post.description,
     author: {
       '@type': 'Person',
-      name: 'Amit Divekar',
+      name: heroData.name,
       alternateName: 'amitdevx',
       url: siteUrl,
-      jobTitle: 'Cloud Architect & Full-Stack Engineer',
+      jobTitle: heroData.title,
       sameAs: [
         'https://www.linkedin.com/in/divekar-amit',
         'https://github.com/amitdevx',
@@ -104,7 +105,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     },
     publisher: {
       '@type': 'Person',
-      name: 'Amit Divekar',
+      name: heroData.name,
       url: siteUrl,
       logo: {
         '@type': 'ImageObject',
@@ -171,7 +172,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                   </div>
                   <div className="flex items-center gap-2">
                       <User className="w-4 h-4" />
-                      <span>Amit Divekar</span>
+                      <span>{post.author || heroData.name}</span>
                   </div>
                   <TimeToRead content={post.content} />
                 </div>

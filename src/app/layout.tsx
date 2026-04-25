@@ -4,6 +4,7 @@ import React from 'react';
 import { Inter, Space_Grotesk } from 'next/font/google';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
+import { heroData, aboutData, projectsData } from '@/data/portfolio-data';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -33,16 +34,15 @@ const siteUrl = 'https://amitdevx.tech';
 const personJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  name: 'Amit Divekar',
+  name: heroData.name,
   alternateName: 'amitdevx',
   url: siteUrl,
   image: `${siteUrl}/og-image.png`,
-  jobTitle: 'Cloud Architect & Full-Stack Engineer',
-  description:
-    'Cloud Architect and Full-Stack Engineer specializing in highly scalable AWS/GCP architectures, Kubernetes orchestration, and AI-integrated Next.js ecosystems. Building resilient cloud systems and high-performance web applications.',
+  jobTitle: heroData.title,
+  description: heroData.bio,
   alumniOf: {
     '@type': 'CollegeOrUniversity',
-    name: 'Savitribai Phule Pune University',
+    name: aboutData.education.institution,
   },
   knowsAbout: [
     'Cloud Computing', 'DevOps', 'AI', 'Machine Learning', 'Full-Stack Development', 
@@ -70,9 +70,8 @@ const websiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   url: siteUrl,
-  name: 'Amit Divekar',
-  description:
-    'Cloud Architect and Full-Stack Engineer building resilient cloud systems and high-performance web applications. View projects, experience, and technical expertise.',
+  name: heroData.name,
+  description: heroData.tagline,
   potentialAction: {
     '@type': 'SearchAction',
     target: `${siteUrl}/?q={search_term_string}`,
@@ -83,11 +82,10 @@ const websiteJsonLd = {
 const organizationJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Amit Divekar',
+  name: heroData.name,
   url: siteUrl,
   logo: `${siteUrl}/android-chrome-512x512.png`,
-  description:
-    'Cloud Architect and Full-Stack Engineer building resilient cloud systems and high-performance web applications.',
+  description: heroData.tagline,
   sameAs: [
     'https://www.linkedin.com/in/divekar-amit',
     'https://github.com/amitdevx',
@@ -96,7 +94,7 @@ const organizationJsonLd = {
   ],
   founder: {
     '@type': 'Person',
-    name: 'Amit Divekar',
+    name: heroData.name,
   },
 };
 
@@ -125,49 +123,19 @@ const breadcrumbListJsonLd = {
   ],
 };
 
-const softwareProjectsJsonLd = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'SoftwareSourceCode',
-    name: 'SchemaSense AI',
-    description: 'AI-powered database documentation platform with real-time chat interface for querying database structure in plain English.',
-    codeRepository: 'https://github.com/amitdevx/schemasense',
-    programmingLanguage: ['TypeScript', 'Python'],
-    runtimePlatform: 'Next.js',
-    author: {
-      '@type': 'Person',
-      name: 'Amit Divekar',
-      url: siteUrl,
-    },
+const softwareProjectsJsonLd = projectsData.map((project) => ({
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareSourceCode',
+  name: project.title,
+  description: project.description,
+  codeRepository: project.githubLink || project.liveLink || siteUrl,
+  programmingLanguage: project.technologies,
+  author: {
+    '@type': 'Person',
+    name: heroData.name,
+    url: siteUrl,
   },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'SoftwareSourceCode',
-    name: 'Professor Profiler',
-    description: 'Advanced multi-agent AI system that reverse-engineers exam papers to decode professor psychology.',
-    codeRepository: 'https://github.com/amitdevx/Professor_Profiler',
-    programmingLanguage: ['Python'],
-    author: {
-      '@type': 'Person',
-      name: 'Amit Divekar',
-      url: siteUrl,
-    },
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'SoftwareSourceCode',
-    name: 'Eatinformed',
-    description: 'AI-driven platform for instant nutrition analysis from food label images.',
-    codeRepository: 'https://github.com/amitdevx/Eatinformed',
-    programmingLanguage: ['TypeScript'],
-    runtimePlatform: 'Next.js',
-    author: {
-      '@type': 'Person',
-      name: 'Amit Divekar',
-      url: siteUrl,
-    },
-  },
-];
+}));
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -181,6 +149,7 @@ export const metadata: Metadata = {
   generator: 'Next.js',
   keywords: [
     'Amit Divekar',
+    'Cloud Architect',
     'Software Engineer',
     'Full-Stack Developer',
     'Cloud Engineer',
