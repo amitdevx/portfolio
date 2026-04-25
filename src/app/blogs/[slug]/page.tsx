@@ -172,7 +172,9 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                   </div>
                   <div className="flex items-center gap-2">
                       <User className="w-4 h-4" />
-                      <span>{post.author || heroData.name}</span>
+                      <Link href="/amit-divekar" rel="author" className="hover:text-primary transition-colors hover:underline">
+                        {post.author || heroData.name}
+                      </Link>
                   </div>
                   <TimeToRead content={post.content} />
                 </div>
