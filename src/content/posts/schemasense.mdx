@@ -47,7 +47,7 @@ graph TB
         UI[Real-time UI with optimistic rendering]
     end
 
-    subgraph Backend["⚡ BACKEND (FastAPI + Python 3.11)"]
+    subgraph Backend[" BACKEND (FastAPI + Python 3.11)"]
         subgraph Routes["API Routes"]
             TablesRoute["/tables<br/>Schema Discovery"]
             ChatRoute["/chat<br/>Q&A Interface"]
@@ -162,10 +162,10 @@ async def get_cached_explanation(table_name: str, connection_hash: str,
         ) as cursor:
             row = await cursor.fetchone()
             if row:
-                logger.info(f"✓ Cache HIT for {table_name}")
+                logger.info(f" Cache HIT for {table_name}")
                 return row[0]
     
-    logger.info(f"✗ Cache MISS for {table_name}")
+    logger.info(f" Cache MISS for {table_name}")
     return None
 
 
@@ -209,8 +209,8 @@ graph LR
     
     FullKey --> Check{Cache<br/>Exists?}
     
-    Check -->|YES| CacheHit["✅ CACHE HIT<br/>Return in 45ms"]
-    Check -->|NO| CacheMiss["❌ CACHE MISS"]
+    Check -->|YES| CacheHit[" CACHE HIT<br/>Return in 45ms"]
+    Check -->|NO| CacheMiss[" CACHE MISS"]
     
     CacheMiss --> AI["Call AI<br/>(2.8s)"]
     AI --> Store["Store in Cache"]
@@ -394,7 +394,7 @@ This was a wake-up call. AI systems exposed to user input need defense-in-depth 
 graph TD
     UserQuery[User Query Input] --> Layer1
 
-    subgraph Layer1["️ LAYER 1: Pattern Detection"]
+    subgraph Layer1[" LAYER 1: Pattern Detection"]
         PatternCheck{Dangerous<br/>Patterns?}
         CheckAdmin["Check: /admin, /system commands"]
         CheckIgnore["Check: 'ignore previous' phrases"]
@@ -409,15 +409,15 @@ graph TD
         ContextCheck["Multiple directives?"]
     end
 
-    subgraph Layer3["✅ LAYER 3: Message Separation"]
+    subgraph Layer3[" LAYER 3: Message Separation"]
         ScopeValidation{In Scope?}
         SystemMsg["System Message<br/>(Cannot be overridden)"]
         UserMsg["User Message<br/>(Clearly separated)"]
         AICall["Call AI with proper<br/>message structure"]
     end
 
-    PatternCheck -->|2+ patterns| Blocked[❌ BLOCKED<br/>HTTP 400]
-    PatternCheck -->|1 pattern| Warning[⚠️ WARNING<br/>Log & Continue]
+    PatternCheck -->|2+ patterns| Blocked[ BLOCKED<br/>HTTP 400]
+    PatternCheck -->|1 pattern| Warning[ WARNING<br/>Log & Continue]
     PatternCheck -->|0 patterns| Layer2
 
     BehaviorCheck -->|Suspicious| Warning
@@ -426,7 +426,7 @@ graph TD
     ScopeValidation -->|Out of scope| Warning
     ScopeValidation -->|Valid| AICall
     
-    AICall --> Response[✅ Safe Response]
+    AICall --> Response[ Safe Response]
 
     style Layer1 fill:#ffebee,stroke:#c62828,stroke-width:2px
     style Layer2 fill:#fff3e0,stroke:#f57c00,stroke-width:2px
@@ -499,11 +499,11 @@ First week results: 11 blocked attacks, zero false positives. The false positive
 sequenceDiagram
     participant User as  User
     participant Frontend as  Next.js Frontend
-    participant API as ⚡ FastAPI Backend
-    participant Security as ️ Security Layer
+    participant API as  FastAPI Backend
+    participant Security as  Security Layer
     participant Cache as  SQLite Cache
     participant AI as  DeepSeek-V3
-    participant DB as ️ PostgreSQL
+    participant DB as  PostgreSQL
 
     User->>Frontend: "Which tables contain user data?"
     Frontend->>API: POST /api/chat
@@ -513,7 +513,7 @@ sequenceDiagram
     Security-->>Security: Pattern detection
     Security-->>Security: Behavioral analysis
     Security-->>Security: Scope validation
-    Security-->>API: ✅ Query is safe
+    Security-->>API:  Query is safe
     
     Note over API,DB: Schema Context (120ms)
     API->>DB: Fetch table list
@@ -523,7 +523,7 @@ sequenceDiagram
     
     Note over API,Cache: Cache Check (2ms)
     API->>Cache: Check for similar query
-    Cache-->>API: ❌ Cache MISS
+    Cache-->>API:  Cache MISS
     
     Note over API,AI: AI Generation (2800ms)
     API->>AI: System + User messages
@@ -531,7 +531,7 @@ sequenceDiagram
     
     Note over API,Cache: Store Result (15ms)
     API->>Cache: Save response
-    Cache-->>API: ✅ Cached
+    Cache-->>API:  Cached
     
     API-->>Frontend: Stream AI response
     Frontend-->>User: Display answer in real-time
@@ -598,7 +598,7 @@ async def connect_database(request: ConnectionRequest):
         password=request.password
     )
     
-    logger.info(f"✓ Connection pool created for {connection_id}")
+    logger.info(f" Connection pool created for {connection_id}")
     
     return {
         "success": True,

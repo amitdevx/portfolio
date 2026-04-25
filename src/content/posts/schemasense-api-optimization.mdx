@@ -253,7 +253,7 @@ async def chat_stream(request: ChatRequest):
     
     if cached:
         async def cached_response():
-            yield json.dumps({"type": "status", "message": "⚡ Found cached response..."}) + "\n"
+            yield json.dumps({"type": "status", "message": " Found cached response..."}) + "\n"
             yield json.dumps({"type": "content", "data": cached}) + "\n"
         
         return StreamingResponse(cached_response(), media_type="application/x-ndjson")

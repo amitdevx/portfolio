@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState, useRef, useCallback } from 'react';
+import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 
 interface TOCItem {
   id: string;
@@ -10,6 +11,17 @@ interface TOCItem {
 
 export function ReadingProgressBar() {
   const [progress, setProgress] = useState(0);
+  const { scrollY } = useScroll();
+  const [hidden, setHidden] = useState(false);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() || 0;
+    if (latest > previous && latest > 150) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+  });
 
   useEffect(() => {
     const updateProgress = () => {
@@ -24,12 +36,20 @@ export function ReadingProgressBar() {
   }, []);
 
   return (
-    <div className="fixed top-16 left-0 w-full h-1 bg-border/20 z-50">
+    <motion.div 
+      variants={{
+        visible: { y: 0 },
+        hidden: { y: -64 },
+      }}
+      animate={hidden ? "hidden" : "visible"}
+      transition={{ duration: 0.35, ease: "easeInOut" }}
+      className="fixed top-16 left-0 w-full h-1 bg-border/20 z-50"
+    >
       <div
         className="h-full bg-gradient-to-r from-primary via-purple-500 to-secondary transition-all duration-150 ease-out"
         style={{ width: `${progress}%` }}
       />
-    </div>
+    </motion.div>
   );
 }
 
