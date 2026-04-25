@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       tags: post.tags,
       images: [
         {
-          url: post.image ? `${siteUrl}${post.image}` : `${siteUrl}/og-image.png`,
+          url: `${siteUrl}/api/og?title=${encodeURIComponent(post.title)}`,
           width: 1200,
           height: 630,
           alt: `${post.title} - Amit Divekar`,
@@ -62,7 +62,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       card: 'summary_large_image',
       title: `${post.title} | Amit Divekar`,
       description: post.description,
-      images: [post.image ? `${siteUrl}${post.image}` : `${siteUrl}/og-image.png`],
+      images: [`${siteUrl}/api/og?title=${encodeURIComponent(post.title)}`],
       creator: '@amitdevx_',
       site: '@amitdevx_',
     },
@@ -120,7 +120,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     },
     image: {
       '@type': 'ImageObject',
-      url: post.image ? `${siteUrl}${post.image}` : `${siteUrl}/og-image.png`,
+      url: `${siteUrl}/api/og?title=${encodeURIComponent(post.title)}`,
       width: 1200,
       height: 630,
     },
