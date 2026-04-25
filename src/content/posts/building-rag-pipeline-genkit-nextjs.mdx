@@ -20,31 +20,33 @@ This guide walks you through building a production-ready RAG pipeline from scrat
 
 ## Architecture Overview
 
-```
-┌──────────────────────────────────────────────────┐
-│                    Next.js 15                      │
-│                                                    │
-│  ┌──────────┐    ┌───────────┐    ┌────────────┐ │
-│  │ Ingestion │    │   Query   │    │  Streaming  │ │
-│  │ Pipeline  │    │  Handler  │    │  Response   │ │
-│  └─────┬─────┘    └─────┬─────┘    └──────┬──────┘ │
-│        │               │                │         │
-│        ▼               ▼                ▼         │
-│  ┌─────────────────────────────────────────────┐ │
-│  │              Genkit AI Framework              │ │
-│  │                                               │ │
-│  │  ┌──────────┐  ┌──────────┐  ┌────────────┐ │ │
-│  │  │Embedding │  │ Retrieval │  │ Generation │ │ │
-│  │  │  Model   │  │  Engine   │  │   (LLM)    │ │ │
-│  │  └──────────┘  └──────────┘  └────────────┘ │ │
-│  └──────────┬──────────────┬──────────────┬─────┘ │
-│             │              │              │        │
-│             ▼              ▼              ▼        │
-│  ┌──────────────┐  ┌────────────┐  ┌───────────┐ │
-│  │Vector Database│  │  Document  │  │  Gemini   │ │
-│  │  (Embeddings) │  │   Store    │  │   API     │ │
-│  └──────────────┘  └────────────┘  └───────────┘ │
-└──────────────────────────────────────────────────┘
+```mermaid
+flowchart TD
+    subgraph NextJS["Next.js 15"]
+        Ingestion["Ingestion Pipeline"]
+        Query["Query Handler"]
+        Streaming["Streaming Response"]
+    end
+    
+    subgraph Genkit["Genkit AI Framework"]
+        Embedding["Embedding Model"]
+        Retrieval["Retrieval Engine"]
+        Generation["Generation (LLM)"]
+    end
+    
+    subgraph Services["Databases & APIs"]
+        VectorDB[("Vector DB (Embeddings)")]
+        DocStore[("Document Store")]
+        Gemini["Gemini API"]
+    end
+
+    Ingestion --> Embedding
+    Query --> Retrieval
+    Streaming --> Generation
+    
+    Embedding --> VectorDB
+    Retrieval --> DocStore
+    Generation --> Gemini
 ```
 
 ## Step 1: Setting Up Genkit
@@ -514,18 +516,21 @@ Track these metrics to improve your RAG pipeline:
 
 Here's the complete data flow for a production RAG system:
 
-```
-Document → Chunk → Embed → Store (Vector DB)
-                                    ↓
-User Query → Embed → Search → Retrieve Top-K
-                                    ↓
-                              Build Prompt
-                              (Context + Query)
-                                    ↓
-                              Generate (LLM)
-                                    ↓
-                              Stream Response
-                              (with citations)
+```mermaid
+flowchart TD
+    A[Document] --> B[Chunk]
+    B --> C[Embed]
+    C --> D[(Store in Vector DB)]
+    
+    E[User Query] --> F[Embed]
+    F --> G[Search]
+    G --> H[Retrieve Top-K]
+    
+    D -.-> H
+    
+    H --> I[Build Prompt Context + Query]
+    I --> J[Generate LLM]
+    J --> K[Stream Response with citations]
 ```
 
 The key insight: **RAG quality is 80% retrieval quality, 20% generation quality.** Invest your time in chunking, embeddings, and retrieval — not in prompt engineering.
