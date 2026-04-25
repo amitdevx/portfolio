@@ -26,13 +26,13 @@ Here is a look at the data flow:
 graph TD
     User([User Request]) --> Orchestrator
     
-    subgraph ChatGPT 5.5 Core
+    subgraph ChatGPT_Core ["ChatGPT 5.5 Core"]
         Orchestrator[Orchestrator Agent]
         Router{Task Router}
         Orchestrator --> Router
     end
     
-    subgraph Specialized Agents
+    subgraph Specialized_Agents ["Specialized Agents"]
         AgentA[Data Extraction Agent]
         AgentB[Analysis Agent]
         AgentC[Formatting Agent]

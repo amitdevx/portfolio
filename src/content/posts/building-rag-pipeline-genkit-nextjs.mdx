@@ -518,19 +518,19 @@ Here's the complete data flow for a production RAG system:
 
 ```mermaid
 flowchart TD
-    A[Document] --> B[Chunk]
-    B --> C[Embed]
-    C --> D[(Store in Vector DB)]
+    A["Document"] --> B["Chunk"]
+    B --> C["Embed"]
+    C --> D[("Store in Vector DB")]
     
-    E[User Query] --> F[Embed]
-    F --> G[Search]
-    G --> H[Retrieve Top-K]
+    E["User Query"] --> F["Embed"]
+    F --> G["Search"]
+    G --> H["Retrieve Top-K"]
     
     D -.-> H
     
-    H --> I[Build Prompt Context + Query]
-    I --> J[Generate LLM]
-    J --> K[Stream Response with citations]
+    H --> I["Build Prompt Context + Query"]
+    I --> J["Generate LLM"]
+    J --> K["Stream Response with citations"]
 ```
 
 The key insight: **RAG quality is 80% retrieval quality, 20% generation quality.** Invest your time in chunking, embeddings, and retrieval — not in prompt engineering.

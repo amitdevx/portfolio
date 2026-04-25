@@ -56,13 +56,29 @@ Each test ran for 72 hours with realistic traffic patterns (peak/off-peak cycles
 
 Below this threshold, you're paying for idle Kubernetes nodes. Above it, Lambda's per-invocation pricing adds up fast.
 
-```mermaid
-xychart-beta
-    title "Cost Comparison: Serverless vs Kubernetes"
-    x-axis "Requests/day" ["100K", "1M", "3M", "10M", "50M"]
-    y-axis "Cost ($)" 0 --> 7500
-    line [28, 185, 350, 1450, 7200]
-    line [145, 290, 350, 580, 1740]
+```
+Cost ($)
+│
+│     Serverless ─────────────────/
+│                              /
+│                            /
+│     ──────────────────────/────── Kubernetes
+│                         /
+│                       /
+│                     /
+│     ──────────── /
+│                /
+│              /
+│            /
+│     ─────/
+│        /
+│       /
+│      /
+│─────/──────────────────────────────────
+└────────────────────────────────────── Requests/day
+     100K        1M      3M    10M    50M
+                    ↑
+              Crossover Point
 ```
 
 ## Results: Latency Benchmarks
@@ -132,26 +148,26 @@ For most production systems, the answer isn't either/or:
 
 ```mermaid
 flowchart TD
-    API[API Gateway CloudFront + WAF]
+    API["API Gateway CloudFront + WAF"]
     
     subgraph Serverless
         direction TB
-        L[Lambda Functions]
-        L_desc[Auth hooks, Webhooks, Image proc, Cron jobs]
+        L["Lambda Functions"]
+        L_desc["Auth hooks, Webhooks, Image proc, Cron jobs"]
         style L_desc fill:none,stroke:none
     end
     
     subgraph Kubernetes
         direction TB
-        K[Core API Express/Nest]
-        K_desc[Main API, WebSockets, ML inference, Workers]
+        K["Core API Express/Nest"]
+        K_desc["Main API, WebSockets, ML inference, Workers"]
         style K_desc fill:none,stroke:none
     end
     
     API --> Serverless
     API --> Kubernetes
     
-    DB[(Shared Data Layer: DynamoDB, RDS, ElastiCache)]
+    DB[("Shared Data Layer: DynamoDB, RDS, ElastiCache")]
     
     Serverless --> DB
     Kubernetes --> DB
