@@ -12,6 +12,7 @@ export interface BlogPost {
   description: string;
   tags: string[];
   image?: string;
+  author?: string;
   content: string;
 }
 
@@ -38,6 +39,7 @@ export function getAllPosts(): BlogPost[] {
       description: data.description,
       tags: data.tags || [],
       image: data.image || undefined,
+      author: data.author || undefined,
       content,
     };
   });
@@ -60,6 +62,7 @@ export function getPostBySlug(slug: string): BlogPost | null {
       description: data.description,
       tags: data.tags || [],
       image: data.image || undefined,
+      author: data.author || undefined,
       content,
     };
   } catch (error) {
