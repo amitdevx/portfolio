@@ -20,8 +20,8 @@ export default function About() {
               
               <div className="absolute inset-2 rounded-full overflow-hidden border-4 border-primary shadow-2xl">
                 <Image
-                  src="/images/amit-divekar.jpg"
-                  alt={`Professional portrait of ${heroData.name}, ${heroData.title} specializing in AWS, GCP, and Kubernetes`}
+                  src="/images/amit-divekar-profile.jpg"
+                  alt="Amit Divekar Full Stack Developer and Cloud Architect specializing in AWS, GCP, and Kubernetes"
                   fill
                   sizes="(max-width: 768px) 150px, 192px"
                   className="object-cover"

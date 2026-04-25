@@ -12,6 +12,12 @@ export default function Hero() {
     <section id="home" className="min-h-screen flex items-center justify-center text-center px-4" aria-label="Hero Section">
       <div className="flex flex-col items-center gap-6 w-full max-w-6xl">
         
+        <TextReveal delay={0.05}>
+          <p className="text-xs sm:text-sm font-mono tracking-widest uppercase text-primary/70">
+            Official Website
+          </p>
+        </TextReveal>
+
         <TextReveal delay={0.1}>
           <h1 className="font-headline text-5xl md:text-7xl font-bold tracking-tight">
             <span className="text-foreground">Amit </span>
@@ -21,7 +27,7 @@ export default function Hero() {
 
         <TextReveal delay={0.2}>
           <p className="w-full max-w-4xl break-words text-center text-base leading-relaxed text-primary font-semibold sm:text-lg md:text-xl lg:text-2xl [word-break:break-word] hyphens-auto">
-            {heroData.title}
+            {heroData.title} from India
           </p>
         </TextReveal>
 
@@ -64,6 +70,14 @@ export default function Hero() {
             <Button asChild size="lg" variant="outline" className="group">
               <Link href="/cv" target="_blank" rel="noopener noreferrer">
                 View Resume
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
+          </ScaleOnTap>
+          <ScaleOnTap>
+            <Button asChild size="lg" variant="outline" className="group">
+              <Link href="/blogs">
+                Read the Blog
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>

@@ -1,7 +1,7 @@
 // Navigation and portfolio content configuration
 export const navigationLinks = [
   { href: '/#home', label: 'Home' },
-  { href: '/#about', label: 'About' },
+  { href: '/amit-divekar', label: 'About' },
   { href: '/#experience', label: 'Experience'},
   { href: '/#projects', label: 'Projects' },
   { href: '/#certifications', label: 'Certifications' },

@@ -24,36 +24,46 @@ const KaggleIcon = () => (
 export default function Footer() {
   return (
     <footer className="bg-background/80 py-8 mt-16" role="contentinfo">
-      <div className="container mx-auto px-6 sm:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-        <p className="text-sm text-muted-foreground">
-          &copy; {new Date().getFullYear()} Amit Divekar. All rights reserved.
-        </p>
-        <nav className="flex items-center gap-4" aria-label="Social media links">
-          <Link href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <Linkedin className="h-6 w-6 text-muted-foreground transition-colors hover:text-foreground" />
-          </Link>
-          <Link href={socialLinks.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-            <Github className="h-6 w-6 text-muted-foreground transition-colors hover:text-foreground" />
-          </Link>
-          <Link href={socialLinks.kaggle} target="_blank" rel="noopener noreferrer" aria-label="Kaggle">
-            <div className="text-muted-foreground transition-colors hover:text-foreground">
-              <KaggleIcon />
-            </div>
-          </Link>
-          <Link href={socialLinks.x} target="_blank" rel="noopener noreferrer" aria-label="X">
-            <div className="text-muted-foreground transition-colors hover:text-foreground">
-              <XIcon />
-            </div>
-          </Link>
-          <Link href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <div className="text-muted-foreground transition-colors hover:text-foreground">
-              <InstagramIcon />
-            </div>
-          </Link>
-          <ObfuscatedEmail user={socialLinks.emailUser} domain={socialLinks.emailDomain}>
-            <Mail className="h-6 w-6 text-muted-foreground transition-colors hover:text-foreground" />
-          </ObfuscatedEmail>
+      <div className="container mx-auto px-6 sm:px-8 flex flex-col items-center gap-6">
+        <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm" aria-label="Footer navigation">
+          <Link href="/" className="text-muted-foreground hover:text-primary transition-colors">Home</Link>
+          <Link href="/amit-divekar" className="text-muted-foreground hover:text-primary transition-colors">About Amit Divekar</Link>
+          <Link href="/blogs" className="text-muted-foreground hover:text-primary transition-colors">Blog</Link>
+          <Link href="/cv" className="text-muted-foreground hover:text-primary transition-colors">Resume</Link>
+          <Link href="/#projects" className="text-muted-foreground hover:text-primary transition-colors">Projects</Link>
+          <Link href="/#contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</Link>
         </nav>
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 w-full">
+          <p className="text-sm text-muted-foreground">
+            &copy; {new Date().getFullYear()} Amit Divekar. All rights reserved.
+          </p>
+          <nav className="flex items-center gap-4" aria-label="Social media links">
+            <Link href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <Linkedin className="h-6 w-6 text-muted-foreground transition-colors hover:text-foreground" />
+            </Link>
+            <Link href={socialLinks.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <Github className="h-6 w-6 text-muted-foreground transition-colors hover:text-foreground" />
+            </Link>
+            <Link href={socialLinks.kaggle} target="_blank" rel="noopener noreferrer" aria-label="Kaggle">
+              <div className="text-muted-foreground transition-colors hover:text-foreground">
+                <KaggleIcon />
+              </div>
+            </Link>
+            <Link href={socialLinks.x} target="_blank" rel="noopener noreferrer" aria-label="X">
+              <div className="text-muted-foreground transition-colors hover:text-foreground">
+                <XIcon />
+              </div>
+            </Link>
+            <Link href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <div className="text-muted-foreground transition-colors hover:text-foreground">
+                <InstagramIcon />
+              </div>
+            </Link>
+            <ObfuscatedEmail user={socialLinks.emailUser} domain={socialLinks.emailDomain}>
+              <Mail className="h-6 w-6 text-muted-foreground transition-colors hover:text-foreground" />
+            </ObfuscatedEmail>
+          </nav>
+        </div>
       </div>
     </footer>
   );

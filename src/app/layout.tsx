@@ -40,6 +40,10 @@ const personJsonLd = {
   image: `${siteUrl}/og-image.png`,
   jobTitle: heroData.title,
   description: heroData.bio,
+  nationality: {
+    '@type': 'Country',
+    name: 'India',
+  },
   alumniOf: {
     '@type': 'CollegeOrUniversity',
     name: aboutData.education.institution,
@@ -55,13 +59,14 @@ const personJsonLd = {
     '@type': 'PostalAddress',
     addressLocality: 'Pune',
     addressRegion: 'Maharashtra',
-    addressCountry: 'India'
+    addressCountry: 'IN'
   },
   sameAs: [
     'https://www.linkedin.com/in/divekar-amit',
     'https://github.com/amitdevx',
     'https://www.kaggle.com/divekaramit',
     'https://x.com/amitdevx_',
+    'https://instagram.com/amitdevx',
   ],
 };
 
@@ -90,6 +95,7 @@ const organizationJsonLd = {
     'https://github.com/amitdevx',
     'https://www.kaggle.com/divekaramit',
     'https://x.com/amitdevx_',
+    'https://instagram.com/amitdevx',
   ],
   founder: {
     '@type': 'Person',
@@ -110,12 +116,18 @@ const breadcrumbListJsonLd = {
     {
       '@type': 'ListItem',
       position: 2,
+      name: 'About Amit Divekar',
+      item: `${siteUrl}/amit-divekar`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
       name: 'Blogs',
       item: `${siteUrl}/blogs`,
     },
     {
       '@type': 'ListItem',
-      position: 3,
+      position: 4,
       name: 'CV',
       item: `${siteUrl}/cv`,
     },
@@ -139,11 +151,11 @@ const softwareProjectsJsonLd = projectsData.map((project) => ({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Amit Divekar | Cloud Architect & Full-Stack Engineer',
-    template: 'Amit Divekar | %s',
+    default: 'Amit Divekar | Cloud Architect & Full-Stack Engineer from India – Official Website',
+    template: '%s | Amit Divekar',
   },
   description:
-    'Cloud Architect and Full-Stack Engineer specializing in scalable AWS/GCP architectures, Kubernetes orchestration, and AI-integrated Next.js ecosystems. Code that ships, systems that scale.',
+    'Amit Divekar is a Cloud Architect and Full-Stack Engineer from India specializing in scalable AWS/GCP architectures, Kubernetes orchestration, and AI-integrated Next.js ecosystems. Official portfolio and blog.',
   applicationName: 'Amit Divekar Portfolio',
   generator: 'Next.js',
   keywords: [
@@ -225,7 +237,7 @@ export const metadata: Metadata = {
         url: `${siteUrl}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: 'Amit Divekar - Software Engineer Portfolio',
+        alt: 'Amit Divekar Cloud Architect Full-Stack Engineer from India',
         type: 'image/png',
       },
     ],
