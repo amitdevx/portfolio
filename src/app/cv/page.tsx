@@ -30,22 +30,22 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'profile',
     url: `${siteUrl}/cv`,
-    title: 'Amit Divekar - CV',
+    title: `${heroData.name} - CV`,
     description:
       'Cloud Architect and Full-Stack Engineer specializing in AWS/GCP infrastructure, container orchestration, and AI-powered developer tooling.',
-    siteName: 'Amit Divekar',
+    siteName: heroData.name,
     images: [
       {
         url: `${siteUrl}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: 'Amit Divekar - Software Engineer',
+        alt: `${heroData.name} - Software Engineer`,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Amit Divekar - CV',
+    title: `${heroData.name} - CV`,
     description:
       'Cloud Architect and Full-Stack Engineer specializing in AWS/GCP infrastructure, container orchestration, and AI-powered developer tooling.',
     images: [`${siteUrl}/og-image.png`],
@@ -57,9 +57,9 @@ export const metadata: Metadata = {
 const personStructuredData = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  name: 'Amit Divekar',
+  name: heroData.name,
   url: siteUrl,
-  jobTitle: 'Cloud Architect & Full-Stack Engineer',
+  jobTitle: heroData.title,
   description: 'Cloud Architect and Full-Stack Engineer specializing in AWS/GCP infrastructure, container orchestration, and AI-powered developer tooling.',
   sameAs: [
     socialLinks.github,

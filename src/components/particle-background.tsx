@@ -19,8 +19,7 @@ const ParticleBackground = memo(() => {
     const isLowEndDevice = navigator.hardwareConcurrency <= 2;
     const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
-    // Disable on low-end mobile or if user prefers reduced motion
-    if (isLowEndDevice && isMobile) {
+    if (isReducedMotion) {
       return;
     }
 
@@ -53,7 +52,7 @@ const ParticleBackground = memo(() => {
     rendererRef.current = renderer;
 
     // ─── Low-Poly Topography Grid ───────────────────────
-    const gridSize = isMobile ? 30 : isTablet ? 45 : 60;
+    const gridSize = isMobile || isLowEndDevice ? 20 : isTablet ? 35 : 50;
     const gridSpacing = 0.35;
     const geometry = new THREE.PlaneGeometry(
       gridSize * gridSpacing,
@@ -94,7 +93,7 @@ const ParticleBackground = memo(() => {
     scene.add(terrain);
 
     // Floating particles above the grid
-    const particleCount = isMobile ? 200 : isTablet ? 500 : 1500;
+    const particleCount = isMobile || isLowEndDevice ? 100 : isTablet ? 300 : 800;
     const particleGeo = new THREE.BufferGeometry();
     const particlePositions = new Float32Array(particleCount * 3);
 
@@ -163,6 +162,9 @@ const ParticleBackground = memo(() => {
       
       if (!isReducedMotion) {
         for (let i = 0; i < originalPositions.length; i += 3) {
+          // On mobile or low-end, update less frequently or use simpler math
+          if ((isMobile || isLowEndDevice) && i % 6 !== 0) continue;
+          
           const x = originalPositions[i];
           const z = originalPositions[i + 2];
           const originalY = originalPositions[i + 1];
