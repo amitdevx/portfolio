@@ -63,7 +63,6 @@ const personJsonLd = {
     'https://www.kaggle.com/divekaramit',
     'https://x.com/amitdevx_',
   ],
-  email: 'amitdivekar289@gmail.com',
 };
 
 const websiteJsonLd = {

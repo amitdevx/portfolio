@@ -268,5 +268,6 @@ export const socialLinks = {
   kaggle: "https://www.kaggle.com/divekaramit",
   x: "https://x.com/amitdevx_",
   instagram: "https://instagram.com/amitdevx",
-  email: "Amitdivekar289@gmail.com"
+  emailUser: "Amitdivekar289",
+  emailDomain: "gmail.com"
 };

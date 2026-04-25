@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import { socialLinks } from '@/data/portfolio-data';
+import ObfuscatedEmail from '@/components/obfuscated-email';
 
 const XIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
@@ -49,9 +50,9 @@ export default function Footer() {
               <InstagramIcon />
             </div>
           </Link>
-          <Link href={`mailto:${socialLinks.email}`} aria-label="Email">
+          <ObfuscatedEmail user={socialLinks.emailUser} domain={socialLinks.emailDomain}>
             <Mail className="h-6 w-6 text-muted-foreground transition-colors hover:text-foreground" />
-          </Link>
+          </ObfuscatedEmail>
         </nav>
       </div>
     </footer>

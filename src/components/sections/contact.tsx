@@ -3,6 +3,7 @@ import { socialLinks } from '@/data/portfolio-data';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import Link from 'next/link';
 import MailtoForm from './mailto-form';
+import ObfuscatedEmail from '@/components/obfuscated-email';
 
 const XIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16" className="text-primary">
@@ -40,7 +41,7 @@ export default function Contact() {
                     <CardDescription>This will open your default email client.</CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <MailtoForm email={socialLinks.email} />
+                    <MailtoForm user={socialLinks.emailUser} domain={socialLinks.emailDomain} />
                 </CardContent>
             </Card>
           </div>
@@ -69,10 +70,10 @@ export default function Contact() {
                     <InstagramIcon />
                     <span className="text-muted-foreground group-hover:text-foreground transition-colors">amitdevx</span>
                 </Link>
-                <a href={`mailto:${socialLinks.email}`} className="flex items-center gap-4 group">
+                <ObfuscatedEmail user={socialLinks.emailUser} domain={socialLinks.emailDomain} className="flex items-center gap-4 group">
                     <Mail className="h-6 w-6 text-primary" />
-                    <span className="text-muted-foreground group-hover:text-foreground transition-colors">{socialLinks.email}</span>
-                </a>
+                    <span className="text-muted-foreground group-hover:text-foreground transition-colors">{socialLinks.emailUser}@{socialLinks.emailDomain}</span>
+                </ObfuscatedEmail>
             </CardContent>
           </Card>
         </div>

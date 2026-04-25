@@ -8,16 +8,17 @@ import { Label } from '@/components/ui/label';
 import { ArrowRight } from 'lucide-react';
 
 interface MailtoFormProps {
-  email: string;
+  user: string;
+  domain: string;
 }
 
-export default function MailtoForm({ email }: MailtoFormProps) {
+export default function MailtoForm({ user, domain }: MailtoFormProps) {
   const [subject, setSubject] = useState('');
   const [body, setBody] = useState('');
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoLink = `mailto:${user}@${domain}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
   };
 

@@ -12,6 +12,7 @@ import {
   skillsData,
   socialLinks,
 } from '@/data/portfolio-data';
+import ObfuscatedEmail from '@/components/obfuscated-email';
 
 const siteUrl = 'https://amitdevx.tech';
 
@@ -65,16 +66,15 @@ const personStructuredData = {
     socialLinks.linkedin,
     socialLinks.x,
   ],
-  email: socialLinks.email,
 };
 
 const contactLinks = [
   { href: siteUrl, label: 'Website', icon: Globe },
-  { href: `mailto:${socialLinks.email}`, label: 'Email', icon: Mail },
+  { isEmail: true, label: 'Email', icon: Mail },
   { href: socialLinks.github, label: 'GitHub', icon: Github },
   { href: socialLinks.linkedin, label: 'LinkedIn', icon: Linkedin },
   { href: socialLinks.x, label: 'X', icon: Twitter },
-].filter((link) => Boolean(link.href));
+].filter((link) => Boolean(link.href) || link.isEmail);
 
 const spotlightProjects = projectsData.filter(p => p.title !== "2FA Password Protector").slice(0, 3);
 const primarySkills = skillsData.technical;
@@ -132,10 +132,17 @@ export default function CvPage() {
                   size="sm"
                   className="gap-2 border-border/70 bg-background/80 text-foreground hover:bg-primary/10 print:border-foreground"
                 >
-                  <Link href={link.href} target="_blank" rel="noopener noreferrer">
-                    <link.icon className="h-4 w-4" />
-                    {link.label}
-                  </Link>
+                  {link.isEmail ? (
+                    <ObfuscatedEmail user={socialLinks.emailUser} domain={socialLinks.emailDomain}>
+                      <link.icon className="h-4 w-4" />
+                      {link.label}
+                    </ObfuscatedEmail>
+                  ) : (
+                    <Link href={link.href!} target="_blank" rel="noopener noreferrer">
+                      <link.icon className="h-4 w-4" />
+                      {link.label}
+                    </Link>
+                  )}
                 </Button>
               ))}
             </div>
