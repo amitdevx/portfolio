@@ -118,14 +118,15 @@ const ParticleBackground = memo(() => {
     scene.add(particles);
 
     // Mouse interaction
-    const mouse = new THREE.Vector2(0, 0);
+    const targetMouse = new THREE.Vector2(0, 0);
+    const currentMouse = new THREE.Vector2(0, 0);
     let scrollVelocity = 0;
     let lastScrollY = window.scrollY;
 
     const onMouseMove = (event: MouseEvent) => {
       if (isReducedMotion) return;
-      mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-      mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+      targetMouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+      targetMouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
     };
 
     const onScroll = () => {
@@ -157,40 +158,50 @@ const ParticleBackground = memo(() => {
       lastFrameTime = now;
       const elapsedTime = clock.getElapsedTime();
 
+      // Smooth mouse interpolation (physics-like easing)
+      if (!isMobile && !isReducedMotion) {
+        currentMouse.x += (targetMouse.x - currentMouse.x) * 0.05;
+        currentMouse.y += (targetMouse.y - currentMouse.y) * 0.05;
+      }
+
       // Animate terrain vertices
       const terrainPositions = terrain.geometry.attributes.position.array as Float32Array;
       
       if (!isReducedMotion) {
         for (let i = 0; i < originalPositions.length; i += 3) {
-          // On mobile or low-end, update less frequently or use simpler math
-          if ((isMobile || isLowEndDevice) && i % 6 !== 0) continue;
-          
           const x = originalPositions[i];
           const z = originalPositions[i + 2];
           const originalY = originalPositions[i + 1];
           
-          // Subtle wave animation
-          const wave = Math.sin(x * 0.5 + elapsedTime * 0.3) * 
-                       Math.cos(z * 0.5 + elapsedTime * 0.2) * 0.08;
+          // Fluid wave animation (more natural physics)
+          const wave = Math.sin(x * 0.4 + elapsedTime * 0.3) * 
+                       Math.cos(z * 0.4 + elapsedTime * 0.2) * 0.12;
           
           // Scroll-reactive displacement
-          const scrollDisplace = scrollVelocity * Math.sin(x * 0.3) * 0.5;
+          const scrollDisplace = scrollVelocity * Math.sin(x * 0.3) * 0.8;
           
           terrainPositions[i + 1] = originalY + wave + scrollDisplace;
         }
         terrain.geometry.attributes.position.needsUpdate = true;
       }
 
-      // Rotate particles
-      particles.rotation.y = elapsedTime * 0.03;
+      // Particle physics & alignment with mouse
+      particles.rotation.y = elapsedTime * 0.02 + currentMouse.x * 0.15;
+      particles.rotation.x = -currentMouse.y * 0.1;
       
+      // Terrain tilt alignment
+      if (!isMobile && !isReducedMotion) {
+        terrain.rotation.y = currentMouse.x * 0.05;
+        terrain.rotation.z = -currentMouse.y * 0.05;
+      }
+
       // Dampen scroll velocity
       scrollVelocity *= 0.95;
 
-      // Subtle camera movement based on mouse
+      // Smooth camera movement based on mouse
       if (!isMobile && !isReducedMotion) {
-        camera.position.x += (mouse.x * 0.5 - camera.position.x) * 0.02;
-        camera.position.y += (3 + mouse.y * 0.3 - camera.position.y) * 0.02;
+        camera.position.x += (currentMouse.x * 1.2 - camera.position.x) * 0.04;
+        camera.position.y += (3 + currentMouse.y * 0.6 - camera.position.y) * 0.04;
         camera.lookAt(0, 0, 0);
       }
 

@@ -25,11 +25,11 @@ export default function Header() {
   return (
     <motion.header 
       variants={{
-        visible: { y: 0 },
-        hidden: { y: "-100%" },
+        visible: { y: 0, opacity: 1 },
+        hidden: { y: "-100%", opacity: 0 },
       }}
       animate={hidden ? "hidden" : "visible"}
-      transition={{ duration: 0.35, ease: "easeInOut" }}
+      transition={{ type: "spring", stiffness: 300, damping: 25, mass: 0.8 }}
       className="sticky top-0 z-[100] w-full border-b border-border/40 bg-background/80 backdrop-blur-lg" 
       suppressHydrationWarning
     >

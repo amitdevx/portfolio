@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState, useRef, useCallback } from 'react';
-import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
+import { motion, useScroll, useSpring } from 'framer-motion';
 
 interface TOCItem {
   id: string;
@@ -10,27 +10,20 @@ interface TOCItem {
 }
 
 export function ReadingProgressBar() {
-  const [progress, setProgress] = useState(0);
-  const { scrollY } = useScroll();
-  // Progress bar now stays fixed at the absolute top, no need for hide/show logic
-
-  useEffect(() => {
-    const updateProgress = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      setProgress(Math.min(scrollPercent, 100));
-    };
-
-    window.addEventListener('scroll', updateProgress, { passive: true });
-    return () => window.removeEventListener('scroll', updateProgress);
-  }, []);
+  const { scrollYProgress } = useScroll();
+  
+  // Smooth out the progress with a spring physics animation
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
 
   return (
     <div className="fixed top-0 left-0 w-full h-1 bg-border/20 z-[110]">
-      <div
-        className="h-full bg-gradient-to-r from-primary via-purple-500 to-secondary transition-all duration-150 ease-out"
-        style={{ width: `${progress}%` }}
+      <motion.div
+        className="h-full bg-gradient-to-r from-primary via-purple-500 to-secondary origin-left"
+        style={{ scaleX }}
       />
     </div>
   );

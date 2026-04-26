@@ -20,8 +20,8 @@ export function FadeInUp({
 }: { children: ReactNode; delay?: number; className?: string } & Omit<HTMLMotionProps<'div'>, 'children' | 'className'>) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 30, scale: 0.98, filter: 'blur(5px)' }}
+      whileInView={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ ...springPresets.gentle, delay }}
       className={className}
@@ -59,10 +59,12 @@ export function StaggerContainer({
 }
 
 export const staggerChildVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 20, scale: 0.98, filter: 'blur(4px)' },
   visible: { 
     opacity: 1, 
     y: 0, 
+    scale: 1,
+    filter: 'blur(0px)',
     transition: springPresets.gentle 
   },
 };
@@ -113,8 +115,8 @@ export function SectionReveal({
 }: { children: ReactNode; className?: string; delay?: number }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 40, scale: 0.95, filter: 'blur(8px)' }}
+      whileInView={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
       viewport={{ once: true, margin: '-80px' }}
       transition={{ ...springPresets.slow, delay }}
       className={className}
@@ -150,8 +152,8 @@ export function TextReveal({
 }: { children: ReactNode; className?: string; delay?: number }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20, filter: 'blur(8px)' }}
-      whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+      initial={{ opacity: 0, y: 20, filter: 'blur(8px)', scale: 0.98 }}
+      whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay, ease: [0.25, 0.1, 0.25, 1] }}
       className={className}
