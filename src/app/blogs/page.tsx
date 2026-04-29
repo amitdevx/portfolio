@@ -65,15 +65,15 @@ export default function BlogPage() {
       <ParticleBackground />
       <Header />
       <main role="main">
-      <section className="min-h-screen pt-32 pb-12 px-6 sm:px-8 flex flex-col items-center w-full" aria-labelledby="blogs-heading">
+      <section className="min-h-screen pt-28 pb-12 px-4 sm:px-6 flex flex-col items-center w-full overflow-x-hidden" aria-labelledby="blogs-heading">
         <div className="w-full max-w-[1600px] mx-auto space-y-12">
         
         {/* Header - Matches your Projects Section */}
         <div className="text-center space-y-4">
-          <h1 id="blogs-heading" className="font-headline text-4xl md:text-5xl font-bold">
+          <h1 id="blogs-heading" className="font-headline text-3xl sm:text-4xl md:text-5xl font-bold">
             Tech Blogs & Tutorials
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             Deep dives into code, bugs I've fixed, and systems I've built. Real-world solutions and technical insights.
           </p>
         </div>
@@ -93,10 +93,10 @@ export default function BlogPage() {
                     <Calendar className="w-3 h-3" /> {post.date}
                   </Badge>
                 </div>
-                <CardTitle className="font-headline text-2xl group-hover:text-primary transition-colors">
+                <CardTitle className="font-headline text-lg sm:text-xl group-hover:text-primary transition-colors leading-snug">
                   {post.title}
                 </CardTitle>
-                <CardDescription className="line-clamp-2 mt-2 text-base">
+                <CardDescription className="line-clamp-3 mt-2 text-sm">
                   {post.description}
                 </CardDescription>
               </CardHeader>

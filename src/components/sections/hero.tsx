@@ -19,7 +19,7 @@ export default function Hero() {
         </TextReveal>
 
         <TextReveal delay={0.1}>
-          <h1 className="font-headline text-5xl md:text-7xl font-bold tracking-tight">
+          <h1 className="font-headline text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
             <span className="text-foreground">Amit </span>
             <span className="text-secondary">Divekar</span>
           </h1>
@@ -32,13 +32,13 @@ export default function Hero() {
         </TextReveal>
 
         <TextReveal delay={0.3}>
-          <p className="w-full max-w-3xl text-lg text-foreground/60 leading-relaxed italic">
+          <p className="w-full max-w-3xl text-base sm:text-lg text-foreground/60 leading-relaxed italic">
             {heroData.tagline}
           </p>
         </TextReveal>
 
         <TextReveal delay={0.4}>
-          <p className="w-full max-w-3xl text-lg text-foreground/80 leading-relaxed">
+          <p className="w-full max-w-3xl text-base sm:text-lg text-foreground/80 leading-relaxed">
             {heroData.bio}
           </p>
         </TextReveal>

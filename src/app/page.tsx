@@ -25,8 +25,8 @@ export default function Home() {
     <div className="relative w-full min-h-screen overflow-x-clip">
       <ParticleBackground />
       <Header />
-      <main id="main-content" className="container mx-auto px-6 sm:px-8" role="main">
-        <article className="flex flex-col gap-24 sm:gap-32 md:gap-48">
+      <main id="main-content" className="container mx-auto px-4 sm:px-6 lg:px-8" role="main">
+        <article className="flex flex-col gap-20 sm:gap-28 md:gap-40">
           <Hero />
           <About />
           <Experience />

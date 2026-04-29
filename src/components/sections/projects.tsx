@@ -14,7 +14,7 @@ export default function Projects() {
       <div className="w-full space-y-12">
         <SectionReveal>
           <div className="text-center">
-            <h2 id="projects-heading" className="font-headline text-4xl md:text-5xl font-bold">Software Engineering Projects & Portfolio</h2>
+            <h2 id="projects-heading" className="font-headline text-3xl sm:text-4xl md:text-5xl font-bold break-words">Software Engineering Projects & Portfolio</h2>
             <p className="text-lg text-muted-foreground mt-2">
               Full-Stack development projects featuring React, Next.js, TypeScript, and Cloud technologies.
             </p>

@@ -70,6 +70,7 @@ html {
     font-family: var(--font-inter, system-ui, -apple-system, 'Segoe UI', sans-serif);
     -webkit-font-smoothing: antialiased;
     min-height: 100vh;
+    overflow-x: hidden;
   }
   
   * {

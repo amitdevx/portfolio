@@ -139,14 +139,14 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       />
       <Header />
       <ReadingProgressBar />
-      <article className="min-h-screen pt-32 pb-20 px-4">
+      <article className="min-h-screen pt-28 pb-20 px-4 sm:px-6 overflow-x-hidden">
         <div className="container mx-auto max-w-6xl">
-          <div className="flex gap-12">
+          <div className="flex flex-col xl:flex-row gap-8 xl:gap-12">
             <aside className="hidden xl:block w-64 shrink-0">
               <TableOfContents content={post.content} />
             </aside>
 
-            <div className="flex-1 max-w-3xl">
+            <div className="flex-1 min-w-0 w-full xl:max-w-3xl">
         
               <Button asChild variant="ghost" className="mb-8 hover:bg-transparent hover:text-primary -ml-4">
                 <Link href="/blogs">
@@ -161,7 +161,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                   ))}
                 </div>
                 
-                <h1 className="font-headline text-4xl md:text-5xl font-bold leading-tight">
+                <h1 className="font-headline text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight break-words">
                   {post.title}
                 </h1>
                 
@@ -180,14 +180,16 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 </div>
               </header>
               
-              <div className="prose prose-lg prose-invert max-w-none 
-                prose-headings:font-headline prose-headings:font-bold prose-headings:text-foreground
+              <div className="prose prose-sm sm:prose-base lg:prose-lg prose-invert max-w-none overflow-x-hidden
+                prose-headings:font-headline prose-headings:font-bold prose-headings:text-foreground prose-headings:break-words
                 prose-p:text-muted-foreground prose-p:leading-relaxed
-                prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+                prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-a:break-words
                 prose-strong:text-foreground
                 prose-code:text-primary prose-code:bg-secondary/20 prose-code:px-1 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
-                prose-pre:bg-card prose-pre:border prose-pre:border-border/50
+                prose-pre:bg-card prose-pre:border prose-pre:border-border/50 prose-pre:overflow-x-auto
                 prose-li:text-muted-foreground
+                prose-table:overflow-x-auto prose-table:block
+                prose-img:w-full prose-img:h-auto
               ">
                 <ReactMarkdown 
                   remarkPlugins={[remarkGfm]}
@@ -226,7 +228,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                       }
 
                       return match ? (
-                        <div className="relative group">
+                        <div className="relative group overflow-x-auto">
                           <CopyButton text={codeString} />
                           <div className="text-xs text-muted-foreground/50 absolute top-2 left-3 font-mono">{match[1]}</div>
                           <SyntaxHighlighter
@@ -234,7 +236,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                             children={codeString}
                             language={match[1]}
                             style={dracula}
-                            className="rounded-lg !bg-[#1e1e2e] !p-4 !pt-8 border border-white/10 shadow-lg !my-6 text-sm md:text-base"
+                            className="rounded-lg !bg-[#1e1e2e] !p-4 !pt-8 border border-white/10 shadow-lg !my-6 !text-xs sm:!text-sm"
                           />
                         </div>
                       ) : (

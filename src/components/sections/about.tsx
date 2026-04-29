@@ -42,7 +42,7 @@ export default function About() {
             </div>
             
             <div className="text-center md:text-left">
-              <h2 id="about-heading" className="font-headline text-4xl md:text-5xl font-bold">About — {heroData.title}</h2>
+              <h2 id="about-heading" className="font-headline text-3xl sm:text-4xl md:text-5xl font-bold break-words">About — {heroData.title}</h2>
               <p className="text-lg text-muted-foreground mt-2 max-w-4xl">
                 {aboutData.bio}
               </p>

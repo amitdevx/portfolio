@@ -153,7 +153,7 @@ export default function AmitDivekarPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <Header />
-      <main id="main-content" className="min-h-screen pt-32 pb-20 px-4">
+      <main id="main-content" className="min-h-screen pt-28 pb-20 px-4 sm:px-6 overflow-x-hidden">
         <div className="container mx-auto max-w-4xl">
 
           {/* Identity Header */}
@@ -161,10 +161,10 @@ export default function AmitDivekarPage() {
             <p className="text-xs sm:text-sm font-mono tracking-widest uppercase text-primary/70">
               Official Profile
             </p>
-            <h1 className="font-headline text-4xl md:text-6xl font-bold tracking-tight">
+            <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight break-words">
               Who is <span className="text-secondary">Amit Divekar</span>?
             </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
               {heroData.title} from India — building AI-powered systems, production-grade cloud infrastructure, and open-source developer tools.
             </p>
           </header>
