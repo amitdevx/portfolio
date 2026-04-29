@@ -18,7 +18,7 @@ const ParticleBackground = memo(() => {
     const isTablet = window.innerWidth < 1024;
     const isLowEndDevice = navigator.hardwareConcurrency <= 2;
     const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    
+
     if (isReducedMotion) {
       return;
     }
@@ -44,7 +44,7 @@ const ParticleBackground = memo(() => {
       stencil: false,
       precision: isMobile ? 'lowp' : 'mediump',
     });
-    
+
     renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
     renderer.setPixelRatio(isMobile ? 1 : Math.min(window.devicePixelRatio, 2));
     renderer.sortObjects = false;
@@ -65,18 +65,18 @@ const ParticleBackground = memo(() => {
     // Displace vertices to create terrain
     const positions = geometry.attributes.position.array as Float32Array;
     const originalPositions = new Float32Array(positions.length);
-    
+
     for (let i = 0; i < positions.length; i += 3) {
       const x = positions[i];
       const z = positions[i + 2];
       // Smooth rolling hills with layered noise
-      const height = 
+      const height =
         Math.sin(x * 0.3) * Math.cos(z * 0.3) * 0.5 +
         Math.sin(x * 0.7 + 1) * Math.cos(z * 0.5 + 2) * 0.3 +
         Math.sin(x * 1.5 + 3) * Math.cos(z * 1.2 + 1) * 0.15;
       positions[i + 1] = height;
     }
-    
+
     originalPositions.set(positions);
     geometry.computeVertexNormals();
 
@@ -92,7 +92,7 @@ const ParticleBackground = memo(() => {
     terrain.position.y = -1.5;
     scene.add(terrain);
 
-    // Floating particles above the grid
+    // Floating particless
     const particleCount = isMobile || isLowEndDevice ? 100 : isTablet ? 300 : 800;
     const particleGeo = new THREE.BufferGeometry();
     const particlePositions = new Float32Array(particleCount * 3);
@@ -166,20 +166,20 @@ const ParticleBackground = memo(() => {
 
       // Animate terrain vertices
       const terrainPositions = terrain.geometry.attributes.position.array as Float32Array;
-      
+
       if (!isReducedMotion) {
         for (let i = 0; i < originalPositions.length; i += 3) {
           const x = originalPositions[i];
           const z = originalPositions[i + 2];
           const originalY = originalPositions[i + 1];
-          
+
           // Fluid wave animation (more natural physics)
-          const wave = Math.sin(x * 0.4 + elapsedTime * 0.3) * 
-                       Math.cos(z * 0.4 + elapsedTime * 0.2) * 0.12;
-          
+          const wave = Math.sin(x * 0.4 + elapsedTime * 0.3) *
+            Math.cos(z * 0.4 + elapsedTime * 0.2) * 0.12;
+
           // Scroll-reactive displacement
           const scrollDisplace = scrollVelocity * Math.sin(x * 0.3) * 0.8;
-          
+
           terrainPositions[i + 1] = originalY + wave + scrollDisplace;
         }
         terrain.geometry.attributes.position.needsUpdate = true;
@@ -188,7 +188,7 @@ const ParticleBackground = memo(() => {
       // Particle physics & alignment with mouse
       particles.rotation.y = elapsedTime * 0.02 + currentMouse.x * 0.15;
       particles.rotation.x = -currentMouse.y * 0.1;
-      
+
       // Terrain tilt alignment
       if (!isMobile && !isReducedMotion) {
         terrain.rotation.y = currentMouse.x * 0.05;
