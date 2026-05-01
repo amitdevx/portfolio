@@ -3,6 +3,7 @@
 import { skillsData } from '@/data/portfolio-data';
 import { SectionReveal, StaggerContainer, staggerChildVariants, motion } from '@/components/motion';
 import { Cloud, BrainCircuit, Palette, ServerCog, Wrench } from 'lucide-react';
+import Image from 'next/image';
 
 const IconMap: Record<string, React.ElementType> = {
   Cloud,
@@ -46,13 +47,13 @@ export default function Skills() {
                     key={skill.name}
                     className="flex flex-col items-center gap-2 p-3 rounded-lg bg-background/30 border border-border/20 transition-all duration-200 hover:border-primary/40 hover:bg-primary/5 group"
                   >
-                    <img
+                    <Image
                       src={skill.icon}
                       alt={skill.name}
                       width={32}
                       height={32}
                       className="w-8 h-8 transition-transform duration-200 group-hover:scale-110"
-                      loading="lazy"
+                      unoptimized
                     />
                     <span className="text-xs text-muted-foreground text-center leading-tight">{skill.name}</span>
                   </div>

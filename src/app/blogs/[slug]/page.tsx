@@ -211,7 +211,6 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                             alt={props.alt || "Blog Image"}
                             width={1920}
                             height={1080}
-                            unoptimized
                             className="w-full h-auto"
                           />
                         </span>

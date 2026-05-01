@@ -25,6 +25,7 @@ export function FadeInUp({
       viewport={{ once: true, margin: '-50px' }}
       transition={{ ...springPresets.gentle, delay }}
       className={className}
+      data-animated="true"
       {...props}
     >
       {children}
@@ -52,6 +53,7 @@ export function StaggerContainer({
         },
       }}
       className={className}
+      data-animated="true"
     >
       {children}
     </motion.div>
@@ -120,6 +122,7 @@ export function SectionReveal({
       viewport={{ once: true, margin: '-80px' }}
       transition={{ ...springPresets.slow, delay }}
       className={className}
+      data-animated="true"
     >
       {children}
     </motion.div>
@@ -157,6 +160,7 @@ export function TextReveal({
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay, ease: [0.25, 0.1, 0.25, 1] }}
       className={className}
+      data-animated="true"
     >
       {children}
     </motion.div>

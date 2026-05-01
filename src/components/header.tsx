@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetTrigger } from './ui/sheet';
@@ -35,7 +36,7 @@ export default function Header() {
     >
       <div className="container flex h-16 items-center justify-between px-6 sm:px-8">
         <Link href="/" className="flex items-center gap-2">
-          <img src="/favicon.svg" alt="AD" width="32" height="32" />
+          <Image src="/favicon.svg" alt="AD" width={32} height={32} />
           <span className="sr-only">Amit Divekar</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
@@ -68,7 +69,7 @@ export default function Header() {
                   <div className="flex items-center gap-2 border-b pb-4">
                        <Link href="/" className="flex items-center gap-2" onClick={() => setIsSheetOpen(false)}>
 
-                          <img src="/favicon.svg" alt="AD" width="28" height="28" />
+                          <Image src="/favicon.svg" alt="AD" width={28} height={28} />
                            <span className="font-headline text-xl font-bold text-primary">Amit Divekar</span>
                       </Link>
                   </div>
