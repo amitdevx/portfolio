@@ -117,16 +117,18 @@ const ParticleBackground = memo(() => {
     const particles = new THREE.Points(particleGeo, particleMat);
     scene.add(particles);
 
-    let scrollVelocity = 0;
-    let lastScrollY = window.scrollY;
+    const targetMouse = new THREE.Vector2(0, 0);
+    const currentMouse = new THREE.Vector2(0, 0);
 
-    const onScroll = () => {
-      const currentScrollY = window.scrollY;
-      scrollVelocity = (currentScrollY - lastScrollY) * 0.001;
-      lastScrollY = currentScrollY;
+    const onMouseMove = (event: MouseEvent) => {
+      if (isReducedMotion) return;
+      targetMouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+      targetMouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
     };
 
-    window.addEventListener('scroll', onScroll, { passive: true });
+    if (!isMobile && !isReducedMotion) {
+      window.addEventListener('mousemove', onMouseMove, { passive: true });
+    }
 
     // Animation loop
     const clock = new THREE.Clock();
@@ -146,7 +148,11 @@ const ParticleBackground = memo(() => {
       lastFrameTime = now;
       const elapsedTime = clock.getElapsedTime();
 
-
+      // Smooth mouse interpolation for particles
+      if (!isMobile && !isReducedMotion) {
+        currentMouse.x += (targetMouse.x - currentMouse.x) * 0.05;
+        currentMouse.y += (targetMouse.y - currentMouse.y) * 0.05;
+      }
 
       // Animate terrain vertices
       const terrainPositions = terrain.geometry.attributes.position.array as Float32Array;
@@ -161,19 +167,14 @@ const ParticleBackground = memo(() => {
           const wave = Math.sin(x * 0.4 + elapsedTime * 0.3) *
             Math.cos(z * 0.4 + elapsedTime * 0.2) * 0.12;
 
-          // Scroll-reactive displacement
-          const scrollDisplace = scrollVelocity * Math.sin(x * 0.3) * 0.8;
-
-          terrainPositions[i + 1] = originalY + wave + scrollDisplace;
+          terrainPositions[i + 1] = originalY + wave;
         }
         terrain.geometry.attributes.position.needsUpdate = true;
       }
 
       // Particle physics & alignment
-      particles.rotation.y = elapsedTime * 0.02;
-
-      // Dampen scroll velocity
-      scrollVelocity *= 0.95;
+      particles.rotation.y = elapsedTime * 0.02 + currentMouse.x * 0.15;
+      particles.rotation.x = -currentMouse.y * 0.1;
 
 
 
@@ -199,7 +200,9 @@ const ParticleBackground = memo(() => {
     return () => {
       clearTimeout(resizeTimeout);
       window.removeEventListener('resize', onResize);
-      window.removeEventListener('scroll', onScroll);
+      if (!isMobile && !isReducedMotion) {
+        window.removeEventListener('mousemove', onMouseMove);
+      }
 
       if (animationIdRef.current) {
         cancelAnimationFrame(animationIdRef.current);

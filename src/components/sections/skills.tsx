@@ -53,7 +53,6 @@ export default function Skills() {
                       width={32}
                       height={32}
                       className="w-8 h-8 transition-transform duration-200 group-hover:scale-110"
-                      unoptimized
                     />
                     <span className="text-xs text-muted-foreground text-center leading-tight">{skill.name}</span>
                   </div>

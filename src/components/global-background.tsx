@@ -8,9 +8,8 @@ const ParticleBackground = dynamic(() => import('@/components/particle-backgroun
 export default function GlobalBackground() {
   const pathname = usePathname();
 
-  // The 3D background is heavy on scrolling and battery. 
-  // Disable it on blog pages where reading and smooth scrolling are critical.
-  if (pathname?.startsWith('/blogs')) {
+  // Disable it on blog post pages (/blogs/[slug]) where reading and smooth scrolling are critical.
+  if (pathname?.startsWith('/blogs/')) {
     return null;
   }
 
