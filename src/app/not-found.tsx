@@ -1,14 +1,12 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
-import ParticleBackground from '@/components/particle-background';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 
 export default function NotFound() {
   return (
     <div className="relative flex flex-col min-h-screen">
-      <ParticleBackground />
       <Header />
       <main className="flex-grow flex items-center justify-center text-center px-6">
         <div className="flex flex-col items-center gap-6">

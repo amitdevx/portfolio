@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Download } from 'lucide-react';
 import Link from 'next/link';
-import ParticleBackground from '@/components/particle-background';
 
 // Notes page with downloadable resources
 const pageUrl = 'https://amitdevx.tech/notes';
@@ -55,7 +54,6 @@ export const metadata: Metadata = {
 export default function NotesPage() {
   return (
     <div className="relative overflow-x-hidden flex flex-col min-h-screen">
-      <ParticleBackground />
       <Header />
       <main className="flex-grow container mx-auto px-6 sm:px-8 py-16">
         <div className="text-center mb-12">

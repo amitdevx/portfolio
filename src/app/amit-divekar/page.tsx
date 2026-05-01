@@ -8,7 +8,6 @@ import { Badge } from '@/components/ui/badge';
 import { ArrowRight, Github, Linkedin, Mail, MapPin, GraduationCap, Briefcase, Code2, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-import ParticleBackground from '@/components/particle-background';
 
 const siteUrl = 'https://amitdevx.tech';
 
@@ -143,7 +142,6 @@ export default function AmitDivekarPage() {
 
   return (
     <div className="relative w-full min-h-screen overflow-x-clip">
-      <ParticleBackground />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageJsonLd) }}

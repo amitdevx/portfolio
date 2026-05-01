@@ -117,17 +117,8 @@ const ParticleBackground = memo(() => {
     const particles = new THREE.Points(particleGeo, particleMat);
     scene.add(particles);
 
-    // Mouse interaction
-    const targetMouse = new THREE.Vector2(0, 0);
-    const currentMouse = new THREE.Vector2(0, 0);
     let scrollVelocity = 0;
     let lastScrollY = window.scrollY;
-
-    const onMouseMove = (event: MouseEvent) => {
-      if (isReducedMotion) return;
-      targetMouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-      targetMouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-    };
 
     const onScroll = () => {
       const currentScrollY = window.scrollY;
@@ -135,9 +126,6 @@ const ParticleBackground = memo(() => {
       lastScrollY = currentScrollY;
     };
 
-    if (!isMobile && !isReducedMotion) {
-      window.addEventListener('mousemove', onMouseMove, { passive: true });
-    }
     window.addEventListener('scroll', onScroll, { passive: true });
 
     // Animation loop
@@ -158,11 +146,7 @@ const ParticleBackground = memo(() => {
       lastFrameTime = now;
       const elapsedTime = clock.getElapsedTime();
 
-      // Smooth mouse interpolation (physics-like easing)
-      if (!isMobile && !isReducedMotion) {
-        currentMouse.x += (targetMouse.x - currentMouse.x) * 0.05;
-        currentMouse.y += (targetMouse.y - currentMouse.y) * 0.05;
-      }
+
 
       // Animate terrain vertices
       const terrainPositions = terrain.geometry.attributes.position.array as Float32Array;
@@ -185,25 +169,13 @@ const ParticleBackground = memo(() => {
         terrain.geometry.attributes.position.needsUpdate = true;
       }
 
-      // Particle physics & alignment with mouse
-      particles.rotation.y = elapsedTime * 0.02 + currentMouse.x * 0.15;
-      particles.rotation.x = -currentMouse.y * 0.1;
-
-      // Terrain tilt alignment
-      if (!isMobile && !isReducedMotion) {
-        terrain.rotation.y = currentMouse.x * 0.05;
-        terrain.rotation.z = -currentMouse.y * 0.05;
-      }
+      // Particle physics & alignment
+      particles.rotation.y = elapsedTime * 0.02;
 
       // Dampen scroll velocity
       scrollVelocity *= 0.95;
 
-      // Smooth camera movement based on mouse
-      if (!isMobile && !isReducedMotion) {
-        camera.position.x += (currentMouse.x * 1.2 - camera.position.x) * 0.04;
-        camera.position.y += (3 + currentMouse.y * 0.6 - camera.position.y) * 0.04;
-        camera.lookAt(0, 0, 0);
-      }
+
 
       renderer.render(scene, camera);
       animationIdRef.current = requestAnimationFrame(animate);
@@ -228,9 +200,6 @@ const ParticleBackground = memo(() => {
       clearTimeout(resizeTimeout);
       window.removeEventListener('resize', onResize);
       window.removeEventListener('scroll', onScroll);
-      if (!isMobile && !isReducedMotion) {
-        window.removeEventListener('mousemove', onMouseMove);
-      }
 
       if (animationIdRef.current) {
         cancelAnimationFrame(animationIdRef.current);

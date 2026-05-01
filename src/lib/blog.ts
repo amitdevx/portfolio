@@ -16,7 +16,9 @@ export interface BlogPost {
   content: string;
 }
 
-export function getAllPosts(): BlogPost[] {
+import { cache } from 'react';
+
+export const getAllPosts = cache((): BlogPost[] => {
   // 1. Get file names
   const fileNames = fs.readdirSync(postsDirectory);
 
@@ -46,9 +48,9 @@ export function getAllPosts(): BlogPost[] {
 
   // 5. Sort posts by date
   return allPostsData.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-}
+});
 
-export function getPostBySlug(slug: string): BlogPost | null {
+export const getPostBySlug = cache((slug: string): BlogPost | null => {
   try {
     const fullPath = path.join(postsDirectory, `${slug}.mdx`);
     const fileContents = fs.readFileSync(fullPath, "utf8");
@@ -69,4 +71,4 @@ export function getPostBySlug(slug: string): BlogPost | null {
     console.error(`[Blog] Failed to load post: ${slug}`, error);
     return null;
   }
-}
+});

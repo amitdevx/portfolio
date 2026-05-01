@@ -4,7 +4,6 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Calendar } from 'lucide-react';
-import ParticleBackground from '@/components/particle-background';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 
@@ -62,7 +61,6 @@ export default function BlogPage() {
 
   return (
     <div className="relative overflow-x-clip">
-      <ParticleBackground />
       <Header />
       <main role="main">
       <section className="min-h-screen pt-28 pb-12 px-4 sm:px-6 flex flex-col items-center w-full overflow-x-hidden" aria-labelledby="blogs-heading">

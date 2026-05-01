@@ -1,6 +1,5 @@
 import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
-import ParticleBackground from '@/components/particle-background';
 import Header from '@/components/header';
 import Hero from '@/components/sections/hero';
 import About from '@/components/sections/about';
@@ -23,7 +22,6 @@ import Footer from '@/components/footer';
 export default function Home() {
   return (
     <div className="relative w-full min-h-screen overflow-x-clip">
-      <ParticleBackground />
       <Header />
       <main id="main-content" className="container mx-auto px-4 sm:px-6 lg:px-8" role="main">
         <article className="flex flex-col gap-20 sm:gap-28 md:gap-40">
