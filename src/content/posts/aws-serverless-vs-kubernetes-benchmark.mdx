@@ -8,7 +8,7 @@ image: "/og-image.png"
 
 ## The Question Every Cloud Architect Faces
 
-Should you go serverless or run Kubernetes? This isn't a theoretical exercise — it's a decision that determines your infrastructure costs, operational complexity, and engineering velocity for years.
+Should you go serverless or run Kubernetes? This isn't a theoretical exercise - it's a decision that determines your infrastructure costs, operational complexity, and engineering velocity for years.
 
 After architecting systems on both sides, I built this benchmark to give you real numbers, not opinions. Every metric here comes from production-equivalent workloads tested on AWS in the `ap-south-1` (Mumbai) region.
 
@@ -32,9 +32,9 @@ After architecting systems on both sides, I built this benchmark to give you rea
 
 I tested three workload profiles that represent common real-world applications:
 
-1. **API Gateway Pattern** — REST API handling CRUD operations (read-heavy)
-2. **Data Processing Pipeline** — Batch processing with fan-out/fan-in
-3. **Real-Time Application** — WebSocket connections with sustained throughput
+1. **API Gateway Pattern** - REST API handling CRUD operations (read-heavy)
+2. **Data Processing Pipeline** - Batch processing with fan-out/fan-in
+3. **Real-Time Application** - WebSocket connections with sustained throughput
 
 Each test ran for 72 hours with realistic traffic patterns (peak/off-peak cycles).
 
@@ -125,22 +125,22 @@ Processing 1 million records through a 5-stage ETL pipeline:
 
 ### Choose Serverless When:
 
--  **Traffic is unpredictable** — You get spiky, event-driven workloads
--  **Team is small** — You don't have dedicated DevOps/SRE capacity
--  **Time-to-market matters** — Faster to ship, fewer moving parts
--  **Cost efficiency below 3M req/day** — Pay-per-use model wins at lower scale
--  **Event-driven architecture** — Triggers from S3, SQS, DynamoDB Streams
--  **Prototype/MVP stage** — Validate ideas without infrastructure investment
+-  **Traffic is unpredictable** - You get spiky, event-driven workloads
+-  **Team is small** - You don't have dedicated DevOps/SRE capacity
+-  **Time-to-market matters** - Faster to ship, fewer moving parts
+-  **Cost efficiency below 3M req/day** - Pay-per-use model wins at lower scale
+-  **Event-driven architecture** - Triggers from S3, SQS, DynamoDB Streams
+-  **Prototype/MVP stage** - Validate ideas without infrastructure investment
 
 ### Choose Kubernetes When:
 
--  **Traffic is sustained and predictable** — Consistent baseline load
--  **Latency is critical** — Sub-20ms response time requirements
--  **Multi-cloud/portability matters** — Not locked to AWS
--  **Complex microservices** — Service mesh, circuit breakers, advanced networking
--  **Cost efficiency above 3M req/day** — Fixed infrastructure becomes cheaper
--  **WebSocket/long-running connections** — Lambda has a 15-minute timeout
--  **GPU workloads** — ML inference, video processing
+-  **Traffic is sustained and predictable** - Consistent baseline load
+-  **Latency is critical** - Sub-20ms response time requirements
+-  **Multi-cloud/portability matters** - Not locked to AWS
+-  **Complex microservices** - Service mesh, circuit breakers, advanced networking
+-  **Cost efficiency above 3M req/day** - Fixed infrastructure becomes cheaper
+-  **WebSocket/long-running connections** - Lambda has a 15-minute timeout
+-  **GPU workloads** - ML inference, video processing
 
 ### The Hybrid Approach (What I Recommend)
 
@@ -530,7 +530,7 @@ Don't let Twitter hot-takes drive your architecture decisions. Benchmark your sp
 
 ---
 
-*Written by [Amit Divekar](https://amitdevx.tech) — Cloud Architect & Full-Stack Engineer. Building resilient cloud systems and high-performance web applications.*
+*Written by [Amit Divekar](https://amitdevx.tech) - Cloud Architect & Full-Stack Engineer. Building resilient cloud systems and high-performance web applications.*
 
 ---
 

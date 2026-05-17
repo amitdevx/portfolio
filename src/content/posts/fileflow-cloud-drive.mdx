@@ -109,7 +109,7 @@ def get_breadcrumb_path(node_id: int):
 
 While the database holds the metadata and virtual directory structure, the actual binary files are stored in Amazon S3. This decoupling is essential for horizontal scaling.
 
-When a user uploads a file, the Flask backend computes a SHA-256 hash of the file chunk stream. If the hash already exists in the database (even from another user), the system simply creates a new `FileNode` pointing to the existing `s3_key`—achieving zero-cost deduplication instantly.
+When a user uploads a file, the Flask backend computes a SHA-256 hash of the file chunk stream. If the hash already exists in the database (even from another user), the system simply creates a new `FileNode` pointing to the existing `s3_key` - achieving zero-cost deduplication instantly.
 
 ```python
 # storage.py
@@ -607,10 +607,10 @@ By centralizing the storage logic, unifying the hierarchy models through recursi
 
 The key architectural decisions that made this project successful:
 
-1. **Unified Entity Model** — Using a single `FileNode` table with a self-referential foreign key eliminated the complexity of managing separate File and Folder tables.
-2. **Content-Addressable Storage** — Keying S3 objects by their SHA-256 hash provided free deduplication with zero application-level complexity.
-3. **Recursive CTEs** — PostgreSQL's recursive query support made hierarchical operations fast without denormalizing the schema.
-4. **Soft Deletion** — The trash/restore system prevented accidental data loss while keeping the active file tree clean.
+1. **Unified Entity Model** - Using a single `FileNode` table with a self-referential foreign key eliminated the complexity of managing separate File and Folder tables.
+2. **Content-Addressable Storage** - Keying S3 objects by their SHA-256 hash provided free deduplication with zero application-level complexity.
+3. **Recursive CTEs** - PostgreSQL's recursive query support made hierarchical operations fast without denormalizing the schema.
+4. **Soft Deletion** - The trash/restore system prevented accidental data loss while keeping the active file tree clean.
 
 ---
 

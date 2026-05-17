@@ -22,7 +22,7 @@ export default function Skills() {
           <div className="text-center space-y-4">
             <h2 className="font-headline text-4xl md:text-5xl font-bold">Technical Arsenal</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Cloud Architecture, DevOps, Frontend & Backend — the full stack, built for scale.
+              Cloud Architecture, DevOps, Frontend & Backend - the full stack, built for scale.
             </p>
           </div>
         </SectionReveal>

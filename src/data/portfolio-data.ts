@@ -20,7 +20,7 @@ export const heroData = {
 };
 
 export const aboutData = {
-  bio: "Cloud Architect and Full-Stack Engineer who designs resilient distributed systems and ships production-grade web applications. Specializing in AWS/GCP infrastructure, container orchestration, and AI-powered developer tooling — with a track record of building systems that handle real-world scale.",
+  bio: "Cloud Architect and Full-Stack Engineer who designs resilient distributed systems and ships production-grade web applications. Specializing in AWS/GCP infrastructure, container orchestration, and AI-powered developer tooling - with a track record of building systems that handle real-world scale.",
   stats: [
     { label: "Projects Shipped", value: "10+" },
     { label: "Cloud Platforms", value: "3" },

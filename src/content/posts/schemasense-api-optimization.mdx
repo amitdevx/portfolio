@@ -12,7 +12,7 @@ author: "Amit Divekar"
 
 Integrating external Large Language Models (LLMs) into high-traffic applications immediately exposes developers to two critical operational challenges: unacceptable latency introduced by external network trips, and spiraling inference costs.
 
-During the development of **SchemaSense**—a database intelligence and documentation platform utilizing FastAPI and DeepSeek—it became evidently clear that continually transmitting raw schema definitions out of the internal network for processing was unsustainable. The API throughput bottleneck routinely enforced 2.8-second wait times for standard documentation retrieval requests.
+During the development of **SchemaSense** - a database intelligence and documentation platform utilizing FastAPI and DeepSeek - it became evidently clear that continually transmitting raw schema definitions out of the internal network for processing was unsustainable. The API throughput bottleneck routinely enforced 2.8-second wait times for standard documentation retrieval requests.
 
 This post details the exact implementation of a specialized, highly consistent SQLite caching layer engineered to dramatically mitigate external dependencies. This system dropped API expenditure by 95 percent and condensed operational payload delivery to sub-50 millisecond tolerances.
 
@@ -65,7 +65,7 @@ Consequently, manual invalidation strategies become redundant. The application n
 
 ## Optimizing Thread-Safe SQLite Execution Contexts
 
-In modern application infrastructure, utilizing Redis is assumed. However, Redis introduces an entire decoupled infrastructure node possessing significant maintenance and state requirements. For internal, persistent document caching—where ephemeral performance gains are outmatched by required architectural complexity—SQLite proved profoundly superior.
+In modern application infrastructure, utilizing Redis is assumed. However, Redis introduces an entire decoupled infrastructure node possessing significant maintenance and state requirements. For internal, persistent document caching - where ephemeral performance gains are outmatched by required architectural complexity - SQLite proved profoundly superior.
 
 ### The Problem with SQLite in Async Contexts
 
@@ -423,7 +423,7 @@ In production environments dependent heavily upon asynchronous external dependen
 
 The transformation from naive external API dependency to intelligent local caching delivered transformative results: 95% cost reduction, 56x latency improvement, and operational resilience against transient external failures.
 
-By treating cache keys as first-class architectural components—rather than afterthought optimizations—developers can construct systems exhibiting extraordinary scalability and cost-efficiency. The techniques documented here extend equally across diverse problem domains: LLM inference, database query memoization, and third-party API integration patterns.
+By treating cache keys as first-class architectural components - rather than afterthought optimizations - developers can construct systems exhibiting extraordinary scalability and cost-efficiency. The techniques documented here extend equally across diverse problem domains: LLM inference, database query memoization, and third-party API integration patterns.
 
 
 ---

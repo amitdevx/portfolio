@@ -163,7 +163,7 @@ export default function AmitDivekarPage() {
               Who is <span className="text-secondary">Amit Divekar</span>?
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-              {heroData.title} from India — building AI-powered systems, production-grade cloud infrastructure, and open-source developer tools.
+              {heroData.title} from India - building AI-powered systems, production-grade cloud infrastructure, and open-source developer tools.
             </p>
           </header>
 

@@ -8,7 +8,7 @@ image: "/og-image.png"
 
 ## Why This Guide Exists
 
-Next.js 15 with the App Router isn't just a framework update — it's a paradigm shift in how we think about React applications. Server Components, streaming, partial prerendering, and the new caching model fundamentally change every architectural decision you make.
+Next.js 15 with the App Router isn't just a framework update - it's a paradigm shift in how we think about React applications. Server Components, streaming, partial prerendering, and the new caching model fundamentally change every architectural decision you make.
 
 After building multiple production applications with Next.js 15 (including this portfolio, [SchemaSense AI](https://schemasense.amitdevx.tech), and [Eatinformed](https://eatinformed.amitdevx.tech)), I've distilled the patterns that actually work at scale into this definitive reference.
 
@@ -40,9 +40,9 @@ src/
 
 ### Key Decisions
 
-**Route Groups `(folder)`** — Use parentheses to organize routes without affecting the URL structure. This lets you have separate layouts for marketing pages and dashboard pages without nesting URLs.
+**Route Groups `(folder)`** - Use parentheses to organize routes without affecting the URL structure. This lets you have separate layouts for marketing pages and dashboard pages without nesting URLs.
 
-**Colocation** — Keep components, tests, and styles close to where they're used. A `components/sections/hero.tsx` is better than a generic `components/Hero.tsx` when you know exactly where it's rendered.
+**Colocation** - Keep components, tests, and styles close to where they're used. A `components/sections/hero.tsx` is better than a generic `components/Hero.tsx` when you know exactly where it's rendered.
 
 ## Server Components: The Default
 
@@ -393,17 +393,17 @@ CMD ["node", "server.js"]
 
 The App Router is mature, performant, and ready for production. The key principles:
 
-1. **Server-first** — Default to Server Components
-2. **Stream everything** — Use Suspense boundaries liberally
-3. **Cache intentionally** — Understand the new caching defaults
-4. **Optimize lazily** — Dynamic imports for heavy client components
-5. **Measure always** — Core Web Vitals should guide every decision
+1. **Server-first** - Default to Server Components
+2. **Stream everything** - Use Suspense boundaries liberally
+3. **Cache intentionally** - Understand the new caching defaults
+4. **Optimize lazily** - Dynamic imports for heavy client components
+5. **Measure always** - Core Web Vitals should guide every decision
 
 The architecture patterns in this guide power every application I build, including this portfolio site. They've been tested in production, optimized for performance, and refined through real-world usage.
 
 ---
 
-*Written by [Amit Divekar](https://amitdevx.tech) — Cloud Architect & Full-Stack Engineer. Building resilient cloud systems and high-performance web applications.*
+*Written by [Amit Divekar](https://amitdevx.tech) - Cloud Architect & Full-Stack Engineer. Building resilient cloud systems and high-performance web applications.*
 
 ---
 

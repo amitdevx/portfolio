@@ -10,13 +10,13 @@ image: "/og-image.png"
 
 Retrieval Augmented Generation (RAG) is the pattern that makes LLMs useful for real-world applications. Instead of relying on the model's training data (which is static and often outdated), RAG injects relevant context from your own data sources into each prompt.
 
-The result? AI that can answer questions about **your** documentation, **your** database, **your** codebase — with citations and without hallucination.
+The result? AI that can answer questions about **your** documentation, **your** database, **your** codebase - with citations and without hallucination.
 
 This guide walks you through building a production-ready RAG pipeline from scratch using:
-- **Google Genkit** — AI framework for TypeScript
-- **Next.js 15** — Full-stack React framework
-- **Vector Database** — For semantic similarity search
-- **Gemini** — Google's multimodal AI model
+- **Google Genkit** - AI framework for TypeScript
+- **Next.js 15** - Full-stack React framework
+- **Vector Database** - For semantic similarity search
+- **Gemini** - Google's multimodal AI model
 
 ## Architecture Overview
 
@@ -164,10 +164,10 @@ export function chunkDocument(
 
 ### Key Chunking Principles
 
-1. **Respect document structure** — Split on headings, not arbitrary character counts
-2. **Maintain overlap** — 200-token overlap prevents context loss at boundaries
-3. **Keep metadata** — Track source, position, and headings for citation
-4. **Right-size chunks** — 500-1000 tokens is the sweet spot for most models
+1. **Respect document structure** - Split on headings, not arbitrary character counts
+2. **Maintain overlap** - 200-token overlap prevents context loss at boundaries
+3. **Keep metadata** - Track source, position, and headings for citation
+4. **Right-size chunks** - 500-1000 tokens is the sweet spot for most models
 
 ## Step 3: Generating Embeddings
 
@@ -495,10 +495,10 @@ async function getCachedEmbedding(text: string): Promise<number[]> {
 
 Track these metrics to improve your RAG pipeline:
 
-- **Retrieval Precision** — Are the retrieved chunks actually relevant?
-- **Answer Faithfulness** — Does the answer stay within the provided context?
-- **Latency** — Time from query to first token
-- **Citation Accuracy** — Do citations point to the right sources?
+- **Retrieval Precision** - Are the retrieved chunks actually relevant?
+- **Answer Faithfulness** - Does the answer stay within the provided context?
+- **Latency** - Time from query to first token
+- **Citation Accuracy** - Do citations point to the right sources?
 
 ## Common Pitfalls
 
@@ -533,11 +533,11 @@ flowchart TD
     J --> K["Stream Response with citations"]
 ```
 
-The key insight: **RAG quality is 80% retrieval quality, 20% generation quality.** Invest your time in chunking, embeddings, and retrieval — not in prompt engineering.
+The key insight: **RAG quality is 80% retrieval quality, 20% generation quality.** Invest your time in chunking, embeddings, and retrieval - not in prompt engineering.
 
 ---
 
-*Written by [Amit Divekar](https://amitdevx.tech) — Cloud Architect & Full-Stack Engineer. Building resilient cloud systems and AI-powered applications.*
+*Written by [Amit Divekar](https://amitdevx.tech) - Cloud Architect & Full-Stack Engineer. Building resilient cloud systems and AI-powered applications.*
 
 ---
 
