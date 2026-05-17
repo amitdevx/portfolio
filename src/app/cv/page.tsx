@@ -191,7 +191,7 @@ export default function CvPage() {
                   <span className="text-xs text-muted-foreground">{aboutData.education.duration}</span>
                 </div>
                 <p className="text-muted-foreground">{aboutData.education.degree}</p>
-                <p className="text-muted-foreground">{aboutData.education.cgpa}</p>
+                <p className="text-muted-foreground">{aboutData.education.sgpa}</p>
               </div>
             </CardContent>
           </Card>

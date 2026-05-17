@@ -3,7 +3,7 @@
 
 ## About
 - [Home](https://amitdevx.tech): Professional introduction and hero section.
-- [About Me](https://amitdevx.tech/#about): Background, education at Savitribai Phule Pune University (CGPA 8.36/10), and personal expertise overview.
+- [About Me](https://amitdevx.tech/#about): Background, education at Savitribai Phule Pune University (sgpa 8.36/10), and personal expertise overview.
 - [Resume/CV](https://amitdevx.tech/cv): Complete professional credentials, qualifications, and downloadable resume.
 
 ## Projects

@@ -75,7 +75,7 @@ export default function About() {
               <CardContent className="space-y-4">
                 <h3 className="font-semibold text-lg">{aboutData.education.degree}</h3>
                 <p className="text-muted-foreground">{aboutData.education.institution}</p>
-                <p className="text-sm text-muted-foreground">{aboutData.education.duration} &bull; {aboutData.education.cgpa}</p>
+                <p className="text-sm text-muted-foreground">{aboutData.education.duration} &bull; {aboutData.education.sgpa}</p>
                 <div>
                   <h4 className="font-medium mb-2">Relevant Coursework:</h4>
                   <div className="flex flex-wrap gap-2">

@@ -31,7 +31,7 @@ export const aboutData = {
     institution: "Savitribai Phule Pune University",
     degree: "Bachelor's Degree in Computer Science",
     duration: "2024 - 2027",
-    cgpa: "CGPA: 8.36/10.0",
+    sgpa: "sgpa: 8.36/10.0",
     courses: [
       "Programming Fundamentals", "Data Structures and Algorithms", 
       "Database Management Systems", "Computer Networks", "Operating Systems"
