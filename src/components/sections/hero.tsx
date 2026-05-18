@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { ArrowRight, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { heroData, socialLinks } from '@/data/portfolio-data';
-import { SkillsMarquee } from '@/components/ui/skills-marquee';
 import { TextReveal, ScaleOnTap, motion } from '@/components/motion';
 
 export default function Hero() {
@@ -44,24 +43,15 @@ export default function Hero() {
         </TextReveal>
         
         <motion.div 
-          className="w-full max-w-5xl my-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-        >
-          <SkillsMarquee />
-        </motion.div>
-        
-        <motion.div 
-          className="flex flex-col sm:flex-row items-center gap-4 mt-4"
+          className="flex flex-col sm:flex-row items-center gap-4 mt-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+          transition={{ delay: 0.5, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
         >
           <ScaleOnTap>
             <Button asChild size="lg" className="group">
               <Link href={heroData.contactLink}>
-                Get in Touch
+                View Engineering Projects
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
@@ -77,7 +67,7 @@ export default function Hero() {
           <ScaleOnTap>
             <Button asChild size="lg" variant="outline" className="group">
               <Link href="/blogs">
-                Read the Blog
+                Engineering Blog
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>

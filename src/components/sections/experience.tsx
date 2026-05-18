@@ -10,8 +10,8 @@ export default function Experience() {
       <div className="w-full space-y-12">
         <SectionReveal>
           <div className="text-center">
-            <h2 className="font-headline text-4xl md:text-5xl font-bold">Professional Experience</h2>
-            <p className="text-lg text-muted-foreground mt-2">My journey in Cloud Architecture, DevOps, and Full-Stack Engineering.</p>
+            <h2 className="font-headline text-4xl md:text-5xl font-bold">Professional Development</h2>
+            <p className="text-lg text-muted-foreground mt-2">Simulated environments and applied engineering initiatives.</p>
           </div>
         </SectionReveal>
         <div className="relative">

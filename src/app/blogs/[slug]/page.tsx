@@ -26,8 +26,7 @@ SyntaxHighlighter.registerLanguage('python', python);
 SyntaxHighlighter.registerLanguage('javascript', javascript);
 SyntaxHighlighter.registerLanguage('yaml', yaml);
 SyntaxHighlighter.registerLanguage('css', css);
-import dynamic from 'next/dynamic';
-const Mermaid = dynamic(() => import('@/components/mermaid'));
+import MermaidDiagram from '@/components/ui/mermaid';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { ReadingProgressBar, TimeToRead, TableOfContents, CopyButton } from '@/components/blog-ui';
@@ -198,17 +197,18 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 </div>
               </header>
               
-              <div className="prose prose-sm sm:prose-base lg:prose-lg prose-invert max-w-none overflow-x-hidden
-                prose-headings:font-headline prose-headings:font-bold prose-headings:text-foreground prose-headings:break-words
-                prose-p:text-muted-foreground prose-p:leading-relaxed
-                prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-a:break-words
-                prose-strong:text-foreground
-                prose-code:text-primary prose-code:bg-secondary/20 prose-code:px-1 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
-                prose-pre:bg-card prose-pre:border prose-pre:border-border/50 prose-pre:overflow-x-auto
-                prose-li:text-muted-foreground
-                prose-table:overflow-x-auto prose-table:block
-                prose-img:w-full prose-img:h-auto
-              ">
+              <div className="bg-background/15 backdrop-blur-lg border border-border/40 shadow-xl rounded-2xl p-6 sm:p-10 md:p-12 mb-20">
+                <div className="prose prose-sm sm:prose-base lg:prose-lg prose-invert max-w-none overflow-x-hidden
+                  prose-headings:font-headline prose-headings:font-bold prose-headings:text-foreground prose-headings:break-words
+                  prose-p:text-muted-foreground prose-p:leading-relaxed
+                  prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-a:break-words
+                  prose-strong:text-foreground
+                  prose-code:text-primary prose-code:bg-secondary/20 prose-code:px-1 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
+                  prose-pre:bg-card prose-pre:border prose-pre:border-border/50 prose-pre:overflow-x-auto
+                  prose-li:text-muted-foreground
+                  prose-table:overflow-x-auto prose-table:block
+                  prose-img:w-full prose-img:h-auto
+                ">
                 <ReactMarkdown 
                   remarkPlugins={[remarkGfm]}
                   components={{
@@ -241,7 +241,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                       const codeString = String(children).replace(/\n$/, '');
 
                       if (match && match[1] === 'mermaid') {
-                        return <Mermaid chart={String(children).trim()} />
+                        return <MermaidDiagram chart={String(children).trim()} />
                       }
 
                       return match ? (
@@ -266,6 +266,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 >
                   {post.content}
                 </ReactMarkdown>
+                </div>
               </div>
             </div>
 

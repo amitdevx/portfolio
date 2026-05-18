@@ -13,14 +13,14 @@ export const navigationLinks = [
 
 export const heroData = {
   name: "Amit Divekar",
-  title: "Cloud Architect & Full-Stack Engineer",
-  tagline: "I architect resilient cloud systems and engineer high-performance web applications.",
-  bio: "Building the infrastructure for tomorrow. Specializing in highly scalable AWS/GCP architectures, Kubernetes orchestration, and AI-integrated Next.js ecosystems. Code that ships, systems that scale.",
-  contactLink: "#contact"
+  title: "AI Systems & Backend Engineer",
+  tagline: "Building high-performance backends, AI integration pipelines, and scalable cloud infrastructure.",
+  bio: "Software engineer specializing in AI workflows (LLMs, DeepSeek, Genkit), distributed backend architectures, and developer tooling. I architect resilient cloud systems that solve complex data problems and handle real-world scale.",
+  contactLink: "#projects"
 };
 
 export const aboutData = {
-  bio: "Cloud Architect and Full-Stack Engineer who designs resilient distributed systems and ships production-grade web applications. Specializing in AWS/GCP infrastructure, container orchestration, and AI-powered developer tooling - with a track record of building systems that handle real-world scale.",
+  bio: "Backend Engineer and AI Systems Builder who designs resilient distributed systems and ships production-grade infrastructure. I specialize in integrating complex AI models into scalable backend architectures, optimizing database performance, and building robust developer tooling.",
   stats: [
     { label: "Projects Shipped", value: "10+" },
     { label: "Cloud Platforms", value: "3" },
@@ -67,21 +67,23 @@ export const projectsData = [
     description: "AI-powered database documentation platform that auto-generates schema docs, maps table relationships, and provides a real-time chat interface for querying your database structure in plain English. Built with prompt injection defense, intelligent caching (56x speedup), and streaming AI responses.",
     technologies: ["Next.js", "FastAPI", "Python", "TypeScript", "PostgreSQL", "DeepSeek-V3", "OpenRouter", "SQLite"],
     githubLink: "https://github.com/amitdevx/schemasense",
-    liveLink: "https://schemasense.amitdevx.tech"
+    liveLink: "https://schemasense.amitdevx.tech",
+    docLink: "/projects/schemasense"
   },
   {
     title: "Professor Profiler",
     description: "An advanced multi-agent system that reverse-engineers exam papers to decode professor psychology and generate optimized study strategies.",
-    technologies: ["Python", "Software Development", "DevOps", "Git + GitHub", "Multi-agent AI", "Hub-and-Spoke architecture"],
+    technologies: ["Python 3.11", "Gemini 2.0 Pro", "Multi-Agent Systems", "Google ADK", "Pydantic"],
     githubLink: "https://github.com/amitdevx/Professor_Profiler",
-    docLink: "https://deepwiki.com/amitdevx/Professor_Profiler"
+    docLink: "/projects/professor-profiler"
   },
   {
     title: "EatInformed",
     description: "An AI-driven platform for instant nutrition analysis from food label images, built with Next.js, Genkit, and Google Gemini, featuring a modern UI with Tailwind CSS.",
-    technologies: ["TypeScript", "Next.js", "React", "Tailwind CSS", "Genkit", "Gemini"],
+    technologies: ["TypeScript", "Next.js", "React", "Tailwind CSS", "Genkit", "Gemini", "Llama 3.2"],
     githubLink: "https://github.com/amitdevx/Eatinformed",
-    liveLink: "https://eatinformed.amitdevx.tech/"
+    liveLink: "https://eatinformed.amitdevx.tech/",
+    docLink: "/projects/eatinformed"
   },
   {
     title: "2FA Password Protector",
