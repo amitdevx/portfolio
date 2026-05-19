@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { ArrowLeft, Github, ExternalLink, Activity, ScanLine, Cpu, Server } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import MermaidDiagram from '@/components/ui/mermaid';
+import { SystemArchitectureVisual } from '@/components/projects/SystemArchitectureVisual';
 
 export default function EatInformedCaseStudy() {
   return (
@@ -104,15 +104,7 @@ export default function EatInformedCaseStudy() {
             </ol>
             
             <div className="mt-8">
-              <MermaidDiagram chart={`sequenceDiagram
-    participant App as Next.js API
-    participant Llama as Llama 3.2 Vision
-    participant Deep as DeepSeek-V4
-    
-    App->>Llama: Send Image (Food Label)
-    Llama-->>App: Return Structured JSON (Ingredients & Macros)
-    App->>Deep: Forward JSON & Health Prompt
-    Deep-->>App: Return Health Analysis & Warnings`} />
+              <SystemArchitectureVisual architectureType="eatinformed" />
             </div>
           </div>
         </section>

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { ArrowLeft, Github, ExternalLink, Network, Bot, FileText, BrainCircuit } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import MermaidDiagram from '@/components/ui/mermaid';
+import { SystemArchitectureVisual } from '@/components/projects/SystemArchitectureVisual';
 
 export default function ProfessorProfilerCaseStudy() {
   return (
@@ -76,51 +76,11 @@ export default function ProfessorProfilerCaseStudy() {
       <div className="prose prose-invert prose-lg max-w-none space-y-12">
         <section>
           <h2 className="text-3xl font-headline font-bold text-foreground mb-6">System Architecture</h2>
-          <p className="text-muted-foreground leading-relaxed">
+          <p className="text-muted-foreground leading-relaxed mb-8">
             The system creates a directed acyclic graph (DAG) of agent execution, managed by a central orchestrator. It serves as a reference implementation for Hub-and-Spoke Agent Architecture and Model Context Protocol (MCP) Tooling.
           </p>
           
-          <MermaidDiagram chart={`flowchart TD
-    subgraph External_Layer [" External Layer"]
-        User([User / Client])
-        PDF_File[Exam PDF]
-    end
-
-    subgraph Orchestration_Layer [" Orchestration Layer"]
-        Runner[<b>Runner</b><br><i>State Management</i>]
-        Memory[(<b>Memory Bank</b><br><i>JSON Persistence</i>)]
-        Session[<b>Session Service</b>]
-    end
-
-    subgraph Agent_Layer [" Agent Hierarchy"]
-        Root[<b>ROOT AGENT</b><br><i>Gemini 2.0 Pro</i><br>The Project Manager]
-        
-        subgraph Workers ["Specialized Sub-Agents"]
-            Taxonomist[<b>Taxonomist</b><br><i>Gemini Flash</i><br>Topic & Bloom's Classification]
-            Trend[<b>Trend Spotter</b><br><i>Gemini Pro</i><br>Statistical Analysis]
-            Strat[<b>Strategist</b><br><i>Gemini Thinking</i><br>Study Planning]
-        end
-    end
-
-    subgraph Tool_Layer [" Tool Layer"]
-        Reader[PDF Ingestion]
-        Plotter[Matplotlib Viz]
-        Calc[Stats Engine]
-    end
-
-    User --> Runner
-    PDF_File --> Reader
-    Runner <--> Session
-    Runner <--> Memory
-    Runner --> Root
-    
-    Root --Delegates--> Taxonomist
-    Root --Delegates--> Trend
-    Root --Delegates--> Strat
-    
-    Root --Calls--> Reader
-    Root --Calls--> Plotter
-    Trend --Calls--> Calc`} />
+          <SystemArchitectureVisual architectureType="professor-profiler" />
         </section>
 
         <section>
@@ -154,43 +114,7 @@ export default function ProfessorProfilerCaseStudy() {
             The following sequence illustrates how a raw PDF is transformed into an actionable study plan through inter-agent delegation:
           </p>
           
-          <MermaidDiagram chart={`sequenceDiagram
-    autonumber
-    actor Student
-    participant Root as Root Agent
-    participant Tool as Tools
-    participant Tax as Taxonomist
-    participant Strat as Strategist
-
-    Student->>Root: "Analyze Physics_2024.pdf"
-    
-    rect rgb(30, 41, 59)
-    note right of Root: Phase 1: Ingestion
-    Root->>Tool: Call read_pdf("Physics_2024.pdf")
-    Tool-->>Root: Returns Raw Text Content
-    end
-
-    rect rgb(15, 23, 42)
-    note right of Root: Phase 2: Classification
-    Root->>Tax: "Classify these questions by difficulty"
-    Tax->>Tax: Map to Bloom's Taxonomy
-    Tax-->>Root: JSON List of Classified Questions
-    end
-
-    rect rgb(30, 41, 59)
-    note right of Root: Phase 3: Visualization
-    Root->>Tool: Call generate_charts(data)
-    Tool-->>Root: Returns path/to/chart.png
-    end
-
-    rect rgb(15, 23, 42)
-    note right of Root: Phase 4: Strategy
-    Root->>Strat: "Based on this data, what should I study?"
-    Strat->>Strat: Identify Safe Zones & Drop Lists
-    Strat-->>Root: Final Study Recommendations
-    end
-
-    Root-->>Student: Final Report + Images + Plan`} />
+          <SystemArchitectureVisual architectureType="professor-profiler" title="Multi-Agent Orchestration Sequence" description="Data flow and inter-agent delegation timeline." />
         </section>
 
       </div>

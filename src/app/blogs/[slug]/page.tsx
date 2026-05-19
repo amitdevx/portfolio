@@ -225,8 +225,8 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                       return (
                         <span className="block relative w-full rounded-xl overflow-hidden border border-white/10 shadow-2xl">
                           <Image
-                            src={props.src || ""}
-                            alt={props.alt || "Blog Image"}
+                            src={String(props.src || "")}
+                            alt={String(props.alt || "Blog Image")}
                             width={1920}
                             height={1080}
                             className="w-full h-auto"

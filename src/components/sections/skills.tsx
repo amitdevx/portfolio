@@ -36,7 +36,8 @@ export default function Skills() {
             >
               <div className="flex items-center gap-3 mb-5">
                 {(() => {
-                  const Icon = IconMap[category.icon];
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  const Icon = IconMap[category.icon as keyof typeof IconMap] as any;
                   return Icon ? <Icon className="w-6 h-6 text-primary" /> : <span className="text-2xl">{category.icon}</span>;
                 })()}
                 <h3 className="text-xl font-headline font-semibold">{category.name}</h3>

@@ -7,6 +7,14 @@ import { Button } from '@/components/ui/button';
 import { projectsData } from '@/data/portfolio-data';
 import { Github, ExternalLink, FileText, ArrowRight, Database } from 'lucide-react';
 import { SectionReveal, StaggerContainer, staggerChildVariants, TiltCard, ScaleOnTap, motion } from '@/components/motion';
+import { SystemArchitectureVisual, ArchitectureType } from '@/components/projects/SystemArchitectureVisual';
+
+const getArchitectureType = (title: string): ArchitectureType | null => {
+  if (title === 'SchemaSense AI') return 'schemasense';
+  if (title === 'Professor Profiler') return 'professor-profiler';
+  if (title === 'EatInformed') return 'eatinformed';
+  return null;
+};
 
 export default function Projects() {
   const flagshipProjects = projectsData.slice(0, 3);
@@ -75,12 +83,24 @@ export default function Projects() {
                 </div>
 
                 {/* Conceptual Architecture/Visual Placeholder */}
-                <div className="w-full lg:w-1/2 h-[400px] rounded-xl border border-border/50 bg-card/50 backdrop-blur-sm shadow-2xl overflow-hidden flex items-center justify-center p-8 group">
-                  <div className="w-full h-full border border-dashed border-border rounded-lg flex flex-col items-center justify-center text-muted-foreground/50 gap-4 transition-colors group-hover:border-primary/50 group-hover:text-primary/50">
-                    <Database className="w-12 h-12" />
-                    <p className="font-mono text-sm">System Architecture Visual</p>
-                  </div>
-                </div>
+                {(() => {
+                  const archType = getArchitectureType(project.title);
+                  if (archType) {
+                    return (
+                      <div className="w-full lg:w-1/2 flex items-center justify-center">
+                        <SystemArchitectureVisual architectureType={archType} />
+                      </div>
+                    );
+                  }
+                  return (
+                    <div className="w-full lg:w-1/2 h-[400px] rounded-xl border border-border/50 bg-card/50 backdrop-blur-sm shadow-2xl overflow-hidden flex items-center justify-center p-8 group">
+                      <div className="w-full h-full border border-dashed border-border rounded-lg flex flex-col items-center justify-center text-muted-foreground/50 gap-4 transition-colors group-hover:border-primary/50 group-hover:text-primary/50">
+                        <Database className="w-12 h-12" />
+                        <p className="font-mono text-sm">System Architecture Visual</p>
+                      </div>
+                    </div>
+                  );
+                })()}
               </div>
             </SectionReveal>
           ))}

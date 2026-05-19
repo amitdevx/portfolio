@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { ArrowLeft, Github, ExternalLink, Database, Zap, Shield, GitBranch } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import MermaidDiagram from '@/components/ui/mermaid';
+import { SystemArchitectureVisual } from '@/components/projects/SystemArchitectureVisual';
 
 export default function SchemaSenseCaseStudy() {
   return (
@@ -86,16 +86,7 @@ export default function SchemaSenseCaseStudy() {
 
         <section>
           <h2 className="text-3xl font-headline font-bold text-foreground mb-6">System Architecture</h2>
-          <MermaidDiagram chart={`graph TD
-    User([User Client]) -->|Next.js App Router| Frontend
-    Frontend -->|Server-Sent Events| Backend
-    Backend[FastAPI Service] -->|SQL Queries| DB[(PostgreSQL)]
-    Backend -->|Schema Hash| Cache[(SQLite Cache)]
-    Backend -->|Prompt| AI[DeepSeek-V3 via OpenRouter]
-    AI -->|Streamed JSON/MD| Backend
-    classDef default fill:#111,stroke:#333,stroke-width:1px;
-    classDef highlight fill:#1a1a2e,stroke:#4a4e69,stroke-width:2px;
-    class Backend,AI highlight;`} />
+          <SystemArchitectureVisual architectureType="schemasense" />
           <p className="text-muted-foreground leading-relaxed mt-4">
             The platform is built on a high-performance decoupled architecture:
           </p>
