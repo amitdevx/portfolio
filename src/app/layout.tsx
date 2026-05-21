@@ -6,6 +6,7 @@ import { Inter, Space_Grotesk } from 'next/font/google';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { heroData, aboutData, projectsData } from '@/data/portfolio-data';
+import { safeJsonLd, isValidGaId } from '@/lib/security';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -294,7 +295,7 @@ export default function RootLayout({
         <link rel="preload" href="/favicon.ico" as="image" type="image/x-icon" />
         <link rel="preload" href="/favicon.svg" as="image" type="image/svg+xml" />
         
-        {process.env.NEXT_PUBLIC_GA_ID && (
+        {isValidGaId(process.env.NEXT_PUBLIC_GA_ID) && (
           <>
             <Script
               strategy="afterInteractive"
@@ -319,25 +320,25 @@ export default function RootLayout({
         
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(personJsonLd) }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(websiteJsonLd) }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(organizationJsonLd) }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbListJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(breadcrumbListJsonLd) }}
         />
         {softwareProjectsJsonLd.map((project, index) => (
           <script
             key={`software-${index}`}
             type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(project) }}
+            dangerouslySetInnerHTML={{ __html: safeJsonLd(project) }}
           />
         ))}
       </head>

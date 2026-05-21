@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowUpRight, Download, Github, Globe, Linkedin, Mail, MapPin, Twitter, Zap, Shield, Brain, Code2 } from 'lucide-react';
+import { safeJsonLd } from '@/lib/security';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -86,7 +87,7 @@ export default function CvPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personStructuredData) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(personStructuredData) }}
       />
     <div className="relative min-h-screen overflow-x-clip">
       <Header />

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { safeJsonLd } from '@/lib/security';
 import Link from 'next/link';
 import { heroData, aboutData, experienceData, projectsData, socialLinks } from '@/data/portfolio-data';
 import { getAllPosts } from '@/lib/blog';
@@ -144,11 +145,11 @@ export default function AmitDivekarPage() {
     <div className="relative w-full min-h-screen overflow-x-clip">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(profilePageJsonLd) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(faqJsonLd) }}
       />
       <Header />
       <main id="main-content" className="min-h-screen pt-28 pb-20 px-4 sm:px-6 overflow-x-hidden">

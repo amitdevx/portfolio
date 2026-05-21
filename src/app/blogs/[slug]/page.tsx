@@ -1,4 +1,5 @@
 import { getPostBySlug, getAllPosts } from "@/lib/blog";
+import { safeJsonLd } from "@/lib/security";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -152,7 +153,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     <div className="relative overflow-x-clip">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(articleJsonLd) }}
       />
       <Header />
       <ReadingProgressBar />

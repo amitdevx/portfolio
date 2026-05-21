@@ -33,13 +33,13 @@ export default function ProfessorProfilerCaseStudy() {
         
         <div className="flex flex-wrap items-center gap-4 pt-4">
           <Button asChild size="lg" className="bg-orange-600 hover:bg-orange-500 text-white">
-            <Link href="https://deepwiki.com/amitdevx/Professor_Profiler" target="_blank">
+            <Link href="https://deepwiki.com/amitdevx/Professor_Profiler" target="_blank" rel="noopener noreferrer">
               Read DeepWiki Docs
               <ExternalLink className="ml-2 h-4 w-4" />
             </Link>
           </Button>
           <Button asChild variant="outline" size="lg" className="border-white/10 hover:bg-white/5">
-            <Link href="https://github.com/amitdevx/Professor_Profiler" target="_blank">
+            <Link href="https://github.com/amitdevx/Professor_Profiler" target="_blank" rel="noopener noreferrer">
               <Github className="mr-2 h-4 w-4" />
               Source Code
               <ExternalLink className="ml-2 h-3.5 w-3.5 opacity-50" />

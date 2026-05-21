@@ -24,7 +24,9 @@ const nextConfig: NextConfig = {
   // Optimize builds
   staticPageGenerationTimeout: 120,
   
-  // Security and performance headers
+  // Performance headers only — security headers (CSP, X-Frame-Options, etc.)
+  // are defined exclusively in vercel.json to prevent conflicts.
+  // See: vercel.json "headers" section for the authoritative CSP policy.
   async headers() {
     return [
       {
@@ -37,31 +39,6 @@ const nextConfig: NextConfig = {
           {
             key: 'Strict-Transport-Security',
             value: 'max-age=63072000; includeSubDomains; preload'
-          },
-          {
-            key: 'X-Frame-Options',
-            value: 'SAMEORIGIN'
-          },
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff'
-          },
-          {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block'
-          },
-          {
-            key: 'Referrer-Policy',
-            value: 'strict-origin-when-cross-origin'
-          },
-          {
-            key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=()'
-          },
-          // Content Security Policy
-          {
-            key: 'Content-Security-Policy',
-            value: `default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: blob:; font-src 'self' data:; connect-src 'self' https://api.github.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self';`
           },
           // Performance headers
           {

@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import { isValidSlug } from "./security";
 
 const postsDirectory = path.join(process.cwd(), "src/content/posts");
 
@@ -52,6 +53,12 @@ export const getAllPosts = cache((): BlogPost[] => {
 
 export const getPostBySlug = cache((slug: string): BlogPost | null => {
   try {
+    // SECURITY: Validate slug to prevent path traversal (e.g., ../../etc/passwd)
+    if (!isValidSlug(slug)) {
+      console.error(`[Blog] Invalid slug rejected: ${slug}`);
+      return null;
+    }
+    
     const fullPath = path.join(postsDirectory, `${slug}.mdx`);
     const fileContents = fs.readFileSync(fullPath, "utf8");
     const { data, content } = matter(fileContents);

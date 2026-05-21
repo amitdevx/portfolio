@@ -32,13 +32,14 @@ export default function MermaidDiagram({ chart }: MermaidProps) {
         mermaid.initialize({
           startOnLoad: false, // Control rendering manually
           theme: 'dark',
-          securityLevel: 'loose',
+          securityLevel: 'strict', // SECURITY: Prevents XSS via click directives and interactive elements
           fontFamily: 'inherit',
         });
         
         if (ref.current) {
           // Reset container content to raw chart text so re-renders don't re-parse generated SVGs
-          ref.current.innerHTML = chart;
+          // SECURITY: Use textContent instead of innerHTML to prevent HTML/script injection
+          ref.current.textContent = chart;
           ref.current.removeAttribute('data-processed');
           
           await mermaid.run({
