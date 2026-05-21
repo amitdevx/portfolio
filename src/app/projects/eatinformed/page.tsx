@@ -21,7 +21,7 @@ export default function EatInformedCaseStudy() {
         <div className="flex items-center gap-3 mb-6">
           <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20">Computer Vision</Badge>
           <Badge variant="outline">AI Pipelines</Badge>
-          <Badge variant="outline" className="border-pink-500/20 text-pink-400">Production-Grade</Badge>
+          <Badge variant="outline" className="border-orange-500/20 text-orange-400">Production-Grade</Badge>
         </div>
         
         <h1 className="font-headline text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-400">
@@ -32,7 +32,7 @@ export default function EatInformedCaseStudy() {
         </p>
         
         <div className="flex flex-wrap items-center gap-4 pt-4">
-          <Button asChild size="lg" className="bg-pink-600 hover:bg-pink-500 text-white">
+          <Button asChild size="lg" className="bg-orange-600 hover:bg-orange-500 text-white">
             <Link href="https://eatinformed.amitdevx.tech/" target="_blank">
               Live Application
               <ExternalLink className="ml-2 h-4 w-4" />
@@ -65,11 +65,11 @@ export default function EatInformedCaseStudy() {
           <p className="text-xs text-muted-foreground">2-Step Execution Flow</p>
         </div>
         <div className="space-y-1">
-          <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Infrastructure</h4>
-          <p className="text-3xl font-bold text-purple-400 flex items-center gap-2">
-            <Cpu className="w-6 h-6 text-purple-400" /> NVIDIA NIM
+          <h4 className="text-xs font-semibold text-green-400/90 uppercase tracking-wider">Infrastructure</h4>
+          <p className="text-3xl font-bold text-green-500 flex items-center gap-2">
+            <Cpu className="w-6 h-6 text-green-500" /> NVIDIA NIM
           </p>
-          <p className="text-xs text-muted-foreground">API Workflow Orchestration</p>
+          <p className="text-xs text-green-400/70">API Workflow Orchestration</p>
         </div>
         <div className="space-y-1">
           <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Storage Layer</h4>

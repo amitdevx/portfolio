@@ -159,7 +159,7 @@ export default function CvPage() {
             <p className="text-xs text-muted-foreground">{aboutData.stats[1].label}</p>
           </div>
           <div className="rounded-xl border border-border/40 bg-background/15 backdrop-blur-lg p-5 text-center">
-            <Code2 className="w-6 h-6 text-blue-500 mx-auto mb-2" />
+            <Code2 className="w-6 h-6 text-primary mx-auto mb-2" />
             <p className="text-2xl font-bold">{aboutData.stats[2].value}</p>
             <p className="text-xs text-muted-foreground">{aboutData.stats[2].label}</p>
           </div>

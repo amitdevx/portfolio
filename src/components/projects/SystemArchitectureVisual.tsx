@@ -150,7 +150,7 @@ export function SystemArchitectureVisual({
     return (
       <div className="w-full flex flex-col space-y-4 my-4">
         <div className="space-y-1">
-          <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400">
+          <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#dfa579] to-[#e07a5f]">
             {title}
           </h3>
           <p className="text-sm text-slate-400">{description}</p>
@@ -166,7 +166,7 @@ export function SystemArchitectureVisual({
     <div className="w-full flex flex-col space-y-4 my-4">
       {/* Title & Desc */}
       <div className="space-y-1">
-        <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400">
+        <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#dfa579] to-[#e07a5f]">
           {title}
         </h3>
         <p className="text-sm text-slate-400">{description}</p>

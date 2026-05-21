@@ -21,7 +21,7 @@ export default function ProfessorProfilerCaseStudy() {
         <div className="flex items-center gap-3 mb-6">
           <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20">Multi-Agent Systems</Badge>
           <Badge variant="outline">LLM Orchestration</Badge>
-          <Badge variant="outline" className="border-purple-500/20 text-purple-400">Advanced AI</Badge>
+          <Badge variant="outline" className="border-orange-500/20 text-orange-400">Advanced AI</Badge>
         </div>
         
         <h1 className="font-headline text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-400">
@@ -32,7 +32,7 @@ export default function ProfessorProfilerCaseStudy() {
         </p>
         
         <div className="flex flex-wrap items-center gap-4 pt-4">
-          <Button asChild size="lg" className="bg-purple-600 hover:bg-purple-500 text-white">
+          <Button asChild size="lg" className="bg-orange-600 hover:bg-orange-500 text-white">
             <Link href="https://deepwiki.com/amitdevx/Professor_Profiler" target="_blank">
               Read DeepWiki Docs
               <ExternalLink className="ml-2 h-4 w-4" />
@@ -65,11 +65,11 @@ export default function ProfessorProfilerCaseStudy() {
           <p className="text-xs text-muted-foreground">Coordinated Personas</p>
         </div>
         <div className="space-y-1">
-          <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wider">PDF Parser</h4>
-          <p className="text-3xl font-bold text-pink-400 flex items-center gap-2">
-            <FileText className="w-6 h-6 text-pink-400" /> PyPDF
+          <h4 className="text-xs font-semibold text-red-400/90 uppercase tracking-wider">PDF Parser</h4>
+          <p className="text-3xl font-bold text-red-500 flex items-center gap-2">
+            <FileText className="w-6 h-6 text-red-500" /> PyPDF
           </p>
-          <p className="text-xs text-muted-foreground">Formula Token Extractor</p>
+          <p className="text-xs text-red-400/70">Formula Token Extractor</p>
         </div>
         <div className="space-y-1">
           <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Methodology</h4>

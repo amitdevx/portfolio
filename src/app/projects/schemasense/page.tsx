@@ -21,7 +21,7 @@ export default function SchemaSenseCaseStudy() {
         <div className="flex items-center gap-3 mb-6">
           <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20">Database Intelligence</Badge>
           <Badge variant="outline">AI Engineering</Badge>
-          <Badge variant="outline" className="border-cyan-500/20 text-cyan-400">Production-Grade</Badge>
+          <Badge variant="outline" className="border-orange-500/20 text-orange-400">Production-Grade</Badge>
         </div>
         
         <h1 className="font-headline text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-400">
@@ -32,7 +32,7 @@ export default function SchemaSenseCaseStudy() {
         </p>
         
         <div className="flex flex-wrap items-center gap-4 pt-4">
-          <Button asChild size="lg" className="bg-cyan-600 hover:bg-cyan-500 text-white">
+          <Button asChild size="lg" className="bg-orange-600 hover:bg-orange-500 text-white">
             <Link href="https://schemasense.amitdevx.tech" target="_blank">
               Live Application
               <ExternalLink className="ml-2 h-4 w-4" />
@@ -65,11 +65,11 @@ export default function SchemaSenseCaseStudy() {
           <p className="text-xs text-muted-foreground">Reduction in LLM Tokens</p>
         </div>
         <div className="space-y-1">
-          <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Security Layer</h4>
+          <h4 className="text-xs font-semibold text-emerald-400/90 uppercase tracking-wider">Security Layer</h4>
           <p className="text-3xl font-bold text-emerald-400 flex items-center gap-2">
             <Shield className="w-6 h-6 text-emerald-400" /> Active
           </p>
-          <p className="text-xs text-muted-foreground">Prompt Injection Gate</p>
+          <p className="text-xs text-emerald-400/70">Prompt Injection Gate</p>
         </div>
         <div className="space-y-1">
           <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Availability</h4>
