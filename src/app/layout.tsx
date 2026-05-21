@@ -152,7 +152,7 @@ const softwareProjectsJsonLd = projectsData.map((project) => ({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Amit Divekar | Cloud Architect & Full-Stack Engineer from India – Official Website',
+    default: 'Amit Divekar | Cloud Architect & Full-Stack Engineer from India',
     template: '%s | Amit Divekar',
   },
   description:

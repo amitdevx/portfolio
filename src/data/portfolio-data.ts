@@ -2,7 +2,7 @@
 export const navigationLinks = [
   { href: '/#home', label: 'Home' },
   { href: '/amit-divekar', label: 'About' },
-  { href: '/#experience', label: 'Experience'},
+  { href: '/#experience', label: 'Experience' },
   { href: '/#projects', label: 'Projects' },
   { href: '/#certifications', label: 'Certifications' },
   { href: '/#skills', label: 'Skills' },
@@ -13,14 +13,14 @@ export const navigationLinks = [
 
 export const heroData = {
   name: "Amit Divekar",
-  title: "AI Systems & Backend Engineer",
-  tagline: "Building high-performance backends, AI integration pipelines, and scalable cloud infrastructure.",
-  bio: "Software engineer specializing in AI workflows (LLMs, DeepSeek, Genkit), distributed backend architectures, and developer tooling. I architect resilient cloud systems that solve complex data problems and handle real-world scale.",
+  title: "Cloud Architect & Full-Stack Engineer from India",
+  tagline: "I architect resilient cloud systems and engineer high-performance web applications.",
+  bio: "Building the infrastructure for tomorrow. Specializing in highly scalable AWS/GCP architectures, Kubernetes orchestration, and AI-integrated Next.js ecosystems. Code that ships, systems that scale.",
   contactLink: "#projects"
 };
 
 export const aboutData = {
-  bio: "Backend Engineer and AI Systems Builder who designs resilient distributed systems and ships production-grade infrastructure. I specialize in integrating complex AI models into scalable backend architectures, optimizing database performance, and building robust developer tooling.",
+  bio: "Cloud Architect and Full-Stack Engineer who designs resilient distributed systems and ships production-grade web applications. Specializing in AWS/GCP infrastructure, container orchestration, and AI-powered developer tooling - with a track record of building systems that handle real-world scale.",
   stats: [
     { label: "Projects Shipped", value: "10+" },
     { label: "Cloud Platforms", value: "3" },
@@ -31,9 +31,9 @@ export const aboutData = {
     institution: "Savitribai Phule Pune University",
     degree: "Bachelor's Degree in Computer Science",
     duration: "2024 - 2027",
-    sgpa: "sgpa: 8.36/10.0",
+    sgpa: "SGPA: 8.36/10.0",
     courses: [
-      "Programming Fundamentals", "Data Structures and Algorithms", 
+      "Programming Fundamentals", "Data Structures and Algorithms",
       "Database Management Systems", "Computer Networks", "Operating Systems"
     ]
   },
@@ -56,8 +56,15 @@ export const experienceData = [
   {
     company: "Accenture UK",
     role: "Developer and Technology Virtual Experience",
-    duration: "Completed: Dec 2023",
+    duration: "Completed: 2025",
     description: "Gained a thorough understanding of the SDLC, researched emerging tech trends like DevOps, compared Waterfall vs. Agile, and designed/optimized a Python program to improve functionality."
+  },
+  {
+    company: "Scaler",
+    role: "Intern",
+    duration: "Apr 2024 - Jul 2024",
+    description: "Participated in structured technical learning focused on development fundamentals and practiced problem-solving and programming as a new dev.",
+    isInternship: true
   }
 ];
 

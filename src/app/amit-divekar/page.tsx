@@ -110,7 +110,7 @@ export default function AmitDivekarPage() {
         name: 'What does Amit Divekar do?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Amit Divekar architects cloud-native systems on AWS and Google Cloud, builds production-grade web applications with Next.js and React, and develops AI-powered tools like SchemaSense (AI database documentation) and Professor Profiler (exam analysis with multi-agent AI).',
+          text: 'Amit Divekar architects cloud-native systems on AWS and Google Cloud, builds production-grade web applications with Next.js and React, and develops AI-powered developer tools. His work spans RAG pipelines, multi-agent AI systems, container orchestration, and performance-optimized frontend applications.',
         },
       },
       {
@@ -126,7 +126,7 @@ export default function AmitDivekarPage() {
         name: 'Where is Amit Divekar from?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Amit Divekar is from India. He is currently pursuing a Bachelor\'s degree in Computer Science from Savitribai Phule Pune University and is based in the Pune/Nashik region of Maharashtra.',
+          text: 'Amit Divekar is a Cloud Architect and Full-Stack Engineer based in the Pune/Nashik region of Maharashtra, India. He is currently studying Computer Science at Savitribai Phule Pune University.',
         },
       },
       {
@@ -195,16 +195,24 @@ export default function AmitDivekarPage() {
               Professional Experience
             </h2>
             <div className="space-y-6">
-              {experienceData.map((exp, i) => (
-                <div key={i} className="border border-border/40 rounded-xl p-6 bg-background/15 backdrop-blur-lg shadow-lg hover:border-primary/50 hover:shadow-primary/20 transition-all duration-300">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                    <h3 className="font-semibold text-lg text-foreground">{exp.role}</h3>
-                    <span className="text-sm text-muted-foreground font-mono">{exp.duration}</span>
+              {experienceData.map((exp, i) => {
+                const isIntern = 'isInternship' in exp && exp.isInternship;
+                return (
+                  <div 
+                    key={i} 
+                    className={`border border-border/40 rounded-xl bg-background/80 backdrop-blur-md shadow-lg hover:border-primary/50 hover:shadow-primary/20 transition-all duration-300 ${
+                      isIntern ? "p-4" : "p-6"
+                    }`}
+                  >
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                      <h3 className={`font-semibold text-foreground ${isIntern ? "text-base" : "text-lg"}`}>{exp.role}</h3>
+                      <span className="text-xs sm:text-sm text-muted-foreground font-mono">{exp.duration}</span>
+                    </div>
+                    <p className={`text-primary font-medium ${isIntern ? "mb-1.5 text-sm" : "mb-3 text-base"}`}>{exp.company}</p>
+                    <p className={`text-muted-foreground ${isIntern ? "text-xs leading-relaxed" : "text-sm leading-relaxed"}`}>{exp.description}</p>
                   </div>
-                  <p className="text-primary font-medium mb-3">{exp.company}</p>
-                  <p className="text-sm text-muted-foreground">{exp.description}</p>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </section>
 
@@ -290,8 +298,8 @@ export default function AmitDivekarPage() {
                 <p className="mt-3 text-muted-foreground leading-relaxed">
                   Amit Divekar (also known as amitdevx) is a Cloud Architect and Full-Stack Engineer from India. 
                   He specializes in building scalable AWS/GCP cloud infrastructure, Kubernetes orchestration, 
-                  and AI-integrated web applications using Next.js, TypeScript, and Python. He is currently 
-                  pursuing a Bachelor&apos;s degree in Computer Science from {aboutData.education.institution}.
+                  and AI-integrated web applications using Next.js, TypeScript, and Python. He is currently pursuing a 
+                  Bachelor's degree in Computer Science from {aboutData.education.institution}.
                 </p>
               </details>
 
@@ -327,8 +335,8 @@ export default function AmitDivekarPage() {
                   <span className="text-primary group-open:rotate-45 transition-transform text-xl">+</span>
                 </summary>
                 <p className="mt-3 text-muted-foreground leading-relaxed">
-                  Amit Divekar is from India. He is based in the Pune/Nashik region of Maharashtra and is 
-                  currently studying Computer Science at {aboutData.education.institution}.
+                  Amit Divekar is from India. He is based in the Pune/Nashik region of Maharashtra 
+                  and is currently studying Computer Science at {aboutData.education.institution}.
                 </p>
               </details>
 

@@ -2,7 +2,6 @@
 
 import { useRef, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { Line } from '@react-three/drei';
 import * as THREE from 'three';
 
 interface AnimatedConnectionProps {
@@ -14,10 +13,9 @@ interface AnimatedConnectionProps {
 }
 
 export function AnimatedConnection({ start, end, color = '#00f0ff', dashed = true, pulse = true }: AnimatedConnectionProps) {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const lineRef = useRef<any>(null);
+  const materialRef = useRef<THREE.MeshBasicMaterial>(null);
   
-  const points = useMemo(() => {
+  const geometry = useMemo(() => {
     // create a slight curve for aesthetics
     const startVec = new THREE.Vector3(...start);
     const endVec = new THREE.Vector3(...end);
@@ -25,38 +23,24 @@ export function AnimatedConnection({ start, end, color = '#00f0ff', dashed = tru
     mid.y += 0.5; // bow string effect
     
     const curve = new THREE.QuadraticBezierCurve3(startVec, mid, endVec);
-    return curve.getPoints(50);
+    return new THREE.TubeGeometry(curve, 32, 0.015, 8, false);
   }, [start, end]);
 
-  useFrame(() => {
-    if (lineRef.current && dashed && lineRef.current.material) {
-      lineRef.current.material.dashOffset -= 0.01;
+  useFrame((state) => {
+    if (materialRef.current && dashed) {
+      materialRef.current.opacity = 0.28 + Math.sin(state.clock.getElapsedTime() * 2) * 0.12;
     }
   });
 
   return (
     <group>
-      <Line
-        ref={lineRef}
-        points={points}
-        color={color}
-        lineWidth={2}
-        transparent
-        opacity={0.4}
-        dashed={dashed}
-        dashScale={20}
-        dashSize={1}
-        dashOffset={0}
-      />
+      <mesh geometry={geometry}>
+        <meshBasicMaterial ref={materialRef} color={color} transparent opacity={0.4} />
+      </mesh>
       {pulse && (
-        <Line
-          points={points}
-          color={color}
-          lineWidth={5}
-          transparent
-          opacity={0.1}
-          blending={THREE.AdditiveBlending}
-        />
+        <mesh geometry={geometry}>
+          <meshBasicMaterial color={color} transparent opacity={0.12} blending={THREE.AdditiveBlending} depthWrite={false} />
+        </mesh>
       )}
     </group>
   );

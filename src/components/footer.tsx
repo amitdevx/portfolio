@@ -25,14 +25,6 @@ export default function Footer() {
   return (
     <footer className="bg-background/80 py-8 mt-16" role="contentinfo">
       <div className="container mx-auto px-6 sm:px-8 flex flex-col items-center gap-6">
-        <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm" aria-label="Footer navigation">
-          <Link href="/" className="text-muted-foreground hover:text-primary transition-colors">Home</Link>
-          <Link href="/amit-divekar" className="text-muted-foreground hover:text-primary transition-colors">About Amit Divekar</Link>
-          <Link href="/blogs" className="text-muted-foreground hover:text-primary transition-colors">Blog</Link>
-          <Link href="/cv" className="text-muted-foreground hover:text-primary transition-colors">Resume</Link>
-          <Link href="/#projects" className="text-muted-foreground hover:text-primary transition-colors">Projects</Link>
-          <Link href="/#contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</Link>
-        </nav>
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4 w-full">
           <p className="text-sm text-muted-foreground">
             &copy; {new Date().getFullYear()} Amit Divekar. All rights reserved.

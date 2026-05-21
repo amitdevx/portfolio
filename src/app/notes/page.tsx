@@ -11,7 +11,7 @@ const pageUrl = 'https://amitdevx.tech/notes';
 
 export const metadata: Metadata = {
   title: 'SYBSc CS Notes - Data Structures & DBMS SQL Practicals',
-  description: 'Free downloadable SYBSc Computer Science practical notes covering Data Structures and Algorithms (DSA) and Database Management Systems (DBMS SQL). Curated by Amit Divekar for Savitribai Phule Pune University students.',
+  description: 'Free downloadable SYBSc Computer Science practical notes covering Data Structures and Algorithms (DSA) and Database Management Systems (DBMS SQL). Compiled and authored by Amit Divekar for computer science students.',
   keywords: [
     'SYBSc CS notes', 'SYBSc practical notes', 'Data Structures notes',
     'DBMS SQL notes', 'Computer Science practicals', 'Pune University notes',
@@ -59,11 +59,11 @@ export default function NotesPage() {
         <div className="text-center mb-12">
           <h1 className="font-headline text-4xl md:text-5xl font-bold">SYBSc CS Practical Notes</h1>
           <p className="text-lg text-muted-foreground mt-2 max-w-2xl mx-auto">
-            Free downloadable notes for Second Year BSc Computer Science students. Covers Data Structures, Algorithms, and DBMS SQL practicals aligned with Savitribai Phule Pune University syllabus.
+            Free downloadable study guides for Second Year BSc Computer Science students, compiled by Systems Engineer Amit Divekar. Covers Data Structures, Algorithms, and DBMS SQL practicals.
           </p>
         </div>
         <div className="max-w-2xl mx-auto">
-          <Card className="bg-background/15 backdrop-blur-lg border border-border/40 shadow-lg">
+          <Card className="bg-background/80 backdrop-blur-md border border-border/40 shadow-lg">
             <CardHeader>
               <CardTitle className="font-headline text-2xl">Data Structures & DBMS SQL Practicals</CardTitle>
             </CardHeader>

@@ -63,54 +63,56 @@ export default function BlogPage() {
     <div className="relative overflow-x-clip">
       <Header />
       <main role="main">
-      <section className="min-h-screen pt-28 pb-12 px-4 sm:px-6 flex flex-col items-center w-full overflow-x-hidden" aria-labelledby="blogs-heading">
-        <div className="w-full max-w-[1600px] mx-auto space-y-12">
+      <section className="min-h-screen pt-28 pb-20 px-4 sm:px-6 lg:px-8 flex flex-col items-center w-full overflow-x-hidden" aria-labelledby="blogs-heading">
+        <div className="w-full max-w-6xl mx-auto space-y-10">
         
-        {/* Header - Matches your Projects Section */}
-        <div className="text-center space-y-4">
-          <h1 id="blogs-heading" className="font-headline text-3xl sm:text-4xl md:text-5xl font-bold">
-            Tech Blogs & Tutorials
+        {/* Header */}
+        <div className="space-y-3">
+          <h1 id="blogs-heading" className="font-headline text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
+            Engineering Blog
           </h1>
-          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-            Deep dives into code, bugs I've fixed, and systems I've built. Real-world solutions and technical insights.
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl">
+            Deep dives into systems I've built, bugs I've fixed, and technical decisions behind real-world projects.
           </p>
         </div>
 
         {/* Grid Layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" role="list">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" role="list">
           {posts.map((post) => (
             <Card 
               key={post.slug} 
-              // This class string matches your Projects card style exactly
-              className="bg-background/15 backdrop-blur-lg border border-border/40 shadow-lg flex flex-col transition-all duration-300 hover:border-primary/50 hover:shadow-primary/20 hover:shadow-2xl group"
+              className="bg-background/80 backdrop-blur-md border border-border/40 shadow-lg flex flex-col transition-all duration-300 hover:border-primary/30 hover:shadow-xl group"
               role="listitem"
             >
-              <CardHeader>
-                <div className="flex justify-between items-center mb-4">
-                  <Badge variant="outline" className="font-normal opacity-70 flex gap-1 items-center">
+              <CardHeader className="pb-3">
+                <div className="flex justify-between items-center mb-3">
+                  <Badge variant="outline" className="font-normal opacity-70 flex gap-1 items-center text-xs">
                     <Calendar className="w-3 h-3" /> {post.date}
                   </Badge>
                 </div>
-                <CardTitle className="font-headline text-lg sm:text-xl group-hover:text-primary transition-colors leading-snug">
+                <CardTitle className="font-headline text-lg leading-snug group-hover:text-primary transition-colors">
                   {post.title}
                 </CardTitle>
-                <CardDescription className="line-clamp-3 mt-2 text-sm">
+                <CardDescription className="line-clamp-2 mt-2 text-sm">
                   {post.description}
                 </CardDescription>
               </CardHeader>
               
-              <CardContent className="flex-grow">
-                <div className="flex flex-wrap gap-2">
-                    {post.tags.map(tag => (
-                        <Badge key={tag} variant="secondary" className="text-xs">
+              <CardContent className="flex-grow pt-0">
+                <div className="flex flex-wrap gap-1.5">
+                    {post.tags.slice(0, 3).map(tag => (
+                        <Badge key={tag} variant="secondary" className="text-[11px] px-2 py-0.5">
                             {tag}
                         </Badge>
                     ))}
+                    {post.tags.length > 3 && (
+                        <Badge variant="secondary" className="text-[11px] px-2 py-0.5">+{post.tags.length - 3}</Badge>
+                    )}
                 </div>
               </CardContent>
 
-              <CardFooter>
-                <Button asChild variant="ghost" className="w-full justify-between group-hover:bg-primary/10">
+              <CardFooter className="pt-0">
+                <Button asChild variant="ghost" size="sm" className="w-full justify-between group-hover:bg-primary/5">
                   <Link href={`/blogs/${post.slug}`}>
                     Read Article <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>

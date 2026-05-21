@@ -43,40 +43,40 @@ export default function Hero() {
         </TextReveal>
         
         <motion.div 
-          className="flex flex-col sm:flex-row items-center gap-4 mt-8"
+          className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center gap-3 mt-8 w-full max-w-sm sm:max-w-none px-4 mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
         >
-          <ScaleOnTap>
-            <Button asChild size="lg" className="group">
+          <ScaleOnTap className="w-full sm:w-auto">
+            <Button asChild size="lg" className="w-full sm:w-auto text-xs sm:text-sm md:text-base px-4 py-2.5 sm:px-6 group">
               <Link href={heroData.contactLink}>
                 View Engineering Projects
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 shrink-0" />
               </Link>
             </Button>
           </ScaleOnTap>
-          <ScaleOnTap>
-            <Button asChild size="lg" variant="outline" className="group">
+          <ScaleOnTap className="w-full sm:w-auto">
+            <Button asChild size="lg" variant="outline" className="w-full sm:w-auto text-xs sm:text-sm md:text-base px-4 py-2.5 sm:px-6 group">
               <Link href="/cv" target="_blank" rel="noopener noreferrer">
                 View Resume
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 shrink-0" />
               </Link>
             </Button>
           </ScaleOnTap>
-          <ScaleOnTap>
-            <Button asChild size="lg" variant="outline" className="group">
+          <ScaleOnTap className="w-full sm:w-auto">
+            <Button asChild size="lg" variant="outline" className="w-full sm:w-auto text-xs sm:text-sm md:text-base px-4 py-2.5 sm:px-6 group">
               <Link href="/blogs">
                 Engineering Blog
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 shrink-0" />
               </Link>
             </Button>
           </ScaleOnTap>
-          <ScaleOnTap>
-            <Button asChild size="lg" variant="outline" className="group">
+          <ScaleOnTap className="w-full sm:w-auto">
+            <Button asChild size="lg" variant="outline" className="w-full sm:w-auto text-xs sm:text-sm md:text-base px-4 py-2.5 sm:px-6 group">
               <Link href={socialLinks.github} target="_blank" rel="noopener noreferrer">
                 GitHub Profile
-                <Github className="ml-2 h-5 w-5" />
+                <Github className="ml-2 h-4 w-4 shrink-0" />
               </Link>
             </Button>
           </ScaleOnTap>

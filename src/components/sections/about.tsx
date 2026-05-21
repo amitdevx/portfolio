@@ -57,7 +57,7 @@ export default function About() {
               variants={staggerChildVariants}
               className="relative group"
             >
-              <div className="bg-background/15 backdrop-blur-lg border border-border/40 rounded-xl p-6 text-center transition-all duration-300 hover:border-primary/50 hover:shadow-primary/20 hover:shadow-2xl">
+              <div className="bg-background/80 backdrop-blur-md border border-border/40 rounded-xl p-6 text-center transition-all duration-300 hover:border-primary/50 hover:shadow-primary/20 hover:shadow-2xl">
                 <p className="text-3xl md:text-4xl font-headline font-bold text-primary">{stat.value}</p>
                 <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
               </div>
@@ -67,7 +67,7 @@ export default function About() {
 
         <StaggerContainer className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
           <motion.div variants={staggerChildVariants}>
-            <Card className="bg-background/15 backdrop-blur-lg border border-border/40 shadow-lg transition-all duration-300 hover:border-primary/50 hover:shadow-primary/20 hover:shadow-2xl">
+            <Card className="bg-background/80 backdrop-blur-md border border-border/40 shadow-lg transition-all duration-300 hover:border-primary/50 hover:shadow-primary/20 hover:shadow-2xl">
               <CardHeader className="flex flex-row items-center gap-4">
                 <GraduationCap className="h-8 w-8 text-primary" />
                 <CardTitle className="font-headline text-2xl">Education</CardTitle>
@@ -88,7 +88,7 @@ export default function About() {
             </Card>
           </motion.div>
           <motion.div variants={staggerChildVariants}>
-            <Card className="bg-background/15 backdrop-blur-lg border border-border/40 shadow-lg transition-all duration-300 hover:border-primary/50 hover:shadow-primary/20 hover:shadow-2xl">
+            <Card className="bg-background/80 backdrop-blur-md border border-border/40 shadow-lg transition-all duration-300 hover:border-primary/50 hover:shadow-primary/20 hover:shadow-2xl">
               <CardHeader className="flex flex-row items-center gap-4">
                 <Sparkles className="h-8 w-8 text-primary" />
                 <CardTitle className="font-headline text-2xl">Hobbies & Interests</CardTitle>

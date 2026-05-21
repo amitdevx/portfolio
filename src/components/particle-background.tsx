@@ -33,8 +33,7 @@ const ParticleBackground = memo(() => {
       0.1,
       1000
     );
-    camera.position.set(0, 3, 6);
-    camera.lookAt(0, 0, 0);
+    camera.position.set(0, 0, 5);
 
     // Renderer
     const renderer = new THREE.WebGLRenderer({
@@ -51,62 +50,21 @@ const ParticleBackground = memo(() => {
     currentMount.appendChild(renderer.domElement);
     rendererRef.current = renderer;
 
-    // ─── Low-Poly Topography Grid ───────────────────────
-    const gridSize = isMobile || isLowEndDevice ? 20 : isTablet ? 35 : 50;
-    const gridSpacing = 0.35;
-    const geometry = new THREE.PlaneGeometry(
-      gridSize * gridSpacing,
-      gridSize * gridSpacing,
-      gridSize,
-      gridSize
-    );
-    geometry.rotateX(-Math.PI / 2.5);
-
-    // Displace vertices to create terrain
-    const positions = geometry.attributes.position.array as Float32Array;
-    const originalPositions = new Float32Array(positions.length);
-
-    for (let i = 0; i < positions.length; i += 3) {
-      const x = positions[i];
-      const z = positions[i + 2];
-      // Smooth rolling hills with layered noise
-      const height =
-        Math.sin(x * 0.3) * Math.cos(z * 0.3) * 0.5 +
-        Math.sin(x * 0.7 + 1) * Math.cos(z * 0.5 + 2) * 0.3 +
-        Math.sin(x * 1.5 + 3) * Math.cos(z * 1.2 + 1) * 0.15;
-      positions[i + 1] = height;
-    }
-
-    originalPositions.set(positions);
-    geometry.computeVertexNormals();
-
-    // Wireframe material with warm accent color matching the theme
-    const material = new THREE.MeshBasicMaterial({
-      color: new THREE.Color('hsl(31, 32%, 63%)'), // primary color
-      wireframe: true,
-      transparent: true,
-      opacity: isMobile ? 0.06 : 0.08,
-    });
-
-    const terrain = new THREE.Mesh(geometry, material);
-    terrain.position.y = -1.5;
-    scene.add(terrain);
-
-    // Floating particless
-    const particleCount = isMobile || isLowEndDevice ? 100 : isTablet ? 300 : 800;
+    // Floating particles (Maintained particle design as requested)
+    const particleCount = isMobile || isLowEndDevice ? 150 : isTablet ? 400 : 900;
     const particleGeo = new THREE.BufferGeometry();
     const particlePositions = new Float32Array(particleCount * 3);
 
     for (let i = 0; i < particleCount * 3; i += 3) {
-      particlePositions[i] = (Math.random() - 0.5) * 12;
-      particlePositions[i + 1] = Math.random() * 4 - 0.5;
-      particlePositions[i + 2] = (Math.random() - 0.5) * 12;
+      particlePositions[i] = (Math.random() - 0.5) * 10;
+      particlePositions[i + 1] = (Math.random() - 0.5) * 10;
+      particlePositions[i + 2] = (Math.random() - 0.5) * 10;
     }
 
     particleGeo.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
 
     const particleMat = new THREE.PointsMaterial({
-      size: isMobile ? 0.02 : 0.015,
+      size: isMobile ? 0.025 : 0.02,
       color: 0xffffff,
       transparent: true,
       opacity: isMobile ? 0.4 : 0.6,
@@ -154,29 +112,9 @@ const ParticleBackground = memo(() => {
         currentMouse.y += (targetMouse.y - currentMouse.y) * 0.05;
       }
 
-      // Animate terrain vertices
-      const terrainPositions = terrain.geometry.attributes.position.array as Float32Array;
-
-      if (!isReducedMotion) {
-        for (let i = 0; i < originalPositions.length; i += 3) {
-          const x = originalPositions[i];
-          const z = originalPositions[i + 2];
-          const originalY = originalPositions[i + 1];
-
-          // Fluid wave animation (more natural physics)
-          const wave = Math.sin(x * 0.4 + elapsedTime * 0.3) *
-            Math.cos(z * 0.4 + elapsedTime * 0.2) * 0.12;
-
-          terrainPositions[i + 1] = originalY + wave;
-        }
-        terrain.geometry.attributes.position.needsUpdate = true;
-      }
-
-      // Particle physics & alignment
-      particles.rotation.y = elapsedTime * 0.02 + currentMouse.x * 0.15;
-      particles.rotation.x = -currentMouse.y * 0.1;
-
-
+      // Physics slow drifting rotation
+      particles.rotation.y = elapsedTime * 0.03 + currentMouse.x * 0.25;
+      particles.rotation.x = elapsedTime * 0.015 - currentMouse.y * 0.15;
 
       renderer.render(scene, camera);
       animationIdRef.current = requestAnimationFrame(animate);
@@ -215,8 +153,6 @@ const ParticleBackground = memo(() => {
       }
 
       // Cleanup Three.js resources
-      geometry.dispose();
-      material.dispose();
       particleGeo.dispose();
       particleMat.dispose();
       scene.clear();

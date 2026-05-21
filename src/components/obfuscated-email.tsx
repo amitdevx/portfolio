@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect, ReactNode } from 'react';
-import Link from 'next/link';
 
 interface ObfuscatedEmailProps {
   user: string;

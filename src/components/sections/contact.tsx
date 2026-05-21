@@ -35,7 +35,7 @@ export default function Contact() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           <div className="md:col-span-2">
-            <Card className="bg-background/15 backdrop-blur-lg border border-border/40 shadow-lg transition-all duration-300 hover:border-primary/50 hover:shadow-primary/20 hover:shadow-2xl">
+            <Card className="bg-background/80 backdrop-blur-md border border-border/40 shadow-lg transition-all duration-300 hover:border-primary/50 hover:shadow-primary/20 hover:shadow-2xl">
                 <CardHeader>
                     <CardTitle className="font-headline text-2xl">Send me a message</CardTitle>
                     <CardDescription>This will open your default email client.</CardDescription>
@@ -45,7 +45,7 @@ export default function Contact() {
                 </CardContent>
             </Card>
           </div>
-          <Card className="bg-background/15 backdrop-blur-lg border border-border/40 shadow-lg transition-all duration-300 hover:border-primary/50 hover:shadow-primary/20 hover:shadow-2xl">
+          <Card className="bg-background/80 backdrop-blur-md border border-border/40 shadow-lg transition-all duration-300 hover:border-primary/50 hover:shadow-primary/20 hover:shadow-2xl">
             <CardHeader>
               <CardTitle className="font-headline text-2xl">Contact Information</CardTitle>
             </CardHeader>
@@ -70,9 +70,11 @@ export default function Contact() {
                     <InstagramIcon />
                     <span className="text-muted-foreground group-hover:text-foreground transition-colors">amitdevx</span>
                 </Link>
-                <ObfuscatedEmail user={socialLinks.emailUser} domain={socialLinks.emailDomain} className="flex items-center gap-4 group">
-                    <Mail className="h-6 w-6 text-primary" />
-                    <span className="text-muted-foreground group-hover:text-foreground transition-colors">{socialLinks.emailUser}@{socialLinks.emailDomain}</span>
+                <ObfuscatedEmail user={socialLinks.emailUser} domain={socialLinks.emailDomain} className="flex items-center gap-4 group min-w-0 w-full">
+                    <Mail className="h-6 w-6 text-primary shrink-0" />
+                    <span className="text-muted-foreground group-hover:text-foreground transition-colors text-sm sm:text-base break-all min-w-0 flex-1">
+                      {socialLinks.emailUser}@{socialLinks.emailDomain}
+                    </span>
                 </ObfuscatedEmail>
             </CardContent>
           </Card>

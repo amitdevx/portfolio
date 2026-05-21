@@ -25,7 +25,7 @@ export default function Certifications() {
           {certificationsData.map((cert) => (
             <motion.div key={cert.title} variants={staggerChildVariants}>
               <TiltCard>
-                <Card className="bg-background/15 backdrop-blur-lg border border-border/40 shadow-lg flex flex-col transition-all duration-300 hover:border-primary/50 hover:shadow-primary/20 hover:shadow-2xl h-full">
+                <Card className="bg-background/80 backdrop-blur-md border border-border/40 shadow-lg flex flex-col transition-all duration-300 hover:border-primary/50 hover:shadow-primary/20 hover:shadow-2xl h-full">
                   <CardHeader className="flex flex-row items-start gap-4 space-y-0">
                     {cert.companyLogo && (
                       <div className="relative h-12 w-12 rounded-md overflow-hidden bg-white shrink-0">

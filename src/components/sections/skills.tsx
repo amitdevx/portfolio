@@ -32,7 +32,7 @@ export default function Skills() {
             <motion.div
               key={category.name}
               variants={staggerChildVariants}
-              className="bg-background/15 backdrop-blur-lg border border-border/40 rounded-xl p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-primary/20 hover:shadow-2xl"
+              className="bg-background/80 backdrop-blur-md border border-border/40 rounded-xl p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-primary/20 hover:shadow-2xl"
             >
               <div className="flex items-center gap-3 mb-5">
                 {(() => {
@@ -70,7 +70,7 @@ export default function Skills() {
               {skillsData.soft.map((skill) => (
                 <span
                   key={skill}
-                  className="px-4 py-2 rounded-full bg-background/15 backdrop-blur-lg border border-border/40 text-sm text-muted-foreground transition-all duration-200 hover:border-primary/50 hover:text-foreground"
+                  className="px-4 py-2 rounded-full bg-background/80 backdrop-blur-md border border-border/40 text-sm text-muted-foreground transition-all duration-200 hover:border-primary/50 hover:text-foreground"
                 >
                   {skill}
                 </span>
