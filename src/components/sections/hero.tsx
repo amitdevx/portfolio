@@ -26,7 +26,7 @@ export default function Hero() {
 
         <TextReveal delay={0.2}>
           <p className="w-full max-w-4xl break-words text-center text-base leading-relaxed text-primary font-semibold sm:text-lg md:text-xl lg:text-2xl [word-break:break-word] hyphens-auto">
-            {heroData.title} from India
+            {heroData.title}
           </p>
         </TextReveal>
 

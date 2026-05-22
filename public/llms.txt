@@ -38,7 +38,7 @@
 - [LinkedIn](https://www.linkedin.com/in/divekar-amit): Professional networking profile.
 - [Twitter/X](https://x.com/amitdevx_): Tech updates and insights.
 - [Kaggle](https://www.kaggle.com/divekaramit): Data science and ML projects.
-- [Email](mailto:Amitdivekar289@gmail.com): Direct contact.
+- [Email](mailto:admin@amitdevx.tech): Direct contact.
 
 ## Key Expertise
 - Cloud Platforms: AWS, Google Cloud Platform (GCP), Microsoft Azure

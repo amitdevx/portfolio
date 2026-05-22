@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { getAllPosts } from '@/lib/blog';
+import { projectsData } from '@/data/portfolio-data';
 
 const siteUrl = 'https://amitdevx.tech';
 
@@ -16,37 +17,48 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  // Get all project pages
+  const projectEntries: MetadataRoute.Sitemap = projectsData
+    .filter((project) => project.docLink && project.docLink.startsWith('/'))
+    .map((project) => ({
+      url: `${siteUrl}${project.docLink}`,
+      lastModified,
+      changeFrequency: 'monthly' as const,
+      priority: 0.85,
+    }));
+
   return [
     {
       url: siteUrl,
       lastModified,
-      changeFrequency: 'monthly',
-      priority: 1,
-    },
-    {
-      url: `${siteUrl}/amit-divekar`,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.95,
-    },
-    {
-      url: `${siteUrl}/cv`,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.95,
+      changeFrequency: 'daily' as const,
+      priority: 1.0,
     },
     {
       url: `${siteUrl}/blogs`,
       lastModified,
-      changeFrequency: 'weekly',
+      changeFrequency: 'daily' as const,
       priority: 0.9,
+    },
+    {
+      url: `${siteUrl}/amit-divekar`,
+      lastModified,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${siteUrl}/cv`,
+      lastModified,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
     },
     {
       url: `${siteUrl}/notes`,
       lastModified,
-      changeFrequency: 'monthly',
+      changeFrequency: 'weekly' as const,
       priority: 0.7,
     },
+    ...projectEntries,
     ...blogEntries,
   ];
 }
