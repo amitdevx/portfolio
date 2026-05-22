@@ -94,7 +94,7 @@ export default function CvPage() {
       <main className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 pt-28 pb-16">
         
         {/* Hero Header */}
-        <header className="rounded-2xl border border-border/40 bg-background/15 backdrop-blur-lg p-8 sm:p-10 shadow-2xl mb-10">
+        <header className="rounded-2xl border border-border/40 bg-background/80 backdrop-blur-md p-8 sm:p-10 shadow-2xl mb-10">
           <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
             <div className="space-y-4 flex-1">
               <div className="flex flex-wrap items-center gap-3">
@@ -149,22 +149,22 @@ export default function CvPage() {
 
         {/* Key Highlights */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-          <div className="rounded-xl border border-border/40 bg-background/15 backdrop-blur-lg p-5 text-center">
+          <div className="rounded-xl border border-border/40 bg-background/80 backdrop-blur-md p-5 text-center">
             <Zap className="w-6 h-6 text-primary mx-auto mb-2" />
             <p className="text-2xl font-bold">{aboutData.stats[0].value}</p>
             <p className="text-xs text-muted-foreground">{aboutData.stats[0].label}</p>
           </div>
-          <div className="rounded-xl border border-border/40 bg-background/15 backdrop-blur-lg p-5 text-center">
+          <div className="rounded-xl border border-border/40 bg-background/80 backdrop-blur-md p-5 text-center">
             <Shield className="w-6 h-6 text-green-500 mx-auto mb-2" />
             <p className="text-2xl font-bold">{aboutData.stats[1].value}</p>
             <p className="text-xs text-muted-foreground">{aboutData.stats[1].label}</p>
           </div>
-          <div className="rounded-xl border border-border/40 bg-background/15 backdrop-blur-lg p-5 text-center">
+          <div className="rounded-xl border border-border/40 bg-background/80 backdrop-blur-md p-5 text-center">
             <Code2 className="w-6 h-6 text-primary mx-auto mb-2" />
             <p className="text-2xl font-bold">{aboutData.stats[2].value}</p>
             <p className="text-xs text-muted-foreground">{aboutData.stats[2].label}</p>
           </div>
-          <div className="rounded-xl border border-border/40 bg-background/15 backdrop-blur-lg p-5 text-center">
+          <div className="rounded-xl border border-border/40 bg-background/80 backdrop-blur-md p-5 text-center">
             <Brain className="w-6 h-6 text-purple-500 mx-auto mb-2" />
             <p className="text-2xl font-bold">{aboutData.stats[3].value}</p>
             <p className="text-xs text-muted-foreground">{aboutData.stats[3].label}</p>
@@ -174,7 +174,7 @@ export default function CvPage() {
         <div className="grid gap-8">
 
           {/* Skills - Front and Center */}
-          <Card className="bg-background/15 backdrop-blur-lg border-border/40 shadow-xl" id="skills">
+          <Card className="bg-background/80 backdrop-blur-md border-border/40 shadow-xl" id="skills">
             <CardHeader className="pb-4">
               <CardTitle className="text-xl font-headline">Technical Skills</CardTitle>
             </CardHeader>
@@ -201,7 +201,7 @@ export default function CvPage() {
           </Card>
 
           {/* Selected Projects */}
-          <Card className="bg-background/15 backdrop-blur-lg border-border/40 shadow-xl" id="projects">
+          <Card className="bg-background/80 backdrop-blur-md border-border/40 shadow-xl" id="projects">
             <CardHeader className="pb-4">
               <CardTitle className="text-xl font-headline">Featured Projects</CardTitle>
             </CardHeader>
@@ -267,7 +267,7 @@ export default function CvPage() {
 
           {/* Education & Certifications Row */}
           <div className="grid md:grid-cols-2 gap-8">
-            <Card className="bg-background/15 backdrop-blur-lg border-border/40 shadow-xl">
+            <Card className="bg-background/80 backdrop-blur-md border-border/40 shadow-xl">
               <CardHeader className="pb-4">
                 <CardTitle className="text-xl font-headline">Education</CardTitle>
               </CardHeader>
@@ -285,7 +285,7 @@ export default function CvPage() {
               </CardContent>
             </Card>
 
-            <Card className="bg-background/15 backdrop-blur-lg border-border/40 shadow-xl">
+            <Card className="bg-background/80 backdrop-blur-md border-border/40 shadow-xl">
               <CardHeader className="pb-4">
                 <CardTitle className="text-xl font-headline">Certifications</CardTitle>
               </CardHeader>

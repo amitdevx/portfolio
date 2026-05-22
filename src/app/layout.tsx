@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import GlobalBackground from '@/components/global-background';
+import ScrollRestoration from '@/components/scroll-restoration';
 import React from 'react';
 import { Inter, Space_Grotesk } from 'next/font/google';
 import './globals.css';
@@ -350,6 +351,7 @@ export default function RootLayout({
           Skip to main content
         </a>
         <GlobalBackground />
+        <ScrollRestoration />
         {children}
         <Toaster />
       </body>
