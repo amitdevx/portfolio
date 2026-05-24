@@ -67,20 +67,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       authors: [heroData.name],
       section: 'Technology',
       tags: post.tags,
-      images: [
-        {
-          url: `${siteUrl}/api/og?title=${encodeURIComponent(post.title)}`,
-          width: 1200,
-          height: 630,
-          alt: `${post.title} - Amit Divekar`,
-        },
-      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: `${post.title} | Amit Divekar`,
       description: post.description,
-      images: [`${siteUrl}/api/og?title=${encodeURIComponent(post.title)}`],
       creator: '@amitdevx_',
       site: '@amitdevx_',
     },
@@ -106,9 +97,9 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   
   const articleJsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'TechArticle',
+    '@type': 'BlogPosting',
+    name: post.title,
     headline: post.title,
-    description: post.description,
     author: {
       '@type': 'Person',
       name: heroData.name,
@@ -132,13 +123,14 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     },
     datePublished: post.date,
     dateModified: post.updated || post.date,
+    url: `${siteUrl}/blogs/${slug}`,
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': `${siteUrl}/blogs/${slug}`,
     },
     image: {
       '@type': 'ImageObject',
-      url: `${siteUrl}/api/og?title=${encodeURIComponent(post.title)}`,
+      url: `${siteUrl}/blogs/${slug}/opengraph-image`,
       width: 1200,
       height: 630,
     },

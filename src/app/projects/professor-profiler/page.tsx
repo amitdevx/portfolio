@@ -5,6 +5,15 @@ import { Badge } from '@/components/ui/badge';
 import { SystemArchitectureVisual } from '@/components/projects/SystemArchitectureVisual';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Professor Profiler Case Study',
+  description: 'Case study on Professor Profiler, a RAG system and vector database application built to reverse-engineer exam questions.',
+  alternates: {
+    canonical: 'https://amitdevx.tech/projects/professor-profiler',
+  },
+};
 
 export default function ProfessorProfilerCaseStudy() {
   return (

@@ -8,8 +8,8 @@ import Header from '@/components/header';
 import Footer from '@/components/footer';
 
 export const metadata = {
-  title: "Tech Blogs & Tutorials | Amit Divekar",
-  description: "In-depth technical blogs, project breakdowns, and tutorials on Cloud, DevOps, Full-Stack Development, and AI by Amit Divekar. Learn from real-world implementations.",
+  title: "Tech Blogs & Tutorials",
+  description: "Explore Amit Divekar's engineering blog covering in-depth topics on cloud architecture, AI systems, full-stack development, and real-world technical deep dives.",
   keywords: [
     'Tech Blog',
     'Software Engineering Blog',
@@ -26,26 +26,17 @@ export const metadata = {
     canonical: 'https://amitdevx.tech/blogs',
   },
   openGraph: {
-    title: "Tech Blogs & Tutorials | Amit Divekar",
-    description: "In-depth technical blogs, project breakdowns, and tutorials on Cloud, DevOps, Full-Stack Development, and AI.",
+    title: "Tech Blogs & Tutorials",
+    description: "Explore Amit Divekar's engineering blog covering in-depth topics on cloud architecture, AI systems, full-stack development, and real-world technical deep dives.",
     url: 'https://amitdevx.tech/blogs',
     type: 'website',
     siteName: 'Amit Divekar',
     locale: 'en_US',
-    images: [
-      {
-        url: 'https://amitdevx.tech/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'Amit Divekar - Tech Blogs & Tutorials',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Tech Blogs & Tutorials | Amit Divekar',
-    description: 'In-depth technical blogs and tutorials on Cloud, DevOps, and Full-Stack Development.',
-    images: ['https://amitdevx.tech/og-image.png'],
+    title: 'Tech Blogs & Tutorials',
+    description: "Explore Amit Divekar's engineering blog covering in-depth topics on cloud architecture, AI systems, full-stack development, and real-world technical deep dives.",
     creator: '@amitdevx_',
     site: '@amitdevx_',
   },

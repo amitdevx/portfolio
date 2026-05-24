@@ -51,7 +51,7 @@ export function middleware(request: NextRequest) {
   if (
     hostname.includes('qzz.io') ||
     hostname.includes('.vercel.app') ||
-    (hostname !== 'amitdevx.tech' && hostname !== 'localhost:3000' && !hostname.startsWith('localhost:'))
+    (hostname !== 'amitdevx.tech' && !hostname.startsWith('localhost') && !hostname.startsWith('127.0.0.1') && !hostname.startsWith('[::1]'))
   ) {
     url.protocol = 'https:';
     url.host = 'amitdevx.tech';

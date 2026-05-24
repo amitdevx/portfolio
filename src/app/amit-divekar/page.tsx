@@ -13,8 +13,8 @@ import { Button } from '@/components/ui/button';
 const siteUrl = 'https://amitdevx.tech';
 
 export const metadata: Metadata = {
-  title: 'Who is Amit Divekar? | Official Profile',
-  description: 'Amit Divekar is a Cloud Architect and Full-Stack Engineer from India specializing in AWS/GCP infrastructure, Kubernetes, and AI-integrated web applications. Learn about his projects, experience, and technical background.',
+  title: 'Who is Amit Divekar?',
+  description: 'Official profile of Amit Divekar, detailing his background, education, and journey as a Cloud Architect and Full-Stack Engineer from India.',
   keywords: [
     'who is Amit Divekar',
     'Amit Divekar developer',
@@ -29,22 +29,16 @@ export const metadata: Metadata = {
     canonical: `${siteUrl}/amit-divekar`,
   },
   openGraph: {
-    title: 'Who is Amit Divekar? | Official Profile',
-    description: 'Cloud Architect & Full-Stack Engineer from India building AI-powered systems and production-grade cloud infrastructure.',
+    title: 'Who is Amit Divekar?',
+    description: 'Official profile of Amit Divekar, detailing his background, education, and journey as a Cloud Architect and Full-Stack Engineer from India.',
     url: `${siteUrl}/amit-divekar`,
     type: 'profile',
     siteName: 'Amit Divekar',
-    images: [{
-      url: `${siteUrl}/og-image.png`,
-      width: 1200,
-      height: 630,
-      alt: 'Amit Divekar - Cloud Architect and Full-Stack Engineer from India',
-    }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Who is Amit Divekar? | Official Profile',
-    description: 'Cloud Architect & Full-Stack Engineer from India building AI-powered systems.',
+    title: 'Who is Amit Divekar?',
+    description: 'Official profile of Amit Divekar, detailing his background, education, and journey as a Cloud Architect and Full-Stack Engineer from India.',
     creator: '@amitdevx_',
   },
 };
@@ -61,7 +55,7 @@ export default function AmitDivekarPage() {
       name: 'Amit Divekar',
       alternateName: 'amitdevx',
       url: siteUrl,
-      image: `${siteUrl}/og-image.png`,
+      image: `${siteUrl}/opengraph-image`,
       jobTitle: heroData.title,
       description: heroData.bio,
       nationality: {
@@ -93,6 +87,7 @@ export default function AmitDivekarPage() {
       ],
     },
   };
+
 
   const faqJsonLd = {
     '@context': 'https://schema.org',

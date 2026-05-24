@@ -26,20 +26,11 @@ export const metadata: Metadata = {
     title: 'SYBSc CS Notes - DSA & DBMS SQL Practicals | Amit Divekar',
     description: 'Free downloadable SYBSc Computer Science practical notes for Data Structures, Algorithms, and DBMS SQL.',
     siteName: 'Amit Divekar',
-    images: [
-      {
-        url: 'https://amitdevx.tech/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'SYBSc CS Notes - Amit Divekar',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'SYBSc CS Notes - DSA & DBMS SQL Practicals | Amit Divekar',
     description: 'Free downloadable SYBSc Computer Science practical notes for Data Structures, Algorithms, and DBMS SQL.',
-    images: ['https://amitdevx.tech/og-image.png'],
     creator: '@amitdevx_',
   },
   robots: {

@@ -21,9 +21,9 @@ import Footer from '@/components/footer';
 const siteUrl = 'https://amitdevx.tech';
 
 export const metadata: Metadata = {
-  title: 'Resume | Amit Divekar',
+  title: 'Resume',
   description:
-    'Cloud Architect and Full-Stack Engineer specializing in AWS/GCP infrastructure, container orchestration, and AI-powered developer tooling. View experience, projects, and skills.',
+    'Resume of Amit Divekar, detailing professional experience as a Cloud Architect and Full-Stack Engineer, technical skills, and current career objectives.',
   alternates: {
     canonical: `${siteUrl}/cv`,
   },
@@ -36,23 +36,14 @@ export const metadata: Metadata = {
     url: `${siteUrl}/cv`,
     title: `${heroData.name} - Resume`,
     description:
-      'Cloud Architect and Full-Stack Engineer specializing in AWS/GCP infrastructure, container orchestration, and AI-powered developer tooling.',
+      'Resume of Amit Divekar, detailing professional experience as a Cloud Architect and Full-Stack Engineer, technical skills, and current career objectives.',
     siteName: heroData.name,
-    images: [
-      {
-        url: `${siteUrl}/og-image.png`,
-        width: 1200,
-        height: 630,
-        alt: `${heroData.name} - Software Engineer`,
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: `${heroData.name} - Resume`,
     description:
-      'Cloud Architect and Full-Stack Engineer specializing in AWS/GCP infrastructure, container orchestration, and AI-powered developer tooling.',
-    images: [`${siteUrl}/og-image.png`],
+      'Resume of Amit Divekar, detailing professional experience as a Cloud Architect and Full-Stack Engineer, technical skills, and current career objectives.',
     creator: '@amitdevx_',
   },
 };

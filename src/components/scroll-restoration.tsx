@@ -6,7 +6,7 @@ import { usePathname, useSearchParams } from 'next/navigation';
 function ScrollRestorationInner() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const activeIntervalRef = useRef<any>(null);
+  const activeIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   // Set scroll restoration to manual globally on mount
   useEffect(() => {
@@ -23,7 +23,7 @@ function ScrollRestorationInner() {
       return `scroll_pos_${window.location.pathname}${window.location.search}${window.location.hash}`;
     };
 
-    let timeoutId: any;
+    let timeoutId: ReturnType<typeof setTimeout>;
     const handleScroll = () => {
       clearTimeout(timeoutId);
       timeoutId = setTimeout(() => {
@@ -77,14 +77,14 @@ function ScrollRestorationInner() {
         // Set immediate scroll
         window.scrollTo({
           top: targetScroll,
-          behavior: 'instant' as any
+          behavior: 'instant' as ScrollBehavior
         });
 
         // Polling to handle content height updates/hydration delays
         activeIntervalRef.current = setInterval(() => {
           window.scrollTo({
             top: targetScroll,
-            behavior: 'instant' as any
+            behavior: 'instant' as ScrollBehavior
           });
 
           attempts++;
@@ -98,7 +98,7 @@ function ScrollRestorationInner() {
       // If no position is saved, scroll to the top of the page (standard navigation)
       window.scrollTo({
         top: 0,
-        behavior: 'instant' as any
+        behavior: 'instant' as ScrollBehavior
       });
     }
 

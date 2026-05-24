@@ -14,30 +14,17 @@ export default function About() {
         <SectionReveal>
           <div className="flex flex-col md:flex-row items-center gap-8 mb-12">
             <div className="relative w-48 h-48 shrink-0">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-purple-500 to-secondary animate-spin-slow opacity-75 blur-sm" aria-hidden="true"></div>
-              
-              <div className="absolute inset-0.5 rounded-full bg-gradient-to-br from-primary/50 to-secondary/50 animate-pulse" aria-hidden="true"></div>
-              
-              <div className="absolute inset-2 rounded-full overflow-hidden border-4 border-primary shadow-2xl">
+              <div className="absolute inset-0 rounded-full overflow-hidden border-4 border-primary shadow-2xl">
                 <Image
-                  src="/images/amit-divekar-profile.jpg"
+                  src="/amit-divekar.jpg"
                   alt="Amit Divekar Full Stack Developer and Cloud Architect specializing in AWS, GCP, and Kubernetes"
                   fill
                   sizes="(max-width: 768px) 150px, 192px"
                   className="object-cover"
                   priority
                   loading="eager"
+                  unoptimized
                 />
-              </div>
-              
-              <div className="absolute inset-0 animate-spin-slow" aria-hidden="true">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-primary rounded-full blur-[1px]"></div>
-              </div>
-              <div className="absolute inset-0 animate-spin-slow animation-delay-2000" aria-hidden="true">
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-secondary rounded-full blur-[1px]"></div>
-              </div>
-              <div className="absolute inset-0 animate-spin-slow animation-delay-4000" aria-hidden="true">
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-purple-500 rounded-full blur-[1px]"></div>
               </div>
             </div>
             

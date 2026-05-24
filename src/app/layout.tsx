@@ -6,7 +6,7 @@ import React from 'react';
 import { Inter, Space_Grotesk } from 'next/font/google';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
-import { heroData, aboutData, projectsData } from '@/data/portfolio-data';
+import { heroData, projectsData } from '@/data/portfolio-data';
 import { safeJsonLd, isValidGaId } from '@/lib/security';
 
 const inter = Inter({
@@ -34,44 +34,7 @@ export const viewport: Viewport = {
 
 const siteUrl = 'https://amitdevx.tech';
 
-const personJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: heroData.name,
-  alternateName: 'amitdevx',
-  url: siteUrl,
-  image: `${siteUrl}/og-image.png`,
-  jobTitle: heroData.title,
-  description: heroData.bio,
-  nationality: {
-    '@type': 'Country',
-    name: 'India',
-  },
-  alumniOf: {
-    '@type': 'CollegeOrUniversity',
-    name: aboutData.education.institution,
-  },
-  knowsAbout: [
-    'Cloud Computing', 'DevOps', 'AI', 'Machine Learning', 'Full-Stack Development', 
-    'TypeScript', 'JavaScript', 'Python', 'React', 'Next.js', 'Node.js',
-    'AWS', 'Google Cloud Platform', 'Azure', 'Docker', 'Kubernetes',
-    'CI/CD', 'Microservices', 'System Design', 'Web Development'
-  ],
-  knowsLanguage: ['English', 'Hindi', 'Marathi'],
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Pune',
-    addressRegion: 'Maharashtra',
-    addressCountry: 'IN'
-  },
-  sameAs: [
-    'https://www.linkedin.com/in/divekar-amit',
-    'https://github.com/amitdevx',
-    'https://www.kaggle.com/divekaramit',
-    'https://x.com/amitdevx_',
-    'https://instagram.com/amitdevx',
-  ],
-};
+
 
 const websiteJsonLd = {
   '@context': 'https://schema.org',
@@ -235,28 +198,21 @@ export const metadata: Metadata = {
       'Cloud Architect and Full-Stack Engineer building resilient cloud systems and high-performance web applications.',
     siteName: 'Amit Divekar Portfolio',
     locale: 'en_US',
-    images: [
-      {
-        url: `${siteUrl}/og-image.png`,
-        width: 1200,
-        height: 630,
-        alt: 'Amit Divekar Cloud Architect Full-Stack Engineer from India',
-        type: 'image/png',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Amit Divekar',
     description:
       'Cloud Architect and Full-Stack Engineer building resilient cloud systems and high-performance web applications.',
-    images: [`${siteUrl}/og-image.png`],
     creator: '@amitdevx_',
   },
   
   robots: {
     index: true,
     follow: true,
+    'max-video-preview': -1,
+    'max-image-preview': 'large',
+    'max-snippet': -1,
     googleBot: {
       index: true,
       follow: true,
@@ -319,10 +275,6 @@ export default function RootLayout({
           </>
         )}
         
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: safeJsonLd(personJsonLd) }}
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: safeJsonLd(websiteJsonLd) }}

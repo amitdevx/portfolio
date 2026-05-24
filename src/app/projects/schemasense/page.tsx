@@ -5,6 +5,15 @@ import { Badge } from '@/components/ui/badge';
 import { SystemArchitectureVisual } from '@/components/projects/SystemArchitectureVisual';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'SchemaSense Case Study',
+  description: 'Case study on SchemaSense, an AI-powered automated database documentation and schema visualization tool.',
+  alternates: {
+    canonical: 'https://amitdevx.tech/projects/schemasense',
+  },
+};
 
 export default function SchemaSenseCaseStudy() {
   return (

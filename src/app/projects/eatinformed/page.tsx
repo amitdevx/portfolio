@@ -5,6 +5,15 @@ import { Badge } from '@/components/ui/badge';
 import { SystemArchitectureVisual } from '@/components/projects/SystemArchitectureVisual';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'EatInformed AI Case Study',
+  description: 'Case study on EatInformed, an AI-powered food label intelligence platform. Learn about its decoupled inference pipeline and OCR architecture.',
+  alternates: {
+    canonical: 'https://amitdevx.tech/projects/eatinformed',
+  },
+};
 
 export default function EatInformedCaseStudy() {
   return (
