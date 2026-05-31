@@ -10,6 +10,7 @@ import { SectionReveal, StaggerContainer, staggerChildVariants, TiltCard, motion
 import { SystemArchitectureVisual, ArchitectureType } from '@/components/projects/SystemArchitectureVisual';
 
 const getArchitectureType = (title: string): ArchitectureType | null => {
+  if (title === 'SelfHealOps') return 'self-healops';
   if (title === 'SchemaSense AI') return 'schemasense';
   if (title === 'Professor Profiler') return 'professor-profiler';
   if (title === 'EatInformed') return 'eatinformed';
@@ -17,8 +18,8 @@ const getArchitectureType = (title: string): ArchitectureType | null => {
 };
 
 export default function Projects() {
-  const flagshipProjects = projectsData.slice(0, 3);
-  const otherProjects = projectsData.slice(3);
+  const flagshipProjects = projectsData.slice(0, 4);
+  const otherProjects = projectsData.slice(4);
 
   return (
     <section id="projects" className="min-h-screen flex items-center py-24" aria-labelledby="projects-heading">

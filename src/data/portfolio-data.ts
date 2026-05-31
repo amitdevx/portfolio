@@ -22,10 +22,10 @@ export const heroData = {
 export const aboutData = {
   bio: "Cloud Architect and Full-Stack Engineer who designs resilient distributed systems and ships production-grade web applications. Specializing in AWS/GCP infrastructure, container orchestration, and AI-powered developer tooling - with a track record of building systems that handle real-world scale.",
   stats: [
-    { label: "Projects Shipped", value: "10+" },
+    { label: "Projects Shipped", value: "11+" },
     { label: "Cloud Platforms", value: "3" },
     { label: "Technologies", value: "25+" },
-    { label: "Blog Articles", value: "14+" },
+    { label: "Blog Articles", value: "16+" },
   ],
   education: {
     institution: "Savitribai Phule Pune University",
@@ -69,6 +69,13 @@ export const experienceData = [
 ];
 
 export const projectsData = [
+  {
+    title: "SelfHealOps",
+    description: "An autonomous, self-healing DevOps agent designed to automatically classify, analyze, and remediate CI/CD pipeline failures and infrastructure issues using a hierarchical multi-agent system.",
+    technologies: ["Python", "NVIDIA NIM", "LangGraph", "FastAPI", "Redis", "Prometheus", "Grafana"],
+    githubLink: "https://github.com/amitdevx/self-healops",
+    docLink: "/projects/self-healops"
+  },
   {
     title: "SchemaSense AI",
     description: "AI-powered database documentation platform that auto-generates schema docs, maps table relationships, and provides a real-time chat interface for querying your database structure in plain English. Built with prompt injection defense, intelligent caching (56x speedup), and streaming AI responses.",

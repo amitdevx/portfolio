@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 
-export type ArchitectureType = "schemasense" | "professor-profiler" | "eatinformed";
+export type ArchitectureType = "schemasense" | "professor-profiler" | "eatinformed" | "self-healops";
 
 interface SystemArchitectureVisualProps {
   architectureType: ArchitectureType;
@@ -61,6 +61,16 @@ const SYSTEM_NODES: Record<ArchitectureType, FlowNode[]> = {
     { id: 'deepseek', label: 'DeepSeek NIM', desc: 'Step 2: Nutritional logic', color: COLORS.pink, x: 840, y: 280 },
     { id: 'additive', label: 'Additive Engine', desc: 'Additive hazard scoring', color: COLORS.orange, x: 560, y: 280 },
     { id: 'dashboard', label: 'Scorecard UI', desc: 'Displays risk alerts', color: COLORS.green, x: 220, y: 280 },
+  ],
+  'self-healops': [
+    { id: 'webhook', label: 'CI/CD Webhook', desc: 'Failure event trigger', color: COLORS.cyan, x: 80, y: 200 },
+    { id: 'classify', label: 'Classifier', desc: 'Domain categorization', color: COLORS.blue, x: 260, y: 120 },
+    { id: 'analyze', label: 'Analyst', desc: 'Root cause extraction', color: COLORS.purple, x: 500, y: 120 },
+    { id: 'strategist', label: 'Strategist', desc: 'Action plan builder', color: COLORS.pink, x: 740, y: 120 },
+    { id: 'auditor', label: 'Auditor', desc: 'Safety policy checks', color: COLORS.orange, x: 880, y: 200 },
+    { id: 'execute', label: 'Executor', desc: 'Applies pipeline fix', color: COLORS.green, x: 740, y: 280 },
+    { id: 'scholar', label: 'Scholar', desc: 'Pattern memory storage', color: COLORS.white, x: 500, y: 280 },
+    { id: 'dashboard', label: 'Metrics UI', desc: 'Grafana observability', color: COLORS.cyan, x: 260, y: 280 },
   ]
 };
 
@@ -93,6 +103,16 @@ const SYSTEM_LINKS: Record<ArchitectureType, FlowLink[]> = {
     { from: 'deepseek', to: 'additive', label: 'Additive profiles' },
     { from: 'additive', to: 'dashboard', label: 'Risk Scores' },
     { from: 'dashboard', to: 'camera', label: 'Reset scanner' },
+  ],
+  'self-healops': [
+    { from: 'webhook', to: 'classify', label: 'Event Data' },
+    { from: 'classify', to: 'analyze', label: 'Failure Context' },
+    { from: 'analyze', to: 'strategist', label: 'Root Cause' },
+    { from: 'strategist', to: 'auditor', label: 'Proposed Fix' },
+    { from: 'auditor', to: 'execute', label: 'Safe Execution' },
+    { from: 'execute', to: 'scholar', label: 'Fix Verified' },
+    { from: 'scholar', to: 'dashboard', label: 'Store Memory' },
+    { from: 'dashboard', to: 'webhook', label: 'Monitor' },
   ]
 };
 
