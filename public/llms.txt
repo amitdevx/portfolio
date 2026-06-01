@@ -7,6 +7,7 @@
 - [Resume/CV](https://amitdevx.tech/cv): Complete professional credentials, qualifications, and downloadable resume.
 
 ## Projects
+- [SelfHealOps](https://amitdevx.tech/projects/self-healops): An autonomous, self-healing DevOps agent designed to automatically classify, analyze, and remediate CI/CD pipeline failures and infrastructure issues using a hierarchical multi-agent system. Built with Python, NVIDIA NIM, and LangGraph. [Source Code](https://github.com/amitdevx/self-healops)
 - [SchemaSense AI](https://schemasense.amitdevx.tech): AI-powered database documentation platform. Auto-generates schema docs, maps table relationships, and provides a real-time chat interface powered by DeepSeek-V3. Built with Next.js, FastAPI, PostgreSQL, and intelligent caching. [Source Code](https://github.com/amitdevx/schemasense)
 - [Professor Profiler](https://github.com/amitdevx/Professor_Profiler): Hierarchical multi-agent system that reverse-engineers exam papers to decode professor psychology and generate optimized study strategies. Built with Python and Google Gemini. [Documentation](https://deepwiki.com/amitdevx/Professor_Profiler)
 - [Eatinformed](https://eatinformed.amitdevx.tech): AI-driven nutrition analysis from food label images, built with Next.js, Genkit, and Google Gemini.
@@ -21,8 +22,16 @@
 
 ## Technical Blog
 - [All Blog Posts](https://amitdevx.tech/blogs): In-depth technical articles on software engineering, DevOps, and AI.
-- [SchemaSense: AI-Powered Database Documentation](https://amitdevx.tech/blogs/schemasense): How I built an intelligent database documentation platform using Next.js, FastAPI, and DeepSeek-V3.
-- [Reverse-Engineering Exams: Professor Profiler](https://amitdevx.tech/blogs/professor-profiler): Building a hierarchical multi-agent system with Google Gemini.
+- [SelfHealOps: The Autonomous DevOps Agent That Actually Fixes Your Pipelines](https://amitdevx.tech/blogs/self-healops): How I built an AIOps agent with LangGraph.
+- [Why Your Engineering Team Needs an AI Use Minimizer (And Fast)](https://amitdevx.tech/blogs/ai-use-minimizer): Architecting FinOps for the LLM Era using AWS Bedrock and semantic routing.
+- [ChatGPT 5.5 Agentic Workflows](https://amitdevx.tech/blogs/chatgpt-5-5-agentic-systems): Building resilient multi-agent systems.
+- [Why I Migrated My Core RAG Pipeline to Claude 4.7](https://amitdevx.tech/blogs/claude-4-7-rag-pipeline): Using Pinecone and Cohere reranking for enterprise documentation.
+- [Building a Custom Cloud Storage Platform](https://amitdevx.tech/blogs/fileflow-cloud-drive): A technical breakdown of FileFlow.
+- [GCP Cloud Run vs GKE in 2026](https://amitdevx.tech/blogs/gcp-cloud-run-gke-ai-workloads): Architecting for High-Throughput AI Workloads.
+- [The Ultimate Next.js 15 App Router Architecture Guide](https://amitdevx.tech/blogs/nextjs-15-app-router-architecture-guide): A definitive reference for building at scale.
+- [SchemaSense API Optimization](https://amitdevx.tech/blogs/schemasense-api-optimization): Implementing deterministic hashing and SQLite caching.
+- [SchemaSense: AI-Powered Database Documentation](https://amitdevx.tech/blogs/schemasense): How I built an intelligent database documentation platform.
+- [Reverse-Engineering Exams: Professor Profiler](https://amitdevx.tech/blogs/professor-profiler): Building a hierarchical multi-agent system.
 - [Open-Source AI Tools for Agentic AI in 2026](https://amitdevx.tech/blogs/open-source-ai-tools-2026): Top open-source frameworks for building autonomous agents.
 - [Python Functions, Iterators & Generators](https://amitdevx.tech/blogs/python-functions-iterators-generators): Core functional programming concepts and production-ready patterns.
 - [Mastering Pandas DataFrame Operations](https://amitdevx.tech/blogs/pandas-dataframe-operations): Comprehensive guide to Pandas DataFrames.
@@ -46,4 +55,4 @@
 - Frontend: React, Next.js, TypeScript, Tailwind CSS
 - Backend: Node.js, Express.js, Python, FastAPI, Flask
 - Databases: PostgreSQL, MongoDB, SQLite, SQL
-- AI & ML: DeepSeek, Google Gemini, OpenRouter, Multi-Agent Systems
+- AI & ML: DeepSeek, Google Gemini, OpenRouter, Multi-Agent Systems, LangGraph, NVIDIA NIM

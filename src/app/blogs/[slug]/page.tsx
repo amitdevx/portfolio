@@ -149,7 +149,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       />
       <Header />
       <ReadingProgressBar />
-      <article className="min-h-screen pt-28 pb-20 px-4 sm:px-6 overflow-x-hidden">
+      <article className="min-h-screen pt-28 pb-20 px-2 sm:px-6 overflow-x-hidden">
         <div className="container mx-auto max-w-7xl">
           <div className="flex flex-col xl:flex-row gap-8 xl:gap-12">
             <aside className="hidden xl:block w-64 shrink-0">
@@ -190,7 +190,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 </div>
               </header>
               
-              <div className="bg-background/80 backdrop-blur-md border border-border/40 shadow-xl rounded-2xl p-6 sm:p-10 md:p-12 mb-20">
+              <div className="bg-background/80 backdrop-blur-md border border-border/40 shadow-xl rounded-2xl p-3 sm:p-10 md:p-12 mb-20">
                 <div className="prose prose-sm sm:prose-base lg:prose-lg prose-invert max-w-none overflow-x-hidden
                   prose-headings:font-headline prose-headings:font-bold prose-headings:text-foreground prose-headings:break-words
                   prose-p:text-muted-foreground prose-p:leading-relaxed
