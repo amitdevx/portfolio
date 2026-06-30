@@ -10,8 +10,24 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'SelfHealOps: Autonomous AI DevOps Agent | Amit Divekar',
   description: 'A deep dive into SelfHealOps, an autonomous self-healing DevOps agent built with LangGraph, Python, and NVIDIA NIM to automatically resolve CI/CD pipeline failures.',
+  keywords: ['selfhealops', 'devops agent', 'langgraph', 'nvidia nim', 'autonomous ai', 'ci/cd', 'self-healing', 'amit divekar', 'python', 'grafana', 'prometheus'],
+  authors: [{ name: 'Amit Divekar' }],
   alternates: {
     canonical: 'https://amitdevx.tech/projects/self-healops',
+  },
+  robots: { index: true, follow: true },
+  openGraph: {
+    type: 'article',
+    url: 'https://amitdevx.tech/projects/self-healops',
+    title: 'SelfHealOps: Autonomous AI DevOps Agent | Amit Divekar',
+    description: 'A deep dive into SelfHealOps, an autonomous self-healing DevOps agent built with LangGraph, Python, and NVIDIA NIM to automatically resolve CI/CD pipeline failures.',
+    siteName: 'Amit Divekar Portfolio',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'SelfHealOps: Autonomous AI DevOps Agent | Amit Divekar',
+    description: 'Autonomous self-healing DevOps agent built with LangGraph, Python, and NVIDIA NIM.',
+    creator: '@amitdevx_',
   },
 };
 

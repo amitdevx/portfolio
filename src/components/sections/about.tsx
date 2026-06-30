@@ -45,7 +45,7 @@ export default function About() {
               className="relative group"
             >
               <div className="bg-background/80 backdrop-blur-md border border-border/40 rounded-xl p-6 text-center transition-all duration-300 hover:border-primary/50 hover:shadow-primary/20 hover:shadow-2xl">
-                <p className="text-3xl md:text-4xl font-headline font-bold text-primary">{stat.value}</p>
+                <p className="text-3xl md:text-4xl font-headline font-bold text-primary">{stat.value}</p> 
                 <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
               </div>
             </motion.div>

@@ -8,10 +8,26 @@ import Footer from '@/components/footer';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'EatInformed AI Case Study',
+  title: 'EatInformed AI Case Study | Amit Divekar',
   description: 'Case study on EatInformed, an AI-powered food label intelligence platform. Learn about its decoupled inference pipeline and OCR architecture.',
+  keywords: ['eatinformed', 'ai nutrition', 'food label intelligence', 'ocr', 'genkit', 'gemini', 'nextjs', 'amit divekar'],
+  authors: [{ name: 'Amit Divekar' }],
   alternates: {
     canonical: 'https://amitdevx.tech/projects/eatinformed',
+  },
+  robots: { index: true, follow: true },
+  openGraph: {
+    type: 'article',
+    url: 'https://amitdevx.tech/projects/eatinformed',
+    title: 'EatInformed AI Case Study | Amit Divekar',
+    description: 'Case study on EatInformed, an AI-powered food label intelligence platform using Gemini and Genkit.',
+    siteName: 'Amit Divekar Portfolio',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'EatInformed AI Case Study | Amit Divekar',
+    description: 'AI-powered food label intelligence platform using Gemini and Genkit.',
+    creator: '@amitdevx_',
   },
 };
 

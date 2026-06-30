@@ -138,7 +138,7 @@ export const metadata: Metadata = {
     'AWS',
     'Google Cloud Platform',
     'GCP',
-    'Azure',
+
     'Docker',
     'Kubernetes',
     'CI/CD',

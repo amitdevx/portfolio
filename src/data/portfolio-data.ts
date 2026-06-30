@@ -22,8 +22,8 @@ export const heroData = {
 export const aboutData = {
   bio: "Cloud Architect and Full-Stack Engineer who designs resilient distributed systems and ships production-grade web applications. Specializing in AWS/GCP infrastructure, container orchestration, and AI-powered developer tooling - with a track record of building systems that handle real-world scale.",
   stats: [
-    { label: "Projects Shipped", value: "11+" },
-    { label: "Cloud Platforms", value: "3" },
+    { label: "Projects Shipped", value: "12+" },
+    { label: "Cloud Deployments", value: "AWS & GCP" },
     { label: "Technologies", value: "25+" },
     { label: "Blog Articles", value: "16+" },
   ],
@@ -41,7 +41,6 @@ export const aboutData = {
     "Web and software development",
     "Solving puzzles and logic games like Chess",
     "Digital art, illustration, and concept design",
-    "UI/UX and animation design",
     "Exploring new digital tools for productivity"
   ]
 };
@@ -61,7 +60,7 @@ export const experienceData = [
   },
   {
     company: "Scaler",
-    role: "Intern",
+    role: "Software Development Program",
     duration: "Apr 2024 - Jul 2024",
     description: "Participated in structured technical learning focused on development fundamentals and practiced problem-solving and programming as a new dev.",
     isInternship: true
@@ -70,11 +69,21 @@ export const experienceData = [
 
 export const projectsData = [
   {
+    title: "md2pdf",
+    description: "Production-grade open-source Markdown to PDF rendering engine for Node.js that converts Markdown into high-fidelity PDFs using Playwright, Chromium, and the Unified processing pipeline.",
+    technologies: ["Node.js", "TypeScript", "Chromium", "Playwright", "Markdown", "Unified", "npm"],
+    githubLink: "https://github.com/amitdevx/md2pdf",
+    liveLink: "https://www.npmjs.com/package/@amitdevx/md2pdf",
+    docLink: "/projects/md2pdf",
+    category: "Open Source"
+  },
+  {
     title: "SelfHealOps",
     description: "An autonomous, self-healing DevOps agent designed to automatically classify, analyze, and remediate CI/CD pipeline failures and infrastructure issues using a hierarchical multi-agent system.",
     technologies: ["Python", "NVIDIA NIM", "LangGraph", "FastAPI", "Redis", "Prometheus", "Grafana"],
     githubLink: "https://github.com/amitdevx/self-healops",
-    docLink: "/projects/self-healops"
+    docLink: "/projects/self-healops",
+    category: "Featured"
   },
   {
     title: "SchemaSense AI",
@@ -82,14 +91,16 @@ export const projectsData = [
     technologies: ["Next.js", "FastAPI", "Python", "TypeScript", "PostgreSQL", "DeepSeek-V3", "OpenRouter", "SQLite"],
     githubLink: "https://github.com/amitdevx/schemasense",
     liveLink: "https://schemasense.amitdevx.tech",
-    docLink: "/projects/schemasense"
+    docLink: "/projects/schemasense",
+    category: "Featured"
   },
   {
     title: "Professor Profiler",
     description: "An advanced multi-agent system that reverse-engineers exam papers to decode professor psychology and generate optimized study strategies.",
     technologies: ["Python 3.11", "Gemini 2.0 Pro", "Multi-Agent Systems", "Google ADK", "Pydantic"],
     githubLink: "https://github.com/amitdevx/Professor_Profiler",
-    docLink: "/projects/professor-profiler"
+    docLink: "/projects/professor-profiler",
+    category: "Featured"
   },
   {
     title: "EatInformed",
@@ -97,25 +108,23 @@ export const projectsData = [
     technologies: ["TypeScript", "Next.js", "React", "Tailwind CSS", "Genkit", "Gemini", "Llama 3.2"],
     githubLink: "https://github.com/amitdevx/Eatinformed",
     liveLink: "https://eatinformed.amitdevx.tech/",
-    docLink: "/projects/eatinformed"
+    docLink: "/projects/eatinformed",
+    category: "Experiment"
   },
+
   {
     title: "2FA Password Protector",
     description: "A Flask-based authentication system with three layers of security: login, PIN, and Two-Factor Authentication (2FA), using SQLite and cryptography for secure data handling.",
     technologies: ["Python", "Flask", "SQLite", "Cryptography"],
-    githubLink: "https://github.com/amitdevx"
+    githubLink: "https://github.com/amitdevx",
+    category: "Experiment"
   },
   {
     title: "Cloud File Uploader",
     description: "A secure file storage system similar to Google Drive, developed with Node.js and SQLite, allowing users to store and manage files efficiently in a cloud-based environment.",
     technologies: ["Node.js", "SQLite"],
-    githubLink: "https://github.com/amitdevx/FileFlow"
-  },
-  {
-    title: "Anime Viewing Platform",
-    description: "A responsive Flask-based website for streaming copyright-free anime, ensuring a smooth user experience with dynamic content loading and an intuitive UI.",
-    technologies: ["Python", "Flask", "HTML", "CSS", "JavaScript"],
-    githubLink: "https://github.com/amitdevx/anime-view-site"
+    githubLink: "https://github.com/amitdevx/FileFlow",
+    category: "Experiment"
   }
 ];
 
@@ -178,20 +187,25 @@ export const skillsData = {
       icon: "Cloud",
       skills: [
         { name: "AWS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
-        { name: "Google Cloud", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" },
-        { name: "Azure", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" },
         { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
         { name: "Kubernetes", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg" },
         { name: "CI/CD", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original.svg" },
+        { name: "Prometheus", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prometheus/prometheus-original.svg" },
+        { name: "Grafana", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grafana/grafana-original.svg" },
       ]
     },
     {
-      name: "AI & Data",
+      name: "AI & Multi-Agent Systems",
       icon: "BrainCircuit",
       skills: [
         { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" },
         { name: "Pandas", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" },
         { name: "NumPy", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" },
+        { name: "LangGraph", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" },
+        { name: "Genkit", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg" },
+        { name: "Pydantic", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" },
+        { name: "Google ADK", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg" },
+        { name: "Multi-Agent Systems", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/networkx/networkx-original.svg" },
       ]
     },
     {
@@ -203,8 +217,6 @@ export const skillsData = {
         { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" },
         { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" },
         { name: "Tailwind CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" },
-        { name: "HTML", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" },
-        { name: "CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" },
         { name: "Framer Motion", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/framermotion/framermotion-original.svg" },
       ]
     },
@@ -213,68 +225,58 @@ export const skillsData = {
       icon: "ServerCog",
       skills: [
         { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" },
-        { name: "Express.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg" },
-        { name: "Flask", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg" },
-        { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" },
-        { name: "SQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" },
+        { name: "FastAPI", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg" },
         { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" },
+        { name: "Redis", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg" },
       ]
     },
     {
-      name: "Tools & Others",
+      name: "Tools",
       icon: "Wrench",
       skills: [
         { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" },
-        { name: "API Integration", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg" },
-        { name: "C", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" },
-        { name: "UI/UX Design", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" },
-        { name: "Data Structures", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" },
-        { name: "Agile", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" },
+        { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" },
+        { name: "Playwright", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/playwright/playwright-original.svg" },
+        { name: "npm", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg" },
       ]
     },
   ],
   // Keep flat list for marquee
   technical: [
-    // Cloud & DevOps
     { name: "AWS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
-    { name: "Google Cloud", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" },
-    { name: "Azure", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" },
     { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
     { name: "Kubernetes", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg" },
     { name: "CI/CD", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original.svg" },
-    // AI & Data
+    { name: "Prometheus", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prometheus/prometheus-original.svg" },
+    { name: "Grafana", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grafana/grafana-original.svg" },
     { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" },
     { name: "Pandas", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" },
     { name: "NumPy", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" },
-    // Full-Stack Frontend
+    { name: "LangGraph", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" },
+    { name: "Genkit", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg" },
+    { name: "Pydantic", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" },
+    { name: "Google ADK", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg" },
+    { name: "Multi-Agent Systems", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/networkx/networkx-original.svg" },
     { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" },
     { name: "React.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
     { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" },
     { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" },
     { name: "Tailwind CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" },
-    { name: "HTML", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" },
-    { name: "CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" },
     { name: "Framer Motion", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/framermotion/framermotion-original.svg" },
-    // Full-Stack Backend
     { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" },
-    { name: "Express.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg" },
-    { name: "Flask", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg" },
-    { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" },
-    { name: "SQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" },
+    { name: "FastAPI", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg" },
     { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" },
-    // Developer Tools & Others
+    { name: "Redis", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg" },
     { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" },
-    { name: "API Integration", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg" },
-    { name: "C", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" },
-    { name: "UI/UX Design", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" },
-    { name: "Data Structures", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" },
-    { name: "Agile", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" },
+    { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" },
+    { name: "Playwright", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/playwright/playwright-original.svg" },
+    { name: "npm", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg" },
   ],
   soft: [
-    "Teamwork", "Time Management", "Presentations",
-    "Documentation", "Cross-Team Collaboration", "Problem Solving",
-    "Adaptability", "Critical Thinking", "Creativity",
-    "Attention to Detail", "Leadership", "Research Skills"
+    "Problem Solving",
+    "Adaptability",
+    "Documentation",
+    "Research Skills"
   ]
 };
 

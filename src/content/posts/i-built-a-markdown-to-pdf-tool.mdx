@@ -2,7 +2,7 @@
 title: "I Couldn't Find a Markdown to PDF Tool That Just Worked, So I Built One (@amitdevx/md2pdf)"
 date: "2026-06-27"
 updated: "2026-06-27"
-description: "Introducing @amitdevx/md2pdf: A new, reliable Node.js CLI tool and library to convert Markdown to beautiful PDF files. Currently in v0.0.2, solving core Markdown-to-PDF formatting."
+description: "Introducing @amitdevx/md2pdf: A new, reliable Node.js CLI tool and library to convert Markdown to beautiful PDF files. Currently in v0.1.6, solving core Markdown-to-PDF formatting."
 image: "/blogs/md2pdf/hero.png"
 tags: ["Markdown", "PDF", "Open Source", "npm", "Node.js", "CLI", "Markdown to PDF", "Playwright"]
 author: "Amit Divekar"
@@ -48,9 +48,9 @@ graph TD
 **Why this approach?**
 By using `remark-parse` and `remark-rehype`, the parser is incredibly robust. I also included `remark-gfm` natively to support GitHub Flavored Markdown (tables, strikethroughs) out of the box. By passing the final HTML to Playwright, I ensure the PDF engine has full support for modern CSS and flexbox formatting.
 
-## 4. Current State: v0.0.2 Features & Usage
+## 4. Current State: v0.1.6 Features & Usage
 
-The tool is live on npm at **v0.0.2**! Right now, it perfectly handles standard Markdown-to-PDF conversion, focusing on clean typography, excellent code block rendering, local images, and proper page break management.
+The tool is live on npm at **v0.1.6**! Right now, it perfectly handles standard Markdown-to-PDF conversion, focusing on clean typography, excellent code block rendering, local images, and proper page break management.
 
 You can use it as a CLI tool or as a Node.js library.
 
@@ -97,7 +97,7 @@ If you are building open source today, treat your side projects with the same CI
 
 ## 6. The Roadmap: What's Coming Next?
 
-While v0.0.2 handles the core functionality beautifully, I built this AST-based architecture specifically to be extensible. Here is what is actively in development for upcoming updates:
+While v0.1.6 handles the core functionality beautifully, I built this AST-based architecture specifically to be extensible. Here is what is actively in development for upcoming updates:
 
 - **Mermaid Diagrams:** Native, zero-config rendering of Mermaid diagrams directly in the Markdown.
 - **KaTeX:** Support for beautiful math equations.

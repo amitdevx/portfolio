@@ -52,7 +52,7 @@ export default function Home() {
     knowsAbout: [
       'Cloud Computing', 'DevOps', 'AI', 'Machine Learning', 'Full-Stack Development', 
       'TypeScript', 'JavaScript', 'Python', 'React', 'Next.js', 'Node.js',
-      'AWS', 'Google Cloud Platform', 'Azure', 'Docker', 'Kubernetes',
+      'AWS', 'Google Cloud Platform', 'Docker', 'Kubernetes',
       'CI/CD', 'Microservices', 'System Design', 'Web Development'
     ],
     knowsLanguage: ['English', 'Hindi', 'Marathi'],

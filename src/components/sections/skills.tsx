@@ -24,6 +24,11 @@ export default function Skills() {
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Cloud Architecture, DevOps, Frontend & Backend - the full stack, built for scale.
             </p>
+            <div className="mt-4">
+              <span className="text-sm font-medium text-primary bg-primary/10 px-4 py-1.5 rounded-full border border-primary/20">
+                Primary Stack: Next.js, FastAPI, PostgreSQL
+              </span>
+            </div>
           </div>
         </SectionReveal>
 

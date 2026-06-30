@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 
-export type ArchitectureType = "schemasense" | "professor-profiler" | "eatinformed" | "self-healops";
+export type ArchitectureType = "schemasense" | "professor-profiler" | "eatinformed" | "self-healops" | "md2pdf";
 
 interface SystemArchitectureVisualProps {
   architectureType: ArchitectureType;
@@ -71,6 +71,14 @@ const SYSTEM_NODES: Record<ArchitectureType, FlowNode[]> = {
     { id: 'execute', label: 'Executor', desc: 'Applies pipeline fix', color: COLORS.green, x: 740, y: 280 },
     { id: 'scholar', label: 'Scholar', desc: 'Pattern memory storage', color: COLORS.white, x: 500, y: 280 },
     { id: 'dashboard', label: 'Metrics UI', desc: 'Grafana observability', color: COLORS.cyan, x: 260, y: 280 },
+  ],
+  md2pdf: [
+    { id: 'markdown', label: 'Markdown', desc: 'Raw document input', color: COLORS.cyan, x: 160, y: 100 },
+    { id: 'remark', label: 'Unified (Remark)', desc: 'Markdown AST parsing', color: COLORS.blue, x: 480, y: 100 },
+    { id: 'rehype', label: 'AST Rehype', desc: 'HTML AST transforms', color: COLORS.purple, x: 800, y: 100 },
+    { id: 'html', label: 'HTML + CSS', desc: 'String generation', color: COLORS.pink, x: 800, y: 280 },
+    { id: 'playwright', label: 'Playwright', desc: 'Headless Chromium', color: COLORS.orange, x: 480, y: 280 },
+    { id: 'pdf', label: 'PDF Output', desc: 'High-fidelity document', color: COLORS.green, x: 160, y: 280 },
   ]
 };
 
@@ -113,6 +121,13 @@ const SYSTEM_LINKS: Record<ArchitectureType, FlowLink[]> = {
     { from: 'execute', to: 'scholar', label: 'Fix Verified' },
     { from: 'scholar', to: 'dashboard', label: 'Store Memory' },
     { from: 'dashboard', to: 'webhook', label: 'Monitor' },
+  ],
+  md2pdf: [
+    { from: 'markdown', to: 'remark', label: 'Parse' },
+    { from: 'remark', to: 'rehype', label: 'Transform' },
+    { from: 'rehype', to: 'html', label: 'Stringify' },
+    { from: 'html', to: 'playwright', label: 'Render' },
+    { from: 'playwright', to: 'pdf', label: 'Print' },
   ]
 };
 
@@ -151,15 +166,15 @@ export function SystemArchitectureVisual({
   const [mounted, setMounted] = useState(false);
   const [activeLinkIndex, setActiveLinkIndex] = useState(0);
   
-  const nodes = SYSTEM_NODES[architectureType];
-  const links = SYSTEM_LINKS[architectureType];
+  const nodes = SYSTEM_NODES[architectureType] || [];
+  const links = SYSTEM_LINKS[architectureType] || [];
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
   useEffect(() => {
-    if (!mounted) return;
+    if (!mounted || links.length === 0) return;
     const timer = setInterval(() => {
       setActiveLinkIndex((prev) => (prev + 1) % links.length);
     }, 2800);
