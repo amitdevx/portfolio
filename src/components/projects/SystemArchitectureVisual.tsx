@@ -163,39 +163,18 @@ export function SystemArchitectureVisual({
   title = "Application Flowchart",
   description = "Execution flow and data processing pipeline."
 }: SystemArchitectureVisualProps) {
-  const [mounted, setMounted] = useState(false);
   const [activeLinkIndex, setActiveLinkIndex] = useState(0);
   
   const nodes = SYSTEM_NODES[architectureType] || [];
   const links = SYSTEM_LINKS[architectureType] || [];
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (!mounted || links.length === 0) return;
+    if (links.length === 0) return;
     const timer = setInterval(() => {
       setActiveLinkIndex((prev) => (prev + 1) % links.length);
     }, 2800);
     return () => clearInterval(timer);
-  }, [mounted, links.length]);
-
-  if (!mounted) {
-    return (
-      <div className="w-full flex flex-col space-y-4 my-4">
-        <div className="space-y-1">
-          <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#dfa579] to-[#e07a5f]">
-            {title}
-          </h3>
-          <p className="text-sm text-slate-400">{description}</p>
-        </div>
-        <div className="w-full h-80 rounded-2xl border border-white/10 bg-slate-950/40 animate-pulse flex items-center justify-center">
-          <span className="text-muted-foreground text-sm">Loading architecture flowchart...</span>
-        </div>
-      </div>
-    );
-  }
+  }, [links.length]);
 
   return (
     <div className="w-full flex flex-col space-y-4 my-4">
