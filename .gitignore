@@ -1,7 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+node_modules/
 /.pnp
 .pnp.*
 .yarn/*
@@ -51,6 +51,12 @@ generate_graph.py
 /docs/SEO-IMPROVEMENTS.md
 seo.pdf
 plan.md
+
+# Scratch & unwanted AI generated files
+scratch_scrape/
+test_icons.js
+fix_skills.js
+rewrite_skills*.js
 
 # Sensitive files
 .well-known/security.txt

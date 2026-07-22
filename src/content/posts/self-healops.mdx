@@ -16,11 +16,11 @@ It's 3:00 AM on a Friday. Your phone buzzes with a PagerDuty alert. A critical C
 
 I've lived this scenario too many times. Engineering teams lose countless hours to this exact pattern. We've automated the deployment, we've automated the testing, but we haven't automated the recovery. When things break, the sophisticated pipeline grinds to a halt, and it's still just a human squinting at a stack trace.
 
-**[SelfHealOps](/projects/self-healops)** is what I built to fix this. It's an autonomous, self-healing DevOps agent that hooks directly into your CI/CD and infrastructure. When a failure occurs, it doesn't just send a Slack alert—it diagnoses the root cause, generates a remediation plan, runs it through a rigid safety policy engine, applies the fix, and records the solution in a semantic memory bank.
+**[SelfHealOps](/projects/self-healops)** is what I built to fix this. It's an autonomous, self-healing DevOps agent that hooks directly into your CI/CD and infrastructure. When a failure occurs, it doesn't just send a Slack alert-it diagnoses the root cause, generates a remediation plan, runs it through a rigid safety policy engine, applies the fix, and records the solution in a semantic memory bank.
 
 ## The Core Philosophy of AIOps: Don't Just Alert, Remediate
 
-The typical observability stack—Prometheus, Grafana, Datadog—is fantastic at telling you *that* something is broken. The more advanced configurations might even tell you *where* it's broken. But the "how to fix it" part is left entirely to the on-call engineer.
+The typical observability stack-Prometheus, Grafana, Datadog-is fantastic at telling you *that* something is broken. The more advanced configurations might even tell you *where* it's broken. But the "how to fix it" part is left entirely to the on-call engineer.
 
 SelfHealOps bridges that final gap. By utilizing a LangGraph-powered state machine and specialized NVIDIA NIM-powered LLM agents, it treats infrastructure issues as deterministic puzzles that can be solved systematically. We are moving from Observability (reading the state) to Actuability (changing the state).
 
@@ -145,7 +145,7 @@ The next time a similar issue happens, the Analyst agent queries the Scholar's m
 
 ## Implementation Deep Dive: LangGraph in Python
 
-I built the backend with Python and FastAPI. LangGraph is exceptional for this because it allows you to define cycles. Standard LangChain chains are DAGs (Directed Acyclic Graphs)—they go from start to finish. But debugging is inherently cyclic. You try a fix, it fails, you analyze the new error, you try again. LangGraph natively supports this.
+I built the backend with Python and FastAPI. LangGraph is exceptional for this because it allows you to define cycles. Standard LangChain chains are DAGs (Directed Acyclic Graphs)-they go from start to finish. But debugging is inherently cyclic. You try a fix, it fails, you analyze the new error, you try again. LangGraph natively supports this.
 
 ```python
 # snippet: backend/orchestrator.py

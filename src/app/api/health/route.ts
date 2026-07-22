@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 export const dynamic = 'force-dynamic';
 
 export async function GET() {
-  // SECURITY: Only expose minimal health status — no server internals
+  // SECURITY: Only expose minimal health status - no server internals
   return NextResponse.json(
     { status: 'ok' },
     {

@@ -75,7 +75,7 @@ function logMetric(metric: PerformanceMetric) {
   // SECURITY: Validate the external endpoint URL before forwarding
   const validatedEndpoint = getValidatedMetricsEndpoint();
   if (validatedEndpoint) {
-    // Strip sensitive metadata before forwarding — only send metric data
+    // Strip sensitive metadata before forwarding - only send metric data
     const { name, value, rating, id, delta, navigationType } = metric;
     fetch(validatedEndpoint, {
       method: 'POST',
@@ -94,7 +94,7 @@ function logMetric(metric: PerformanceMetric) {
 }
 
 /**
- * Allowed Core Web Vitals metric names — reject anything else.
+ * Allowed Core Web Vitals metric names - reject anything else.
  */
 const ALLOWED_METRICS = new Set([
   'CLS', 'FCP', 'FID', 'INP', 'LCP', 'TTFB',

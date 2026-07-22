@@ -10,7 +10,7 @@ import type { Metadata } from 'next';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'md2pdf — Markdown to PDF with Mermaid, KaTeX & Obsidian | Amit Divekar',
+  title: 'md2pdf - Markdown to PDF with Mermaid, KaTeX & Obsidian | Amit Divekar',
   description: 'npm CLI and Node.js API to convert Markdown to PDF. Supports Mermaid diagrams, KaTeX math, Obsidian callouts, GFM tables, syntax highlighting, batch conversion, and custom themes. Zero config.',
   keywords: [
     'md2pdf', 'markdown to pdf', 'nodejs', 'npm package', 'playwright', 'chromium', 
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'article',
     url: 'https://amitdevx.tech/projects/md2pdf',
-    title: 'md2pdf — Markdown to PDF with Mermaid, KaTeX & Obsidian | Amit Divekar',
+    title: 'md2pdf - Markdown to PDF with Mermaid, KaTeX & Obsidian | Amit Divekar',
     description: 'npm CLI and Node.js API to convert Markdown to PDF. Supports Mermaid diagrams, KaTeX math, Obsidian callouts, GFM tables, syntax highlighting, batch conversion, and custom themes. Zero config.',
     siteName: 'Amit Divekar Portfolio',
     images: [
@@ -38,13 +38,13 @@ export const metadata: Metadata = {
         url: 'https://amitdevx.tech/og/md2pdf.png',
         width: 1200,
         height: 630,
-        alt: 'md2pdf — High-fidelity Markdown to PDF rendering engine',
+        alt: 'md2pdf - High-fidelity Markdown to PDF rendering engine',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'md2pdf — Markdown to PDF with Mermaid, KaTeX & Obsidian | Amit Divekar',
+    title: 'md2pdf - Markdown to PDF with Mermaid, KaTeX & Obsidian | Amit Divekar',
     description: 'npm CLI and Node.js API to convert Markdown to PDF. Supports Mermaid diagrams, KaTeX math, Obsidian callouts, GFM tables, syntax highlighting, batch conversion, and custom themes. Zero config.',
     creator: '@amitdevx_',
     images: ['https://amitdevx.tech/og/md2pdf.png'],
