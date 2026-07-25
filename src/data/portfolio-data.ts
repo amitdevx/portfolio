@@ -15,12 +15,12 @@ export const heroData = {
   name: "Amit Divekar",
   title: "Cloud Architect & Full-Stack Engineer from India",
   tagline: "I architect resilient cloud systems and engineer high-performance web applications.",
-  bio: "Building the infrastructure for tomorrow. Specializing in highly scalable AWS/GCP architectures, Kubernetes orchestration, and AI-integrated Next.js ecosystems. Code that ships, systems that scale.",
+  bio: "Cloud Architect and Full-Stack Engineer from India, building AI-integrated systems with AWS/GCP, Kubernetes, Next.js, and Python.",
   contactLink: "#projects"
 };
 
 export const aboutData = {
-  bio: "Cloud Architect and Full-Stack Engineer who designs resilient distributed systems and ships production-grade web applications. Specializing in AWS/GCP infrastructure, container orchestration, and AI-powered developer tooling - with a track record of building systems that handle real-world scale.",
+  bio: "Cloud Architect and Full-Stack Engineer from India, building AI-integrated systems with AWS/GCP, Kubernetes, Next.js, and Python.",
   stats: [
     { label: "Projects Shipped", value: "12+" },
     { label: "Cloud Deployments", value: "AWS & GCP" },

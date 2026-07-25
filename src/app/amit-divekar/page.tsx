@@ -57,7 +57,7 @@ export default function AmitDivekarPage() {
       alternateName: 'amitdevx',
       url: siteUrl,
       image: `${siteUrl}/opengraph-image`,
-      jobTitle: heroData.title,
+      jobTitle: 'Cloud Architect and Full-Stack Engineer',
       description: heroData.bio,
       nationality: {
         '@type': 'Country',
@@ -84,7 +84,8 @@ export default function AmitDivekarPage() {
         'https://github.com/amitdevx',
         'https://www.kaggle.com/divekaramit',
         'https://x.com/amitdevx_',
-        `https://instagram.com/amitdevx`,
+        'https://instagram.com/amitdevx',
+        'https://medium.com/@amitdevx',
       ],
     },
   };
@@ -123,7 +124,7 @@ export default function AmitDivekarPage() {
         name: 'Where is Amit Divekar from?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Amit Divekar is a Cloud Architect and Full-Stack Engineer based in the Pune/Nashik region of Maharashtra, India. He is currently studying Computer Science at Savitribai Phule Pune University.',
+          text: 'Amit Divekar is a Cloud Architect and Full-Stack Engineer based in the Pune/Nashik region of Maharashtra, India. He is currently pursuing Computer Science at Savitribai Phule Pune University (2024-2027).',
         },
       },
       {
@@ -157,7 +158,7 @@ export default function AmitDivekarPage() {
               Official Profile
             </p>
             <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight break-words">
-              Who is <span className="text-secondary">Amit Divekar</span>?
+              Who is <span className="text-secondary">Amit Divekar</span> (amitdevx)?
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
               {heroData.title} - building AI-powered systems, production-grade cloud infrastructure, and open-source developer tools.
@@ -180,7 +181,7 @@ export default function AmitDivekarPage() {
               </div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <GraduationCap className="w-4 h-4 text-primary" />
-                <span>{aboutData.education.institution}</span>
+                <span>Computer Science, Savitribai Phule Pune University (2024-2027)</span>
               </div>
             </div>
           </section>
@@ -295,8 +296,8 @@ export default function AmitDivekarPage() {
                 <p className="mt-3 text-muted-foreground leading-relaxed">
                   Amit Divekar (also known as amitdevx) is a Cloud Architect and Full-Stack Engineer from India. 
                   He specializes in building scalable AWS/GCP cloud infrastructure, Kubernetes orchestration, 
-                  and AI-integrated web applications using Next.js, TypeScript, and Python. He is currently pursuing a 
-                  Bachelor's degree in Computer Science from {aboutData.education.institution}.
+                  and AI-integrated web applications using Next.js, TypeScript, and Python. He is currently pursuing 
+                  Computer Science at Savitribai Phule Pune University (2024-2027).
                 </p>
               </MotionDetails>
 
@@ -333,7 +334,7 @@ export default function AmitDivekarPage() {
                 </summary>
                 <p className="mt-3 text-muted-foreground leading-relaxed">
                   Amit Divekar is from India. He is based in the Pune/Nashik region of Maharashtra 
-                  and is currently studying Computer Science at {aboutData.education.institution}.
+                  and is currently pursuing Computer Science at Savitribai Phule Pune University (2024-2027).
                 </p>
               </MotionDetails>
 
