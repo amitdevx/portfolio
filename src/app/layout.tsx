@@ -255,12 +255,12 @@ export default function RootLayout({
         {isValidGaId(process.env.NEXT_PUBLIC_GA_ID) && (
           <>
             <Script
-              strategy="afterInteractive"
+              strategy="lazyOnload"
               src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
             />
             <Script
               id="google-analytics"
-              strategy="afterInteractive"
+              strategy="lazyOnload"
               dangerouslySetInnerHTML={{
                 __html: `
                   window.dataLayer = window.dataLayer || [];

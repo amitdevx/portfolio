@@ -15,7 +15,7 @@ const nextConfig: NextConfig = {
   
   // Performance optimizations
   experimental: {
-    optimizePackageImports: ['@radix-ui', 'lucide-react'], // Tree-shake unused code
+    optimizePackageImports: ['@radix-ui', 'lucide-react', 'motion/react', 'framer-motion', 'motion'], // Tree-shake unused code
   },
   
   // Configure React settings for performance
