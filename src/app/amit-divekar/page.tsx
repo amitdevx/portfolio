@@ -100,7 +100,7 @@ export default function AmitDivekarPage() {
         name: 'Who is Amit Divekar?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Amit Divekar (also known as amitdevx) is a Cloud Architect and Full-Stack Engineer from India. He specializes in building scalable AWS/GCP cloud infrastructure, Kubernetes orchestration, and AI-integrated web applications using Next.js, TypeScript, and Python.',
+          text: 'Amit Divekar is a Cloud Architect and Full-Stack Engineer from India. He specializes in building scalable AWS/GCP cloud infrastructure, Kubernetes orchestration, and AI-integrated web applications using Next.js, TypeScript, and Python.',
         },
       },
       {
@@ -158,7 +158,7 @@ export default function AmitDivekarPage() {
               Official Profile
             </p>
             <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight break-words">
-              Who is <span className="text-secondary">Amit Divekar</span> (amitdevx)?
+              Who is <span className="text-secondary">Amit Divekar</span>?
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
               {heroData.title} - building AI-powered systems, production-grade cloud infrastructure, and open-source developer tools.
