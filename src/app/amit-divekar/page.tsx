@@ -85,7 +85,7 @@ export default function AmitDivekarPage() {
         'https://www.kaggle.com/divekaramit',
         'https://x.com/amitdevx_',
         'https://instagram.com/amitdevx',
-        'https://medium.com/@amitdevx',
+        'https://medium.com/@amitdivekar',
       ],
     },
   };
