@@ -5,12 +5,13 @@ import { Badge } from '@/components/ui/badge';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { SystemArchitectureVisual } from '@/components/projects/SystemArchitectureVisual';
+import { safeJsonLd } from '@/lib/security';
 import type { Metadata } from 'next';
 
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: '@amitdevx/md2pdf: Markdown to PDF Node.js Engine | Amit Divekar',
+  title: '@amitdevx/md2pdf — Markdown to PDF Engine for Node.js | Amit Divekar',
   description: 'npm CLI and Node.js API to convert Markdown to PDF. Supports Mermaid diagrams, KaTeX math, Obsidian callouts, GFM tables, syntax highlighting, batch conversion, and custom themes. Zero config.',
   keywords: [
     'md2pdf', 'markdown to pdf', 'nodejs', 'npm package', 'playwright', 'chromium', 
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'article',
     url: 'https://amitdevx.tech/projects/md2pdf',
-    title: '@amitdevx/md2pdf: Markdown to PDF Node.js Engine | Amit Divekar',
+    title: '@amitdevx/md2pdf — Markdown to PDF Engine for Node.js | Amit Divekar',
     description: 'npm CLI and Node.js API to convert Markdown to PDF. Supports Mermaid diagrams, KaTeX math, Obsidian callouts, GFM tables, syntax highlighting, batch conversion, and custom themes. Zero config.',
     siteName: 'Amit Divekar Portfolio',
     images: [
@@ -44,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '@amitdevx/md2pdf: Markdown to PDF Node.js Engine | Amit Divekar',
+    title: '@amitdevx/md2pdf — Markdown to PDF Engine for Node.js | Amit Divekar',
     description: 'npm CLI and Node.js API to convert Markdown to PDF. Supports Mermaid diagrams, KaTeX math, Obsidian callouts, GFM tables, syntax highlighting, batch conversion, and custom themes. Zero config.',
     creator: '@amitdevx_',
     images: ['https://amitdevx.tech/og/md2pdf.png'],
@@ -52,8 +53,26 @@ export const metadata: Metadata = {
 };
 
 export default function Md2PdfCaseStudy() {
+  const softwareSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareSourceCode',
+    name: '@amitdevx/md2pdf',
+    description: metadata.description,
+    codeRepository: 'https://github.com/amitdevx/md2pdf',
+    programmingLanguage: 'TypeScript',
+    author: {
+      '@type': 'Person',
+      name: 'Amit Divekar',
+      url: 'https://amitdevx.tech',
+    },
+  };
+
   return (
     <div className="relative overflow-x-hidden flex flex-col min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(softwareSchema) }}
+      />
       <Header />
       <main id="main-content" className="flex-grow pt-8">
         <article className="py-12 container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
