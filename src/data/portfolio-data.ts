@@ -74,7 +74,7 @@ export const projectsData = [
     technologies: ["Node.js", "TypeScript", "Chromium", "Playwright", "Markdown", "Unified", "npm"],
     githubLink: "https://github.com/amitdevx/md2pdf",
     liveLink: "https://www.npmjs.com/package/@amitdevx/md2pdf",
-    docLink: "/projects/md2pdf",
+    docLink: "/projects/amitdevx-md2pdf",
     category: "Open Source"
   },
   {

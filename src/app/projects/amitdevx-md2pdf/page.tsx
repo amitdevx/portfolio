@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Amit Divekar' }],
   alternates: {
-    canonical: 'https://amitdevx.tech/projects/md2pdf',
+    canonical: 'https://amitdevx.tech/projects/amitdevx-md2pdf',
   },
   robots: {
     index: true,
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'article',
-    url: 'https://amitdevx.tech/projects/md2pdf',
+    url: 'https://amitdevx.tech/projects/amitdevx-md2pdf',
     title: '@amitdevx/md2pdf — Markdown to PDF Engine for Node.js | Amit Divekar',
     description: 'npm CLI and Node.js API to convert Markdown to PDF. Supports Mermaid diagrams, KaTeX math, Obsidian callouts, GFM tables, syntax highlighting, batch conversion, and custom themes. Zero config.',
     siteName: 'Amit Divekar Portfolio',
