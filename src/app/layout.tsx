@@ -121,7 +121,7 @@ export const metadata: Metadata = {
     template: '%s | Amit Divekar',
   },
   description:
-    'Amit Divekar is a Cloud Architect and Full-Stack Engineer from India specializing in scalable AWS/GCP architectures, Kubernetes orchestration, and AI-integrated Next.js ecosystems. Official portfolio and blog.',
+    'Cloud Architect & Full-Stack Engineer from India - building AI-powered systems, production-grade cloud infrastructure, and open-source developer tools. Official portfolio and blog.',
   applicationName: 'Amit Divekar Portfolio',
   generator: 'Next.js',
   keywords: [
