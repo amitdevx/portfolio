@@ -120,7 +120,7 @@ export function SectionReveal({
       initial={{ opacity: 0, y: 40, scale: 0.95, filter: 'blur(8px)' }}
       whileInView={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
       viewport={{ once: true, margin: '-80px' }}
-      transition={{ ...springPresets.slow, delay }}
+      transition={{ ...springPresets.bouncy, delay }}
       className={className}
       data-animated="true"
     >
@@ -158,7 +158,7 @@ export function TextReveal({
       initial={{ opacity: 0, y: 20, filter: 'blur(8px)', scale: 0.98 }}
       whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6, delay, ease: [0.25, 0.1, 0.25, 1] }}
+      transition={{ ...springPresets.gentle, delay }}
       className={className}
       data-animated="true"
     >
@@ -166,5 +166,7 @@ export function TextReveal({
     </motion.div>
   );
 }
+
+export const MotionDetails = motion.details;
 
 export { motion };

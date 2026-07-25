@@ -1,20 +1,28 @@
+"use client"
+
 import * as React from "react"
+import { motion } from "motion/react"
 
 import { cn } from "@/lib/utils"
 
 const Card = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn(
-      "rounded-lg border bg-card text-card-foreground shadow-sm",
-      className
-    )}
-    {...props}
-  />
-))
+>(({ className, ...props }, ref) => {
+  const isInteractive = className?.includes("hover:shadow")
+  const Comp = isInteractive ? motion.div : "div"
+  return (
+    <Comp
+      ref={ref as any}
+      className={cn(
+        "rounded-lg border bg-card text-card-foreground shadow-sm transition-transform duration-300",
+        className
+      )}
+      whileHover={isInteractive ? { y: -5 } : undefined}
+      {...props as any}
+    />
+  )
+})
 Card.displayName = "Card"
 
 const CardHeader = React.forwardRef<

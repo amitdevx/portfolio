@@ -8,6 +8,7 @@ import Footer from '@/components/footer';
 import { Badge } from '@/components/ui/badge';
 import { ArrowRight, Github, Linkedin, Mail, MapPin, GraduationCap, Briefcase, Code2, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { MotionDetails } from '@/components/motion';
 
 
 const siteUrl = 'https://amitdevx.tech';
@@ -286,7 +287,7 @@ export default function AmitDivekarPage() {
               Frequently Asked Questions
             </h2>
             <div className="space-y-4">
-              <details className="border border-border/40 rounded-xl p-5 bg-background/80 backdrop-blur-md shadow-lg hover:border-primary/50 hover:shadow-primary/20 transition-all duration-300 group" open>
+              <MotionDetails layout className="border border-border/40 rounded-xl p-5 bg-background/80 backdrop-blur-md shadow-lg hover:border-primary/50 hover:shadow-primary/20 transition-all duration-300 group" open>
                 <summary className="font-semibold text-foreground cursor-pointer list-none flex items-center justify-between">
                   Who is Amit Divekar?
                   <span className="text-primary group-open:rotate-45 transition-transform text-xl">+</span>
@@ -297,9 +298,9 @@ export default function AmitDivekarPage() {
                   and AI-integrated web applications using Next.js, TypeScript, and Python. He is currently pursuing a 
                   Bachelor's degree in Computer Science from {aboutData.education.institution}.
                 </p>
-              </details>
+              </MotionDetails>
 
-              <details className="border border-border/40 rounded-xl p-5 bg-background/80 backdrop-blur-md shadow-lg hover:border-primary/50 hover:shadow-primary/20 transition-all duration-300 group">
+              <MotionDetails layout className="border border-border/40 rounded-xl p-5 bg-background/80 backdrop-blur-md shadow-lg hover:border-primary/50 hover:shadow-primary/20 transition-all duration-300 group">
                 <summary className="font-semibold text-foreground cursor-pointer list-none flex items-center justify-between">
                   What does Amit Divekar do?
                   <span className="text-primary group-open:rotate-45 transition-transform text-xl">+</span>
@@ -310,9 +311,9 @@ export default function AmitDivekarPage() {
                   spans RAG pipelines, multi-agent AI systems, container orchestration, and performance-optimized 
                   frontend applications.
                 </p>
-              </details>
+              </MotionDetails>
 
-              <details className="border border-border/40 rounded-xl p-5 bg-background/80 backdrop-blur-md shadow-lg hover:border-primary/50 hover:shadow-primary/20 transition-all duration-300 group">
+              <MotionDetails layout className="border border-border/40 rounded-xl p-5 bg-background/80 backdrop-blur-md shadow-lg hover:border-primary/50 hover:shadow-primary/20 transition-all duration-300 group">
                 <summary className="font-semibold text-foreground cursor-pointer list-none flex items-center justify-between">
                   What projects has Amit Divekar built?
                   <span className="text-primary group-open:rotate-45 transition-transform text-xl">+</span>
@@ -323,9 +324,9 @@ export default function AmitDivekarPage() {
                   View them all on his <Link href="/#projects" className="text-primary hover:underline">projects page</Link> or 
                   on <Link href={socialLinks.github} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">GitHub</Link>.
                 </p>
-              </details>
+              </MotionDetails>
 
-              <details className="border border-border/40 rounded-xl p-5 bg-background/80 backdrop-blur-md shadow-lg hover:border-primary/50 hover:shadow-primary/20 transition-all duration-300 group">
+              <MotionDetails layout className="border border-border/40 rounded-xl p-5 bg-background/80 backdrop-blur-md shadow-lg hover:border-primary/50 hover:shadow-primary/20 transition-all duration-300 group">
                 <summary className="font-semibold text-foreground cursor-pointer list-none flex items-center justify-between">
                   Where is Amit Divekar from?
                   <span className="text-primary group-open:rotate-45 transition-transform text-xl">+</span>
@@ -334,9 +335,9 @@ export default function AmitDivekarPage() {
                   Amit Divekar is from India. He is based in the Pune/Nashik region of Maharashtra 
                   and is currently studying Computer Science at {aboutData.education.institution}.
                 </p>
-              </details>
+              </MotionDetails>
 
-              <details className="border border-border/40 rounded-xl p-5 bg-background/80 backdrop-blur-md shadow-lg hover:border-primary/50 hover:shadow-primary/20 transition-all duration-300 group">
+              <MotionDetails layout className="border border-border/40 rounded-xl p-5 bg-background/80 backdrop-blur-md shadow-lg hover:border-primary/50 hover:shadow-primary/20 transition-all duration-300 group">
                 <summary className="font-semibold text-foreground cursor-pointer list-none flex items-center justify-between">
                   How to contact Amit Divekar?
                   <span className="text-primary group-open:rotate-45 transition-transform text-xl">+</span>
