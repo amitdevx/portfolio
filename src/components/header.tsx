@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
@@ -11,6 +12,7 @@ import { navigationLinks } from '@/data/portfolio-data';
 
 export default function Header() {
   const [isSheetOpen, setIsSheetOpen] = useState(false);
+  const pathname = usePathname();
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
 
@@ -40,15 +42,18 @@ export default function Header() {
           <span className="sr-only">Amit Divekar</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-          {navigationLinks.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-foreground/80 transition-colors hover:text-foreground"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navigationLinks.map((item) => {
+            const href = pathname === '/' && item.href.startsWith('/#') ? item.href.substring(1) : item.href;
+            return (
+              <Link
+                key={item.href}
+                href={href}
+                className="text-foreground/80 transition-colors hover:text-foreground"
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
         <div className="md:hidden">
           <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
@@ -76,16 +81,19 @@ export default function Header() {
                 </SheetHeader>
                 <div className="flex flex-col h-full">
                   <nav className="mt-8 flex flex-col gap-6">
-                    {navigationLinks.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        onClick={() => setIsSheetOpen(false)}
-                        className="text-lg font-medium text-foreground/80 transition-colors hover:text-foreground"
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
+                    {navigationLinks.map((item) => {
+                      const href = pathname === '/' && item.href.startsWith('/#') ? item.href.substring(1) : item.href;
+                      return (
+                        <Link
+                          key={item.href}
+                          href={href}
+                          onClick={() => setIsSheetOpen(false)}
+                          className="text-lg font-medium text-foreground/80 transition-colors hover:text-foreground"
+                        >
+                          {item.label}
+                        </Link>
+                      );
+                    })}
                   </nav>
                 </div>
               </SheetContent>
