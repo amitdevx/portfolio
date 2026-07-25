@@ -39,13 +39,18 @@ export interface ButtonProps
   asChild?: boolean
 }
 
+import { motion } from "motion-plus"
+
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button"
+    // We disable asChild here when forcing motion.button, or we could wrap Slot
+    const Comp = asChild ? motion.create(Slot) : motion.button
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
+        whileHover={{ scale: 1.2, transition: { duration: 1 } }}
+        whileTap={{ scale: 0.9 }}
         {...props}
       />
     )
