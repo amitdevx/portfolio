@@ -10,7 +10,7 @@ import type { Metadata } from 'next';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'md2pdf - Markdown to PDF with Mermaid, KaTeX & Obsidian | Amit Divekar',
+  title: '@amitdevx/md2pdf: Markdown to PDF Node.js Engine | Amit Divekar',
   description: 'npm CLI and Node.js API to convert Markdown to PDF. Supports Mermaid diagrams, KaTeX math, Obsidian callouts, GFM tables, syntax highlighting, batch conversion, and custom themes. Zero config.',
   keywords: [
     'md2pdf', 'markdown to pdf', 'nodejs', 'npm package', 'playwright', 'chromium', 
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'article',
     url: 'https://amitdevx.tech/projects/md2pdf',
-    title: 'md2pdf - Markdown to PDF with Mermaid, KaTeX & Obsidian | Amit Divekar',
+    title: '@amitdevx/md2pdf: Markdown to PDF Node.js Engine | Amit Divekar',
     description: 'npm CLI and Node.js API to convert Markdown to PDF. Supports Mermaid diagrams, KaTeX math, Obsidian callouts, GFM tables, syntax highlighting, batch conversion, and custom themes. Zero config.',
     siteName: 'Amit Divekar Portfolio',
     images: [
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'md2pdf - Markdown to PDF with Mermaid, KaTeX & Obsidian | Amit Divekar',
+    title: '@amitdevx/md2pdf: Markdown to PDF Node.js Engine | Amit Divekar',
     description: 'npm CLI and Node.js API to convert Markdown to PDF. Supports Mermaid diagrams, KaTeX math, Obsidian callouts, GFM tables, syntax highlighting, batch conversion, and custom themes. Zero config.',
     creator: '@amitdevx_',
     images: ['https://amitdevx.tech/og/md2pdf.png'],
@@ -70,7 +70,7 @@ export default function Md2PdfCaseStudy() {
             </div>
             
             <h1 className="font-headline text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-400">
-              md2pdf
+              @amitdevx/md2pdf
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-4xl">
               Production-grade open-source Markdown to PDF rendering engine for Node.js that converts Markdown into high-fidelity PDFs using Playwright, Chromium, and the Unified processing pipeline.

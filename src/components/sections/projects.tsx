@@ -78,7 +78,7 @@ export default function Projects() {
                       {project.liveLink && (
                         <Button asChild size="lg" className="group">
                           <Link href={project.liveLink} target="_blank" rel="noopener noreferrer">
-                            {project.category === 'Open Source' ? 'npm Package' : 'Live Application'}
+                            {project.category === 'Open Source' ? `${project.title} npm Package` : 'Live Application'}
                             <ExternalLink className="ml-2 h-4 w-4" aria-hidden="true" />
                           </Link>
                         </Button>
@@ -86,7 +86,7 @@ export default function Projects() {
                       {project.docLink && (
                         <Button asChild size="lg" className="group" variant="secondary">
                           <Link href={project.docLink}>
-                            {project.category === 'Open Source' ? 'Documentation' : 'Read Case Study'}
+                            {project.category === 'Open Source' ? `${project.title} Docs` : 'Read Case Study'}
                             <FileText className="ml-2 h-4 w-4" aria-hidden="true" />
                           </Link>
                         </Button>
