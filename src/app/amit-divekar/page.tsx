@@ -294,7 +294,7 @@ export default function AmitDivekarPage() {
                   <span className="text-primary group-open:rotate-45 transition-transform text-xl">+</span>
                 </summary>
                 <p className="mt-3 text-muted-foreground leading-relaxed">
-                  Amit Divekar (also known as amitdevx) is a Cloud Architect and Full-Stack Engineer from India. 
+                  Amit Divekar is a Cloud Architect and Full-Stack Engineer from India. 
                   He specializes in building scalable AWS/GCP cloud infrastructure, Kubernetes orchestration, 
                   and AI-integrated web applications using Next.js, TypeScript, and Python. He is currently pursuing 
                   Computer Science at Savitribai Phule Pune University (2024-2027).
@@ -349,7 +349,7 @@ export default function AmitDivekarPage() {
                   or through <Link href={socialLinks.github} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">GitHub</Link>. 
                   He is also available on X/Twitter as <Link href={socialLinks.x} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">@amitdevx_</Link>.
                 </p>
-              </details>
+              </MotionDetails>
             </div>
           </section>
 
@@ -374,6 +374,9 @@ export default function AmitDivekarPage() {
                 </Link>
               </Button>
             </div>
+            <p className="text-sm text-muted-foreground mt-6 font-mono">
+              Also known online as <strong>amitdevx</strong>
+            </p>
           </section>
         </div>
       </main>
