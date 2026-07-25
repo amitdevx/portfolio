@@ -46,7 +46,7 @@ import { motion } from "motion/react"
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
     // We disable asChild here when forcing motion.button, or we could wrap Slot
-    const Comp = asChild ? motion.create(Slot) : motion.button
+    const Comp = (asChild ? motion.create(Slot) : motion.button) as any
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
