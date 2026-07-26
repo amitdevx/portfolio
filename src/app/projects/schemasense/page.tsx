@@ -113,7 +113,7 @@ export default function SchemaSenseCaseStudy() {
               <Layers className="w-5 h-5 text-cyan-500" /> The Problem
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              Database schemas evolve rapidly, but documentation almost never keeps up. Engineering teams are forced to decipher undocumented tables, decipher implicit foreign key relationships from legacy source code, and lose countless hours due to tribal knowledge. 
+              Database schemas evolve rapidly, but documentation almost never keeps up. Engineering teams are forced to decipher undocumented tables, untangle implicit foreign key relationships from legacy source code, and lose countless hours due to tribal knowledge. 
             </p>
             <p className="text-muted-foreground leading-relaxed">
               <strong>SchemaSense AI</strong> resolves this by establishing direct metadata introspection. The backend reads the PostgreSQL catalog table definitions, analyzes statistics, runs structural data quality checks, and leverages large language models (DeepSeek-V3 via OpenRouter) to compile interactive, human-readable documentation and automated Entity-Relationship graphs.

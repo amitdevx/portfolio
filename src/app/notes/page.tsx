@@ -25,13 +25,13 @@ export const metadata: Metadata = {
     type: 'article',
     url: pageUrl,
     title: 'Computer Science Practical Notes & Guides | Amit Divekar',
-    description: 'Free downloadable Computer Science practical notes covering DSA, DBMS SQL, Java, Android, and Web Technologies. Compiled for university students by Amit Divekar.',
+    description: 'Free downloadable Computer Science practical notes covering DSA, DBMS SQL, Java, Android, and Web Technologies. Compiled by Amit Divekar.',
     siteName: 'Amit Divekar',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Computer Science Practical Notes & Guides | Amit Divekar',
-    description: 'Free downloadable Computer Science practical notes covering DSA, DBMS SQL, Java, Android, and Web Technologies. Compiled for university students by Amit Divekar.',
+    description: 'Free downloadable Computer Science practical notes covering DSA, DBMS SQL, Java, Android, and Web Technologies. Compiled by Amit Divekar.',
     creator: '@amitdevx_',
   },
   robots: {
@@ -51,7 +51,7 @@ export default function NotesPage() {
         <div className="text-center mb-12">
           <h1 className="font-headline text-4xl md:text-5xl font-bold">Computer Science Practical Notes & Guides</h1>
           <p className="text-lg text-muted-foreground mt-2 max-w-2xl mx-auto">
-            Free open-source repositories and downloadable study guides for Computer Science students, compiled by Systems Engineer Amit Divekar. Covers Java, Web Technologies, Data Structures, Algorithms, DBMS SQL, and more.
+            Free open-source repositories and downloadable study guides for Computer Science, compiled by Cloud Architect and Full-Stack Engineer Amit Divekar. Covers Java, Web Technologies, Data Structures, Algorithms, DBMS SQL, and more.
           </p>
         </div>
         <div className="max-w-2xl mx-auto">

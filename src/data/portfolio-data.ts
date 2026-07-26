@@ -97,15 +97,15 @@ export const projectsData = [
   {
     title: "Professor Profiler",
     description: "An advanced multi-agent system that reverse-engineers exam papers to decode professor psychology and generate optimized study strategies.",
-    technologies: ["Python 3.11", "Gemini 2.0 Pro", "Multi-Agent Systems", "Google ADK", "Pydantic"],
+    technologies: ["Python 3.11", "Gemini 2.0 Pro", "Llama 3.3 70B", "NVIDIA NIM", "Multi-Agent Systems", "Google ADK", "Pydantic"],
     githubLink: "https://github.com/amitdevx/Professor_Profiler",
     docLink: "/projects/professor-profiler",
     category: "Featured"
   },
   {
     title: "EatInformed",
-    description: "An AI-driven platform for instant nutrition analysis from food label images, built with Next.js, Genkit, and Google Gemini, featuring a modern UI with Tailwind CSS.",
-    technologies: ["TypeScript", "Next.js", "React", "Tailwind CSS", "Genkit", "Gemini", "Llama 3.2"],
+    description: "An AI-driven platform for instant nutrition analysis from food label images, built with Next.js, Llama Vision, and NVIDIA NIM, featuring a modern UI with Tailwind CSS.",
+    technologies: ["TypeScript", "Next.js", "React", "Tailwind CSS", "Llama 3.2 Vision", "Llama 3.3 70B", "NVIDIA NIM"],
     githubLink: "https://github.com/amitdevx/Eatinformed",
     liveLink: "https://eatinformed.amitdevx.tech/",
     docLink: "/projects/eatinformed",

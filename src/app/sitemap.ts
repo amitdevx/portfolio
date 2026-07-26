@@ -29,7 +29,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/cv`, lastModified, changeFrequency: 'monthly' as const, priority: 0.8 },
     { url: `${siteUrl}/blogs`, lastModified, changeFrequency: 'daily' as const, priority: 0.9 },
     { url: `${siteUrl}/amit-divekar`, lastModified, changeFrequency: 'monthly' as const, priority: 0.8 },
-    { url: `${siteUrl}/projects`, lastModified, changeFrequency: 'monthly' as const, priority: 0.8 },
     { url: `${siteUrl}/notes`, lastModified, changeFrequency: 'weekly' as const, priority: 0.7 },
     ...projectEntries,
     ...blogEntries,
