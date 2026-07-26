@@ -374,7 +374,9 @@ export default function AmitDivekarPage() {
                 </Link>
               </Button>
             </div>
-
+            <p className="text-sm text-muted-foreground mt-6 font-mono">
+              Also known online as <strong>amitdevx</strong>
+            </p>
           </section>
         </div>
       </main>
