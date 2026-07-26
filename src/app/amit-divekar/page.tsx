@@ -237,7 +237,7 @@ export default function AmitDivekarPage() {
                     )}
                     {project.liveLink && (
                       <Link href={project.liveLink} target="_blank" rel="noopener noreferrer"
-                        className="text-xs text-primary hover:underline">Live Demo</Link>
+                        className="text-xs text-primary hover:underline">{project.category === 'Open Source' ? 'npm Package' : 'Live Demo'}</Link>
                     )}
                   </div>
                 </div>
@@ -374,9 +374,7 @@ export default function AmitDivekarPage() {
                 </Link>
               </Button>
             </div>
-            <p className="text-sm text-muted-foreground mt-6 font-mono">
-              Also known online as <strong>amitdevx</strong>
-            </p>
+
           </section>
         </div>
       </main>
