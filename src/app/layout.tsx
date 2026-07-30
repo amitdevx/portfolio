@@ -225,7 +225,6 @@ export const metadata: Metadata = {
   other: {
     'msapplication-TileColor': '#0a0a0a',
     'msapplication-config': '/browserconfig.xml',
-    'google-site-verification': 'eQm4tbLSTzuUWGkYlg260c1_9s4jeLV65cGvGLcNWig',
     'format-detection': 'telephone=no',
   },
   
