@@ -244,7 +244,7 @@ export function SystemArchitectureVisual({
             const strokeWidth = isLinkActive ? 2.5 : 1.2;
             const colorId = fromNode.color.replace('#', '');
 
-            const pathD = `M ${line.x1} ${line.y1} L ${line.x2} ${line.y2}`;
+            const pathD = `M ${line.x1.toFixed(2)} ${line.y1.toFixed(2)} L ${line.x2.toFixed(2)} ${line.y2.toFixed(2)}`;
 
             return (
               <g key={`connection-${index}`}>

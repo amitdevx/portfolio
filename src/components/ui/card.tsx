@@ -10,6 +10,7 @@ const Card = React.forwardRef<
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => {
   const isInteractive = className?.includes("hover:shadow")
+  const motionProps = isInteractive ? { whileHover: { y: -5 } } : {}
   const Comp = (isInteractive ? motion.div : "div") as any
   return (
     <Comp
@@ -18,7 +19,7 @@ const Card = React.forwardRef<
         "rounded-lg border bg-card text-card-foreground shadow-sm transition-transform duration-300",
         className
       )}
-      whileHover={isInteractive ? { y: -5 } : undefined}
+      {...motionProps}
       {...props}
     />
   )
