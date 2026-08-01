@@ -25,7 +25,7 @@ export const aboutData = {
     { label: "Projects Shipped", value: "12+" },
     { label: "Cloud Deployments", value: "AWS & GCP" },
     { label: "Technologies", value: "25+" },
-    { label: "Blog Articles", value: "16+" },
+    { label: "Blog Articles", value: "19+" },
   ],
   education: {
     institution: "Savitribai Phule Pune University",

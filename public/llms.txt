@@ -1,58 +1,90 @@
-# Amit Divekar - Full-Stack Software Engineer Portfolio
-> A professional portfolio showcasing Full-Stack Software Engineering expertise in Cloud Architecture, DevOps, AI solutions, and modern web development.
+# Amit Divekar | Cloud Architect & Full-Stack Engineer from India
 
-## About
-- [Home](https://amitdevx.tech): Professional introduction and hero section.
-- [About Me](https://amitdevx.tech/#about): Background, education at Savitribai Phule Pune University (sgpa 8.36/10), and personal expertise overview.
-- [Resume/CV](https://amitdevx.tech/cv): Complete professional credentials, qualifications, and downloadable resume.
+> I architect resilient cloud systems and engineer high-performance web applications.
 
-## Projects
-- [SelfHealOps](https://amitdevx.tech/projects/self-healops): An autonomous, self-healing DevOps agent designed to automatically classify, analyze, and remediate CI/CD pipeline failures and infrastructure issues using a hierarchical multi-agent system. Built with Python, NVIDIA NIM, and LangGraph. [Source Code](https://github.com/amitdevx/self-healops)
-- [SchemaSense AI](https://schemasense.amitdevx.tech): AI-powered database documentation platform. Auto-generates schema docs, maps table relationships, and provides a real-time chat interface powered by DeepSeek-V3. Built with Next.js, FastAPI, PostgreSQL, and intelligent caching. [Source Code](https://github.com/amitdevx/schemasense)
-- [Professor Profiler](https://github.com/amitdevx/Professor_Profiler): Hierarchical multi-agent system that reverse-engineers exam papers to decode professor psychology and generate optimized study strategies. Built with Python and Google Gemini. [Documentation](https://deepwiki.com/amitdevx/Professor_Profiler)
-- [Eatinformed](https://eatinformed.amitdevx.tech): AI-driven nutrition analysis from food label images, built with Next.js, Genkit, and Google Gemini.
-- [2FA Password Protector](https://github.com/amitdevx): Flask-based three-layer authentication system with login, PIN, and TOTP 2FA.
-- [Cloud File Uploader](https://github.com/amitdevx/FileFlow): Secure cloud file storage system built with Node.js and SQLite.
-- [Anime Viewing Platform](https://github.com/amitdevx/anime-view-site): Responsive Flask-based streaming website with dynamic content loading.
+Cloud Architect & Full-Stack Engineer from India - building AI-powered systems, production-grade cloud infrastructure, and open-source developer tools.
+
+## About Me
+- **Bio**: Cloud Architect & Full-Stack Engineer from India - building AI-powered systems, production-grade cloud infrastructure, and open-source developer tools.
+- **Stats**: 12+ Projects Shipped, AWS & GCP Cloud Deployments, 25+ Technologies, 19+ Blog Articles.
+- **Education**: Bachelor's Degree in Computer Science from Savitribai Phule Pune University (2024 - 2027). SGPA: 8.36/10.0.
+  - **Courses**: Programming Fundamentals, Data Structures and Algorithms, Database Management Systems, Computer Networks, Operating Systems.
+- **Hobbies**: Web and software development, Solving puzzles and logic games like Chess, Digital art, illustration, and concept design, Exploring new digital tools for productivity.
+- **Languages**: English, Hindi, Marathi.
+- **Location**: Pune, Maharashtra, India.
+- [Home](https://amitdevx.tech): Personal Website
+- [About Page](https://amitdevx.tech/amit-divekar): About Amit Divekar
+- [Resume/CV](https://amitdevx.tech/cv): Professional CV
 
 ## Professional Experience
-- [Experience](https://amitdevx.tech/#experience): Virtual Experience programs at Electronic Arts (EA) and Accenture UK.
-- [Skills & Expertise](https://amitdevx.tech/#skills): AWS, Google Cloud, Azure, Docker, Kubernetes, React, Next.js, Python, FastAPI, Node.js, TypeScript, and AI/ML.
-- [Certifications](https://amitdevx.tech/#certifications): Microsoft Cybersecurity, Google Cloud Security, EA Software Engineering, Accenture Developer, GeeksforGeeks Networking.
+
+- **Software Engineering Virtual Experience at Electronic Arts (EA)** (Completed: Feb 2024): Crafted a feature proposal, designed a C class diagram, and fixed a significant bug in the EA Sports College Football codebase, enhancing performance by integrating a more efficient data structure.
+- **Developer and Technology Virtual Experience at Accenture UK** (Completed: 2025): Gained a thorough understanding of the SDLC, researched emerging tech trends like DevOps, compared Waterfall vs. Agile, and designed/optimized a Python program to improve functionality.
+- **Software Development Program at Scaler** (Apr 2024 - Jul 2024): Participated in structured technical learning focused on development fundamentals and practiced problem-solving and programming as a new dev.
+
+## Projects
+
+- [md2pdf](https://github.com/amitdevx/md2pdf): Production-grade open-source Markdown to PDF rendering engine for Node.js that converts Markdown into high-fidelity PDFs using Playwright, Chromium, and the Unified processing pipeline. (Technologies: Node.js, TypeScript, Chromium, Playwright, Markdown, Unified, npm). [Live/npm](https://www.npmjs.com/package/@amitdevx/md2pdf) | [Docs](https://amitdevx.tech/projects/amitdevx-md2pdf)
+- [SelfHealOps](https://github.com/amitdevx/self-healops): An autonomous, self-healing DevOps agent designed to automatically classify, analyze, and remediate CI/CD pipeline failures and infrastructure issues using a hierarchical multi-agent system. (Technologies: Python, NVIDIA NIM, LangGraph, FastAPI, Redis, Prometheus, Grafana). [Docs](https://amitdevx.tech/projects/self-healops)
+- [SchemaSense AI](https://github.com/amitdevx/schemasense): AI-powered database documentation platform that auto-generates schema docs, maps table relationships, and provides a real-time chat interface for querying your database structure in plain English. (Technologies: Next.js, FastAPI, Python, TypeScript, PostgreSQL, DeepSeek-V3, OpenRouter, SQLite). [Live](https://schemasense.amitdevx.tech) | [Docs](https://amitdevx.tech/projects/schemasense)
+- [Professor Profiler](https://github.com/amitdevx/Professor_Profiler): An advanced multi-agent system that reverse-engineers exam papers to decode professor psychology and generate optimized study strategies. (Technologies: Python 3.11, Gemini 2.0 Pro, Llama 3.3 70B, NVIDIA NIM, Multi-Agent Systems, Google ADK, Pydantic). [Docs](https://amitdevx.tech/projects/professor-profiler)
+- [EatInformed](https://github.com/amitdevx/Eatinformed): An AI-driven platform for instant nutrition analysis from food label images, built with Next.js, Llama Vision, and NVIDIA NIM, featuring a modern UI with Tailwind CSS. (Technologies: TypeScript, Next.js, React, Tailwind CSS, Llama 3.2 Vision, Llama 3.3 70B, NVIDIA NIM). [Live](https://eatinformed.amitdevx.tech/) | [Docs](https://amitdevx.tech/projects/eatinformed)
+- [2FA Password Protector](https://github.com/amitdevx): A Flask-based authentication system with three layers of security: login, PIN, and Two-Factor Authentication (2FA), using SQLite and cryptography for secure data handling. (Technologies: Python, Flask, SQLite, Cryptography).
+- [Cloud File Uploader](https://github.com/amitdevx/FileFlow): A secure file storage system similar to Google Drive, developed with Node.js and SQLite, allowing users to store and manage files efficiently in a cloud-based environment. (Technologies: Node.js, SQLite).
+
+## Certifications
+
+- [Career Essentials in Cybersecurity](https://www.linkedin.com/learning/certificates/16c6ab131a12d6d3a28080405cb38e3101483950290ad29c6b5650840398a147): by Microsoft and LinkedIn. Skills: Threat & Vulnerability Management, Cybersecurity, Information Security Awareness.
+- [Trust and Security with Google Cloud](https://www.cloudskillsboost.google/public_profiles/40d340d4-c84b-4413-b630-69f4ba00ce20/badges/17592342): by Google. Skills: Cloud Security, Google Cloud Platform, Trust Infrastructure.
+- [Software Engineering](https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/j43dGscQHtJJ57N54/a77WE3de8qrxWferQ_j43dGscQHtJJ57N54_iqBjeEZPS8ycoo8nH_1739022094480_completion_certificate.pdf): by Electronic Arts (EA). Skills: Game Engine Technology, Data Structures, Future Design, Object Oriented Design.
+- [Developer and Technology](https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ovyvuqqNRQKBjNxbj/3xnZEj9kfpoQKW885_ovyvuqqNRQKBjNxbj_iqBjeEZPS8ycoo8nH_1735299487533_completion_certificate.pdf): by Accenture UK & Ireland. Skills: Agile & Waterfall Methodologies, SDLC, DevOps.
+- [IP Addressing and Subnetting](https://media.geeksforgeeks.org/courses/certificates/9f02af57d75cc46e928c771bfbcdfe62.pdf): by GeeksforGeeks. Skills: IP Addressing, Subnetting, Internet Protocol Suite (TCP/IP), Internet Protocol (IP).
+- Google Analytics Certification: by Google. Skills: Analytical Skills, Data Analysis.
+- [HackFest Certificate](https://www.creadefy.com/verify/CERT-3635E29E-3AD6-49F4): by GDG New Delhi. Skills: Hackathon, Problem Solving.
+
+## Skills & Expertise
+
+- **Cloud & DevOps**: AWS, Docker, Kubernetes, CI/CD, Prometheus, Grafana
+- **AI & Multi-Agent Systems**: Python, Pandas, NumPy, LangGraph, Genkit, Pydantic, Google ADK, Multi-Agent Systems
+- **Frontend**: TypeScript, React.js, Next.js, JavaScript, Tailwind CSS, Framer Motion
+- **Backend**: Node.js, FastAPI, PostgreSQL, Redis
+- **Tools**: Git, Figma, Playwright, npm
+- **Soft Skills**: Problem Solving, Adaptability, Documentation, Research Skills
 
 ## Technical Blog
-- [All Blog Posts](https://amitdevx.tech/blogs): In-depth technical articles on software engineering, DevOps, and AI.
-- [SelfHealOps: The Autonomous DevOps Agent That Actually Fixes Your Pipelines](https://amitdevx.tech/blogs/self-healops): How I built an AIOps agent with LangGraph.
-- [Why Your Engineering Team Needs an AI Use Minimizer (And Fast)](https://amitdevx.tech/blogs/ai-use-minimizer): Architecting FinOps for the LLM Era using AWS Bedrock and semantic routing.
-- [ChatGPT 5.5 Agentic Workflows](https://amitdevx.tech/blogs/chatgpt-5-5-agentic-systems): Building resilient multi-agent systems.
-- [Why I Migrated My Core RAG Pipeline to Claude 4.7](https://amitdevx.tech/blogs/claude-4-7-rag-pipeline): Using Pinecone and Cohere reranking for enterprise documentation.
-- [Building a Custom Cloud Storage Platform](https://amitdevx.tech/blogs/fileflow-cloud-drive): A technical breakdown of FileFlow.
-- [GCP Cloud Run vs GKE in 2026](https://amitdevx.tech/blogs/gcp-cloud-run-gke-ai-workloads): Architecting for High-Throughput AI Workloads.
-- [The Ultimate Next.js 15 App Router Architecture Guide](https://amitdevx.tech/blogs/nextjs-15-app-router-architecture-guide): A definitive reference for building at scale.
-- [SchemaSense API Optimization](https://amitdevx.tech/blogs/schemasense-api-optimization): Implementing deterministic hashing and SQLite caching.
-- [SchemaSense: AI-Powered Database Documentation](https://amitdevx.tech/blogs/schemasense): How I built an intelligent database documentation platform.
-- [Reverse-Engineering Exams: Professor Profiler](https://amitdevx.tech/blogs/professor-profiler): Building a hierarchical multi-agent system.
-- [Open-Source AI Tools for Agentic AI in 2026](https://amitdevx.tech/blogs/open-source-ai-tools-2026): Top open-source frameworks for building autonomous agents.
-- [Python Functions, Iterators & Generators](https://amitdevx.tech/blogs/python-functions-iterators-generators): Core functional programming concepts and production-ready patterns.
-- [Mastering Pandas DataFrame Operations](https://amitdevx.tech/blogs/pandas-dataframe-operations): Comprehensive guide to Pandas DataFrames.
-- [Reddit API and JSON for AI Training](https://amitdevx.tech/blogs/reddit-api-json): Accessing Reddit data as JSON for data analysis and AI training.
+
+- [All Blog Posts](https://amitdevx.tech/blogs): Full list of blog articles.
+- [RSS Feed](https://amitdevx.tech/feed.xml): RSS format blog updates.
+- [The End of AI Loops: Why Graph Engineering is the Future](https://amitdevx.tech/blogs/the-end-of-ai-loops-why-graph-engineering-is-the-future)
+- [I Couldn't Find a Markdown to PDF Tool That Just Worked, So I Built One (@amitdevx/md2pdf)](https://amitdevx.tech/blogs/i-built-a-markdown-to-pdf-tool)
+- [The $650 Billion Bubble: Why AI Data Centers Are Falling Apart](https://amitdevx.tech/blogs/ai-data-center-bubble)
+- [Why Your Engineering Team Needs an AI Use Minimizer (And Fast)](https://amitdevx.tech/blogs/ai-use-minimizer)
+- [SelfHealOps: The Autonomous DevOps Agent That Actually Fixes Your Pipelines](https://amitdevx.tech/blogs/self-healops)
+- [AWS Serverless vs. Kubernetes: A Cost & Performance Benchmark (2026)](https://amitdevx.tech/blogs/aws-serverless-vs-kubernetes-benchmark)
+- [Building a RAG Pipeline: Connecting Genkit, Next.js, and Vector Databases](https://amitdevx.tech/blogs/building-rag-pipeline-genkit-nextjs)
+- [The Ultimate Next.js 15 App Router Architecture Guide (2026 Edition)](https://amitdevx.tech/blogs/nextjs-15-app-router-architecture-guide)
+- [GCP Cloud Run vs GKE in 2026: Architecting for High-Throughput AI Workloads](https://amitdevx.tech/blogs/gcp-cloud-run-gke-ai-workloads)
+- [ChatGPT 5.5 Agentic Workflows: Building Autonomous Systems that Actually Work](https://amitdevx.tech/blogs/chatgpt-5-5-agentic-systems)
+- [Building a Custom Cloud Storage Platform with Python, Flask, and PostgreSQL](https://amitdevx.tech/blogs/fileflow-cloud-drive)
+- [Optimizing API Usage by 95%: Advanced Python Caching Patterns with SQLite](https://amitdevx.tech/blogs/schemasense-api-optimization)
+- [Why I Migrated My Core RAG Pipeline to Claude 4.7 (And How You Can Too)](https://amitdevx.tech/blogs/claude-4-7-rag-pipeline)
+- [SchemaSense: AI-Powered Database Documentation That Actually Works](https://amitdevx.tech/blogs/schemasense)
+- [Open-Source AI Tools for Agentic AI in 2026](https://amitdevx.tech/blogs/open-source-ai-tools-2026)
+- [Python Functions, Iterators & Generators](https://amitdevx.tech/blogs/python-functions-iterators-generators)
+- [Mastering Pandas DataFrame Operations](https://amitdevx.tech/blogs/pandas-dataframe-operations)
+- [Reddit API and JSON for AI TRAINING](https://amitdevx.tech/blogs/reddit-api-json)
+- [Reverse-Engineering Exams: A Deep Dive into Professor Profiler](https://amitdevx.tech/blogs/professor-profiler)
+
+## Connect & Social
+
+- [Contact Form](https://amitdevx.tech/#contact): Personal contact form
+- [Email](mailto:admin@amitdevx.tech): Direct email address
+- [LinkedIn](https://www.linkedin.com/in/divekar-amit): Professional networking profile
+- [GitHub](https://github.com/amitdevx): Open-source contributions and source code
+- [Twitter/X](https://x.com/amitdevx_): Tech updates and insights
+- [Instagram](https://instagram.com/amitdevx): Personal updates
+- [Kaggle](https://www.kaggle.com/divekaramit): Data science and ML profile
 
 ## Resources
+
 - [Notes](https://amitdevx.tech/notes): SYBSc CS practical notes for Data Structures and DBMS (SQL).
-- [RSS Feed](https://amitdevx.tech/feed.xml): Subscribe to blog updates.
-
-## Connect
-- [Contact](https://amitdevx.tech/#contact): Get in touch for inquiries and collaboration.
-- [GitHub](https://github.com/amitdevx): Source code and open-source contributions.
-- [LinkedIn](https://www.linkedin.com/in/divekar-amit): Professional networking profile.
-- [Twitter/X](https://x.com/amitdevx_): Tech updates and insights.
-- [Kaggle](https://www.kaggle.com/divekaramit): Data science and ML projects.
-- [Email](mailto:admin@amitdevx.tech): Direct contact.
-
-## Key Expertise
-- Cloud Platforms: AWS, Google Cloud Platform (GCP), Microsoft Azure
-- DevOps & Infrastructure: Docker, Kubernetes, CI/CD, GitHub Actions
-- Frontend: React, Next.js, TypeScript, Tailwind CSS
-- Backend: Node.js, Express.js, Python, FastAPI, Flask
-- Databases: PostgreSQL, MongoDB, SQLite, SQL
-- AI & ML: DeepSeek, Google Gemini, OpenRouter, Multi-Agent Systems, LangGraph, NVIDIA NIM
