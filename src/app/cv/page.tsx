@@ -293,7 +293,10 @@ export default function CvPage() {
                     <img src={cert.companyLogo} alt="" className="w-6 h-6 shrink-0" />
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-medium truncate group-hover:text-primary transition-colors">{cert.title}</p>
-                      <p className="text-xs text-muted-foreground">{cert.issuer}</p>
+                      <p className="text-xs text-muted-foreground">
+                        {cert.issuer}
+                        {cert.date ? ` • ${cert.date.replace('Issued ', '')}` : ''}
+                      </p>
                     </div>
                     <ArrowUpRight className="w-4 h-4 text-muted-foreground shrink-0 group-hover:text-primary transition-colors" />
                   </Link>

@@ -130,52 +130,75 @@ export const projectsData = [
 
 export const certificationsData = [
   {
-    title: "Career Essentials in Cybersecurity",
-    issuer: "Microsoft and LinkedIn",
-    skills: ["Threat & Vulnerability Management", "Cybersecurity", "Information Security Awareness"],
-    link: "https://www.linkedin.com/learning/certificates/16c6ab131a12d6d3a28080405cb38e3101483950290ad29c6b5650840398a147",
-    companyLogo: "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg"
+    title: "AWS Cloud Practitioner",
+    issuer: "GeeksforGeeks",
+    date: "Issued Aug 2026",
+    credentialId: "73e0c603b957866732a876bb89406d6b",
+    skills: ["Amazon Web Services (AWS)", "AWS Security"],
+    link: "https://www.geeksforgeeks.org/certificate/73e0c603b957866732a876bb89406d6b",
+    companyLogo: "https://www.svgrepo.com/show/330494/geeksforgeeks.svg"
+  },
+  {
+    title: "5-Day AI Agents Intensive Course with Google",
+    issuer: "Kaggle",
+    date: "Issued Dec 2025",
+    credentialId: "",
+    skills: ["Multi-agent AI system architecture", "AI Agents"],
+    link: "https://www.kaggle.com/certification/badges/divekaramit/105",
+    companyLogo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kaggle/kaggle-original.svg"
+  },
+  {
+    title: "IP Addressing and Subnetting",
+    issuer: "GeeksforGeeks",
+    date: "Issued Nov 2025",
+    credentialId: "9f02af57d75cc46e928c771bfbcdfe62",
+    skills: ["Internet Protocol Suite (TCP/IP)", "IP Addressing", "Subnetting"],
+    link: "https://media.geeksforgeeks.org/courses/certificates/9f02af57d75cc46e928c771bfbcdfe62.pdf",
+    companyLogo: "https://www.svgrepo.com/show/330494/geeksforgeeks.svg"
   },
   {
     title: "Trust and Security with Google Cloud",
     issuer: "Google",
+    date: "Issued Aug 2025",
+    credentialId: "17592342",
     skills: ["Cloud Security", "Google Cloud Platform", "Trust Infrastructure"],
     link: "https://www.cloudskillsboost.google/public_profiles/40d340d4-c84b-4413-b630-69f4ba00ce20/badges/17592342",
     companyLogo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg"
   },
   {
-    title: "Software Engineering",
+    title: "Electronic Arts - Software Engineering",
     issuer: "Electronic Arts (EA)",
-    skills: ["Game Engine Technology", "Data Structures", "Future Design", "Object Oriented Design"],
+    date: "Issued Feb 2025",
+    credentialId: "yeqS2cuji9oiNjgm4",
+    skills: ["Game engine technology", "Future design", "Data Structures", "Object Oriented Design"],
     link: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/j43dGscQHtJJ57N54/a77WE3de8qrxWferQ_j43dGscQHtJJ57N54_iqBjeEZPS8ycoo8nH_1739022094480_completion_certificate.pdf",
     companyLogo: "https://upload.wikimedia.org/wikipedia/commons/0/0d/Electronic-Arts-Logo.svg"
   },
   {
-    title: "Developer and Technology",
+    title: "Accenture UK - Developer and Technology",
     issuer: "Accenture UK & Ireland",
+    date: "Issued Dec 2024",
+    credentialId: "KpRPzCde2ZcXrwQKq",
     skills: ["Agile & Waterfall Methodologies", "SDLC", "DevOps"],
     link: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ovyvuqqNRQKBjNxbj/3xnZEj9kfpoQKW885_ovyvuqqNRQKBjNxbj_iqBjeEZPS8ycoo8nH_1735299487533_completion_certificate.pdf",
     companyLogo: "https://upload.wikimedia.org/wikipedia/commons/c/cd/Accenture.svg"
   },
   {
-    title: "IP Addressing and Subnetting",
-    issuer: "GeeksforGeeks",
-    skills: ["IP Addressing", "Subnetting", "Internet Protocol Suite (TCP/IP)", "Internet Protocol (IP)"],
-    link: "https://media.geeksforgeeks.org/courses/certificates/9f02af57d75cc46e928c771bfbcdfe62.pdf",
-    companyLogo: "https://www.svgrepo.com/show/330494/geeksforgeeks.svg"
+    title: "Career Essentials in Cybersecurity by Microsoft and LinkedIn",
+    issuer: "Microsoft",
+    date: "Issued Jul 2024",
+    credentialId: "16c6ab131a12d6d3a28080405cb38e3101483950290ad29c6b5650840398a147",
+    skills: ["Cybersecurity", "Threat & Vulnerability Management", "Information Security Awareness"],
+    link: "https://www.linkedin.com/learning/certificates/16c6ab131a12d6d3a28080405cb38e3101483950290ad29c6b5650840398a147",
+    companyLogo: "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg"
   },
   {
     title: "Google Analytics Certification",
     issuer: "Google",
+    date: "",
+    credentialId: "",
     skills: ["Analytical Skills", "Data Analysis"],
     link: "#",
-    companyLogo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg"
-  },
-  {
-    title: "HackFest Certificate",
-    issuer: "GDG New Delhi",
-    skills: ["Hackathon", "Problem Solving"],
-    link: "https://www.creadefy.com/verify/CERT-3635E29E-3AD6-49F4",
     companyLogo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg"
   }
 ];
