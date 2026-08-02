@@ -69,8 +69,8 @@ export const experienceData = [
 
 export const projectsData = [
   {
-    title: "md2pdf",
-    description: "Production-grade open-source Markdown to PDF rendering engine for Node.js that converts Markdown into high-fidelity PDFs using Playwright, Chromium, and the Unified processing pipeline.",
+    title: "@amitdevx/md2pdf",
+    description: "Convert Markdown to high-fidelity PDF: CLI tool and Node.js API powered by headless Chromium. Supports Mermaid diagrams, KaTeX math, Obsidian callouts and wiki-links, GFM tables, syntax highlighting via Shiki, batch conversion, custom themes, TOC generation, and PDF metadata injection.",
     technologies: ["Node.js", "TypeScript", "Chromium", "Playwright", "Markdown", "Unified", "npm"],
     githubLink: "https://github.com/amitdevx/md2pdf",
     liveLink: "https://www.npmjs.com/package/@amitdevx/md2pdf",

@@ -11,8 +11,8 @@ import type { Metadata } from 'next';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: '@amitdevx/md2pdf — Markdown to PDF Engine for Node.js | Amit Divekar',
-  description: 'npm CLI and Node.js API to convert Markdown to PDF. Supports Mermaid diagrams, KaTeX math, Obsidian callouts, GFM tables, syntax highlighting, batch conversion, and custom themes. Zero config.',
+  title: 'Convert Markdown to PDF with Mermaid diagrams, KaTeX math, Obsidian syntax, syntax highlighting, batch processing, TOC, and custom themes. CLI + Node.js API.',
+  description: 'Convert Markdown to high-fidelity PDF: CLI tool and Node.js API powered by headless Chromium. Supports Mermaid diagrams, KaTeX math, Obsidian callouts and wiki-links, GFM tables, syntax highlighting via Shiki, batch conversion, custom themes, TOC generation, and PDF metadata injection.',
   keywords: [
     'md2pdf', 'markdown to pdf', 'nodejs', 'npm package', 'playwright', 'chromium', 
     'mermaid', 'katex', 'open source', 'amit divekar', 'unified', 'remark', 'rehype',
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'article',
     url: 'https://amitdevx.tech/projects/amitdevx-md2pdf',
-    title: '@amitdevx/md2pdf — Markdown to PDF Engine for Node.js | Amit Divekar',
-    description: 'npm CLI and Node.js API to convert Markdown to PDF. Supports Mermaid diagrams, KaTeX math, Obsidian callouts, GFM tables, syntax highlighting, batch conversion, and custom themes. Zero config.',
+    title: 'Convert Markdown to PDF with Mermaid diagrams, KaTeX math, Obsidian syntax, syntax highlighting, batch processing, TOC, and custom themes. CLI + Node.js API.',
+    description: 'Convert Markdown to high-fidelity PDF: CLI tool and Node.js API powered by headless Chromium. Supports Mermaid diagrams, KaTeX math, Obsidian callouts and wiki-links, GFM tables, syntax highlighting via Shiki, batch conversion, custom themes, TOC generation, and PDF metadata injection.',
     siteName: 'Amit Divekar Portfolio',
     images: [
       {
@@ -45,8 +45,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '@amitdevx/md2pdf — Markdown to PDF Engine for Node.js | Amit Divekar',
-    description: 'npm CLI and Node.js API to convert Markdown to PDF. Supports Mermaid diagrams, KaTeX math, Obsidian callouts, GFM tables, syntax highlighting, batch conversion, and custom themes. Zero config.',
+    title: 'Convert Markdown to PDF with Mermaid diagrams, KaTeX math, Obsidian syntax, syntax highlighting, batch processing, TOC, and custom themes. CLI + Node.js API.',
+    description: 'Convert Markdown to high-fidelity PDF: CLI tool and Node.js API powered by headless Chromium. Supports Mermaid diagrams, KaTeX math, Obsidian callouts and wiki-links, GFM tables, syntax highlighting via Shiki, batch conversion, custom themes, TOC generation, and PDF metadata injection.',
     creator: '@amitdevx_',
     images: ['https://amitdevx.tech/og/md2pdf.png'],
   },
@@ -92,7 +92,7 @@ export default function Md2PdfCaseStudy() {
               @amitdevx/md2pdf
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-4xl">
-              Production-grade open-source Markdown to PDF rendering engine for Node.js that converts Markdown into high-fidelity PDFs using Playwright, Chromium, and the Unified processing pipeline.
+              md2pdf is a production-grade Markdown-to-PDF rendering engine built on the Unified ecosystem (Remark/Rehype) for robust AST processing and Playwright for headless Chromium rendering. The result is a PDF that faithfully reflects modern web standards — professional typography, precise margins, and correct pagination — without any browser installation friction for end users.
             </p>
             
             <div className="flex flex-wrap items-center gap-4 pt-4">
@@ -255,6 +255,12 @@ export default function Md2PdfCaseStudy() {
               <div className="bg-white/[0.02] border border-white/5 p-6 rounded-2xl space-y-4">
                 <h3 className="text-lg font-bold text-slate-100">Key Features</h3>
                 <ul className="space-y-2 text-sm text-slate-400">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5" /> Extensible Plugin API (Markdown, HTML, Render, Theme, Export hooks)
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5" /> 7 professionally crafted built-in themes with strict Obsidian parity
+                  </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5" /> Native KaTeX Offline Math (mhchem)
                   </li>
@@ -541,8 +547,23 @@ export default function Md2PdfCaseStudy() {
                     <div className="relative pl-6 border-l border-white/10 space-y-6 py-2">
                       <div className="relative">
                         <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-primary shadow-[0_0_10px_rgba(16,185,129,0.5)]" />
-                        <p className="text-sm font-bold text-primary">v0.5.4 (Current)</p>
-                        <p className="text-xs text-slate-400 mt-1">5x performance boost via persistent Chromium daemon, offline bundled fonts, package size reduced 80%</p>
+                        <p className="text-sm font-bold text-primary">v0.7.0 (Current)</p>
+                        <p className="text-xs text-slate-400 mt-1">Plugin API infrastructure, custom HTML hooks, theme overrides, and developer registry</p>
+                      </div>
+                      <div className="relative">
+                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
+                        <p className="text-sm font-bold text-slate-300">v0.6.1</p>
+                        <p className="text-xs text-slate-500 mt-1">Printer-friendly dark themes, improved table contrast, title injection fixes</p>
+                      </div>
+                      <div className="relative">
+                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
+                        <p className="text-sm font-bold text-slate-300">v0.6.0</p>
+                        <p className="text-xs text-slate-500 mt-1">7 built-in themes, strict Obsidian parity, minimalist tables, automatic title injection</p>
+                      </div>
+                      <div className="relative">
+                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
+                        <p className="text-sm font-bold text-slate-300">v0.5.4</p>
+                        <p className="text-xs text-slate-500 mt-1">5x performance boost via persistent Chromium daemon, offline bundled fonts, package size reduced 80%</p>
                       </div>
                       <div className="relative">
                         <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
