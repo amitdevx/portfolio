@@ -247,8 +247,8 @@ export default function Md2PdfCaseStudy() {
                 <div className="w-full">
                   <SystemArchitectureVisual 
                     architectureType="md2pdf" 
-                    title=""
-                    description=""
+                    title="md2pdf Rendering Pipeline"
+                    description="Playwright-powered Markdown to PDF conversion flow"
                   />
                 </div>
               </div>

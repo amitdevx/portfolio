@@ -14,7 +14,7 @@ const getArchitectureType = (title: string): ArchitectureType | null => {
   if (title === 'SchemaSense AI') return 'schemasense';
   if (title === 'Professor Profiler') return 'professor-profiler';
   if (title === 'EatInformed') return 'eatinformed';
-  if (title === 'md2pdf') return 'md2pdf';
+  if (title === 'md2pdf' || title === '@amitdevx/md2pdf') return 'md2pdf';
   return null;
 };
 
