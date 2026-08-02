@@ -8,7 +8,7 @@ import Footer from '@/components/footer';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Professor Profiler Case Study | Amit Divekar',
+  title: 'Professor Profiler | AI Academic Research and Analysis Tool | Amit Divekar',
   description: 'Case study on Professor Profiler, a RAG system and vector database application built to reverse-engineer exam questions.',
   keywords: ['professor profiler', 'rag system', 'vector database', 'gemini 2.0', 'multi-agent system', 'amit divekar', 'python'],
   authors: [{ name: 'Amit Divekar' }],
@@ -19,13 +19,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'article',
     url: 'https://amitdevx.tech/projects/professor-profiler',
-    title: 'Professor Profiler Case Study | Amit Divekar',
+    title: 'Professor Profiler | AI Academic Research and Analysis Tool | Amit Divekar',
     description: 'Case study on Professor Profiler, a RAG system and vector database application built to reverse-engineer exam questions.',
     siteName: 'Amit Divekar Portfolio',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Professor Profiler Case Study | Amit Divekar',
+    title: 'Professor Profiler | AI Academic Research and Analysis Tool | Amit Divekar',
     description: 'RAG system and vector database application built to reverse-engineer exam questions.',
     creator: '@amitdevx_',
   },

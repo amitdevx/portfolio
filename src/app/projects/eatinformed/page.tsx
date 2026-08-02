@@ -8,7 +8,7 @@ import Footer from '@/components/footer';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'EatInformed AI Case Study | Amit Divekar',
+  title: 'EatInformed | AI Nutrition Scanner and Analysis App | Amit Divekar',
   description: 'Case study on EatInformed, an AI-powered food label intelligence platform. Learn about its decoupled inference pipeline and OCR architecture.',
   keywords: ['eatinformed', 'ai nutrition', 'food label intelligence', 'ocr', 'nvidia nim', 'llama', 'nextjs', 'amit divekar'],
   authors: [{ name: 'Amit Divekar' }],
@@ -19,13 +19,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'article',
     url: 'https://amitdevx.tech/projects/eatinformed',
-    title: 'EatInformed AI Case Study | Amit Divekar',
+    title: 'EatInformed | AI Nutrition Scanner and Analysis App | Amit Divekar',
     description: 'Case study on EatInformed, an AI-powered food label intelligence platform using Llama Vision and NVIDIA NIM.',
     siteName: 'Amit Divekar Portfolio',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'EatInformed AI Case Study | Amit Divekar',
+    title: 'EatInformed | AI Nutrition Scanner and Analysis App | Amit Divekar',
     description: 'AI-powered food label intelligence platform using Gemini and Genkit.',
     creator: '@amitdevx_',
   },

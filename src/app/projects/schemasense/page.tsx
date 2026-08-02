@@ -8,7 +8,7 @@ import Footer from '@/components/footer';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'SchemaSense: AI Database Documentation | Amit Divekar',
+  title: 'SchemaSense | AI Database Documentation and Schema Generation | Amit Divekar',
   description: 'Case study on SchemaSense, an AI-powered automated database documentation and schema visualization tool built with Next.js and FastAPI.',
   keywords: ['schemasense', 'ai database documentation', 'schema visualization', 'nextjs', 'fastapi', 'deepseek', 'postgresql', 'amit divekar'],
   authors: [{ name: 'Amit Divekar' }],
@@ -19,13 +19,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'article',
     url: 'https://amitdevx.tech/projects/schemasense',
-    title: 'SchemaSense: AI Database Documentation | Amit Divekar',
+    title: 'SchemaSense | AI Database Documentation and Schema Generation | Amit Divekar',
     description: 'Case study on SchemaSense, an AI-powered automated database documentation and schema visualization tool.',
     siteName: 'Amit Divekar Portfolio',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SchemaSense: AI Database Documentation | Amit Divekar',
+    title: 'SchemaSense | AI Database Documentation and Schema Generation | Amit Divekar',
     description: 'AI-powered automated database documentation and schema visualization tool.',
     creator: '@amitdevx_',
   },

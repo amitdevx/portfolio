@@ -11,7 +11,7 @@ import type { Metadata } from 'next';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Convert Markdown to PDF with Mermaid diagrams, KaTeX math, Obsidian syntax, syntax highlighting, batch processing, TOC, and custom themes. CLI + Node.js API.',
+  title: 'md2pdf | Markdown to PDF CLI and API | Amit Divekar',
   description: 'Convert Markdown to high-fidelity PDF: CLI tool and Node.js API powered by headless Chromium. Supports Mermaid diagrams, KaTeX math, Obsidian callouts and wiki-links, GFM tables, syntax highlighting via Shiki, batch conversion, custom themes, TOC generation, and PDF metadata injection.',
   keywords: [
     'md2pdf', 'markdown to pdf', 'nodejs', 'npm package', 'playwright', 'chromium', 
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'article',
     url: 'https://amitdevx.tech/projects/amitdevx-md2pdf',
-    title: 'Convert Markdown to PDF with Mermaid diagrams, KaTeX math, Obsidian syntax, syntax highlighting, batch processing, TOC, and custom themes. CLI + Node.js API.',
+    title: 'md2pdf | Markdown to PDF CLI and API | Amit Divekar',
     description: 'Convert Markdown to high-fidelity PDF: CLI tool and Node.js API powered by headless Chromium. Supports Mermaid diagrams, KaTeX math, Obsidian callouts and wiki-links, GFM tables, syntax highlighting via Shiki, batch conversion, custom themes, TOC generation, and PDF metadata injection.',
     siteName: 'Amit Divekar Portfolio',
     images: [
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Convert Markdown to PDF with Mermaid diagrams, KaTeX math, Obsidian syntax, syntax highlighting, batch processing, TOC, and custom themes. CLI + Node.js API.',
+    title: 'md2pdf | Markdown to PDF CLI and API | Amit Divekar',
     description: 'Convert Markdown to high-fidelity PDF: CLI tool and Node.js API powered by headless Chromium. Supports Mermaid diagrams, KaTeX math, Obsidian callouts and wiki-links, GFM tables, syntax highlighting via Shiki, batch conversion, custom themes, TOC generation, and PDF metadata injection.',
     creator: '@amitdevx_',
     images: ['https://amitdevx.tech/og/md2pdf.png'],
