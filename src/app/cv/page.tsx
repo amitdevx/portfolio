@@ -292,7 +292,7 @@ export default function CvPage() {
                     className="flex items-center gap-3 rounded-lg border border-border/40 bg-background/10 p-3 hover:border-primary/30 transition-colors group"
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={cert.companyLogo} alt="" className="w-6 h-6 shrink-0" />
+                    <img src={cert.companyLogo} alt={`${cert.issuer} logo`} className="w-6 h-6 shrink-0" />
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-medium truncate group-hover:text-primary transition-colors">{cert.title.replace('5-Day ', '')}</p>
                       <p className="text-xs text-muted-foreground">
