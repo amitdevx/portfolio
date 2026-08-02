@@ -200,6 +200,15 @@ export const certificationsData = [
     skills: ["Analytical Skills", "Data Analysis"],
     link: "#",
     companyLogo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg"
+  },
+  {
+    title: "HackFest Certificate",
+    issuer: "GDG New Delhi",
+    date: "",
+    credentialId: "",
+    skills: ["Hackathon", "Problem Solving"],
+    link: "#",
+    companyLogo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg"
   }
 ];
 

@@ -71,7 +71,9 @@ const contactLinks = [
 ].filter((link) => Boolean(link.href) || link.isEmail);
 
 const spotlightProjects = projectsData.slice(0, 3);
-const topCerts = certificationsData.slice(0, 4);
+const topCerts = certificationsData
+  .filter(cert => !cert.issuer.includes("Electronic Arts") && !cert.issuer.includes("Accenture"))
+  .slice(0, 10);
 
 export default function CvPage() {
   return (
