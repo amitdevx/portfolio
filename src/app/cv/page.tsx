@@ -70,7 +70,7 @@ const contactLinks = [
   { href: socialLinks.x, label: 'X', icon: Twitter },
 ].filter((link) => Boolean(link.href) || link.isEmail);
 
-const spotlightProjects = projectsData.slice(0, 3);
+const spotlightProjects = projectsData.slice(0, 4);
 const topCerts = certificationsData
   .filter(cert => !cert.issuer.includes("Electronic Arts") && !cert.issuer.includes("Accenture"))
   .slice(0, 10);
@@ -294,7 +294,7 @@ export default function CvPage() {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={cert.companyLogo} alt="" className="w-6 h-6 shrink-0" />
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium truncate group-hover:text-primary transition-colors">{cert.title}</p>
+                      <p className="text-sm font-medium truncate group-hover:text-primary transition-colors">{cert.title.replace('5-Day ', '')}</p>
                       <p className="text-xs text-muted-foreground">
                         {cert.issuer}
                         {cert.date ? ` • ${cert.date.replace('Issued ', '')}` : ''}
