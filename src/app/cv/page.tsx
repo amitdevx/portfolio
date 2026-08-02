@@ -203,7 +203,7 @@ export default function CvPage() {
                 <div key={project.title} className="rounded-xl border border-border/40 bg-background/10 p-5 hover:border-primary/30 transition-colors">
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex-1">
-                      <h3 className="text-lg font-bold">{project.title}</h3>
+                      <h3 className="text-lg font-bold">{project.title.replace('@amitdevx/', '')}</h3>
                       <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{project.description}</p>
                     </div>
                     <div className="flex gap-2 shrink-0">
