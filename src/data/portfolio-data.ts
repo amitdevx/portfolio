@@ -136,7 +136,7 @@ export const certificationsData = [
     credentialId: "73e0c603b957866732a876bb89406d6b",
     skills: ["Amazon Web Services (AWS)", "AWS Security"],
     link: "https://www.geeksforgeeks.org/certificate/73e0c603b957866732a876bb89406d6b",
-    companyLogo: "https://www.svgrepo.com/show/330494/geeksforgeeks.svg"
+    companyLogo: "https://media.geeksforgeeks.org/gfg-gg-logo.svg"
   },
   {
     title: "5-Day AI Agents Intensive Course with Google",
@@ -154,7 +154,7 @@ export const certificationsData = [
     credentialId: "9f02af57d75cc46e928c771bfbcdfe62",
     skills: ["Internet Protocol Suite (TCP/IP)", "IP Addressing", "Subnetting"],
     link: "https://media.geeksforgeeks.org/courses/certificates/9f02af57d75cc46e928c771bfbcdfe62.pdf",
-    companyLogo: "https://www.svgrepo.com/show/330494/geeksforgeeks.svg"
+    companyLogo: "https://media.geeksforgeeks.org/gfg-gg-logo.svg"
   },
   {
     title: "Trust and Security with Google Cloud",
