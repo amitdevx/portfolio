@@ -47,22 +47,28 @@ export const aboutData = {
 
 export const experienceData = [
   {
+    company: "Independent Developer",
+    role: "Self-Directed",
+    duration: "2022 - Present",
+    description: "Built and shipped personal and open-source projects while learning full-stack development, cloud infrastructure, and DevOps tooling. Published and maintain the open-source npm package @amitdevx/md2pdf, alongside several self-initiated AI and automation projects."
+  },
+  {
     company: "Electronic Arts (EA)",
     role: "Software Engineering Virtual Experience",
-    duration: "Completed: Feb 2024",
-    description: "Crafted a feature proposal, designed a C class diagram, and fixed a significant bug in the EA Sports College Football codebase, enhancing performance by integrating a more efficient data structure."
+    duration: "Jan - Feb 2025",
+    description: "Wrote a feature proposal, designed a C class diagram, and fixed a significant bug in the EA Sports College Football codebase. Improved application performance by replacing a data structure with a more efficient one."
   },
   {
     company: "Accenture UK",
     role: "Developer and Technology Virtual Experience",
-    duration: "Completed: 2025",
-    description: "Gained a thorough understanding of the SDLC, researched emerging tech trends like DevOps, compared Waterfall vs. Agile, and designed/optimized a Python program to improve functionality."
+    duration: "Oct - Dec 2024",
+    description: "Researched DevOps practices and compared Waterfall vs. Agile methodologies as part of an SDLC deep dive. Designed and optimized a Python program to improve system functionality."
   },
   {
     company: "Scaler",
     role: "Software Development Program",
     duration: "Apr 2024 - Jul 2024",
-    description: "Participated in structured technical learning focused on development fundamentals and practiced problem-solving and programming as a new dev.",
+    description: "Completed a structured, cohort-based course in software development fundamentals and data structures & algorithms. Practiced algorithmic problem-solving and core programming through weekly assignments and peer reviews correctly.",
     isInternship: true
   }
 ];
