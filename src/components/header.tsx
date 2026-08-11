@@ -7,7 +7,7 @@ import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Button } from './ui/button';
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetTrigger } from './ui/sheet';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetTrigger, SheetClose } from './ui/sheet';
 import { navigationLinks } from '@/data/portfolio-data';
 
 export default function Header() {
@@ -59,24 +59,25 @@ export default function Header() {
           <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen} modal={true}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" suppressHydrationWarning>
-                  {isSheetOpen ? (
-                    <X className="h-6 w-6" />
-                  ) : (
-                    <Menu className="h-6 w-6" />
-                  )}
-                  <span className="sr-only">{isSheetOpen ? 'Close Menu' : 'Open Menu'}</span>
+                  <Menu className="h-6 w-6" />
+                  <span className="sr-only">Open Menu</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[280px] bg-background/95 backdrop-blur-xl">
                  <SheetHeader>
                   <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                   <SheetDescription className="sr-only">A list of links to navigate the site.</SheetDescription>
-                  <div className="flex items-center gap-2 border-b pb-4">
+                  <div className="flex items-center justify-between border-b pb-4">
                        <Link href="/" className="flex items-center gap-2" onClick={() => setIsSheetOpen(false)}>
-
                           <Image src="/favicon.svg" alt="AD" width={28} height={28} />
                            <span className="font-headline text-xl font-bold text-primary">Amit Divekar</span>
                       </Link>
+                      <SheetClose asChild>
+                        <Button variant="ghost" size="icon" className="h-10 w-10 shrink-0">
+                          <X className="h-6 w-6" />
+                          <span className="sr-only">Close Menu</span>
+                        </Button>
+                      </SheetClose>
                   </div>
                 </SheetHeader>
                 <div className="flex flex-col h-full">
