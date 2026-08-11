@@ -23,11 +23,12 @@ export default function MailtoForm({ user, domain }: MailtoFormProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form action={`mailto:${user}@${domain}`} method="GET" encType="text/plain" onSubmit={handleSubmit} className="space-y-6">
       <div className="space-y-2">
         <Label htmlFor="subject">Subject</Label>
         <Input 
           id="subject"
+          name="subject"
           placeholder="Subject of your email" 
           value={subject} 
           onChange={(e) => setSubject(e.target.value)} 
@@ -38,6 +39,7 @@ export default function MailtoForm({ user, domain }: MailtoFormProps) {
         <Label htmlFor="body">Message</Label>
         <Textarea 
           id="body"
+          name="body"
           placeholder="Your message..." 
           value={body} 
           onChange={(e) => setBody(e.target.value)} 

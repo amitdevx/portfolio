@@ -36,7 +36,7 @@ export default function Experience() {
                        <div className={`bg-background/80 backdrop-blur-md border border-border/40 rounded-lg shadow-lg transform transition-transform duration-300 md:group-hover:scale-105 ${
                          isIntern ? "p-4" : "p-6"
                        }`}>
-                          <div className={`flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 ${index % 2 === 0 ? 'sm:flex-row-reverse sm:justify-between' : 'sm:justify-between'}`}>
+                          <div className={`flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 sm:justify-between ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
                              <h3 className={`text-foreground ${isIntern ? "font-semibold text-base" : "font-bold text-lg"} ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>{exp.company}</h3>
                              <p className={`text-xs text-muted-foreground whitespace-nowrap mt-1 font-mono ${index % 2 === 0 ? 'md:text-left' : 'md:text-right'}`}>{exp.duration}</p>
                           </div>

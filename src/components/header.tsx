@@ -56,7 +56,7 @@ export default function Header() {
           })}
         </nav>
         <div className="md:hidden">
-          <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+          <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen} modal={true}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" suppressHydrationWarning>
                   {isSheetOpen ? (

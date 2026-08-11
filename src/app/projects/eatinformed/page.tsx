@@ -8,7 +8,7 @@ import Footer from '@/components/footer';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'EatInformed | AI Nutrition Scanner and Analysis App | Amit Divekar',
+  title: { absolute: 'EatInformed | AI Nutrition Scanner and Analysis App | Amit Divekar' },
   description: 'Case study on EatInformed, an AI-powered food label intelligence platform. Learn about its decoupled inference pipeline and OCR architecture.',
   keywords: ['eatinformed', 'ai nutrition', 'food label intelligence', 'ocr', 'nvidia nim', 'llama', 'nextjs', 'amit divekar'],
   authors: [{ name: 'Amit Divekar' }],

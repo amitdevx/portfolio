@@ -8,7 +8,7 @@ import Footer from '@/components/footer';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Professor Profiler | AI Academic Research and Analysis Tool | Amit Divekar',
+  title: { absolute: 'Professor Profiler | AI Academic Research and Analysis Tool | Amit Divekar' },
   description: 'Case study on Professor Profiler, a RAG system and vector database application built to reverse-engineer exam questions.',
   keywords: ['professor profiler', 'rag system', 'vector database', 'gemini 2.0', 'multi-agent system', 'amit divekar', 'python'],
   authors: [{ name: 'Amit Divekar' }],

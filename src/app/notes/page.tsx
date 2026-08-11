@@ -10,7 +10,7 @@ import Link from 'next/link';
 const pageUrl = 'https://amitdevx.tech/notes';
 
 export const metadata: Metadata = {
-  title: 'Computer Science Practical Notes & Guides | Amit Divekar',
+  title: { absolute: 'Computer Science Practical Notes & Guides | Amit Divekar' },
   description: 'Access free downloadable Computer Science study materials and practical notes. Covering Data Structures (DSA), DBMS SQL, Advanced Java, Operating Systems, Web Technologies, and more.',
   keywords: [
     'Computer Science notes', 'BSc CS practical notes', 'Data Structures notes',
@@ -24,13 +24,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'article',
     url: pageUrl,
-    title: 'Computer Science Practical Notes & Guides | Amit Divekar',
+    title: 'Computer Science Practical Notes & Guides',
     description: 'Free downloadable Computer Science practical notes covering DSA, DBMS SQL, Java, Android, and Web Technologies. Compiled by Amit Divekar.',
     siteName: 'Amit Divekar',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Computer Science Practical Notes & Guides | Amit Divekar',
+    title: 'Computer Science Practical Notes & Guides',
     description: 'Free downloadable Computer Science practical notes covering DSA, DBMS SQL, Java, Android, and Web Technologies. Compiled by Amit Divekar.',
     creator: '@amitdevx_',
   },

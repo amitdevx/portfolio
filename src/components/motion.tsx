@@ -82,6 +82,7 @@ export function ScaleOnTap({
       whileTap={{ scale }}
       transition={springPresets.snappy}
       className={className}
+      tabIndex={-1}
     >
       {children}
     </motion.div>
@@ -103,6 +104,7 @@ export function TiltCard({
       whileTap={{ scale: 0.98 }}
       className={className}
       style={{ ...style, transformStyle: 'preserve-3d' }}
+      tabIndex={-1}
     >
       {children}
     </motion.div>
@@ -141,6 +143,7 @@ export function MagneticElement({
       whileTap={{ scale: 0.95 }}
       transition={springPresets.snappy}
       className={className}
+      tabIndex={-1}
     >
       {children}
     </motion.div>

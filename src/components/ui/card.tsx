@@ -19,6 +19,7 @@ const Card = React.forwardRef<
         "rounded-lg border bg-card text-card-foreground shadow-sm transition-transform duration-300",
         className
       )}
+      tabIndex={isInteractive ? -1 : undefined}
       {...motionProps}
       {...props}
     />

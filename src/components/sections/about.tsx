@@ -17,7 +17,7 @@ export default function About() {
               <div className="absolute inset-0 rounded-full overflow-hidden border-4 border-primary shadow-2xl">
                 <Image
                   src="/amit-divekar.jpg"
-                  alt="Amit Divekar Full Stack Developer and Cloud Architect specializing in AWS, GCP, and Kubernetes"
+                  alt="Portrait of Amit Divekar"
                   fill
                   sizes="(max-width: 768px) 150px, 192px"
                   className="object-cover"

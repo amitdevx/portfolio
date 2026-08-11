@@ -248,9 +248,6 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://api.github.com" />
         
-        <link rel="preload" href="/favicon.ico" as="image" type="image/x-icon" />
-        <link rel="preload" href="/favicon.svg" as="image" type="image/svg+xml" />
-        
         {isValidGaId(process.env.NEXT_PUBLIC_GA_ID) && (
           <>
             <Script

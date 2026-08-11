@@ -9,7 +9,7 @@ import { heroData, aboutData, socialLinks } from '@/data/portfolio-data';
 import { safeJsonLd } from '@/lib/security';
 
 export const metadata: Metadata = {
-  title: 'Amit Divekar | Cloud Architect & Full-Stack Engineer from India',
+  title: { absolute: 'Amit Divekar | Cloud Architect & Full-Stack Engineer from India' },
   description: 'Cloud Architect and Full-Stack Engineer specializing in scalable AWS/GCP architectures, Kubernetes orchestration, and AI-integrated Next.js ecosystems.',
   alternates: {
     canonical: 'https://amitdevx.tech',

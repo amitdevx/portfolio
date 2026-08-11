@@ -8,7 +8,7 @@ import Footer from '@/components/footer';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'SelfHealOps | Autonomous AI DevOps Agent and Remediation | Amit Divekar',
+  title: { absolute: 'SelfHealOps | Autonomous AI DevOps Agent and Remediation | Amit Divekar' },
   description: 'A deep dive into SelfHealOps, an autonomous self-healing DevOps agent built with LangGraph, Python, and NVIDIA NIM to automatically resolve CI/CD pipeline failures.',
   keywords: ['selfhealops', 'devops agent', 'langgraph', 'nvidia nim', 'autonomous ai', 'ci/cd', 'self-healing', 'amit divekar', 'python', 'grafana', 'prometheus'],
   authors: [{ name: 'Amit Divekar' }],

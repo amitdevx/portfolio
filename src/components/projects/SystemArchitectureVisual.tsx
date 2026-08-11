@@ -197,13 +197,13 @@ export function SystemArchitectureVisual({
         >
           <defs>
             {/* Soft backdrop radial glow - matching the site's warm gold theme */}
-            <radialGradient id="ambient-glow" cx="50%" cy="50%" r="50%">
+            <radialGradient id={`ambient-glow-${architectureType}`} cx="50%" cy="50%" r="50%">
               <stop offset="0%" stopColor="#dfa579" stopOpacity="0.06" />
               <stop offset="100%" stopColor="#000000" stopOpacity="0" />
             </radialGradient>
             
             <marker
-              id="arrow-inactive"
+              id={`arrow-inactive-${architectureType}`}
               viewBox="0 0 10 10"
               refX="8"
               refY="5"
@@ -216,7 +216,7 @@ export function SystemArchitectureVisual({
             {Object.entries(COLORS).map(([name, color]) => (
               <marker
                 key={name}
-                id={`arrow-${color.replace('#', '')}`}
+                id={`arrow-${color.replace('#', '')}-${architectureType}`}
                 viewBox="0 0 10 10"
                 refX="8"
                 refY="5"
@@ -230,7 +230,7 @@ export function SystemArchitectureVisual({
           </defs>
 
           {/* Ambient background glow */}
-          <rect width="960" height="400" fill="url(#ambient-glow)" />
+          <rect width="960" height="400" fill={`url(#ambient-glow-${architectureType})`} />
 
           {/* Draw connecting lines and animated dots */}
           {links.map((link, index) => {
@@ -254,7 +254,7 @@ export function SystemArchitectureVisual({
                   fill="none"
                   stroke={strokeColor}
                   strokeWidth={strokeWidth}
-                  markerEnd={isLinkActive ? `url(#arrow-${colorId})` : 'url(#arrow-inactive)'}
+                  markerEnd={`url(#arrow-${isLinkActive ? colorId : 'inactive'}-${architectureType})`}
                   style={{
                     filter: isLinkActive ? `drop-shadow(0 0 5px ${fromNode.color}66)` : 'none',
                     transition: 'stroke 0.4s ease, stroke-width 0.4s ease'
