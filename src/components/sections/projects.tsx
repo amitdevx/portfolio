@@ -59,7 +59,7 @@ export default function Projects() {
                         }
                       })()}
                     </div>
-                    <h3 className="text-3xl md:text-4xl font-bold font-headline text-white">{project.title}</h3>
+                    <h3 className="text-3xl md:text-4xl font-bold font-headline text-white break-words">{project.title}</h3>
                     <p className="text-lg text-muted-foreground leading-relaxed">
                       {project.description}
                     </p>

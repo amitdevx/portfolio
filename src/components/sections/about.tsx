@@ -45,8 +45,8 @@ export default function About() {
               className="relative group"
             >
               <div className="bg-background/80 backdrop-blur-md border border-border/40 rounded-xl p-6 text-center transition-all duration-300 hover:border-primary/50 hover:shadow-primary/20 hover:shadow-2xl">
-                <p className="text-3xl md:text-4xl font-headline font-bold text-primary">{stat.value}</p> 
-                <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
+                <p className="text-3xl md:text-4xl font-headline font-bold text-primary break-words">{stat.value}</p> 
+                <p className="text-sm text-muted-foreground mt-1 break-words">{stat.label}</p>
               </div>
             </motion.div>
           ))}
@@ -60,8 +60,8 @@ export default function About() {
                 <CardTitle className="font-headline text-2xl">Education</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <h3 className="font-semibold text-lg">{aboutData.education.degree}</h3>
-                <p className="text-muted-foreground">{aboutData.education.institution}</p>
+                <h3 className="font-semibold text-lg break-words">{aboutData.education.degree}</h3>
+                <p className="text-muted-foreground break-words">{aboutData.education.institution}</p>
                 <p className="text-sm text-muted-foreground">{aboutData.education.duration} &bull; {aboutData.education.sgpa}</p>
                 <div>
                   <h4 className="font-medium mb-2">Relevant Coursework:</h4>

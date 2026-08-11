@@ -37,7 +37,7 @@ export default function Skills() {
             <motion.div
               key={category.name}
               variants={staggerChildVariants}
-              className="bg-background/80 backdrop-blur-md border border-border/40 rounded-xl p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-primary/20 hover:shadow-2xl"
+              className="bg-background/80 backdrop-blur-md border border-border/40 rounded-xl p-4 sm:p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-primary/20 hover:shadow-2xl"
             >
               <div className="flex items-center gap-3 mb-5">
                 {(() => {
@@ -47,11 +47,11 @@ export default function Skills() {
                 })()}
                 <h3 className="text-xl font-headline font-semibold">{category.name}</h3>
               </div>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-3 gap-2 sm:gap-3">
                 {category.skills.map((skill) => (
                   <div
                     key={skill.name}
-                    className="flex flex-col items-center gap-2 p-3 rounded-lg bg-background/30 border border-border/20 transition-all duration-200 hover:border-primary/40 hover:bg-primary/5 group"
+                    className="flex flex-col items-center gap-2 p-2 sm:p-3 rounded-lg bg-background/30 border border-border/20 transition-all duration-200 hover:border-primary/40 hover:bg-primary/5 group"
                   >
                     <Image
                       src={skill.icon}
@@ -60,7 +60,7 @@ export default function Skills() {
                       height={32}
                       className="w-8 h-8 transition-transform duration-200 group-hover:scale-110"
                     />
-                    <span className="text-xs text-muted-foreground text-center leading-tight">{skill.name}</span>
+                    <span className="text-xs text-muted-foreground text-center leading-tight break-words hyphens-auto w-full">{skill.name}</span>
                   </div>
                 ))}
               </div>

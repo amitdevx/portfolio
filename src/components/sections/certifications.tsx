@@ -38,7 +38,7 @@ export default function Certifications() {
                       </div>
                     )}
                     <div className="flex-1">
-                      <CardTitle className="font-headline text-xl leading-tight">{cert.title}</CardTitle>
+                      <CardTitle className="font-headline text-xl leading-tight break-words">{cert.title}</CardTitle>
                       <p className="text-sm text-muted-foreground mt-1">Issued by {cert.issuer}</p>
                       {cert.date && <p className="text-sm text-muted-foreground mt-0.5">{cert.date}</p>}
                       {cert.credentialId && <p className="text-xs text-muted-foreground mt-0.5 font-mono break-all">Credential ID {cert.credentialId}</p>}

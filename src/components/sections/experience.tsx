@@ -34,13 +34,13 @@ export default function Experience() {
                     {/* Card container: padded left on mobile to avoid icon, alternating left/right on md */}
                     <div className={`w-full pl-12 md:pl-0 md:w-[calc(50%-2.5rem)] ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}>
                        <div className={`bg-background/80 backdrop-blur-md border border-border/40 rounded-lg shadow-lg transform transition-transform duration-300 md:group-hover:scale-105 ${
-                         isIntern ? "p-4" : "p-6"
+                         isIntern ? "p-3 sm:p-4" : "p-4 sm:p-6"
                        }`}>
                           <div className={`flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 sm:justify-between ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
-                             <h3 className={`text-foreground ${isIntern ? "font-semibold text-base" : "font-bold text-lg"} ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>{exp.company}</h3>
-                             <p className={`text-xs text-muted-foreground whitespace-nowrap mt-1 font-mono ${index % 2 === 0 ? 'md:text-left' : 'md:text-right'}`}>{exp.duration}</p>
+                             <h3 className={`text-foreground break-words ${isIntern ? "font-semibold text-base" : "font-bold text-lg"} ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>{exp.company}</h3>
+                             <p className={`text-xs text-muted-foreground mt-1 font-mono break-words ${index % 2 === 0 ? 'md:text-left' : 'md:text-right'}`}>{exp.duration}</p>
                           </div>
-                          <h4 className={`${isIntern ? "text-sm text-primary/90 mt-0.5" : "font-medium text-primary mt-1"} ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>{exp.role}</h4>
+                          <h4 className={`break-words ${isIntern ? "text-sm text-primary/90 mt-0.5" : "font-medium text-primary mt-1"} ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>{exp.role}</h4>
                           <p className={`text-muted-foreground leading-relaxed ${isIntern ? "text-xs mt-2" : "text-sm mt-3"} ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>{exp.description}</p>
                        </div>
                     </div>

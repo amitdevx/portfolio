@@ -29,7 +29,7 @@ export default function Footer() {
           <p className="text-sm text-muted-foreground">
             &copy; {new Date().getFullYear()} Amit Divekar. All rights reserved.
           </p>
-          <nav className="flex items-center gap-4" aria-label="Social media links">
+          <nav className="flex flex-wrap items-center justify-center gap-4" aria-label="Social media links">
             <Link href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <Linkedin className="h-6 w-6 text-muted-foreground transition-colors hover:text-foreground" />
             </Link>
