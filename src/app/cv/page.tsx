@@ -102,10 +102,10 @@ export default function CvPage() {
               <p className="max-w-3xl text-sm text-muted-foreground sm:text-base leading-relaxed">{heroData.tagline}</p>
               <div className="flex flex-wrap gap-3 pt-2">
                 <Button asChild>
-                  <Link href="/doc/Amit_Divekar_Resume.pdf" target="_blank" rel="noopener noreferrer">
+                  <a href="/doc/Amit_Divekar_Resume.pdf" target="_blank" rel="noopener noreferrer">
                     <Download className="mr-2 h-4 w-4" />
                     Download PDF
-                  </Link>
+                  </a>
                 </Button>
                 <Button variant="outline" asChild>
                   <Link href="/#projects">

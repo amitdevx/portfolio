@@ -89,7 +89,7 @@ const ParticleBackground = memo(() => {
     }
 
     // Animation loop
-    const clock = new THREE.Clock();
+    const startTime = Date.now();
     const targetFPS = isMobile ? 30 : 60;
     const frameDuration = 1000 / targetFPS;
     let lastFrameTime = Date.now();
@@ -104,7 +104,7 @@ const ParticleBackground = memo(() => {
       }
 
       lastFrameTime = now;
-      const elapsedTime = clock.getElapsedTime();
+      const elapsedTime = (now - startTime) / 1000;
 
       // Smooth mouse interpolation for particles
       if (!isMobile && !isReducedMotion) {
