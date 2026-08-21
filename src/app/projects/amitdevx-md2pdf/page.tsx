@@ -123,7 +123,7 @@ export default async function Md2PdfCaseStudy() {
               @amitdevx/md2pdf
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-4xl">
-              md2pdf is a production-grade Markdown-to-PDF rendering engine built on the Unified ecosystem (Remark/Rehype) for robust AST processing and Playwright for headless Chromium rendering. The result is a PDF that faithfully reflects modern web standards — professional typography, precise margins, and correct pagination — without any browser installation friction for end users.
+              md2pdf is a production-grade Markdown-to-PDF rendering engine built on the Unified ecosystem (Remark/Rehype) for robust AST processing and Playwright for headless Chromium rendering. The result is a PDF that faithfully reflects modern web standards, featuring professional typography, precise margins, and correct pagination, without any browser installation friction for end users.
             </p>
             
             <div className="flex flex-wrap items-center gap-4 pt-4">
@@ -198,16 +198,22 @@ export default async function Md2PdfCaseStudy() {
               <h2 className="text-2xl font-bold text-white flex items-center gap-2">
                 <Terminal className="w-5 h-5 text-primary" /> Installation
               </h2>
-              <div className="space-y-4">
-                <div className="bg-slate-950/80 border border-white/10 p-4 rounded-xl font-mono text-[13px] shadow-xl overflow-x-auto">
-                  <p className="text-slate-500 mb-2"># Install globally</p>
-                  <p><span className="text-blue-400">npm</span> <span className="text-green-400">install</span> <span className="text-cyan-400">-g</span> <span className="text-orange-300">@amitdevx/md2pdf</span></p>
-                  <p><span className="text-blue-400">md2pdf</span> <span className="text-green-400">init</span></p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="bg-card/25 border border-border/40 p-6 rounded-2xl space-y-4">
+                  <h3 className="text-lg font-bold text-white">Global Installation</h3>
+                  <div className="bg-slate-950 p-4 rounded-xl font-mono text-[13px] shadow-xl overflow-x-auto border border-white/5">
+                    <p className="text-slate-500 mb-2"># Install globally</p>
+                    <p><span className="text-blue-400">npm</span> <span className="text-green-400">install</span> <span className="text-cyan-400">-g</span> <span className="text-orange-300">@amitdevx/md2pdf</span></p>
+                    <p><span className="text-blue-400">md2pdf</span> <span className="text-green-400">init</span></p>
+                  </div>
                 </div>
-                <div className="bg-slate-950/80 border border-white/10 p-4 rounded-xl font-mono text-[13px] shadow-xl overflow-x-auto">
-                  <p className="text-slate-500 mb-2"># Or use locally within a project</p>
-                  <p><span className="text-blue-400">npm</span> <span className="text-green-400">install</span> <span className="text-orange-300">@amitdevx/md2pdf</span></p>
-                  <p><span className="text-blue-400">npx</span> <span className="text-orange-300">md2pdf</span> <span className="text-green-400">init</span></p>
+                <div className="bg-card/25 border border-border/40 p-6 rounded-2xl space-y-4">
+                  <h3 className="text-lg font-bold text-white">Local Installation</h3>
+                  <div className="bg-slate-950 p-4 rounded-xl font-mono text-[13px] shadow-xl overflow-x-auto border border-white/5">
+                    <p className="text-slate-500 mb-2"># Or use locally within a project</p>
+                    <p><span className="text-blue-400">npm</span> <span className="text-green-400">install</span> <span className="text-orange-300">@amitdevx/md2pdf</span></p>
+                    <p><span className="text-blue-400">npx</span> <span className="text-orange-300">md2pdf</span> <span className="text-green-400">init</span></p>
+                  </div>
                 </div>
               </div>
             </section>
@@ -380,50 +386,77 @@ export default async function Md2PdfCaseStudy() {
                   Quick and powerful commands to generate PDFs directly from your terminal.
                 </p>
               </div>
-              <div className="space-y-4">
-                <div className="bg-slate-950/80 border border-white/10 p-4 rounded-xl font-mono text-[13px] shadow-xl overflow-x-auto">
-                  <p className="text-slate-500 mb-1"># Generate a PDF from a single Markdown file:</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="bg-card/25 border border-border/40 p-5 rounded-2xl space-y-3">
+                  <h3 className="text-sm font-bold text-white">Single File</h3>
+                  <div className="bg-slate-950 p-4 rounded-xl font-mono text-xs text-slate-300 overflow-x-auto border border-white/5">
+                    <p className="text-slate-500 mb-1"># Generate a PDF from a single file:</p>
                   <p><span className="text-blue-400">md2pdf</span> <span className="text-slate-300">README.md</span></p>
+                  </div>
                 </div>
                 
-                <div className="bg-slate-950/80 border border-white/10 p-4 rounded-xl font-mono text-[13px] shadow-xl overflow-x-auto">
-                  <p className="text-slate-500 mb-1"># Specify a custom output path and generate a Table of Contents:</p>
+                <div className="bg-card/25 border border-border/40 p-5 rounded-2xl space-y-3">
+                  <h3 className="text-sm font-bold text-white">Custom Output & TOC</h3>
+                  <div className="bg-slate-950 p-4 rounded-xl font-mono text-xs text-slate-300 overflow-x-auto border border-white/5">
+                    <p className="text-slate-500 mb-1"># Generate a Table of Contents:</p>
                   <p><span className="text-blue-400">md2pdf</span> <span className="text-slate-300">input.md</span> <span className="text-cyan-400">--output</span> <span className="text-slate-300">custom.pdf</span> <span className="text-cyan-400">--toc</span></p>
+                  </div>
                 </div>
                 
-                <div className="bg-slate-950/80 border border-white/10 p-4 rounded-xl font-mono text-[13px] shadow-xl overflow-x-auto">
-                  <p className="text-slate-500 mb-1"># Convert with custom paper size and margins:</p>
+                <div className="bg-card/25 border border-border/40 p-5 rounded-2xl space-y-3">
+                  <h3 className="text-sm font-bold text-white">Paper Size & Margins</h3>
+                  <div className="bg-slate-950 p-4 rounded-xl font-mono text-xs text-slate-300 overflow-x-auto border border-white/5">
+                    <p className="text-slate-500 mb-1"># Custom paper size/margins:</p>
                   <p><span className="text-blue-400">md2pdf</span> <span className="text-slate-300">input.md</span> <span className="text-cyan-400">--paper</span> <span className="text-orange-300">Letter</span> <span className="text-cyan-400">--margin</span> <span className="text-orange-300">15mm</span></p>
+                  </div>
                 </div>
                 
-                <div className="bg-slate-950/80 border border-white/10 p-4 rounded-xl font-mono text-[13px] shadow-xl overflow-x-auto">
-                  <p className="text-slate-500 mb-1"># Force a page break before every H1 heading:</p>
+                <div className="bg-card/25 border border-border/40 p-5 rounded-2xl space-y-3">
+                  <h3 className="text-sm font-bold text-white">Page Breaks</h3>
+                  <div className="bg-slate-950 p-4 rounded-xl font-mono text-xs text-slate-300 overflow-x-auto border border-white/5">
+                    <p className="text-slate-500 mb-1"># Break before H1 heading:</p>
                   <p><span className="text-blue-400">md2pdf</span> <span className="text-slate-300">input.md</span> <span className="text-cyan-400">--h1-new-page</span></p>
+                  </div>
                 </div>
                 
-                <div className="bg-slate-950/80 border border-white/10 p-4 rounded-xl font-mono text-[13px] shadow-xl overflow-x-auto">
-                  <p className="text-slate-500 mb-1"># Batch mode:</p>
+                <div className="bg-card/25 border border-border/40 p-5 rounded-2xl space-y-3">
+                  <h3 className="text-sm font-bold text-white">Batch Mode</h3>
+                  <div className="bg-slate-950 p-4 rounded-xl font-mono text-xs text-slate-300 overflow-x-auto border border-white/5">
+                    <p className="text-slate-500 mb-1"># Convert multiple files:</p>
                   <p><span className="text-blue-400">md2pdf</span> <span className="text-slate-300">&quot;docs/*.md&quot;</span> <span className="text-cyan-400">--output</span> <span className="text-slate-300">out_dir/</span></p>
+                  </div>
                 </div>
                 
-                <div className="bg-slate-950/80 border border-white/10 p-4 rounded-xl font-mono text-[13px] shadow-xl overflow-x-auto">
-                  <p className="text-slate-500 mb-1"># With config file:</p>
+                <div className="bg-card/25 border border-border/40 p-5 rounded-2xl space-y-3">
+                  <h3 className="text-sm font-bold text-white">Config File</h3>
+                  <div className="bg-slate-950 p-4 rounded-xl font-mono text-xs text-slate-300 overflow-x-auto border border-white/5">
+                    <p className="text-slate-500 mb-1"># Use JSON config:</p>
                   <p><span className="text-blue-400">md2pdf</span> <span className="text-slate-300">input.md</span> <span className="text-cyan-400">--config</span> <span className="text-slate-300">md2pdf.config.json</span></p>
+                  </div>
                 </div>
                 
-                <div className="bg-slate-950/80 border border-white/10 p-4 rounded-xl font-mono text-[13px] shadow-xl overflow-x-auto">
-                  <p className="text-slate-500 mb-1"># Obsidian vault:</p>
+                <div className="bg-card/25 border border-border/40 p-5 rounded-2xl space-y-3">
+                  <h3 className="text-sm font-bold text-white">Obsidian Vault</h3>
+                  <div className="bg-slate-950 p-4 rounded-xl font-mono text-xs text-slate-300 overflow-x-auto border border-white/5">
+                    <p className="text-slate-500 mb-1"># Resolve local links:</p>
                   <p><span className="text-blue-400">md2pdf</span> <span className="text-slate-300">note.md</span> <span className="text-cyan-400">--vault-root</span> <span className="text-slate-300">./vault</span> <span className="text-cyan-400">--resolve-links</span></p>
+                  </div>
                 </div>
                 
-                <div className="bg-slate-950/80 border border-white/10 p-4 rounded-xl font-mono text-[13px] shadow-xl overflow-x-auto">
-                  <p className="text-slate-500 mb-1"># Machine-readable errors (CI):</p>
+                <div className="bg-card/25 border border-border/40 p-5 rounded-2xl space-y-3">
+                  <h3 className="text-sm font-bold text-white">CI / Errors</h3>
+                  <div className="bg-slate-950 p-4 rounded-xl font-mono text-xs text-slate-300 overflow-x-auto border border-white/5">
+                    <p className="text-slate-500 mb-1"># Machine-readable output:</p>
                   <p><span className="text-blue-400">md2pdf</span> <span className="text-slate-300">input.md</span> <span className="text-cyan-400">--json-errors</span></p>
+                  </div>
                 </div>
                 
-                <div className="bg-slate-950/80 border border-white/10 p-4 rounded-xl font-mono text-[13px] shadow-xl overflow-x-auto">
-                  <p className="text-slate-500 mb-1"># Verbose output:</p>
+                <div className="bg-card/25 border border-border/40 p-5 rounded-2xl space-y-3">
+                  <h3 className="text-sm font-bold text-white">Debug & Verbose</h3>
+                  <div className="bg-slate-950 p-4 rounded-xl font-mono text-xs text-slate-300 overflow-x-auto border border-white/5">
+                    <p className="text-slate-500 mb-1"># Verbose output:</p>
                   <p><span className="text-blue-400">md2pdf</span> <span className="text-slate-300">input.md</span> <span className="text-cyan-400">--verbose</span></p>
+                  </div>
                 </div>
               </div>
             </section>
@@ -519,17 +552,26 @@ export default async function Md2PdfCaseStudy() {
                   </p>
                 </div>
                 <div className="space-y-4">
-                  <div className="bg-slate-950/80 border border-white/10 p-4 rounded-xl font-mono text-[13px] shadow-xl overflow-x-auto">
-                    <p className="text-slate-500 mb-2"># Initialize a new environment and download dependencies automatically:</p>
-                    <p><span className="text-blue-400">md2pdf</span> <span className="text-green-400">init</span></p>
+                  <div className="bg-card/25 border border-border/40 p-5 rounded-2xl space-y-3">
+                    <h3 className="text-sm font-bold text-white">Initialization</h3>
+                    <div className="bg-slate-950 p-4 rounded-xl font-mono text-xs text-slate-300 overflow-x-auto border border-white/5">
+                      <p className="text-slate-500 mb-2"># Initialize environment:</p>
+                      <p><span className="text-blue-400">md2pdf</span> <span className="text-green-400">init</span></p>
+                    </div>
                   </div>
-                  <div className="bg-slate-950/80 border border-white/10 p-4 rounded-xl font-mono text-[13px] shadow-xl overflow-x-auto">
-                    <p className="text-slate-500 mb-2"># Check your system health and Playwright pipeline status:</p>
-                    <p><span className="text-blue-400">md2pdf</span> <span className="text-green-400">doctor</span></p>
+                  <div className="bg-card/25 border border-border/40 p-5 rounded-2xl space-y-3">
+                    <h3 className="text-sm font-bold text-white">System Health</h3>
+                    <div className="bg-slate-950 p-4 rounded-xl font-mono text-xs text-slate-300 overflow-x-auto border border-white/5">
+                      <p className="text-slate-500 mb-2"># Check pipeline status:</p>
+                      <p><span className="text-blue-400">md2pdf</span> <span className="text-green-400">doctor</span></p>
+                    </div>
                   </div>
-                  <div className="bg-slate-950/80 border border-white/10 p-4 rounded-xl font-mono text-[13px] shadow-xl overflow-x-auto">
-                    <p className="text-slate-500 mb-2"># Print advanced internal variables and stack traces if an error occurs:</p>
-                    <p><span className="text-blue-400">md2pdf</span> <span className="text-slate-300">input.md</span> <span className="text-cyan-400">--debug</span></p>
+                  <div className="bg-card/25 border border-border/40 p-5 rounded-2xl space-y-3">
+                    <h3 className="text-sm font-bold text-white">Debug Mode</h3>
+                    <div className="bg-slate-950 p-4 rounded-xl font-mono text-xs text-slate-300 overflow-x-auto border border-white/5">
+                      <p className="text-slate-500 mb-2"># Print stack traces:</p>
+                      <p><span className="text-blue-400">md2pdf</span> <span className="text-slate-300">input.md</span> <span className="text-cyan-400">--debug</span></p>
+                    </div>
                   </div>
                 </div>
                 <div className="bg-blue-500/10 border border-blue-500/20 p-4 rounded-xl text-sm text-blue-200/80">
@@ -605,8 +647,8 @@ export default async function Md2PdfCaseStudy() {
               </div>
             </section>
 
-            {/* Release Timeline & Engineering Focus */}
-            <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Release Timeline */}
+            <section className="space-y-6">
               <div className="bg-card/25 border border-border/40 p-6 rounded-2xl space-y-6">
                 <h2 className="text-xl font-bold text-white flex items-center gap-2">
                   <Network className="w-5 h-5 text-blue-400" /> Release Timeline
@@ -644,25 +686,6 @@ export default async function Md2PdfCaseStudy() {
                       })}
                     </div>
                   </div>
-                </div>
-              </div>
-
-              <div className="bg-card/25 border border-border/40 p-6 rounded-2xl space-y-4">
-                <h2 className="text-xl font-bold text-white flex items-center gap-2">
-                  <Cpu className="w-5 h-5 text-emerald-400" /> Engineering Focus
-                </h2>
-                <p className="text-sm text-slate-400 mb-4">
-                  The project demonstrates building and maintaining a production-quality open-source developer tool with emphasis on:
-                </p>
-                <div className="grid grid-cols-2 gap-3 text-sm text-slate-300">
-                  <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> API Design</div>
-                  <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> CLI UX</div>
-                  <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> Regression Testing</div>
-                  <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> Rendering Accuracy</div>
-                  <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> Type Safety</div>
-                  <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> Documentation</div>
-                  <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> OSS Maintenance</div>
-                  <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> Semantic Versioning</div>
                 </div>
               </div>
             </section>
