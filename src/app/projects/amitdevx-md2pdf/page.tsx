@@ -301,6 +301,44 @@ export default function Md2PdfCaseStudy() {
               </div>
             </section>
 
+            {/* Architecture Deep Dive Section */}
+            <section className="space-y-8">
+              <div className="space-y-2">
+                <h2 className="text-2xl font-bold text-white flex items-center gap-2">
+                  <Cpu className="w-5 h-5 text-indigo-500" /> Architecture Deep Dive
+                </h2>
+                <p className="text-slate-400 text-sm max-w-3xl">
+                  A detailed look into the underlying subsystems that power md2pdf's high-performance conversion pipeline.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="bg-card/25 border border-border/40 p-6 rounded-2xl space-y-4">
+                  <h3 className="text-lg font-bold text-white">Persistent Chromium Daemon</h3>
+                  <p className="text-sm text-slate-400 leading-relaxed">
+                    To optimize batch conversions, md2pdf utilizes a persistent Chromium daemon via Playwright. Instead of launching a new browser instance for every file, a single headless browser context is reused. This drastically reduces the overhead of parsing CSS and initializing V8, accelerating bulk document generation.
+                  </p>
+                </div>
+                <div className="bg-card/25 border border-border/40 p-6 rounded-2xl space-y-4">
+                  <h3 className="text-lg font-bold text-white">Incremental Content Caching</h3>
+                  <p className="text-sm text-slate-400 leading-relaxed">
+                    The incremental cache subsystem stores metadata in <code className="text-xs bg-slate-900 px-1 rounded text-slate-300">~/.md2pdf-cache/index.json</code>. By generating a SHA-256 hash of the Markdown AST and rendering options, the engine bypasses redundant PDF generations entirely if the source content remains unchanged, functioning similarly to a modern build system.
+                  </p>
+                </div>
+                <div className="bg-card/25 border border-border/40 p-6 rounded-2xl space-y-4">
+                  <h3 className="text-lg font-bold text-white">Extensible Plugin System</h3>
+                  <p className="text-sm text-slate-400 leading-relaxed">
+                    The architecture exposes a robust Plugin Registry allowing developers to hook directly into various lifecycle events: AST manipulation (Unified/Remark), HTML rendering (Rehype), and Playwright PDF generation limits. This enables custom tags, complex macros, and advanced layout overrides.
+                  </p>
+                </div>
+                <div className="bg-card/25 border border-border/40 p-6 rounded-2xl space-y-4">
+                  <h3 className="text-lg font-bold text-white">Heuristic Error Diagnostics</h3>
+                  <p className="text-sm text-slate-400 leading-relaxed">
+                    A heuristic diagnostic layer intercepts low-level Playwright and system errors (e.g., missing Linux shared libraries or sandbox restrictions) and translates them into actionable, human-readable instructions. This powers the <code className="text-xs bg-slate-900 px-1 rounded text-slate-300">md2pdf doctor</code> command.
+                  </p>
+                </div>
+              </div>
+            </section>
+
             {/* CLI Usage Section */}
             <section className="space-y-6">
               <div className="space-y-2">
