@@ -6,9 +6,10 @@ import { getAllPosts } from '@/lib/blog';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight, Github, Linkedin, Mail, MapPin, GraduationCap, Briefcase, Code2, BookOpen } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, Mail, MapPin, GraduationCap, Briefcase, Code2, BookOpen, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { MotionDetails } from '@/components/motion';
+import GithubGraph from '@/components/github-graph';
 
 
 const siteUrl = 'https://amitdevx.tech';
@@ -150,7 +151,7 @@ export default function AmitDivekarPage() {
       />
       <Header />
       <main id="main-content" className="min-h-screen pt-28 pb-20 px-4 sm:px-6 overflow-x-hidden">
-        <div className="container mx-auto max-w-4xl">
+        <div className="container mx-auto max-w-6xl">
 
           {/* Identity Header */}
           <header className="text-center mb-16 space-y-4">
@@ -182,6 +183,21 @@ export default function AmitDivekarPage() {
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <GraduationCap className="w-4 h-4 text-primary" />
                 <span>Computer Science, Savitribai Phule Pune University (2024-2027)</span>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-4 mt-8">
+              <div className="md:col-span-4 lg:col-span-3 h-full">
+                <div className="h-full flex flex-col justify-center rounded-xl border border-border/40 bg-background/80 backdrop-blur-md p-6 text-center shadow-lg transition-all duration-300 hover:border-primary/50 hover:shadow-primary/20">
+                  <Zap className="w-8 h-8 text-primary mx-auto mb-3" />
+                  <p className="text-3xl md:text-4xl font-headline font-bold text-primary break-words">{aboutData.stats[0].value}</p> 
+                  <p className="text-sm text-muted-foreground mt-1 break-words">{aboutData.stats[0].label}</p>
+                </div>
+              </div>
+              <div className="md:col-span-8 lg:col-span-9 h-full">
+                <div className="h-full flex flex-col justify-center rounded-xl border border-border/40 bg-background/80 backdrop-blur-md p-4 sm:p-6 shadow-lg transition-all duration-300 hover:border-primary/50 hover:shadow-primary/20 overflow-hidden">
+                  <GithubGraph />
+                </div>
               </div>
             </div>
           </section>

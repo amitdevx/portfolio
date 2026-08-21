@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { ArrowUpRight, Download, Github, Globe, Linkedin, Mail, MapPin, Twitter, Zap, Shield, Brain, Code2 } from 'lucide-react';
+import { ArrowUpRight, Download, Github, Globe, Linkedin, Mail, MapPin, Twitter, Zap } from 'lucide-react';
 import { safeJsonLd } from '@/lib/security';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -15,6 +15,7 @@ import {
   certificationsData,
 } from '@/data/portfolio-data';
 import ObfuscatedEmail from '@/components/obfuscated-email';
+import GithubGraph from '@/components/github-graph';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 
@@ -141,26 +142,18 @@ export default function CvPage() {
         </header>
 
         {/* Key Highlights */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-          <div className="rounded-xl border border-border/40 bg-background/80 backdrop-blur-md p-4 sm:p-5 text-center">
-            <Zap className="w-6 h-6 text-primary mx-auto mb-2" />
-            <p className="text-xl sm:text-2xl font-bold break-words">{aboutData.stats[0].value}</p>
-            <p className="text-xs text-muted-foreground break-words">{aboutData.stats[0].label}</p>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 mb-10">
+          <div className="md:col-span-4 lg:col-span-3 h-full">
+            <div className="h-full flex flex-col justify-center rounded-xl border border-border/40 bg-background/80 backdrop-blur-md p-6 text-center shadow-lg transition-all duration-300 hover:border-primary/50 hover:shadow-primary/20">
+              <Zap className="w-8 h-8 text-primary mx-auto mb-3" />
+              <p className="text-3xl md:text-4xl font-headline font-bold text-primary break-words">{aboutData.stats[0].value}</p> 
+              <p className="text-sm text-muted-foreground mt-1 break-words">{aboutData.stats[0].label}</p>
+            </div>
           </div>
-          <div className="rounded-xl border border-border/40 bg-background/80 backdrop-blur-md p-4 sm:p-5 text-center">
-            <Shield className="w-6 h-6 text-green-500 mx-auto mb-2" />
-            <p className="text-xl sm:text-2xl font-bold break-words">{aboutData.stats[1].value}</p>
-            <p className="text-xs text-muted-foreground break-words">{aboutData.stats[1].label}</p>
-          </div>
-          <div className="rounded-xl border border-border/40 bg-background/80 backdrop-blur-md p-4 sm:p-5 text-center">
-            <Code2 className="w-6 h-6 text-primary mx-auto mb-2" />
-            <p className="text-xl sm:text-2xl font-bold break-words">{aboutData.stats[2].value}</p>
-            <p className="text-xs text-muted-foreground break-words">{aboutData.stats[2].label}</p>
-          </div>
-          <div className="rounded-xl border border-border/40 bg-background/80 backdrop-blur-md p-4 sm:p-5 text-center">
-            <Brain className="w-6 h-6 text-purple-500 mx-auto mb-2" />
-            <p className="text-xl sm:text-2xl font-bold break-words">{aboutData.stats[3].value}</p>
-            <p className="text-xs text-muted-foreground break-words">{aboutData.stats[3].label}</p>
+          <div className="md:col-span-8 lg:col-span-9 h-full">
+            <div className="h-full flex flex-col justify-center rounded-xl border border-border/40 bg-background/80 backdrop-blur-md p-4 sm:p-6 shadow-lg transition-all duration-300 hover:border-primary/50 hover:shadow-primary/20 overflow-hidden">
+              <GithubGraph />
+            </div>
           </div>
         </div>
 
