@@ -585,8 +585,28 @@ export default function Md2PdfCaseStudy() {
                     <div className="relative pl-6 border-l border-white/10 space-y-6 py-2">
                       <div className="relative">
                         <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-primary shadow-[0_0_10px_rgba(16,185,129,0.5)]" />
-                        <p className="text-sm font-bold text-primary">v0.7.0 (Current)</p>
-                        <p className="text-xs text-slate-400 mt-1">Plugin API infrastructure, custom HTML hooks, theme overrides, and developer registry</p>
+                        <p className="text-sm font-bold text-primary">v0.8.7 (Current)</p>
+                        <p className="text-xs text-slate-400 mt-1">UX & Stability Polish, addresses critical issues discovered during batch processing and system checks</p>
+                      </div>
+                      <div className="relative">
+                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
+                        <p className="text-sm font-bold text-slate-300">v0.8.5</p>
+                        <p className="text-xs text-slate-500 mt-1">Universal Chromium Discovery: Native OS scanning across macOS, Windows, and Linux for 38 Chromium engines</p>
+                      </div>
+                      <div className="relative">
+                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
+                        <p className="text-sm font-bold text-slate-300">v0.8.4</p>
+                        <p className="text-xs text-slate-500 mt-1">JSON Output Formatting and Bug Fixes for CI schema compliance</p>
+                      </div>
+                      <div className="relative">
+                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
+                        <p className="text-sm font-bold text-slate-300">v0.7.2</p>
+                        <p className="text-xs text-slate-500 mt-1">CLI Stability & Robust Error Handling with persistent Playwright browser cache</p>
+                      </div>
+                      <div className="relative">
+                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
+                        <p className="text-sm font-bold text-slate-300">v0.7.0</p>
+                        <p className="text-xs text-slate-500 mt-1">Plugin API infrastructure, custom HTML hooks, theme overrides, and developer registry</p>
                       </div>
                       <div className="relative">
                         <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
