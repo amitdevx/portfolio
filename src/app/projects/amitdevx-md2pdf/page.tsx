@@ -8,7 +8,7 @@ import { SystemArchitectureVisual } from '@/components/projects/SystemArchitectu
 import { safeJsonLd } from '@/lib/security';
 import type { Metadata } from 'next';
 
-export const dynamic = 'force-static';
+export const revalidate = 86400; // Revalidate every 24 hours
 
 export const metadata: Metadata = {
   title: { absolute: 'md2pdf | Markdown to PDF CLI and API | Amit Divekar' },
@@ -52,7 +52,38 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Md2PdfCaseStudy() {
+interface GithubRelease {
+  tag_name: string;
+  name: string;
+  body: string;
+}
+
+export default async function Md2PdfCaseStudy() {
+  let releases: GithubRelease[] = [];
+  try {
+    const res = await fetch('https://api.github.com/repos/amitdevx/md2pdf/releases?per_page=15', {
+      next: { revalidate: 86400 } // Cache for 24 hours
+    });
+    if (res.ok) {
+      releases = await res.json();
+    }
+  } catch (e) {
+    console.error('Failed to fetch md2pdf releases', e);
+  }
+
+  // Fallback data if GitHub API fails/rate limits
+  if (!releases || releases.length === 0) {
+    releases = [
+      { tag_name: 'v0.8.7', name: 'v0.8.7 - UX & Stability Polish', body: 'UX & Stability Polish, addresses critical issues discovered during batch processing and system checks' },
+      { tag_name: 'v0.8.5', name: 'v0.8.5 - Universal Chromium Discovery', body: 'Universal Chromium Discovery: Native OS scanning across macOS, Windows, and Linux for 38 Chromium engines' },
+      { tag_name: 'v0.8.4', name: 'v0.8.4 - JSON Output Formatting', body: 'JSON Output Formatting and Bug Fixes for CI schema compliance' },
+      { tag_name: 'v0.7.2', name: 'v0.7.2 - CLI Stability', body: 'CLI Stability & Robust Error Handling with persistent Playwright browser cache' },
+      { tag_name: 'v0.7.0', name: 'v0.7.0 - Plugin API', body: 'Plugin API infrastructure, custom HTML hooks, theme overrides, and developer registry' },
+      { tag_name: 'v0.6.1', name: 'v0.6.1 - Themes', body: 'Printer-friendly dark themes, improved table contrast, title injection fixes' },
+      { tag_name: 'v0.6.0', name: 'v0.6.0 - 7 Built-in themes', body: '7 built-in themes, strict Obsidian parity, minimalist tables, automatic title injection' },
+      { tag_name: 'v0.5.4', name: 'v0.5.4 - 5x performance', body: '5x performance boost via persistent Chromium daemon, offline bundled fonts, package size reduced 80%' }
+    ];
+  }
   const softwareSchema = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareSourceCode',
@@ -583,146 +614,34 @@ export default function Md2PdfCaseStudy() {
                 <div className="space-y-4">
                   <div className="h-[280px] overflow-y-auto pr-4 pl-4 -ml-4 custom-scrollbar">
                     <div className="relative pl-6 border-l border-white/10 space-y-6 py-2">
-                      <div className="relative">
-                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-primary shadow-[0_0_10px_rgba(16,185,129,0.5)]" />
-                        <p className="text-sm font-bold text-primary">v0.8.7 (Current)</p>
-                        <p className="text-xs text-slate-400 mt-1">UX & Stability Polish, addresses critical issues discovered during batch processing and system checks</p>
-                      </div>
-                      <div className="relative">
-                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
-                        <p className="text-sm font-bold text-slate-300">v0.8.5</p>
-                        <p className="text-xs text-slate-500 mt-1">Universal Chromium Discovery: Native OS scanning across macOS, Windows, and Linux for 38 Chromium engines</p>
-                      </div>
-                      <div className="relative">
-                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
-                        <p className="text-sm font-bold text-slate-300">v0.8.4</p>
-                        <p className="text-xs text-slate-500 mt-1">JSON Output Formatting and Bug Fixes for CI schema compliance</p>
-                      </div>
-                      <div className="relative">
-                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
-                        <p className="text-sm font-bold text-slate-300">v0.7.2</p>
-                        <p className="text-xs text-slate-500 mt-1">CLI Stability & Robust Error Handling with persistent Playwright browser cache</p>
-                      </div>
-                      <div className="relative">
-                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
-                        <p className="text-sm font-bold text-slate-300">v0.7.0</p>
-                        <p className="text-xs text-slate-500 mt-1">Plugin API infrastructure, custom HTML hooks, theme overrides, and developer registry</p>
-                      </div>
-                      <div className="relative">
-                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
-                        <p className="text-sm font-bold text-slate-300">v0.6.1</p>
-                        <p className="text-xs text-slate-500 mt-1">Printer-friendly dark themes, improved table contrast, title injection fixes</p>
-                      </div>
-                      <div className="relative">
-                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
-                        <p className="text-sm font-bold text-slate-300">v0.6.0</p>
-                        <p className="text-xs text-slate-500 mt-1">7 built-in themes, strict Obsidian parity, minimalist tables, automatic title injection</p>
-                      </div>
-                      <div className="relative">
-                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
-                        <p className="text-sm font-bold text-slate-300">v0.5.4</p>
-                        <p className="text-xs text-slate-500 mt-1">5x performance boost via persistent Chromium daemon, offline bundled fonts, package size reduced 80%</p>
-                      </div>
-                      <div className="relative">
-                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
-                        <p className="text-sm font-bold text-slate-300">v0.5.3</p>
-                        <p className="text-xs text-slate-500 mt-1">Flawless Mermaid v10.9.1 parity, AST regex preprocessing, output overwrite protection</p>
-                      </div>
-                      <div className="relative">
-                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
-                        <p className="text-sm font-bold text-slate-300">v0.5.2</p>
-                        <p className="text-xs text-slate-500 mt-1">Mermaid syntax tolerance, unescaped quotes, repaired mindmaps</p>
-                      </div>
-                      <div className="relative">
-                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
-                        <p className="text-sm font-bold text-slate-300">v0.5.1</p>
-                        <p className="text-xs text-slate-500 mt-1">JSON CLI output routing, circular embed strict depth, AST regex masking, SVG viewBox scaling</p>
-                      </div>
-                      <div className="relative">
-                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
-                        <p className="text-sm font-bold text-slate-300">v0.5.0</p>
-                        <p className="text-xs text-slate-500 mt-1">Batch processing globs, config files (ts/json/yaml), programmatic defineConfig API</p>
-                      </div>
-                      <div className="relative">
-                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
-                        <p className="text-sm font-bold text-slate-300">v0.4.2</p>
-                        <p className="text-xs text-slate-500 mt-1">5MB size limit validation, publish-gpr CI pipeline, unsupported flag handlers</p>
-                      </div>
-                      <div className="relative">
-                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
-                        <p className="text-sm font-bold text-slate-300">v0.4.1</p>
-                        <p className="text-xs text-slate-500 mt-1">Native Obsidian highlight syntax, root user sandboxing detection, KaTeX parsing fixes</p>
-                      </div>
-                      <div className="relative">
-                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
-                        <p className="text-sm font-bold text-slate-300">v0.4.0</p>
-                        <p className="text-xs text-slate-500 mt-1">Obsidian callouts, wiki-links, tags, 3-stage browser fallback, zero-script npm compliance</p>
-                      </div>
-                      <div className="relative">
-                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
-                        <p className="text-sm font-bold text-slate-300">v0.3.0</p>
-                        <p className="text-xs text-slate-500 mt-1">Native KaTeX rendering, mhchem chemistry, base64 offline fonts</p>
-                      </div>
-                      <div className="relative">
-                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
-                        <p className="text-sm font-bold text-slate-300">v0.2.4</p>
-                        <p className="text-xs text-slate-500 mt-1">Critical security patches (XSS/SSRF), V8 OOM memory DoS protection</p>
-                      </div>
-                      <div className="relative">
-                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
-                        <p className="text-sm font-bold text-slate-300">v0.2.2</p>
-                        <p className="text-xs text-slate-500 mt-1">Strict theme validation & JSON error handling</p>
-                      </div>
-                      <div className="relative">
-                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
-                        <p className="text-sm font-bold text-slate-300">v0.2.1</p>
-                        <p className="text-xs text-slate-500 mt-1">Mermaid dynamic sizing & batched rendering</p>
-                      </div>
-                      <div className="relative">
-                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
-                        <p className="text-sm font-bold text-slate-300">v0.2.0</p>
-                        <p className="text-xs text-slate-500 mt-1">Mermaid pipelines & Doctor CLI diagnostics</p>
-                      </div>
-                      <div className="relative">
-                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
-                        <p className="text-sm font-bold text-slate-300">v0.1.6</p>
-                        <p className="text-xs text-slate-500 mt-1">Strict input validation & CI stability</p>
-                      </div>
-                      <div className="relative">
-                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
-                        <p className="text-sm font-bold text-slate-300">v0.1.5</p>
-                        <p className="text-xs text-slate-500 mt-1">Friendly CLI Error UX & Footnotes restyling</p>
-                      </div>
-                      <div className="relative">
-                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
-                        <p className="text-sm font-bold text-slate-300">v0.1.4</p>
-                        <p className="text-xs text-slate-500 mt-1">Auto-installer for Chromium binaries</p>
-                      </div>
-                      <div className="relative">
-                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
-                        <p className="text-sm font-bold text-slate-300">v0.1.3</p>
-                        <p className="text-xs text-slate-500 mt-1">Running headers, footers & auto-pagination</p>
-                      </div>
-                      <div className="relative">
-                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
-                        <p className="text-sm font-bold text-slate-300">v0.1.2</p>
-                        <p className="text-xs text-slate-500 mt-1">TOC generation & PDF metadata injection</p>
-                      </div>
-                      <div className="relative">
-                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
-                        <p className="text-sm font-bold text-slate-300">v0.1.0</p>
-                        <p className="text-xs text-slate-500 mt-1">Core Playwright AST rendering engine</p>
-                      </div>
-                      <div className="relative">
-                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
-                        <p className="text-sm font-bold text-slate-300">v0.0.2</p>
-                        <p className="text-xs text-slate-500 mt-1">Refined npm workflows & CI/CD</p>
-                      </div>
-                      <div className="relative">
-                        <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-slate-700" />
-                        <p className="text-sm font-bold text-slate-300">v0.0.1</p>
-                        <p className="text-xs text-slate-500 mt-1">Initial public release</p>
-                      </div>
+                      {releases.slice(0, 15).map((release: GithubRelease, index: number) => {
+                        const isCurrent = index === 0;
+                        const bgColor = isCurrent ? "bg-primary shadow-[0_0_10px_rgba(16,185,129,0.5)]" : "bg-slate-700";
+                        const titleColor = isCurrent ? "text-primary" : "text-slate-300";
+                        
+                        let desc = release.body;
+                        if (desc) {
+                          const lines = desc.split('\n');
+                          const contentLine = lines.find((l: string) => !l.startsWith('#') && l.trim().length > 5 && !l.includes('Release note'));
+                          if (contentLine) {
+                            desc = contentLine.replace(/[#*`]/g, '').replace(/^- /, '').trim();
+                          } else {
+                            desc = release.name.replace(/[#*`]/g, '').trim();
+                          }
+                        } else {
+                          desc = release.name.replace(/[#*`]/g, '').trim();
+                        }
+                        
+                        if (desc.length > 120) desc = desc.substring(0, 117) + '...';
+                        
+                        return (
+                          <div key={release.tag_name} className="relative">
+                            <div className={`absolute -left-[29px] top-1 w-3 h-3 rounded-full ${bgColor}`} />
+                            <p className={`text-sm font-bold ${titleColor}`}>{release.tag_name} {isCurrent ? '(Current)' : ''}</p>
+                            <p className="text-xs text-slate-400 mt-1">{desc}</p>
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>
