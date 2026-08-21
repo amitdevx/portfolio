@@ -44,10 +44,12 @@ export default function About() {
             variants={staggerChildVariants}
             className="relative group md:col-span-4 lg:col-span-3 h-full"
           >
-            <div className="h-full flex flex-col justify-center bg-background/80 backdrop-blur-md border border-border/40 rounded-xl p-6 text-center transition-all duration-300 hover:border-primary/50 hover:shadow-primary/20 hover:shadow-2xl">
-              <Zap className="w-8 h-8 text-primary mx-auto mb-3" />
-              <p className="text-3xl md:text-4xl font-headline font-bold text-primary break-words">{aboutData.stats[0].value}</p> 
-              <p className="text-sm text-muted-foreground mt-1 break-words">{aboutData.stats[0].label}</p>
+            <div className="h-full flex flex-col justify-center bg-gradient-to-br from-primary/10 via-background to-background backdrop-blur-md border border-border/40 rounded-xl p-8 text-center transition-all duration-500 hover:border-primary/60 hover:shadow-primary/20 hover:shadow-2xl group-hover:-translate-y-1">
+              <div className="inline-flex items-center justify-center p-4 bg-primary/10 rounded-full mx-auto mb-4 group-hover:scale-110 transition-transform duration-500">
+                <Zap className="w-8 h-8 text-primary drop-shadow-[0_0_8px_rgba(var(--primary),0.8)]" />
+              </div>
+              <p className="text-4xl md:text-5xl font-headline font-extrabold bg-gradient-to-br from-primary to-primary/60 bg-clip-text text-transparent break-words tracking-tight drop-shadow-sm">{aboutData.stats[0].value}</p> 
+              <p className="text-base font-medium text-foreground mt-2 break-words uppercase tracking-wider">{aboutData.stats[0].label}</p>
             </div>
           </motion.div>
           <motion.div

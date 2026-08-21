@@ -16,9 +16,9 @@ export default function GithubGraph() {
   };
 
   return (
-    <div className="w-full flex justify-center sm:justify-start items-center">
-      <div className="overflow-x-auto w-full pb-2 no-scrollbar">
-        <div className="min-w-max pr-4">
+    <div className="w-full overflow-hidden">
+      <div className="w-full overflow-x-auto no-scrollbar pb-2">
+        <div className="w-max mx-auto px-2">
           <GitHubCalendar 
             username="amitdevx" 
             colorScheme="dark"
@@ -26,9 +26,9 @@ export default function GithubGraph() {
             hideTotalCount={true}
             hideColorLegend={true}
             blockRadius={2}
-            blockMargin={4}
-            blockSize={12}
-            fontSize={12}
+            blockMargin={5}
+            blockSize={14}
+            fontSize={14}
           />
         </div>
       </div>
