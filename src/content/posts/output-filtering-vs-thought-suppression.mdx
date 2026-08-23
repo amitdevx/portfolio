@@ -8,7 +8,6 @@ tags: ["AI Safety", "LLMs", "Cybersecurity", "Architecture", "Defense in Depth"]
 author: "Amit Divekar"
 ---
 
-# Output Filtering vs. Thought Suppression
 
 
 
@@ -28,7 +27,7 @@ The best approach is **defense in depth**. We need multiple independent layers, 
 
 ---
 
-## 1. Two Different Ideas: Thought Suppression vs. Output Filtering
+## Suppression vs. Output Filtering
 
 Before comparing architectures, it is useful to separate two concepts that are often mixed together.
 
@@ -80,7 +79,7 @@ This distinction is the foundation of the rest of the discussion.
 
 ---
 
-# 2. Internal Alignment: Teaching the Model to Behave Safely
+## 2. Internal Alignment: Teaching the Model to Behave Safely
 
 Internal alignment attempts to make safe behavior part of the model's learned behavior.
 
@@ -109,7 +108,7 @@ In practice, it is not.
 
 ---
 
-## 2.1 Why Internal Alignment Can Fail
+### 2.1 Why Internal Alignment Can Fail
 
 Modern reasoning models introduce another problem: the model may generate substantially longer internal reasoning sequences before producing its final answer.
 
@@ -144,7 +143,7 @@ The architectural lesson is important:
 
 ---
 
-# 3. Output Filtering: A Second Line of Defense
+## 3. Output Filtering: A Second Line of Defense
 
 Output filtering takes a different approach.
 
@@ -188,7 +187,7 @@ The strongest design therefore combines **learned classifiers with deterministic
 
 ---
 
-# 4. Llama Guard: A Dedicated Safety Model
+## 4. Llama Guard: A Dedicated Safety Model
 
 One example of output/input filtering is **Llama Guard**.
 
@@ -229,7 +228,7 @@ That is already stronger than output-only moderation.
 
 ---
 
-# 5. Programmatic Validators: The Other Side of the Equation
+## 5. Programmatic Validators: The Other Side of the Equation
 
 Now consider a completely different safety mechanism.
 
@@ -290,7 +289,7 @@ That requires **authorization and policy logic**.
 
 ---
 
-# 6. Deterministic Validation vs. Semantic Moderation
+## 6. Deterministic Validation vs. Semantic Moderation
 
 The two approaches are not competitors.
 
@@ -324,7 +323,7 @@ It is:
 
 ---
 
-# 7. NeMo Guardrails: Combining the Layers
+## 7. NeMo Guardrails: Combining the Layers
 
 [NVIDIA NeMo Guardrails](https://docs.nvidia.com/nemo-guardrails/index.html) demonstrates why modern guardrail systems are broader than a simple output filter.
 
@@ -392,7 +391,7 @@ with policy enforcement throughout the lifecycle.
 
 ---
 
-# 8. Why Output Filtering Is Not Enough for Agents
+## 8. Why Output Filtering Is Not Enough for Agents
 
 The difference becomes especially important with autonomous agents.
 
@@ -459,7 +458,7 @@ NVIDIA's NeMo Guardrails documentation explicitly includes execution rails for c
 
 ---
 
-# 9. Output Filtering Has a Fundamental Blind Spot
+## 9. Output Filtering Has a Fundamental Blind Spot
 
 There is a deeper problem with output filtering:
 
@@ -491,7 +490,7 @@ It is simply no longer the only control.
 
 ---
 
-# 10. Image Generation: Safety Can Move Into the Latent Space
+## 10. Image Generation: Safety Can Move Into the Latent Space
 
 Text generation and image generation provide an interesting contrast.
 
@@ -513,7 +512,7 @@ That creates an opportunity to intervene **during generation itself**.
 
 ---
 
-# 10.1 Safe Latent Diffusion
+### 10.1 Safe Latent Diffusion
 
 **Safe Latent Diffusion (SLD)** was proposed as a method for mitigating inappropriate image generation without retraining the underlying diffusion model.
 
@@ -557,7 +556,7 @@ Unsafe direction → Steer generation away
 
 ---
 
-# 10.2 The Mathematical Idea
+### 10.2 The Mathematical Idea
 
 Let:
 
@@ -591,7 +590,7 @@ The actual SLD method includes additional mechanisms and hyperparameters, so thi
 
 ---
 
-# 11. A Unified Defense-in-Depth Architecture
+## 11. A Unified Defense-in-Depth Architecture
 
 All of these ideas can be combined into one architecture.
 
@@ -668,7 +667,7 @@ This is the critical distinction:
 
 ---
 
-# 12. The Real Answer: Neither Alone
+## 12. The Real Answer: Neither Alone
 
 So, should we use **thought suppression** or **output filtering**?
 
@@ -713,7 +712,7 @@ flowchart TD
 
 ---
 
-# 13. What Each Layer Is Actually Good At
+## 13. What Each Layer Is Actually Good At
 
 | Layer | Primary Responsibility | Main Strength | Main Weakness |
 |---|---|---|---|
@@ -730,7 +729,7 @@ flowchart TD
 
 ---
 
-# 14. The Architectural Principle
+## 14. The Architectural Principle
 
 The most important lesson is not that output filtering is better than internal alignment.
 
@@ -754,7 +753,7 @@ This is what **defense in depth** actually means in an AI system.
 
 ---
 
-# 15. Final Architecture
+## 15. Final Architecture
 
 A production-oriented AI backend can therefore be summarized as:
 
