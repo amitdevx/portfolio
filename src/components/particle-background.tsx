@@ -19,7 +19,11 @@ const ParticleBackground = memo(() => {
     const isLowEndDevice = navigator.hardwareConcurrency <= 2;
     const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    if (isReducedMotion) {
+    // Detect bots to prevent WebGL GPU stall in search console
+    const userAgent = navigator.userAgent.toLowerCase();
+    const isBot = /googlebot|bingbot|yandexbot|duckduckbot|slurp|crawler|spider|robot|crawling/i.test(userAgent);
+
+    if (isReducedMotion || isBot) {
       return;
     }
 

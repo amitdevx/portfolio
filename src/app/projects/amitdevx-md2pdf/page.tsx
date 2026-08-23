@@ -158,7 +158,7 @@ export default async function Md2PdfCaseStudy() {
               <div className="pt-2">
                 <a href="https://www.npmjs.com/package/@amitdevx/md2pdf" target="_blank" rel="noopener noreferrer" className="inline-block transition-transform hover:scale-105">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://img.shields.io/npm/dt/@amitdevx/md2pdf.svg?style=flat-square&color=10b981" alt="npm downloads" className="h-[28px]" />
+                  <img src="https://img.shields.io/npm/dm/@amitdevx/md2pdf.svg?style=flat-square&color=10b981" alt="npm downloads" className="h-[28px]" />
                 </a>
               </div>
             </div>
