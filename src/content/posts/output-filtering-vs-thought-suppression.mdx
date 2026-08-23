@@ -12,19 +12,19 @@ author: "Amit Divekar"
 
 
 
-AI safety is often discussed as if there were one obvious place to enforce a policy: tell the model what it should not do, then check what it produces.
+When we talk about AI safety, it often sounds like there's just one obvious place to enforce rules: simply tell the model what it shouldn't do, and then check what it produces.
 
-In production systems, the reality is more complicated.
+But out in the real world - in production systems - the reality is much more complicated.
 
 A modern AI system can enforce safety through **model-level alignment**, **input filtering**, **reasoning-time controls**, **retrieval and tool validation**, **output filtering**, and, for image generation, even **interventions inside the latent generation process**.
 
-This leads to a fundamental architectural question:
+This raises a core architectural question:
 
 > **Should safety primarily come from suppressing unsafe behavior inside the model, or from filtering what comes out of the model?**
 
-The answer is neither.
+The honest answer? Neither.
 
-The strongest architecture is **defense in depth**: multiple independent layers, each responsible for a different failure mode.
+The best approach is **defense in depth**. We need multiple independent layers, each designed to catch a different kind of failure.
 
 ---
 
@@ -88,7 +88,7 @@ A common post-training approach is **Reinforcement Learning from Human Feedback 
 
 For example, Meta's documentation around Llama 3 describes safety and helpfulness reward models, human feedback, fine-tuning, and adversarial evaluation as parts of its safety process.
 
-**Source:** [Meta AI - Llama 3 and Responsible AI](https://ai.meta.com/blog/meta-llama-3-meta-ai-responsibility/)
+**Source:** [Meta AI: Llama 3 and Responsible AI](https://ai.meta.com/blog/meta-llama-3-meta-ai-responsibility/)
 
 It is tempting to describe this as the model learning to "suppress harmful thoughts." That wording is useful as an intuition, but technically it is too strong.
 
@@ -124,15 +124,15 @@ That creates more room for safety-relevant behavior to interact with:
 
 Research on **Chain-of-Thought Hijacking** reported that long sequences of seemingly harmless reasoning can be used to obscure harmful objectives and reduce refusal behavior in reasoning models.
 
-**Source:** [arXiv - Chain-of-Thought Hijacking](https://arxiv.org/abs/2510.26418)
+**Source:** [arXiv: Chain-of-Thought Hijacking](https://arxiv.org/abs/2510.26418)
 
 A related H-CoT study investigated attacks against reasoning models including o1/o3, DeepSeek-R1, and Gemini 2.0 Flash Thinking and reported significant reductions in refusal rates under its attack methodology.
 
-**Source:** [arXiv - H-CoT: Hijacking the Chain-of-Thought](https://arxiv.org/abs/2502.12893)
+**Source:** [arXiv: H-CoT: Hijacking the Chain-of-Thought](https://arxiv.org/abs/2502.12893)
 
 Long-context research provides another warning: safety alignment can degrade as context length increases, including through attacks that distribute harmful intent across otherwise innocuous pieces of context.
 
-**Source:** [arXiv - Long-context safety research](https://arxiv.org/abs/2602.08874)
+**Source:** [arXiv: Long-context safety research](https://arxiv.org/abs/2602.08874)
 
 The architectural lesson is important:
 
@@ -202,7 +202,7 @@ It can classify:
 
 Meta describes Llama Guard as a language model performing multi-class classification and producing binary safety decisions.
 
-**Source:** [Meta AI - Llama Guard](https://ai.meta.com/research/publications/llama-guard-llm-based-input-output-safeguard-for-human-ai-conversations/)
+**Source:** [Meta AI: Llama Guard](https://ai.meta.com/research/publications/llama-guard-llm-based-input-output-safeguard-for-human-ai-conversations/)
 
 A simplified architecture is:
 
@@ -261,7 +261,7 @@ Guardrails AI focuses heavily on validators and structured output reliability.
 
 Its validator architecture allows an application to define what should be checked and what should happen when validation fails.
 
-**Source:** [Guardrails AI - Validators](https://guardrailsai.com/guardrails/docs/concepts/validators)
+**Source:** [Guardrails AI: Validators](https://guardrailsai.com/guardrails/docs/concepts/validators)
 
 The conceptual pipeline is:
 
@@ -336,7 +336,7 @@ NVIDIA documents five major rail stages:
 4. **Execution rails**
 5. **Output rails**
 
-**Source:** [NVIDIA - Guardrails sequence diagrams](https://docs.nvidia.com/nemo/guardrails/reference/guardrails-sequence-diagrams)
+**Source:** [NVIDIA: Guardrails sequence diagrams](https://docs.nvidia.com/nemo/guardrails/reference/guardrails-sequence-diagrams)
 
 NVIDIA's configuration documentation explicitly describes these stages as:
 
@@ -346,7 +346,7 @@ NVIDIA's configuration documentation explicitly describes these stages as:
 - tool/action control,
 - and output validation/filtering.
 
-**Source:** [NVIDIA - Guardrails configuration](https://docs.nvidia.com/nemo/guardrails/configure-guardrails/yaml-schema/guardrails-configuration)
+**Source:** [NVIDIA: Guardrails configuration](https://docs.nvidia.com/nemo/guardrails/configure-guardrails/yaml-schema/guardrails-configuration)
 
 The architecture therefore looks much more like this:
 
@@ -451,7 +451,7 @@ This is why **authorization, tool validation, sandboxing, and execution controls
 
 NVIDIA's NeMo Guardrails documentation explicitly includes execution rails for controlling and validating tool/function calls and their inputs and outputs.
 
-**Source:** [NVIDIA - Guardrail types](https://docs.nvidia.com/nemo/guardrails/latest/about-nemo-guardrails-library/rail-types)
+**Source:** [NVIDIA: Guardrail types](https://docs.nvidia.com/nemo/guardrails/latest/about-nemo-guardrails-library/rail-types)
 
 ---
 
@@ -519,11 +519,11 @@ That creates an opportunity to intervene **during generation itself**.
 
 The technique modifies the denoising process using a safety guidance direction.
 
-**Source:** [arXiv - Safe Latent Diffusion](https://arxiv.org/abs/2211.05105)
+**Source:** [arXiv: Safe Latent Diffusion](https://arxiv.org/abs/2211.05105)
 
 The official implementation integrates SLD into Stable Diffusion.
 
-**Source:** [GitHub - Safe Latent Diffusion](https://github.com/ml-research/safe-latent-diffusion)
+**Source:** [GitHub: Safe Latent Diffusion](https://github.com/ml-research/safe-latent-diffusion)
 
 Conceptually:
 
@@ -583,7 +583,7 @@ It is not simply an output moderation step.
 
 The actual SLD method includes additional mechanisms and hyperparameters, so this equation should be treated as an **illustrative formulation**, not a complete implementation specification.
 
-**Source:** [CVPR 2023 - Safe Latent Diffusion](https://openaccess.thecvf.com/content/CVPR2023/papers/Schramowski_Safe_Latent_Diffusion_Mitigating_Inappropriate_Degeneration_in_Diffusion_Models_CVPR_2023_paper.pdf)
+**Source:** [CVPR 2023: Safe Latent Diffusion](https://openaccess.thecvf.com/content/CVPR2023/papers/Schramowski_Safe_Latent_Diffusion_Mitigating_Inappropriate_Degeneration_in_Diffusion_Models_CVPR_2023_paper.pdf)
 
 ---
 
@@ -634,31 +634,31 @@ flowchart TD
 
 This architecture contains several independent layers:
 
-### Layer 1 - Model alignment
+### Layer 1: Model Alignment
 
 Make the model itself more likely to behave safely.
 
-### Layer 2 - Input controls
+### Layer 2: Input Controls
 
 Stop obviously dangerous or malformed requests before expensive generation.
 
-### Layer 3 - Retrieval controls
+### Layer 3: Retrieval Controls
 
 Prevent unsafe or untrusted retrieved information from becoming trusted context.
 
-### Layer 4 - Reasoning controls
+### Layer 4: Reasoning Controls
 
 Account for attacks involving long reasoning, context manipulation, or jailbreak strategies.
 
-### Layer 5 - Execution controls
+### Layer 5: Execution Controls
 
 Treat tools as security-sensitive capabilities.
 
-### Layer 6 - Output controls
+### Layer 6: Output Controls
 
 Inspect what the model is actually about to return.
 
-### Layer 7 - Conventional security
+### Layer 7: Conventional Security
 
 Keep authentication, authorization, sandboxing, rate limiting, and resource controls outside the LLM.
 
@@ -805,20 +805,20 @@ They **layer them**.
 
 ## Sources
 
-1. [Meta AI - Llama 3 and Responsible AI](https://ai.meta.com/blog/meta-llama-3-meta-ai-responsibility/)
-2. [arXiv - Chain-of-Thought Hijacking](https://arxiv.org/abs/2510.26418)
-3. [arXiv - H-CoT: Hijacking the Chain-of-Thought](https://arxiv.org/abs/2502.12893)
-4. [arXiv - Long-context safety research](https://arxiv.org/abs/2602.08874)
-5. [Meta AI - Llama Guard](https://ai.meta.com/research/publications/llama-guard-llm-based-input-output-safeguard-for-human-ai-conversations/)
+1. [Meta AI: Llama 3 and Responsible AI](https://ai.meta.com/blog/meta-llama-3-meta-ai-responsibility/)
+2. [arXiv: Chain-of-Thought Hijacking](https://arxiv.org/abs/2510.26418)
+3. [arXiv: H-CoT: Hijacking the Chain-of-Thought](https://arxiv.org/abs/2502.12893)
+4. [arXiv: Long-context safety research](https://arxiv.org/abs/2602.08874)
+5. [Meta AI: Llama Guard](https://ai.meta.com/research/publications/llama-guard-llm-based-input-output-safeguard-for-human-ai-conversations/)
 6. [Guardrails AI](https://guardrailsai.com/)
-7. [Guardrails AI - Validators](https://guardrailsai.com/guardrails/docs/concepts/validators)
-8. [NVIDIA - NeMo Guardrails](https://docs.nvidia.com/nemo-guardrails/index.html)
-9. [NVIDIA - Guardrails sequence diagrams](https://docs.nvidia.com/nemo/guardrails/reference/guardrails-sequence-diagrams)
-10. [NVIDIA - Guardrails configuration](https://docs.nvidia.com/nemo-guardrails/configure-guardrails/yaml-schema/guardrails-configuration)
-11. [NVIDIA - Guardrail types](https://docs.nvidia.com/nemo/guardrails/latest/about-nemo-guardrails-library/rail-types)
-12. [arXiv - Safe Latent Diffusion](https://arxiv.org/abs/2211.05105)
-13. [GitHub - Safe Latent Diffusion](https://github.com/ml-research/safe-latent-diffusion)
-14. [CVPR 2023 - Safe Latent Diffusion](https://openaccess.thecvf.com/content/CVPR2023/papers/Schramowski_Safe_Latent_Diffusion_Mitigating_Inappropriate_Degeneration_in_Diffusion_Models_CVPR_2023_paper.pdf)
+7. [Guardrails AI: Validators](https://guardrailsai.com/guardrails/docs/concepts/validators)
+8. [NVIDIA: NeMo Guardrails](https://docs.nvidia.com/nemo-guardrails/index.html)
+9. [NVIDIA: Guardrails sequence diagrams](https://docs.nvidia.com/nemo/guardrails/reference/guardrails-sequence-diagrams)
+10. [NVIDIA: Guardrails configuration](https://docs.nvidia.com/nemo-guardrails/configure-guardrails/yaml-schema/guardrails-configuration)
+11. [NVIDIA: Guardrail types](https://docs.nvidia.com/nemo/guardrails/latest/about-nemo-guardrails-library/rail-types)
+12. [arXiv: Safe Latent Diffusion](https://arxiv.org/abs/2211.05105)
+13. [GitHub: Safe Latent Diffusion](https://github.com/ml-research/safe-latent-diffusion)
+14. [CVPR 2023: Safe Latent Diffusion](https://openaccess.thecvf.com/content/CVPR2023/papers/Schramowski_Safe_Latent_Diffusion_Mitigating_Inappropriate_Degeneration_in_Diffusion_Models_CVPR_2023_paper.pdf)
 
 ---
 
